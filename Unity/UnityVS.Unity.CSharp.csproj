@@ -73,8 +73,10 @@
     <Compile Include="Assets\Done\Done_Scripts\Done_PlayerController.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
+    <Compile Include="Assets\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\GravityAttractor.cs" />
     <Compile Include="Assets\Scripts\GravityBody.cs" />
+    <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\lowpolyblocks\scripts\MouseLook.cs" />
     <Compile Include="Assets\planet.cs" />
   </ItemGroup>
