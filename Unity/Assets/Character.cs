@@ -13,6 +13,9 @@ public class Character : MonoBehaviour {
     private Vector3 moveDirection;
     private bool isGrounded = false;
 
+
+
+
     void Update()
     {
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
