@@ -7,6 +7,7 @@ public class GravityBody : MonoBehaviour {
 
     GravityAttractor planet;
     private Transform thisTransform;
+    Character character;
 	// Use this for initialization
     void Awake()
     {
@@ -14,6 +15,7 @@ public class GravityBody : MonoBehaviour {
         rigidbody.useGravity = false;
         rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         thisTransform = transform;
+        character = GameObject.Find("Player").GetComponent<Character>();
     }
 
     void FixedUpdate()

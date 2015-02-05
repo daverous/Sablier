@@ -11,7 +11,7 @@ public class Character : MonoBehaviour {
     public float jumpForce = 500f;
     private float moveSpeed = 15;
     private Vector3 moveDirection;
-    private bool isGrounded = false;
+    public bool isGrounded = true;
 
 
 
