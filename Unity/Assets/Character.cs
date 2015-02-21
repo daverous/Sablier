@@ -46,14 +46,20 @@ public class Character : MonoBehaviour
         }
     }
 
-  void Update()
-    {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            rigidbody.AddForce(0, jumpForce,0);
-    }
+	void Update()
+	{
+		horizontal = Input.GetAxis("Horizontal");
+		vertical = Input.GetAxis("Vertical");
+		moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+		if (Input.GetKeyDown (KeyCode.Space) && isGrounded) {
+			//rigidbody.AddForce (0, jumpForce, 0);
+			Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
+			//Vector3 jumpVec = new Vector3(0, jumpForce, 0);
+			//Vector3 jumpVec = this.transform.position - pl
+			rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+		}
+	}
+
     void FixedUpdate()
     {
         
