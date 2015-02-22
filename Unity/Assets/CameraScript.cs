@@ -11,7 +11,7 @@ public class CameraScript : MonoBehaviour
     private Transform charTransform;
     public float height = 5f;
     public float distance = 5f;
-    public float speed = 1f;
+    public float speed = 5f;
     private float vertLock;
     private CamStates camState;
 
