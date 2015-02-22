@@ -5,7 +5,7 @@ using System.Collections;
 
 
 
-public class ThirdPlayerCamera : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
     public GameObject character;
     private Transform charTransform;
