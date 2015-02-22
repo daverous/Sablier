@@ -15,7 +15,11 @@ public class GravityBody : MonoBehaviour {
         rigidbody.useGravity = false;
         rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         thisTransform = transform;
-        character = GameObject.Find("Player").GetComponent<Character>();
+        if (gameObject.tag == "Player")
+            character = GameObject.Find("Player").GetComponent<Character>();
+        else if (gameObject.tag == "Player2")
+            character = GameObject.Find("Player2").GetComponent<Character>();
+        
     }
 
     void FixedUpdate()
