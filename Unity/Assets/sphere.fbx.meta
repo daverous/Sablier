@@ -14,6 +14,7 @@ ModelImporter:
     2300000: Sphere
     3300000: Sphere
     4300000: Sphere
+    6400000: Sphere
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -36,10 +37,10 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .00999999978
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
-    swapUVChannels: 0
-    generateSecondaryUV: 0
+    swapUVChannels: 1
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     weldVertices: 1
