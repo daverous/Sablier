@@ -17,16 +17,32 @@ public class Character : MonoBehaviour
     private Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
     public bool isGrounded = true;
+    public playerNum pNum;
     #endregion
 
+
+    #region structs
+    enum playerNum
+    {
+        Player, 
+        Player2
+    }
+
+    #endregion
     #region Function
     void Start()
     {
 
         if (gameObject.tag == "Player")
+        {
             opponent = GameObject.FindWithTag("Player2").transform;
+            pNum = playerNum.Player;
+        }
         else if (gameObject.tag == "Player2")
+        {
             opponent = GameObject.FindWithTag("Player").transform;
+            pNum = playerNum.Player2;
+        }
     }
 
 
@@ -48,6 +64,8 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+
+     // TODO add different axis for each controller
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
