@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#region structs
+public enum playerNum
+{
+    Player,
+    Player2
+}
+
+#endregion
 public class Character : MonoBehaviour
 {
 
@@ -17,18 +25,11 @@ public class Character : MonoBehaviour
     private Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
     public bool isGrounded = true;
-    public playerNum pNum;
+    private playerNum pNum;
     #endregion
 
 
-    #region structs
-    enum playerNum
-    {
-        Player, 
-        Player2
-    }
-
-    #endregion
+   
     #region Function
     void Start()
     {
@@ -48,6 +49,7 @@ public class Character : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        Debug.Log(other.collider.name);
         if (other.collider.name == "planet")
         {
             isGrounded = true;
@@ -108,5 +110,11 @@ public class Character : MonoBehaviour
         rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
 
     }
+
+    public playerNum getPNum()
+    {
+        return pNum;
+    }
+
 }
     #endregion
