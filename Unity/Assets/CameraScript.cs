@@ -59,4 +59,15 @@ public class CameraScript : MonoBehaviour
     }
 
 
+    //TODO add correct axis to this
+    private void moveCamera()
+    {
+        float xAxisValue = Input.GetAxis("Horizontal");
+        float zAxisValue = Input.GetAxis("Vertical");
+        if (Camera.current != null)
+        {
+            Camera.current.transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
+        }
+    }
+
 }
