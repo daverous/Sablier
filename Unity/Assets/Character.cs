@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
-    private float hits;
+    private int hits;
 
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
@@ -33,7 +33,8 @@ public class Character : MonoBehaviour
     #endregion
 
 
-   
+
+  
     #region Function
     void Start()
     {
@@ -67,6 +68,11 @@ public class Character : MonoBehaviour
         }
     }
 
+
+    public int getHits()
+    {
+        return hits;
+    }
     void OnCollisionExit(Collision info)
     {
         if (info.collider.name == "planet")
