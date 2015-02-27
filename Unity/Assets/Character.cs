@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
     private float curhealth;
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
+	private float horizontal2 = 0.0f;
+	private float vertical2 = 0.0f;
     public float Weight;
     public float jumpForce = 500f;
     private float maxVelocity = 20f;
@@ -29,6 +31,7 @@ public class Character : MonoBehaviour
     private Transform opponent; //Transform for opponent 
     public bool isGrounded = true;
     private playerNum pNum;
+	private bool MN = false;
     #endregion
 
 
@@ -59,7 +62,7 @@ public class Character : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.collider.name);
+        //Debug.Log(other.collider.name);
         if (other.collider.name == "planet")
         {
             isGrounded = true;
@@ -76,11 +79,18 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-
+		//horizontal = 0;
+		horizontal = Input.GetAxis("Horizontal");
+		vertical = Input.GetAxis("Vertical");
+		horizontal2 = Input.GetAxis("Horizontal2");
+		vertical2 = Input.GetAxis("Vertical2");
      // TODO add different axis for each controller
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+
+		if (gameObject.tag == "Player")
+        	moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+		else if (gameObject.tag == "Player2")
+			moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             //rigidbody.AddForce (0, jumpForce, 0);
@@ -117,7 +127,7 @@ public class Character : MonoBehaviour
         //transform.RotateAround(opponent.position, Vector3.up, -1 * horizontal * (moveSpeed) * Time.deltaTime);
         #endregion
 
-        rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
+			rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
 
     }
 
