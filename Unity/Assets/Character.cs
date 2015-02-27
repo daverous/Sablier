@@ -13,17 +13,18 @@ public class Character : MonoBehaviour
 {
 
     #region Vars
-    public int Health;
     public float Damage;
     public float TurnSpeed;
-    private float curhealth;
+    private float hits;
+
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
     public float Weight;
     public float jumpForce = 500f;
     private float maxVelocity = 20f;
     private float moveSpeed = 15f;
-    private float maxHealth = 100f;
+    public float maxHealth = 100f;
+    private float curhealth;
     
     private Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
