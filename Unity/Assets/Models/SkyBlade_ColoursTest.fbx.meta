@@ -1,0 +1,2056 @@
+fileFormatVersion: 2
+guid: ab6027e294f1a6c47a119becb5847f92
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: Arm_IK.L
+    100004: Arm_IK.L_end
+    100006: Arm_IK.R
+    100008: Arm_IK.R_end
+    100010: Armature
+    100012: Bone
+    100014: Bone.017
+    100016: Bone.017_end
+    100018: Calf.L
+    100020: Calf.R
+    100022: Camera
+    100024: Chest
+    100026: Circle
+    100028: Circle.001
+    100030: Cube
+    100032: Cube.001
+    100034: Cube.003
+    100036: EarFlap.L.01
+    100038: EarFlap.L.02
+    100040: EarFlap.L.03
+    100042: EarFlap.L.03_end
+    100044: EarFlap.R.01
+    100046: EarFlap.R.02
+    100048: EarFlap.R.03
+    100050: EarFlap.R.03_end
+    100052: Elbow.L
+    100054: Elbow.L_end
+    100056: Elbow.R
+    100058: Elbow.R_end
+    100060: Foot.L
+    100062: Foot.L_end
+    100064: Foot.R
+    100066: Foot.R_end
+    100068: Foot_IK.L
+    100070: Foot_IK.L_end
+    100072: Foot_IK.R
+    100074: Foot_IK.R_end
+    100076: Forearm.L
+    100078: Forearm.R
+    100080: Goggles
+    100082: Hand.L
+    100084: Hand.L_end
+    100086: Hand.R
+    100088: Hand.R_end
+    100090: Hat
+    100092: Head
+    100094: Hip.L
+    100096: Hip.R
+    100098: Knee.L
+    100100: Knee.L_end
+    100102: Knee.R
+    100104: Knee.R_end
+    100106: Lamp
+    100108: Lamp.001
+    100110: Lamp.002
+    100112: Lamp.003
+    100114: Neck.R
+    100116: PantDeets
+    100118: Plane
+    100120: Ponytail
+    100122: PonyTail_01
+    100124: PonyTail_02
+    100126: PonyTail_03
+    100128: PonyTail_04
+    100130: PonyTail_05
+    100132: PonyTail_05_end
+    100134: Sash_00
+    100136: Sash_01
+    100138: Sash_02
+    100140: Sash_03
+    100142: Sash_04
+    100144: Sash_05
+    100146: Sash_05.001
+    100148: Sash_05.002
+    100150: Sash_05.002_end
+    100152: Shoulder.L
+    100154: Shoulder.R
+    100156: SkyBlade
+    100158: SkyBlade Wielder
+    100160: //RootNode
+    100162: Sphere
+    100164: Sphere.001
+    100166: Thigh.L
+    100168: Thigh.R
+    100170: UpperArm.L
+    100172: UpperArm.R
+    400000: Abdomen
+    400002: Arm_IK.L
+    400004: Arm_IK.L_end
+    400006: Arm_IK.R
+    400008: Arm_IK.R_end
+    400010: Armature
+    400012: Bone
+    400014: Bone.017
+    400016: Bone.017_end
+    400018: Calf.L
+    400020: Calf.R
+    400022: Camera
+    400024: Chest
+    400026: Circle
+    400028: Circle.001
+    400030: Cube
+    400032: Cube.001
+    400034: Cube.003
+    400036: EarFlap.L.01
+    400038: EarFlap.L.02
+    400040: EarFlap.L.03
+    400042: EarFlap.L.03_end
+    400044: EarFlap.R.01
+    400046: EarFlap.R.02
+    400048: EarFlap.R.03
+    400050: EarFlap.R.03_end
+    400052: Elbow.L
+    400054: Elbow.L_end
+    400056: Elbow.R
+    400058: Elbow.R_end
+    400060: Foot.L
+    400062: Foot.L_end
+    400064: Foot.R
+    400066: Foot.R_end
+    400068: Foot_IK.L
+    400070: Foot_IK.L_end
+    400072: Foot_IK.R
+    400074: Foot_IK.R_end
+    400076: Forearm.L
+    400078: Forearm.R
+    400080: Goggles
+    400082: Hand.L
+    400084: Hand.L_end
+    400086: Hand.R
+    400088: Hand.R_end
+    400090: Hat
+    400092: Head
+    400094: Hip.L
+    400096: Hip.R
+    400098: Knee.L
+    400100: Knee.L_end
+    400102: Knee.R
+    400104: Knee.R_end
+    400106: Lamp
+    400108: Lamp.001
+    400110: Lamp.002
+    400112: Lamp.003
+    400114: Neck.R
+    400116: PantDeets
+    400118: Plane
+    400120: Ponytail
+    400122: PonyTail_01
+    400124: PonyTail_02
+    400126: PonyTail_03
+    400128: PonyTail_04
+    400130: PonyTail_05
+    400132: PonyTail_05_end
+    400134: Sash_00
+    400136: Sash_01
+    400138: Sash_02
+    400140: Sash_03
+    400142: Sash_04
+    400144: Sash_05
+    400146: Sash_05.001
+    400148: Sash_05.002
+    400150: Sash_05.002_end
+    400152: Shoulder.L
+    400154: Shoulder.R
+    400156: SkyBlade
+    400158: SkyBlade Wielder
+    400160: //RootNode
+    400162: Sphere
+    400164: Sphere.001
+    400166: Thigh.L
+    400168: Thigh.R
+    400170: UpperArm.L
+    400172: UpperArm.R
+    4300000: SkyBlade
+    4300002: Cube.003
+    4300004: Cube.001
+    4300006: Sphere.001
+    4300008: PantDeets
+    4300010: Ponytail
+    4300012: Plane
+    4300014: Sphere
+    4300016: SkyBlade Wielder
+    4300018: Cube
+    4300020: Goggles
+    4300022: Hat
+    4300024: Circle.001
+    4300026: Circle
+    7400000: SkyBlade|Idle_OverShoulder
+    7400002: SkyBlade|Idle_AtSide
+    7400004: SkyBlade|Idle_AtSide
+    7400006: SkyBlade|Quick_OverShoulder
+    7400008: SkyBlade|Quick_FromSide
+    7400010: SkyBlade|Run_OverShoulder
+    7400012: SkyBlade|Run_AtSide
+    9500000: //RootNode
+    13700000: Circle
+    13700002: Circle.001
+    13700004: Cube
+    13700006: Cube.001
+    13700008: Cube.003
+    13700010: Goggles
+    13700012: Hat
+    13700014: PantDeets
+    13700016: Plane
+    13700018: Ponytail
+    13700020: SkyBlade
+    13700022: SkyBlade Wielder
+    13700024: Sphere
+    13700026: Sphere.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SkyBlade|Idle_OverShoulder
+      takeName: Armature|SkyBlade_Anims_Full
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Abdomen
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_05_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002/Sash_05.002_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Elbow.L
+        weight: 0
+      - path: Armature/Bone/Elbow.L/Elbow.L_end
+        weight: 0
+      - path: Armature/Bone/Elbow.R
+        weight: 0
+      - path: Armature/Bone/Elbow.R/Elbow.R_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Knee.L
+        weight: 0
+      - path: Armature/Bone/Knee.L/Knee.L_end
+        weight: 0
+      - path: Armature/Bone/Knee.R
+        weight: 0
+      - path: Armature/Bone/Knee.R/Knee.R_end
+        weight: 0
+      - path: Camera
+        weight: 0
+      - path: Circle
+        weight: 0
+      - path: Circle.001
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.003
+        weight: 0
+      - path: Goggles
+        weight: 0
+      - path: Hat
+        weight: 0
+      - path: Lamp
+        weight: 0
+      - path: Lamp.001
+        weight: 0
+      - path: Lamp.002
+        weight: 0
+      - path: Lamp.003
+        weight: 0
+      - path: PantDeets
+        weight: 0
+      - path: Plane
+        weight: 0
+      - path: Ponytail
+        weight: 0
+      - path: SkyBlade
+        weight: 0
+      - path: SkyBlade Wielder
+        weight: 0
+      - path: Sphere
+        weight: 0
+      - path: Sphere.001
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SkyBlade|Idle_AtSide
+      takeName: Armature|SkyBlade_Anims_Full
+      firstFrame: 175
+      lastFrame: 205
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Abdomen
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_05_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002/Sash_05.002_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Elbow.L
+        weight: 0
+      - path: Armature/Bone/Elbow.L/Elbow.L_end
+        weight: 0
+      - path: Armature/Bone/Elbow.R
+        weight: 0
+      - path: Armature/Bone/Elbow.R/Elbow.R_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Knee.L
+        weight: 0
+      - path: Armature/Bone/Knee.L/Knee.L_end
+        weight: 0
+      - path: Armature/Bone/Knee.R
+        weight: 0
+      - path: Armature/Bone/Knee.R/Knee.R_end
+        weight: 0
+      - path: Camera
+        weight: 0
+      - path: Circle
+        weight: 0
+      - path: Circle.001
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.003
+        weight: 0
+      - path: Goggles
+        weight: 0
+      - path: Hat
+        weight: 0
+      - path: Lamp
+        weight: 0
+      - path: Lamp.001
+        weight: 0
+      - path: Lamp.002
+        weight: 0
+      - path: Lamp.003
+        weight: 0
+      - path: PantDeets
+        weight: 0
+      - path: Plane
+        weight: 0
+      - path: Ponytail
+        weight: 0
+      - path: SkyBlade
+        weight: 0
+      - path: SkyBlade Wielder
+        weight: 0
+      - path: Sphere
+        weight: 0
+      - path: Sphere.001
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SkyBlade|Quick_OverShoulder
+      takeName: Armature|SkyBlade_Anims_Full
+      firstFrame: 35
+      lastFrame: 65
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Abdomen
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_05_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002/Sash_05.002_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Elbow.L
+        weight: 0
+      - path: Armature/Bone/Elbow.L/Elbow.L_end
+        weight: 0
+      - path: Armature/Bone/Elbow.R
+        weight: 0
+      - path: Armature/Bone/Elbow.R/Elbow.R_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Knee.L
+        weight: 0
+      - path: Armature/Bone/Knee.L/Knee.L_end
+        weight: 0
+      - path: Armature/Bone/Knee.R
+        weight: 0
+      - path: Armature/Bone/Knee.R/Knee.R_end
+        weight: 0
+      - path: Camera
+        weight: 0
+      - path: Circle
+        weight: 0
+      - path: Circle.001
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.003
+        weight: 0
+      - path: Goggles
+        weight: 0
+      - path: Hat
+        weight: 0
+      - path: Lamp
+        weight: 0
+      - path: Lamp.001
+        weight: 0
+      - path: Lamp.002
+        weight: 0
+      - path: Lamp.003
+        weight: 0
+      - path: PantDeets
+        weight: 0
+      - path: Plane
+        weight: 0
+      - path: Ponytail
+        weight: 0
+      - path: SkyBlade
+        weight: 0
+      - path: SkyBlade Wielder
+        weight: 0
+      - path: Sphere
+        weight: 0
+      - path: Sphere.001
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SkyBlade|Quick_FromSide
+      takeName: Armature|SkyBlade_Anims_Full
+      firstFrame: 70
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Abdomen
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_05_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002/Sash_05.002_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Elbow.L
+        weight: 0
+      - path: Armature/Bone/Elbow.L/Elbow.L_end
+        weight: 0
+      - path: Armature/Bone/Elbow.R
+        weight: 0
+      - path: Armature/Bone/Elbow.R/Elbow.R_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Knee.L
+        weight: 0
+      - path: Armature/Bone/Knee.L/Knee.L_end
+        weight: 0
+      - path: Armature/Bone/Knee.R
+        weight: 0
+      - path: Armature/Bone/Knee.R/Knee.R_end
+        weight: 0
+      - path: Camera
+        weight: 0
+      - path: Circle
+        weight: 0
+      - path: Circle.001
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.003
+        weight: 0
+      - path: Goggles
+        weight: 0
+      - path: Hat
+        weight: 0
+      - path: Lamp
+        weight: 0
+      - path: Lamp.001
+        weight: 0
+      - path: Lamp.002
+        weight: 0
+      - path: Lamp.003
+        weight: 0
+      - path: PantDeets
+        weight: 0
+      - path: Plane
+        weight: 0
+      - path: Ponytail
+        weight: 0
+      - path: SkyBlade
+        weight: 0
+      - path: SkyBlade Wielder
+        weight: 0
+      - path: Sphere
+        weight: 0
+      - path: Sphere.001
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SkyBlade|Run_OverShoulder
+      takeName: Armature|SkyBlade_Anims_Full
+      firstFrame: 105
+      lastFrame: 135
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Abdomen
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_05_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002/Sash_05.002_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Elbow.L
+        weight: 0
+      - path: Armature/Bone/Elbow.L/Elbow.L_end
+        weight: 0
+      - path: Armature/Bone/Elbow.R
+        weight: 0
+      - path: Armature/Bone/Elbow.R/Elbow.R_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Knee.L
+        weight: 0
+      - path: Armature/Bone/Knee.L/Knee.L_end
+        weight: 0
+      - path: Armature/Bone/Knee.R
+        weight: 0
+      - path: Armature/Bone/Knee.R/Knee.R_end
+        weight: 0
+      - path: Camera
+        weight: 0
+      - path: Circle
+        weight: 0
+      - path: Circle.001
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.003
+        weight: 0
+      - path: Goggles
+        weight: 0
+      - path: Hat
+        weight: 0
+      - path: Lamp
+        weight: 0
+      - path: Lamp.001
+        weight: 0
+      - path: Lamp.002
+        weight: 0
+      - path: Lamp.003
+        weight: 0
+      - path: PantDeets
+        weight: 0
+      - path: Plane
+        weight: 0
+      - path: Ponytail
+        weight: 0
+      - path: SkyBlade
+        weight: 0
+      - path: SkyBlade Wielder
+        weight: 0
+      - path: Sphere
+        weight: 0
+      - path: Sphere.001
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SkyBlade|Run_AtSide
+      takeName: Armature|SkyBlade_Anims_Full
+      firstFrame: 140
+      lastFrame: 170
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Abdomen
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_05_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Hip.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
+        weight: 1
+      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002
+        weight: 0
+      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_05.001/Sash_05.002/Sash_05.002_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L
+        weight: 0
+      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R
+        weight: 0
+      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Elbow.L
+        weight: 0
+      - path: Armature/Bone/Elbow.L/Elbow.L_end
+        weight: 0
+      - path: Armature/Bone/Elbow.R
+        weight: 0
+      - path: Armature/Bone/Elbow.R/Elbow.R_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L
+        weight: 0
+      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R
+        weight: 0
+      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
+        weight: 0
+      - path: Armature/Bone/Knee.L
+        weight: 0
+      - path: Armature/Bone/Knee.L/Knee.L_end
+        weight: 0
+      - path: Armature/Bone/Knee.R
+        weight: 0
+      - path: Armature/Bone/Knee.R/Knee.R_end
+        weight: 0
+      - path: Camera
+        weight: 0
+      - path: Circle
+        weight: 0
+      - path: Circle.001
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.003
+        weight: 0
+      - path: Goggles
+        weight: 0
+      - path: Hat
+        weight: 0
+      - path: Lamp
+        weight: 0
+      - path: Lamp.001
+        weight: 0
+      - path: Lamp.002
+        weight: 0
+      - path: Lamp.003
+        weight: 0
+      - path: PantDeets
+        weight: 0
+      - path: Plane
+        weight: 0
+      - path: Ponytail
+        weight: 0
+      - path: SkyBlade
+        weight: 0
+      - path: SkyBlade Wielder
+        weight: 0
+      - path: Sphere
+        weight: 0
+      - path: Sphere.001
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Bone
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Calf.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Calf.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Chest
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shoulder.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shoulder.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperArm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperArm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Forearm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Forearm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EarFlap.L.02
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EarFlap.R.02
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: SkyBlade_ColoursTest(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Armature
+      position: {x: 0, y: 3.38903356, z: 1.3529501}
+      rotation: {x: -.707106888, y: 5.30245151e-33, z: 5.30245224e-33, w: .707106769}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone
+      position: {x: .219832361, y: 2.42902613, z: -3.04224634}
+      rotation: {x: .99968183, y: 4.59633132e-09, z: -1.82134343e-07, w: -.0252234116}
+      scale: {x: 1, y: 1.00000072, z: 1.00008762}
+      transformModified: 1
+    - name: Abdomen
+      position: {x: -.22000967, y: .944092631, z: -2.87126184}
+      rotation: {x: -.689423442, y: 4.05380725e-08, z: 2.1325647e-07, w: .724358678}
+      scale: {x: .999999762, y: 1.00000036, z: .999999642}
+      transformModified: 1
+    - name: Chest
+      position: {x: 6.05359674e-08, y: .645874023, z: -1.6996637e-07}
+      rotation: {x: -.223312408, y: 2.95067846e-08, z: 4.98163182e-08, w: .974747002}
+      scale: {x: 1.00000083, y: .99996835, z: 1.00003111}
+      transformModified: 1
+    - name: Neck.R
+      position: {x: -5.21540642e-08, y: .793276668, z: -5.21540642e-08}
+      rotation: {x: .247849435, y: -9.20628693e-08, z: -7.14319555e-08, w: .968798637}
+      scale: {x: 1, y: .999628484, z: 1.00037169}
+      transformModified: 1
+    - name: Head
+      position: {x: 4.47034836e-08, y: .417361557, z: 7.4505806e-09}
+      rotation: {x: -.0346158482, y: -1.93144629e-08, z: 1.39232039e-08, w: .999400675}
+      scale: {x: 1.00000536, y: .999995053, z: .999998212}
+      transformModified: 1
+    - name: PonyTail_01
+      position: {x: .00010311231, y: .0515424125, z: -.132739291}
+      rotation: {x: -.874877393, y: 1.02177772e-07, z: 1.84143431e-07, w: .484344631}
+      scale: {x: .999999881, y: 1.00028718, z: .999713719}
+      transformModified: 1
+    - name: PonyTail_02
+      position: {x: -0, y: .113938846, z: 2.27708369e-07}
+      rotation: {x: .196342126, y: -.0240613576, z: -.00506245485, w: -.980227172}
+      scale: {x: .999999702, y: 1.00159371, z: .99841094}
+      transformModified: 1
+    - name: PonyTail_03
+      position: {x: 9.31322575e-09, y: .126810908, z: 9.77888703e-08}
+      rotation: {x: -.0870147124, y: -.0216689613, z: -.0116197122, w: .995903552}
+      scale: {x: .999995708, y: 1.00118554, z: .998822331}
+      transformModified: 1
+    - name: PonyTail_04
+      position: {x: 1.86264515e-08, y: .150909632, z: -1.25146471e-07}
+      rotation: {x: -.130688161, y: -2.9242554e-07, z: 6.54111432e-08, w: .991423547}
+      scale: {x: .999999762, y: 1.00300705, z: .997018754}
+      transformModified: 1
+    - name: PonyTail_05
+      position: {x: -4.09781933e-08, y: .146459624, z: 5.56465238e-08}
+      rotation: {x: .145344421, y: -5.13144407e-08, z: -7.94844901e-09, w: .989381135}
+      scale: {x: .999999881, y: .993864119, z: 1.00617909}
+      transformModified: 1
+    - name: PonyTail_05_end
+      position: {x: -0, y: .172556117, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EarFlap.L.01
+      position: {x: -.252480626, y: .358336389, z: .134011865}
+      rotation: {x: .706525445, y: .0286704767, z: .706525147, w: .0286704898}
+      scale: {x: 1.00005198, y: .999948978, z: 1.00002646}
+      transformModified: 1
+    - name: EarFlap.L.02
+      position: {x: -2.41212547e-07, y: .176375791, z: 1.11758709e-08}
+      rotation: {x: 3.8945368e-06, y: -.707106829, z: 2.40638678e-06, w: .707106709}
+      scale: {x: 1.00000012, y: .999999762, z: .999999523}
+      transformModified: 1
+    - name: EarFlap.L.03
+      position: {x: -8.56816769e-08, y: .109467305, z: -1.71363354e-07}
+      rotation: {x: 1.87053288e-08, y: .999953806, z: -.00961323082, w: -2.52195235e-07}
+      scale: {x: 1.00000024, y: .999972522, z: 1.00002778}
+      transformModified: 1
+    - name: EarFlap.L.03_end
+      position: {x: -0, y: .126519471, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EarFlap.R.01
+      position: {x: .260801584, y: .35833624, z: .134011433}
+      rotation: {x: .706525445, y: .0286704767, z: .706525147, w: .0286704898}
+      scale: {x: 1.00005198, y: .999948978, z: 1.00002646}
+      transformModified: 1
+    - name: EarFlap.R.02
+      position: {x: -1.55996531e-08, y: .176375702, z: 6.51925802e-09}
+      rotation: {x: 3.8945368e-06, y: -.707106829, z: 2.40638678e-06, w: .707106709}
+      scale: {x: 1.00000012, y: .999999762, z: .999999523}
+      transformModified: 1
+    - name: EarFlap.R.03
+      position: {x: 6.51925802e-09, y: .109467566, z: -5.98840415e-07}
+      rotation: {x: 1.87053288e-08, y: .999953806, z: -.00961323082, w: -2.52195235e-07}
+      scale: {x: 1.00000024, y: .999972522, z: 1.00002778}
+      transformModified: 1
+    - name: EarFlap.R.03_end
+      position: {x: -0, y: .126519471, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Bone.017
+      position: {x: -.000427711755, y: .197573632, z: .242316395}
+      rotation: {x: .896937609, y: 3.08563415e-08, z: -2.79677124e-07, w: .442157209}
+      scale: {x: 1.00000024, y: .999993145, z: 1.00000834}
+      transformModified: 1
+    - name: Bone.017_end
+      position: {x: -0, y: .207593635, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Shoulder.L
+      position: {x: -5.21540642e-08, y: .793276668, z: -5.21540642e-08}
+      rotation: {x: -.404903024, y: .408023328, z: .505683601, w: .643315434}
+      scale: {x: 1.00026512, y: 1.00001311, z: .999721825}
+      transformModified: 1
+    - name: UpperArm.L
+      position: {x: -4.47034836e-07, y: .429818779, z: -7.82310963e-08}
+      rotation: {x: -.0466818288, y: -.0261509586, z: .0743301809, w: .995797217}
+      scale: {x: 1.00000978, y: 1.00003397, z: .999958694}
+      transformModified: 1
+    - name: Forearm.L
+      position: {x: 3.27825546e-07, y: .859498441, z: 2.98023224e-07}
+      rotation: {x: .0160872415, y: .0257404875, z: -.00348750502, w: .999533117}
+      scale: {x: .999969542, y: 1.00000417, z: 1.00002253}
+      transformModified: 1
+    - name: Hand.L
+      position: {x: -2.98023224e-08, y: .67119658, z: -1.1920929e-07}
+      rotation: {x: -.00453518378, y: .0718747675, z: -.00213145255, w: .997401118}
+      scale: {x: .999989867, y: 1.00000477, z: 1.00000739}
+      transformModified: 1
+    - name: Hand.L_end
+      position: {x: -0, y: .538363814, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Shoulder.R
+      position: {x: -5.21540642e-08, y: .793276668, z: -5.21540642e-08}
+      rotation: {x: -.393554896, y: -.407409728, z: -.504585922, w: .651555896}
+      scale: {x: 1.00027156, y: 1.00001299, z: .999714255}
+      transformModified: 1
+    - name: UpperArm.R
+      position: {x: -2.4586916e-07, y: .433874547, z: 2.08616257e-07}
+      rotation: {x: -.0632682443, y: .00769930892, z: -.075700067, w: .995091617}
+      scale: {x: 1.00001621, y: 1.00005662, z: .999927759}
+      transformModified: 1
+    - name: Forearm.R
+      position: {x: -1.93715096e-07, y: .857040524, z: -1.1920929e-07}
+      rotation: {x: .0224228147, y: -.0163106248, z: .00400902051, w: .999607563}
+      scale: {x: .999983609, y: .999986589, z: 1.00003099}
+      transformModified: 1
+    - name: Hand.R
+      position: {x: -3.87430191e-07, y: .670960307, z: 1.56462193e-07}
+      rotation: {x: .0289426651, y: .108379304, z: -.00527285738, w: -.993674219}
+      scale: {x: .999974847, y: 1.00002027, z: 1.00000322}
+      transformModified: 1
+    - name: Hand.R_end
+      position: {x: -0, y: .53774941, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hip.L
+      position: {x: 2.32830644e-08, y: -.0154986866, z: .00473026}
+      rotation: {x: -.432795465, y: .420425147, z: .544619083, w: .582512558}
+      scale: {x: .999969125, y: 1.00000119, z: 1.00003254}
+      transformModified: 1
+    - name: Thigh.L
+      position: {x: -3.7252903e-07, y: .340809405, z: 4.65661287e-08}
+      rotation: {x: .67428714, y: -.388343066, z: .177030966, w: -.602649748}
+      scale: {x: 1.00011373, y: .99977088, z: 1.00011325}
+      transformModified: 1
+    - name: Calf.L
+      position: {x: -1.78813934e-07, y: 1.53738034, z: -3.57627869e-07}
+      rotation: {x: -.000314836245, y: .366980016, z: -.0126248682, w: .930143118}
+      scale: {x: .999908864, y: .999949515, z: 1.00014353}
+      transformModified: 1
+    - name: Foot.L
+      position: {x: -4.84287739e-08, y: 1.63310587, z: 1.86264515e-07}
+      rotation: {x: -.693812907, y: .0115094297, z: -.00259475061, w: .720058739}
+      scale: {x: 1.00000417, y: 1.00000894, z: .999985158}
+      transformModified: 1
+    - name: Foot.L_end
+      position: {x: -0, y: .62146759, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hip.R
+      position: {x: 1.0477379e-07, y: -.00919532962, z: .00409870502}
+      rotation: {x: -.437348843, y: -.416330904, z: -.550902665, w: .576108396}
+      scale: {x: .99996835, y: 1.00000036, z: 1.00003254}
+      transformModified: 1
+    - name: Thigh.R
+      position: {x: -1.41561031e-07, y: .340987861, z: -9.59262252e-08}
+      rotation: {x: .670698225, y: .397561848, z: -.187442273, w: -.597472966}
+      scale: {x: 1.00011265, y: .999768078, z: 1.00011849}
+      transformModified: 1
+    - name: Calf.R
+      position: {x: -1.1920929e-07, y: 1.53587651, z: 1.50874257e-07}
+      rotation: {x: .0028095392, y: -.352940261, z: .00325265015, w: .935635984}
+      scale: {x: .999908268, y: .999980092, z: 1.00011265}
+      transformModified: 1
+    - name: Foot.R
+      position: {x: -1.78813934e-07, y: 1.63239908, z: 2.98023224e-08}
+      rotation: {x: -.69378674, y: -.0114880297, z: .00258743344, w: .720084369}
+      scale: {x: 1.0000056, y: 1.00000668, z: .999986708}
+      transformModified: 1
+    - name: Foot.R_end
+      position: {x: -0, y: .621437848, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sash_00
+      position: {x: -.124286048, y: .193880916, z: -.0428208224}
+      rotation: {x: -.07320223, y: .00491617806, z: .642864227, w: .762458503}
+      scale: {x: .999987423, y: .999997675, z: 1.00001371}
+      transformModified: 1
+    - name: Sash_01
+      position: {x: -3.7252903e-08, y: .264786631, z: 2.53785402e-08}
+      rotation: {x: .0228200722, y: -4.47809526e-07, z: .0697138235, w: .997305989}
+      scale: {x: .999944091, y: 1.0000571, z: 1.00000012}
+      transformModified: 1
+    - name: Sash_02
+      position: {x: 4.09781933e-08, y: .234996006, z: -1.69500709e-07}
+      rotation: {x: .00240741577, y: .702134967, z: .0269890837, w: .711528182}
+      scale: {x: 1.00000226, y: 1.00000286, z: .999993682}
+      transformModified: 1
+    - name: Sash_03
+      position: {x: 2.23051757e-07, y: .210353181, z: 3.7252903e-09}
+      rotation: {x: -4.47034303e-08, y: -1.49011532e-08, z: -4.470348e-08, w: 1}
+      scale: {x: 1.00000024, y: .999999762, z: .999999881}
+      transformModified: 1
+    - name: Sash_04
+      position: {x: 3.87895852e-07, y: .210926443, z: 1.11758709e-08}
+      rotation: {x: 1.49012038e-08, y: -1.49011052e-08, z: 7.45057847e-08, w: 1}
+      scale: {x: 1.00000036, y: 1.00000048, z: 1.00000036}
+      transformModified: 1
+    - name: Sash_05
+      position: {x: 1.89058483e-07, y: .261024445, z: 2.23517418e-08}
+      rotation: {x: 5.86197554e-14, y: -2.98022957e-08, z: -2.980231e-08, w: 1}
+      scale: {x: .999999762, y: .999999642, z: 1.00000012}
+      transformModified: 1
+    - name: Sash_05.001
+      position: {x: -1.21071935e-07, y: .242945164, z: 1.49011612e-08}
+      rotation: {x: -1.49011328e-08, y: 1.04308128e-07, z: 1.49011221e-08, w: 1}
+      scale: {x: .999999762, y: 1, z: .999999881}
+      transformModified: 1
+    - name: Sash_05.002
+      position: {x: 2.25380063e-07, y: .231343597, z: -7.4505806e-09}
+      rotation: {x: 1.49012074e-08, y: -7.45057918e-08, z: -4.47034552e-08, w: 1}
+      scale: {x: .999999642, y: .999999642, z: 1}
+      transformModified: 1
+    - name: Sash_05.002_end
+      position: {x: -0, y: .250893593, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Foot_IK.R
+      position: {x: .710876405, y: .846682131, z: .0526997261}
+      rotation: {x: -.99968183, y: -2.38278215e-08, z: 1.82648222e-07, w: -.0252231583}
+      scale: {x: 1, y: .999998689, z: .99992311}
+      transformModified: 1
+    - name: Foot_IK.R_end
+      position: {x: -0, y: .524159014, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Foot_IK.L
+      position: {x: -.650873482, y: -.113825053, z: -.663670301}
+      rotation: {x: -.99968183, y: 4.58932803e-09, z: 1.81918594e-07, w: -.0252231583}
+      scale: {x: 1, y: .999998689, z: .999922872}
+      transformModified: 1
+    - name: Foot_IK.L_end
+      position: {x: -0, y: .524158955, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Knee.L
+      position: {x: -.656273305, y: 1.2278192, z: -1.60187817}
+      rotation: {x: -.672451437, y: .00458927918, z: -.000115264324, w: .740127087}
+      scale: {x: 1.00000346, y: .999999523, z: .999999106}
+      transformModified: 1
+    - name: Knee.L_end
+      position: {x: -0, y: 1.00000226, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Knee.R
+      position: {x: 1.09891927, y: 2.6528933, z: -1.48850989}
+      rotation: {x: -.67046386, y: -.0046243011, z: .000116391551, w: .741927862}
+      scale: {x: 1.00000036, y: 1.00000155, z: 1.00000024}
+      transformModified: 1
+    - name: Knee.R_end
+      position: {x: -0, y: .995466828, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Arm_IK.L
+      position: {x: -.533502817, y: 1.95265985, z: -4.64223433}
+      rotation: {x: -.99968183, y: 4.58917837e-09, z: 1.81918608e-07, w: -.0252236649}
+      scale: {x: 1, y: .999999881, z: .999899447}
+      transformModified: 1
+    - name: Arm_IK.L_end
+      position: {x: -0, y: .447254717, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Arm_IK.R
+      position: {x: -.909969091, y: 1.73209119, z: -4.94538689}
+      rotation: {x: -.99968189, y: 4.5896118e-09, z: 1.81918651e-07, w: -.025221305}
+      scale: {x: 1, y: 1.00000012, z: .999992847}
+      transformModified: 1
+    - name: Arm_IK.R_end
+      position: {x: -0, y: .447254777, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Elbow.L
+      position: {x: 1.54772687, y: .332665533, z: -5.94726658}
+      rotation: {x: -.724717557, y: 1.1456364e-07, z: 1.21605183e-07, w: .689046144}
+      scale: {x: 1, y: .999999404, z: .999999404}
+      transformModified: 1
+    - name: Elbow.L_end
+      position: {x: -0, y: .714733601, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Elbow.R
+      position: {x: -1.35848618, y: -1.09498525, z: -3.75819612}
+      rotation: {x: -.724717557, y: 1.1456364e-07, z: 1.21605183e-07, w: .689046144}
+      scale: {x: 1, y: .999999404, z: .999999404}
+      transformModified: 1
+    - name: Elbow.R_end
+      position: {x: -0, y: .714733601, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Camera
+      position: {x: 7.48113155, y: 5.34366512, z: -6.50763988}
+      rotation: {x: -.0892816633, y: .358066946, z: -.210611373, w: .905240119}
+      scale: {x: 1, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Circle
+      position: {x: 1.96792412, y: 5.07246828, z: 1.80986381}
+      rotation: {x: .50000006, y: .5, z: -.5, w: -.49999994}
+      scale: {x: 1.14881051, y: 1.14881027, z: 1.14881039}
+      transformModified: 1
+    - name: Circle.001
+      position: {x: .467385948, y: .798405409, z: 1.6971215}
+      rotation: {x: -.723147929, y: .00418359321, z: -.00399569422, w: .690668941}
+      scale: {x: .127074778, y: .127074778, z: .127074778}
+      transformModified: 1
+    - name: Cube
+      position: {x: -.000942244311, y: 4.35598135, z: 1.07963479}
+      rotation: {x: -.707106888, y: 5.30245151e-33, z: 5.30245224e-33, w: .707106769}
+      scale: {x: .0646396726, y: .0646396652, z: .0646396801}
+      transformModified: 1
+    - name: Cube.001
+      position: {x: .000793234562, y: 5.01377344, z: 1.47862577}
+      rotation: {x: .918569982, y: 1.20174346e-17, z: 2.79281983e-17, w: -.395258397}
+      scale: {x: -.135674968, y: -.135674983, z: -.135674953}
+      transformModified: 1
+    - name: Cube.003
+      position: {x: -.00243432052, y: 5.14842939, z: 1.420228}
+      rotation: {x: -.614670694, y: -2.6548004e-18, z: -2.06878967e-18, w: .788783908}
+      scale: {x: .0158006828, y: .015800681, z: .0158006847}
+      transformModified: 1
+    - name: Goggles
+      position: {x: -.00310969073, y: 5.77640009, z: 1.2803309}
+      rotation: {x: -.690646112, y: -3.42219054e-18, z: -3.26817737e-18, w: .723192871}
+      scale: {x: .0763770044, y: .0763769895, z: .0763770193}
+      transformModified: 1
+    - name: Hat
+      position: {x: .220335707, y: 5.56214046, z: 1.48927772}
+      rotation: {x: -.707106888, y: 5.30245151e-33, z: 5.30245224e-33, w: .707106769}
+      scale: {x: .0763770044, y: .0763769969, z: .0763770118}
+      transformModified: 1
+    - name: Lamp
+      position: {x: 2.33213234, y: 5.94664907, z: -.311978906}
+      rotation: {x: .570947587, y: .272171289, z: .755880356, w: -.169075564}
+      scale: {x: .999999881, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: Lamp.001
+      position: {x: 4.0720892, y: 7.3145256, z: 7.56193829}
+      rotation: {x: .269113511, y: .41588816, z: .854052961, w: -.158772141}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Lamp.002
+      position: {x: -2.6331625, y: 4.13675117, z: .254561067}
+      rotation: {x: .570947587, y: .272171289, z: .755880356, w: -.169075564}
+      scale: {x: .999999881, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: Lamp.003
+      position: {x: 1.16942775, y: 3.60913324, z: -7.7875433}
+      rotation: {x: .570947587, y: .272171289, z: .755880356, w: -.169075564}
+      scale: {x: .999999881, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: PantDeets
+      position: {x: -.00262302347, y: 3.15638328, z: 1.48189056}
+      rotation: {x: -.707106888, y: 5.30245151e-33, z: 5.30245224e-33, w: .707106769}
+      scale: {x: .376514226, y: .376514196, z: .376514256}
+      transformModified: 1
+    - name: Plane
+      position: {x: .0541330725, y: 5.707901, z: 1.20228982}
+      rotation: {x: -.272959709, y: -.0761338472, z: -.0543781929, w: .957465231}
+      scale: {x: .14788726, y: .147887245, z: .147887245}
+      transformModified: 1
+    - name: Ponytail
+      position: {x: .00129156478, y: 5.43510962, z: 1.78231895}
+      rotation: {x: -.246128291, y: 7.26811537e-33, z: 1.84566646e-33, w: .969237268}
+      scale: {x: -.0362112671, y: -.0362112746, z: -.0362112746}
+      transformModified: 1
+    - name: SkyBlade
+      position: {x: 2.24668241, y: 4.95114708, z: 1.74188542}
+      rotation: {x: .997162044, y: -1.02565131e-07, z: 4.10225113e-07, w: -.0752855092}
+      scale: {x: 1.14881039, y: 1.14881051, z: 1.14881027}
+      transformModified: 1
+    - name: SkyBlade Wielder
+      position: {x: -.00262302347, y: 3.15638328, z: 1.48189056}
+      rotation: {x: -.707106888, y: 5.30245151e-33, z: 5.30245224e-33, w: .707106769}
+      scale: {x: .376514226, y: .376514196, z: .376514256}
+      transformModified: 1
+    - name: Sphere
+      position: {x: .0938691497, y: 5.62157249, z: 1.35867906}
+      rotation: {x: .99999994, y: -3.91715644e-20, z: 1.11100613e-16, w: .000352577365}
+      scale: {x: .0671310872, y: .0671310872, z: .0671310872}
+      transformModified: 1
+    - name: Sphere.001
+      position: {x: -.101923451, y: 5.62157249, z: 1.35867906}
+      rotation: {x: .99999994, y: -3.91715644e-20, z: 1.11100613e-16, w: .000352577365}
+      scale: {x: .0671310872, y: .0671310872, z: .0671310872}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 0
+  userData: 

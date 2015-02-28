@@ -15,7 +15,13 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
+   
+     private float curhealth;
     private int hits;
+    private bool dead; 
+    private float maxVelocity = 20f;
+    private float moveSpeed = 15f;
+    public float maxHealth = 100f;
 
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
@@ -23,15 +29,14 @@ public class Character : MonoBehaviour
 	private float vertical2 = 0.0f;
     public float Weight;
     public float jumpForce = 500f;
-    private float maxVelocity = 20f;
-    private float moveSpeed = 15f;
-    public float maxHealth = 100f;
-    private float curhealth;
     
+    
+   
     private Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
     public bool isGrounded = true;
     private playerNum pNum;
+    private playerNum opponentName;
 	private bool MN = false;
     #endregion
 
@@ -41,16 +46,19 @@ public class Character : MonoBehaviour
     #region Function
     void Start()
     {
+        dead = false;
 
         if (gameObject.tag == "Player")
         {
             opponent = GameObject.FindWithTag("Player2").transform;
             pNum = playerNum.Player;
+            opponentName = playerNum.Player2;
         }
         else if (gameObject.tag == "Player2")
         {
             opponent = GameObject.FindWithTag("Player").transform;
             pNum = playerNum.Player2;
+            opponentName = playerNum.Player;
         }
         // inits cur health as max health
         curhealth = maxHealth;
@@ -64,10 +72,16 @@ public class Character : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        //Debug.Log(other.collider.name);
+        Debug.Log(other.collider.name);
         if (other.collider.name == "planet")
         {
             isGrounded = true;
+        }
+            
+        if (other.collider.name == opponentName.ToString())
+        {
+            GameObject.FindGameObjectWithTag(opponentName.ToString()).GetComponent<Character>().beenHit(Damage);
+            Debug.Log(pNum.ToString() + ": " + curhealth);
         }
     }
 
@@ -82,6 +96,16 @@ public class Character : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    void beenHit(float damage)
+    {
+        curhealth -= damage;
+    }
+
+    void hitOther()
+    {
+        hits++;
     }
 
     void Update()
