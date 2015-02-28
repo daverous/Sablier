@@ -72,7 +72,6 @@ public class Character : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.collider.name);
         if (other.collider.name == "planet")
         {
             isGrounded = true;
@@ -101,6 +100,10 @@ public class Character : MonoBehaviour
     void beenHit(float damage)
     {
         curhealth -= damage;
+        if (curhealth <= 0)
+        {
+            dead = true;
+        }
     }
 
     void hitOther()
