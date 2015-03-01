@@ -13,12 +13,12 @@ public class GravityAttractor : MonoBehaviour {
         Vector3 bodyUp = body.up;
 
         body.rotation = Quaternion.FromToRotation(bodyUp, target) * body.rotation;
-        body.rigidbody.AddForce(target * gravity);
+        body.GetComponent<Rigidbody>().AddForce(target * gravity);
     }
 
     public void AttractObject(Transform body) {
         Vector3 target = (body.position - transform.position).normalized;
-        body.rigidbody.AddForce(target * gravity);
+        body.GetComponent<Rigidbody>().AddForce(target * gravity);
     
     }
 

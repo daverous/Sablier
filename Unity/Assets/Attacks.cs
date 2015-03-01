@@ -11,7 +11,6 @@ public class Attacks : MonoBehaviour
     public float quickAttackDamage = 5f;
     public float heavyAttackDamage = 10f;
 
-    private bool inRange;
     private AttackType curAttack;
     // Use this for initialization
 
@@ -22,7 +21,7 @@ public class Attacks : MonoBehaviour
     void Start()
     {
         curAttack = AttackType.Empty;
-        inRange = false;
+        //inRange = false;
         thisCharacterTag = transform.parent.tag;
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
     }
@@ -103,7 +102,7 @@ public class Attacks : MonoBehaviour
 
         if (info.collider.name == thisCharacter.getOpponentName().ToString())
         {
-            inRange = false;
+            //inRange = false;
         }
     }
 }

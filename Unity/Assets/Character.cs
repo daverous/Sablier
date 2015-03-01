@@ -34,11 +34,10 @@ public class Character : MonoBehaviour
     
    
     private Vector3 moveDirection;
-    private Transform opponent; //Transform for opponent 
+    //private Transform opponent; //Transform for opponent 
     private bool isGrounded = true;
     private playerNum pNum;
     private playerNum opponentName;
-	private bool MN = false;
     #endregion
 
 
@@ -51,13 +50,13 @@ public class Character : MonoBehaviour
 
         if (gameObject.tag == "Player")
         {
-            opponent = GameObject.FindWithTag("Player2").transform;
+            //opponent = GameObject.FindWithTag("Player2").transform;
             pNum = playerNum.Player;
             opponentName = playerNum.Player2;
         }
         else if (gameObject.tag == "Player2")
         {
-            opponent = GameObject.FindWithTag("Player").transform;
+            //opponent = GameObject.FindWithTag("Player").transform;
             pNum = playerNum.Player2;
             opponentName = playerNum.Player;
         }
@@ -133,8 +132,8 @@ public class Character : MonoBehaviour
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump 1") == 1 && isGrounded)
             {
-                rigidbody.AddForce (0, jumpForce, 0);
-                Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
+                GetComponent<Rigidbody>().AddForce (0, jumpForce, 0);
+                //Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
                 //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
@@ -149,8 +148,8 @@ public class Character : MonoBehaviour
 
             if (Input.GetAxis("Jump 2") == 1 && isGrounded)
             {
-                rigidbody.AddForce(0, jumpForce, 0);
-                Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
+                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
+                //Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
                 //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
@@ -184,7 +183,7 @@ public class Character : MonoBehaviour
         //transform.RotateAround(opponent.position, Vector3.up, -1 * horizontal * (moveSpeed) * Time.deltaTime);
         #endregion
 
-			rigidbody.MovePosition(rigidbody.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
 
     }
 
