@@ -48,7 +48,6 @@ public class Character : MonoBehaviour
     void Start()
     {
         dead = false;
-        inRange = false;
 
         if (gameObject.tag == "Player")
         {
@@ -66,10 +65,6 @@ public class Character : MonoBehaviour
         curhealth = maxHealth;
     }
 
-    public bool isInRange()
-    {
-        return inRange;
-    }
     public float getCurHealthAsPercentage()
     {
         return 100*(curhealth / maxHealth);
@@ -82,10 +77,7 @@ public class Character : MonoBehaviour
             isGrounded = true;
         }
             
-        if (other.collider.name == opponentName.ToString())
-        {
-            inRange = true;
-        }
+        
     }
 
     public bool isCharacterGrounded()
@@ -106,10 +98,6 @@ public class Character : MonoBehaviour
             isGrounded = false;
         }
 
-        if (info.collider.name == opponentName.ToString())
-        {
-            inRange = false;
-        }
     }
 
     public void beenHit(float damage)
