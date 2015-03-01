@@ -75,7 +75,8 @@ public class Attacks : MonoBehaviour
     {
         if (other.collider.name == thisCharacter.getOpponentName().ToString())
         {
-            switch(curAttack) {
+            switch (curAttack)
+            {
                 case AttackType.Empty:
                     break;
                 case AttackType.Heavy:
@@ -92,8 +93,9 @@ public class Attacks : MonoBehaviour
                 default:
                     break;
 
+            }
+            curAttack = AttackType.Empty;
         }
-        curAttack = AttackType.Empty;
     }
 
     void OnCollisionExit(Collision info)
