@@ -24,6 +24,11 @@ public class Attacks : MonoBehaviour {
                 if (Input.GetAxis("QuickAttack1") == 1) {
                     GameObject.FindGameObjectWithTag(thisCharacter.opponentName.ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                 }
+
+                if (Input.GetAxis("HeavyAttack1") == 1)
+                {
+
+                }
             }
 #endregion
             else if (thisCharacterTag == "Player2")
