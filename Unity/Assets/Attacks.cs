@@ -7,7 +7,8 @@ public class Attacks : MonoBehaviour {
     private string thisCharacterTag;
 
 
-    private float quickAttackDamage = 5;
+    public float quickAttackDamage = 5;
+    public float heavyAttackDamage = 10; 
 	// Use this for initialization
 	void Start () {
         thisCharacterTag = transform.parent.tag;
@@ -22,12 +23,19 @@ public class Attacks : MonoBehaviour {
         #region player1
             {
                 if (Input.GetAxis("QuickAttack1") == 1) {
-                    GameObject.FindGameObjectWithTag(thisCharacter.opponentName.ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
+                    GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
+                    thisCharacter.incrementHits();
                 }
 
                 if (Input.GetAxis("HeavyAttack1") == 1)
                 {
+                    GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
+                    thisCharacter.incrementHits();
+                }
 
+                if (Input.GetAxis("PowerMove1") == 1)
+                {
+                    //TODO implement
                 }
             }
 #endregion

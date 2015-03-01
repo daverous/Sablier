@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
 	private float horizontal2 = 0.0f;
 	private float vertical2 = 0.0f;
     public float Weight;
-    public float jumpForce = 500f;
+    public float jumpForce = 350f;
     
     
    
@@ -37,7 +37,7 @@ public class Character : MonoBehaviour
     private Transform opponent; //Transform for opponent 
     private bool isGrounded = true;
     private playerNum pNum;
-    public playerNum opponentName;
+    private playerNum opponentName;
 	private bool MN = false;
     #endregion
 
@@ -85,8 +85,6 @@ public class Character : MonoBehaviour
         if (other.collider.name == opponentName.ToString())
         {
             inRange = true;
-            GameObject.FindGameObjectWithTag(opponentName.ToString()).GetComponent<Character>().beenHit(Damage);
-            Debug.Log(pNum.ToString() + ": " + curhealth);
         }
     }
 
@@ -123,7 +121,12 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void hitOther()
+    public playerNum getOpponentName()
+    {
+        return opponentName;
+    }
+
+    public void incrementHits()
     {
         hits++;
     }
@@ -139,15 +142,15 @@ public class Character : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
-            Debug.Log(vertical);
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump 1") == 1 && isGrounded)
             {
-                //rigidbody.AddForce (0, jumpForce, 0);
+                rigidbody.AddForce (0, jumpForce, 0);
                 Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
-                rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+                //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+                //rigidbody.transform.position
             }
         }
         else if (gameObject.tag == "Player2")
