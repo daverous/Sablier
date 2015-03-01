@@ -138,7 +138,6 @@ public class Character : MonoBehaviour
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
                 //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
-                //rigidbody.transform.position
             }
         }
         else if (gameObject.tag == "Player2")
@@ -150,11 +149,11 @@ public class Character : MonoBehaviour
 
             if (Input.GetAxis("Jump 2") == 1 && isGrounded)
             {
-                //rigidbody.AddForce (0, jumpForce, 0);
+                rigidbody.AddForce(0, jumpForce, 0);
                 Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
-                rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+                //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
             }
         }
     }
