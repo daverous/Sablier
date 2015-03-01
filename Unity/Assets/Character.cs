@@ -139,6 +139,7 @@ public class Character : MonoBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
+            Debug.Log(vertical);
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump 1") == 1 && isGrounded)
             {
