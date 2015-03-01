@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     private bool dead; 
     private float maxVelocity = 20f;
     private float moveSpeed = 15f;
+    private bool inRange; 
     public float maxHealth = 100f;
 
     private float horizontal = 0.0f;
@@ -34,9 +35,9 @@ public class Character : MonoBehaviour
    
     private Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
-    public bool isGrounded = true;
+    private bool isGrounded = true;
     private playerNum pNum;
-    private playerNum opponentName;
+    public playerNum opponentName;
 	private bool MN = false;
     #endregion
 
@@ -47,6 +48,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         dead = false;
+        inRange = false;
 
         if (gameObject.tag == "Player")
         {
@@ -64,7 +66,10 @@ public class Character : MonoBehaviour
         curhealth = maxHealth;
     }
 
-
+    public bool isInRange()
+    {
+        return inRange;
+    }
     public float getCurHealthAsPercentage()
     {
         return 100*(curhealth / maxHealth);
@@ -79,9 +84,16 @@ public class Character : MonoBehaviour
             
         if (other.collider.name == opponentName.ToString())
         {
+            inRange = true;
             GameObject.FindGameObjectWithTag(opponentName.ToString()).GetComponent<Character>().beenHit(Damage);
             Debug.Log(pNum.ToString() + ": " + curhealth);
         }
+    }
+
+    public bool isCharacterGrounded()
+    {
+        return isGrounded;
+
     }
 
 
@@ -95,9 +107,14 @@ public class Character : MonoBehaviour
         {
             isGrounded = false;
         }
+
+        if (info.collider.name == opponentName.ToString())
+        {
+            inRange = false;
+        }
     }
 
-    void beenHit(float damage)
+    public void beenHit(float damage)
     {
         curhealth -= damage;
         if (curhealth <= 0)
@@ -106,7 +123,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    void hitOther()
+    public void hitOther()
     {
         hits++;
     }
@@ -114,24 +131,39 @@ public class Character : MonoBehaviour
     void Update()
     {
 		//horizontal = 0;
-		horizontal = Input.GetAxis("Horizontal");
-		vertical = Input.GetAxis("Vertical");
-		horizontal2 = Input.GetAxis("Horizontal2");
-		vertical2 = Input.GetAxis("Vertical2");
+		
+		
      // TODO add different axis for each controller
 
-		if (gameObject.tag == "Player")
-        	moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-		else if (gameObject.tag == "Player2")
-			moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (gameObject.tag == "Player")
         {
-            //rigidbody.AddForce (0, jumpForce, 0);
-            Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
-            //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
-            //Vector3 jumpVec = this.transform.position - pl
-            rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+            moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+            if (Input.GetAxis("Jump 1") == 1 && isGrounded)
+            {
+                //rigidbody.AddForce (0, jumpForce, 0);
+                Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
+                //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
+                //Vector3 jumpVec = this.transform.position - pl
+                rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+            }
+        }
+        else if (gameObject.tag == "Player2")
+        {
+            horizontal2 = Input.GetAxis("Horizontal2");
+            vertical2 = Input.GetAxis("Vertical2");
+            moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
+
+
+            if (Input.GetAxis("Jump 2") == 1 && isGrounded)
+            {
+                //rigidbody.AddForce (0, jumpForce, 0);
+                Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
+                //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
+                //Vector3 jumpVec = this.transform.position - pl
+                rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+            }
         }
     }
 

@@ -16,4 +16,11 @@ public class GravityAttractor : MonoBehaviour {
         body.rigidbody.AddForce(target * gravity);
     }
 
+    public void AttractObject(Transform body) {
+        Vector3 target = (body.position - transform.position).normalized;
+        body.rigidbody.AddForce(target * gravity);
+    
+    }
+
+    //TODO make new gravity script
 }
