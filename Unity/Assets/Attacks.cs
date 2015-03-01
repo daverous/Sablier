@@ -21,6 +21,7 @@ public class Attacks : MonoBehaviour
     }
     void Start()
     {
+        curAttack = AttackType.Empty;
         inRange = false;
         thisCharacterTag = transform.parent.tag;
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
