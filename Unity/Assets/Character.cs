@@ -132,11 +132,11 @@ public class Character : MonoBehaviour
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump 1") == 1 && isGrounded)
             {
-                GetComponent<Rigidbody>().AddForce (0, jumpForce, 0);
-                //Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
+                //GetComponent<Rigidbody>().AddForce (0, jumpForce, 0);
+                Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
-                //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+                GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
             }
         }
         else if (gameObject.tag == "Player2")
@@ -148,11 +148,12 @@ public class Character : MonoBehaviour
 
             if (Input.GetAxis("Jump 2") == 1 && isGrounded)
             {
-                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
-                //Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
+                //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
+                Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
-                //rigidbody.transform.position += jumpVec * Time.deltaTime * 5;
+				//Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
+				GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
             }
         }
     }
