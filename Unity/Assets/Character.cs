@@ -217,5 +217,10 @@ public class Character : MonoBehaviour
         return pNum;
     }
 
+    public bool isDead()
+    {
+        return dead;
+    }
+
 }
     #endregion
