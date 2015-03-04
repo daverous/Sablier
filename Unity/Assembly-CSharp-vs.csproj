@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\GravityBody.cs" />
      <Compile Include="Assets\Scripts\PlayerTestScripts\SceneViewCameraFollower.cs" />
+     <Compile Include="Assets\hits1Script.cs" />
      <Compile Include="Assets\lowpolyblocks\scripts\MouseLook.cs" />
      <Compile Include="Assets\planet.cs" />
      <None Include="Assets\Earthborn Troll\Shader\Alpha_Texture.shader" />
