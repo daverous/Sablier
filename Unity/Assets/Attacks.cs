@@ -114,10 +114,11 @@ public class Attacks : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("here");   
-        Debug.Log(other.transform.root.name);
-        if (other.collider.name == thisCharacter.getOpponentName().ToString())
+        //Debug.Log(other.transform.root.name);
+        if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
+            (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
         {
+
             switch (curAttack)
             {
                 case AttackType.Empty:

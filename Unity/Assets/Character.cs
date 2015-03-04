@@ -135,7 +135,6 @@ public class Character : MonoBehaviour
 		}
 
         curhealth -= damage;
-        Debug.Log("aaaa");
         if (curhealth <= 0)
         {
             dead = true;
