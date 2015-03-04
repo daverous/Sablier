@@ -19,7 +19,13 @@ public class Character : MonoBehaviour
 
 
 
-	public Image VisualHealth;
+	public Image VisualHealth1;
+	public Image VisualHealth2;
+	public Image VisualHealth3;
+	public Image VisualHealth4;
+
+	public Text hit1;
+	public Text hit2;
 
     private float curhealth;
     private int hits;
@@ -88,11 +94,13 @@ public class Character : MonoBehaviour
 			//Debug.Log("hit ground");
             isGrounded = true;
         }
-        //if (other.gameObject.name == "Player" || other.gameObject.name == "Player2") {
-        //    Debug.Log("hit others");
-        //    VisualHealth.fillAmount = VisualHealth.fillAmount - 0.1f;
 
-        //}
+
+		/*if (other.gameObject.name == "Player") {
+			Debug.Log("hit others");
+			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
+			//this.beenHit(0.1f);
+		}*/
         
     }
 
@@ -118,8 +126,16 @@ public class Character : MonoBehaviour
 
     public void beenHit(float damage)
     {
+		if (gameObject.tag == "Player") {
+			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
+			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
+		} else if (gameObject.tag == "Player2") {
+			VisualHealth2.fillAmount = VisualHealth1.fillAmount - 0.1f;
+			VisualHealth3.fillAmount = VisualHealth4.fillAmount - 0.1f;
+		}
+
         curhealth -= damage;
-        Debug.Log(pNum.ToString() + curhealth.ToString());
+        Debug.Log("aaaa");
         if (curhealth <= 0)
         {
             dead = true;
