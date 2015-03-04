@@ -16,20 +16,8 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
-	public RectTransform healthTransform;
-	private float cachedY;
-	private float minXValue;
-	private float maxXValue;
-	public int maxHealthf;
-	private int currentHealth;
 
-	private int CurrentHealth{
-		get {return currentHealth;}
-		set {
-			currentHealth = value;
-			HandleHealth();
-		}
-	}
+
 
 	public Image VisualHealth;
 
@@ -79,24 +67,14 @@ public class Character : MonoBehaviour
         }
         // inits cur health as max health
         curhealth = maxHealth;
-		cachedY = healthTransform.position.y;
-		maxXValue = healthTransform.position.x;
-		minXValue = healthTransform.position.x - healthTransform.rect.width;
-		currentHealth = maxHealthf;
+
 
 
     }
 
-	private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
 
-		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-	}
 
-	private void HandleHealth(){
-		float currentXValue = MapValues (currentHealth, 0, maxHealthf, minXValue, maxXValue);
-		healthTransform.position = new Vector3 (currentXValue, cachedY);
 
-	}
 
 
     public float getCurHealthAsPercentage()
@@ -108,9 +86,14 @@ public class Character : MonoBehaviour
     {
         if (other.collider.name == "planet")
         {
+			//Debug.Log("hit ground");
             isGrounded = true;
         }
-            
+		if (other.gameObject.name == "Player" || other.gameObject.name == "Player2") {
+			Debug.Log("hit others");
+			VisualHealth.fillAmount = VisualHealth.fillAmount - 0.1f;
+
+		}
         
     }
 
@@ -156,7 +139,7 @@ public class Character : MonoBehaviour
     void Update()
     {
 		//horizontal = 0;
-		
+
 		
      // TODO add different axis for each controller
 
