@@ -119,6 +119,7 @@ public class Character : MonoBehaviour
     public void beenHit(float damage)
     {
         curhealth -= damage;
+        Debug.Log(pNum.ToString() + curhealth.ToString());
         if (curhealth <= 0)
         {
             dead = true;

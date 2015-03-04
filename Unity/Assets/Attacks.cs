@@ -23,7 +23,8 @@ public class Attacks : MonoBehaviour
     {
         curAttack = AttackType.Empty;
         //inRange = false;
-        thisCharacterTag = transform.tag;
+        thisCharacterTag = transform.root.tag;
+        Debug.Log(thisCharacterTag);
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
         animator =  GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
     }
@@ -39,12 +40,14 @@ public class Attacks : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                 thisCharacter.incrementHits();
+                curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
 				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
 				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
 					animator.SetBool("Chain", true);
 			}
             if(Input.GetAxis("QuickAttack1") == 0){
+                curAttack = AttackType.Empty;
 				animator.SetBool("Chain", false);
 			}
 
@@ -70,6 +73,7 @@ public class Attacks : MonoBehaviour
 
             if (Input.GetAxis("QuickAttack2") == 1)
             {
+                curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
 				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
 				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
@@ -77,6 +81,7 @@ public class Attacks : MonoBehaviour
             }
             if (Input.GetAxis("QuickAttack2") == 0)
             {
+                curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
             }
 
