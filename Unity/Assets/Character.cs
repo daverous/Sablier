@@ -16,15 +16,11 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
-<<<<<<< HEAD
-   
-=======
 
 
 
 	public Image VisualHealth;
 
->>>>>>> a52d5698ca3c67807d9a902271e903c5f33eee51
     private float curhealth;
     private int hits;
     private bool dead; 
@@ -39,8 +35,6 @@ public class Character : MonoBehaviour
 	private float vertical2 = 0.0f;
     public float Weight;
     public float jumpForce = 350f;
-
-	private Animator animator;
    
     public Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
@@ -73,12 +67,8 @@ public class Character : MonoBehaviour
         // inits cur health as max health
         curhealth = maxHealth;
 
-<<<<<<< HEAD
-		animator = GetComponent<Animator>();
-=======
+		
 
-
->>>>>>> a52d5698ca3c67807d9a902271e903c5f33eee51
     }
 
 
@@ -151,7 +141,7 @@ public class Character : MonoBehaviour
 
 		
      // TODO add different axis for each controller
-		animator.SetLookAtPosition(opponent.position);
+		
 //		this.transform.LookAt(opponent.position);
         if (gameObject.tag == "Player")
         {
@@ -166,26 +156,9 @@ public class Character : MonoBehaviour
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
                 GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
-            }
-//			Attack Animations
-			if(Input.GetButtonDown("QuickAttack1")){
-				animator.SetBool("Attacking", true);
-				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
-				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
-					animator.SetBool("Chain", true);
-			}
-			if(Input.GetButtonUp("QuickAttack1")){
-				animator.SetBool("Chain", false);
-			}
+            }			
 		
-			if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
-			   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")){
-				animator.SetBool("Attacking", false);
-				if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f&&
-				   animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.1f){
-					animator.SetBool("Chain", false);
-				}
-			}
+			
         }
         else if (gameObject.tag == "Player2")
         {
@@ -203,34 +176,8 @@ public class Character : MonoBehaviour
 				//Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
 				GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
             }
-			//			Attack Animations
-			if(Input.GetButtonDown("QuickAttack2")){
-				animator.SetBool("Attacking", true);
-				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
-				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
-					animator.SetBool("Chain", true);
-			}
-			if(Input.GetButtonUp("QuickAttack2")){
-				animator.SetBool("Chain", false);
-			}
 			
-			if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
-			   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")){
-				animator.SetBool("Attacking", false);
-				if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f&&
-				   animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.1f){
-					animator.SetBool("Chain", false);
-				}
-			}
         }
-//		Run Animations
-		if(moveDirection != Vector3.zero){
-			animator.SetBool("Running", true);
-		}
-		if(moveDirection == Vector3.zero){
-			animator.SetBool("Running", false);
-		}
-
 
     }
 

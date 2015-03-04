@@ -12,6 +12,7 @@ public class Attacks : MonoBehaviour
     public float heavyAttackDamage = 10f;
 
     private AttackType curAttack;
+    private Animator animator;
     // Use this for initialization
 
     public enum AttackType
@@ -22,8 +23,9 @@ public class Attacks : MonoBehaviour
     {
         curAttack = AttackType.Empty;
         //inRange = false;
-        thisCharacterTag = transform.parent.tag;
+        thisCharacterTag = transform.tag;
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
+        animator =  GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,16 @@ public class Attacks : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                 thisCharacter.incrementHits();
+                animator.SetBool("Attacking", true);
+				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
+				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+					animator.SetBool("Chain", true);
+			}
+            if(Input.GetAxis("QuickAttack1") == 0){
+				animator.SetBool("Chain", false);
+			}
+
+            
             }
 
             if (Input.GetAxis("HeavyAttack1") == 1)
@@ -49,7 +61,7 @@ public class Attacks : MonoBehaviour
             {
                 //TODO implement
             }
-        }
+        
         #endregion
         else if (thisCharacterTag == "Player2")
         {
@@ -58,13 +70,40 @@ public class Attacks : MonoBehaviour
 
             if (Input.GetAxis("QuickAttack2") == 1)
             {
-
+                animator.SetBool("Attacking", true);
+				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
+				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+					animator.SetBool("Chain", true);
             }
+            if (Input.GetAxis("QuickAttack2") == 0)
+            {
+                animator.SetBool("Chain", false);
+            }
+
 
 
 
             #endregion
         }
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
+                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+            {
+                animator.SetBool("Attacking", false);
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f &&
+                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.1f)
+                {
+                    animator.SetBool("Chain", false);
+                }
+            }
+            //		Run Animations
+            if (thisCharacter.moveDirection != Vector3.zero)
+            {
+                animator.SetBool("Running", true);
+            }
+            if (thisCharacter.moveDirection == Vector3.zero)
+            {
+                animator.SetBool("Running", false);
+            }
     }
 
 
