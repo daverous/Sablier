@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 #region structs
 public enum playerNum
@@ -15,8 +16,24 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
-   
-     private float curhealth;
+	public RectTransform healthTransform;
+	private float cachedY;
+	private float minXValue;
+	private float maxXValue;
+	public int maxHealthf;
+	private int currentHealth;
+
+	private int CurrentHealth{
+		get {return currentHealth;}
+		set {
+			currentHealth = value;
+			HandleHealth();
+		}
+	}
+
+	public Image VisualHealth;
+
+    private float curhealth;
     private int hits;
     private bool dead; 
     private float maxVelocity = 20f;
@@ -62,7 +79,25 @@ public class Character : MonoBehaviour
         }
         // inits cur health as max health
         curhealth = maxHealth;
+		cachedY = healthTransform.position.y;
+		maxXValue = healthTransform.position.x;
+		minXValue = healthTransform.position.x - healthTransform.rect.width;
+		currentHealth = maxHealthf;
+
+
     }
+
+	private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
+
+		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+	}
+
+	private void HandleHealth(){
+		float currentXValue = MapValues (currentHealth, 0, maxHealthf, minXValue, maxXValue);
+		healthTransform.position = new Vector3 (currentXValue, cachedY);
+
+	}
+
 
     public float getCurHealthAsPercentage()
     {
