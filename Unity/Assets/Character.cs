@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 #region structs
 public enum playerNum
@@ -15,7 +16,15 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
+<<<<<<< HEAD
    
+=======
+
+
+
+	public Image VisualHealth;
+
+>>>>>>> a52d5698ca3c67807d9a902271e903c5f33eee51
     private float curhealth;
     private int hits;
     private bool dead; 
@@ -64,8 +73,18 @@ public class Character : MonoBehaviour
         // inits cur health as max health
         curhealth = maxHealth;
 
+<<<<<<< HEAD
 		animator = GetComponent<Animator>();
+=======
+
+
+>>>>>>> a52d5698ca3c67807d9a902271e903c5f33eee51
     }
+
+
+
+
+
 
     public float getCurHealthAsPercentage()
     {
@@ -76,9 +95,14 @@ public class Character : MonoBehaviour
     {
         if (other.collider.name == "planet")
         {
+			//Debug.Log("hit ground");
             isGrounded = true;
         }
-            
+		if (other.gameObject.name == "Player" || other.gameObject.name == "Player2") {
+			Debug.Log("hit others");
+			VisualHealth.fillAmount = VisualHealth.fillAmount - 0.1f;
+
+		}
         
     }
 
@@ -124,7 +148,7 @@ public class Character : MonoBehaviour
     void Update()
     {
 		//horizontal = 0;
-		
+
 		
      // TODO add different axis for each controller
 		animator.SetLookAtPosition(opponent.position);
