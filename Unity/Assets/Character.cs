@@ -88,11 +88,11 @@ public class Character : MonoBehaviour
 			//Debug.Log("hit ground");
             isGrounded = true;
         }
-		if (other.gameObject.name == "Player" || other.gameObject.name == "Player2") {
-			Debug.Log("hit others");
-			VisualHealth.fillAmount = VisualHealth.fillAmount - 0.1f;
+        //if (other.gameObject.name == "Player" || other.gameObject.name == "Player2") {
+        //    Debug.Log("hit others");
+        //    VisualHealth.fillAmount = VisualHealth.fillAmount - 0.1f;
 
-		}
+        //}
         
     }
 
@@ -150,13 +150,13 @@ public class Character : MonoBehaviour
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-            if (Input.GetAxis("Jump 1") == 1 && isGrounded)
+            if (Input.GetAxis("Jump1") == 1 && isGrounded)
             {
                 //GetComponent<Rigidbody>().AddForce (0, jumpForce, 0);
-                Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
+                Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
-                GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
+                GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
             }			
 		
 			
@@ -168,14 +168,14 @@ public class Character : MonoBehaviour
             moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
 
 
-            if (Input.GetAxis("Jump 2") == 1 && isGrounded)
+            if (Input.GetAxis("Jump2") == 1 && isGrounded)
             {
                 //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
-                Vector3 jumpVec = GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
+                Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
 				//Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
-				GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
+                GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
             }
 			
         }
@@ -209,7 +209,7 @@ public class Character : MonoBehaviour
         #endregion
 
 			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
-		Debug.Log(pNum+": "+moveDirection);
+        //Debug.Log(pNum+": "+moveDirection);
     }
 
     public playerNum getPNum()

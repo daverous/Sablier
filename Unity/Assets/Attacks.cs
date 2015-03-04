@@ -24,9 +24,8 @@ public class Attacks : MonoBehaviour
         curAttack = AttackType.Empty;
         //inRange = false;
         thisCharacterTag = transform.root.tag;
-        Debug.Log(thisCharacterTag);
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
-        animator =  GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
+        animator = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,35 +37,34 @@ public class Attacks : MonoBehaviour
         {
             if (Input.GetAxis("QuickAttack1") == 1)
             {
-                GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                 thisCharacter.incrementHits();
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
-				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
-				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
-					animator.SetBool("Chain", true);
-			}
-            if(Input.GetAxis("QuickAttack1") == 0){
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
+                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+                    animator.SetBool("Chain", true);
+            }
+            if (Input.GetAxis("QuickAttack1") == 0)
+            {
                 curAttack = AttackType.Empty;
-				animator.SetBool("Chain", false);
-			}
-
-            
+                animator.SetBool("Chain", false);
             }
 
-            if (Input.GetAxis("HeavyAttack1") == 1)
-            {
-                GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
-                thisCharacter.incrementHits();
-            }
 
-            if (Input.GetAxis("PowerMove1") == 1)
-            {
-                //TODO implement
-            }
-        
+        }
+
+        if (Input.GetAxis("HeavyAttack1") == 1)
+        {
+            thisCharacter.incrementHits();
+        }
+
+        if (Input.GetAxis("PowerMove1") == 1)
+        {
+            //TODO implement
+        }
+
         #endregion
-        else if (thisCharacterTag == "Player2")
+        if (thisCharacterTag == "Player2")
         {
 
             #region player2
@@ -75,9 +73,9 @@ public class Attacks : MonoBehaviour
             {
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
-				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")||
-				   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
-					animator.SetBool("Chain", true);
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
+                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+                    animator.SetBool("Chain", true);
             }
             if (Input.GetAxis("QuickAttack2") == 0)
             {
@@ -90,25 +88,25 @@ public class Attacks : MonoBehaviour
 
             #endregion
         }
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
-                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+        {
+            animator.SetBool("Attacking", false);
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f &&
+               animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.1f)
             {
-                animator.SetBool("Attacking", false);
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f &&
-                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.1f)
-                {
-                    animator.SetBool("Chain", false);
-                }
+                animator.SetBool("Chain", false);
             }
-            //		Run Animations
-            if (thisCharacter.moveDirection != Vector3.zero)
-            {
-                animator.SetBool("Running", true);
-            }
-            if (thisCharacter.moveDirection == Vector3.zero)
-            {
-                animator.SetBool("Running", false);
-            }
+        }
+        //		Run Animations
+        if (thisCharacter.moveDirection != Vector3.zero)
+        {
+            animator.SetBool("Running", true);
+        }
+        if (thisCharacter.moveDirection == Vector3.zero)
+        {
+            animator.SetBool("Running", false);
+        }
     }
 
 
@@ -116,6 +114,8 @@ public class Attacks : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        Debug.Log("here");   
+        Debug.Log(other.transform.root.name);
         if (other.collider.name == thisCharacter.getOpponentName().ToString())
         {
             switch (curAttack)
@@ -123,6 +123,7 @@ public class Attacks : MonoBehaviour
                 case AttackType.Empty:
                     break;
                 case AttackType.Heavy:
+                    Debug.Log("heavy");
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
                     thisCharacter.incrementHits();
                     break;
@@ -130,6 +131,7 @@ public class Attacks : MonoBehaviour
                     // TODO implement
                     break;
                 case AttackType.Quick:
+                    Debug.Log("quick attack");
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
                     break;
