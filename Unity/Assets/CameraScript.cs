@@ -49,11 +49,11 @@ public class CameraScript : MonoBehaviour
         if (thisChar.getPNum().ToString() == "Player") {
             locked = Input.GetAxis("Lock1");
             xAxisValue = Input.GetAxis("CameraHor1");
-             zAxisValue = Input.GetAxis("CamerVer1");
+             zAxisValue = Input.GetAxis("CameraVer1");
         }
         if (thisChar.getPNum().ToString() == "Player2") {
             xAxisValue = Input.GetAxis("CameraHor2");
-            zAxisValue = Input.GetAxis("CamerVer2");
+            zAxisValue = Input.GetAxis("CameraVer2");
             locked = Input.GetAxis("Lock2");
         }
 #endregion
