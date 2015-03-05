@@ -14,6 +14,8 @@ public class CameraScript : MonoBehaviour
     public float speed = 5f;
     private float vertLock;
     private CamStates camState;
+    float zAxisValue;
+    float xAxisValue;
     Character thisChar;
 
     #region properties
@@ -46,8 +48,12 @@ public class CameraScript : MonoBehaviour
 #region get input
         if (thisChar.getPNum().ToString() == "Player") {
             locked = Input.GetAxis("Lock1");
+            xAxisValue = Input.GetAxis("CameraHor1");
+             zAxisValue = Input.GetAxis("CamerVer1");
         }
         if (thisChar.getPNum().ToString() == "Player2") {
+            xAxisValue = Input.GetAxis("CameraHor2");
+            zAxisValue = Input.GetAxis("CamerVer2");
             locked = Input.GetAxis("Lock2");
         }
 #endregion
@@ -79,7 +85,7 @@ public class CameraScript : MonoBehaviour
                      follow = targetPoint + charTransform.up * height - charTransform.forward * distance;
                     transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * speed);
                     //transform.position = new Vector3(this.transform.position.x, vertLock, this.transform.position.z);
-
+                    moveCamera();
                     transform.LookAt(targetPoint);
                      break;
             case CamStates.Locked:
@@ -105,8 +111,7 @@ public class CameraScript : MonoBehaviour
     //TODO add correct axis to this
     private void moveCamera()
     {
-        float xAxisValue = Input.GetAxis("Horizontal");
-        float zAxisValue = Input.GetAxis("Vertical");
+        
         if (Camera.current != null)
         {
             Camera.current.transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
