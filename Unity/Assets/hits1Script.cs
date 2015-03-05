@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class hits1Script : MonoBehaviour {
-    Text hits;
+    public Text hits;
     Character character;
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class hits1Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        float userHits = character.getHits();
+            float userHits = character.getHits();
             hits.text = ("hits:" + userHits.ToString());
             hits.text = ("hits:" + userHits.ToString());
     }

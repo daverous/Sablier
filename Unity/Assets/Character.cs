@@ -47,6 +47,7 @@ public class Character : MonoBehaviour
     private bool isGrounded = true;
     private playerNum pNum;
     private playerNum opponentName;
+    private bool isJumping; 
     #endregion
 
 
@@ -55,6 +56,7 @@ public class Character : MonoBehaviour
     #region Function
     void Start()
     {
+        isJumping = false;
         dead = false;
 
         if (gameObject.tag == "Player")
@@ -93,6 +95,7 @@ public class Character : MonoBehaviour
         {
 			//Debug.Log("hit ground");
             isGrounded = true;
+            isJumping = false;
         }
 
 
@@ -110,6 +113,14 @@ public class Character : MonoBehaviour
 
     }
 
+    public Transform getOpponentTransform() {
+        return opponent;
+    }
+
+    public bool isCharacterJumping()
+    {
+        return isJumping;
+    }
 
     public int getHits()
     {
@@ -167,6 +178,7 @@ public class Character : MonoBehaviour
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump1") == 1 && isGrounded)
             {
+                isJumping = true;
                 //GetComponent<Rigidbody>().AddForce (0, jumpForce, 0);
                 Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
