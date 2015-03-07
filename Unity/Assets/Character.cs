@@ -139,11 +139,11 @@ public class Character : MonoBehaviour
     public void beenHit(float damage)
     {
 		if (gameObject.tag == "Player") {
-			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
-			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
-		} else if (gameObject.tag == "Player2") {
 			VisualHealth2.fillAmount = VisualHealth1.fillAmount - 0.1f;
 			VisualHealth3.fillAmount = VisualHealth4.fillAmount - 0.1f;
+		} else if (gameObject.tag == "Player2") {
+			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
+			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
 		}
 
         curhealth -= damage;

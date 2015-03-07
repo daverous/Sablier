@@ -6,6 +6,7 @@ public class Attacks : MonoBehaviour
 
     private Character thisCharacter;
     private string thisCharacterTag;
+	private Character thisOpponent;
 
 
     public float quickAttackDamage = 5f;
@@ -25,6 +26,10 @@ public class Attacks : MonoBehaviour
         //inRange = false;
         thisCharacterTag = transform.root.tag;
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
+		if (gameObject.tag == "Player")
+			thisOpponent = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>();
+		else
+			thisOpponent = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         animator = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
     }
 
@@ -119,6 +124,7 @@ public class Attacks : MonoBehaviour
             (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
         {
 
+			thisOpponent.beenHit(.1f);
             switch (curAttack)
             {
                 case AttackType.Empty:
