@@ -34,6 +34,7 @@ public class Character : MonoBehaviour
     private float moveSpeed = 15f;
     private bool inRange; 
     public float maxHealth = 100f;
+    private float comboPower = 0f;
 
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
@@ -159,6 +160,14 @@ public class Character : MonoBehaviour
 
     public void incrementHits()
     {
+        if (comboPower <= 90)
+        {
+            comboPower += 10;
+        }
+        else
+        {
+            comboPower = 100;
+        }
         hits++;
     }
 
@@ -243,7 +252,10 @@ public class Character : MonoBehaviour
     {
         return pNum;
     }
-
+    public float getComboVal()
+    {
+        return comboPower;
+    }
     public bool isDead()
     {
         return dead;
