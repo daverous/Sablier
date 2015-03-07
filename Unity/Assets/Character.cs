@@ -138,12 +138,16 @@ public class Character : MonoBehaviour
 
     public void beenHit(float damage)
     {
+		//if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+		Debug.Log("got called");
 		if (gameObject.tag == "Player") {
-			VisualHealth2.fillAmount = VisualHealth1.fillAmount - 0.1f;
-			VisualHealth3.fillAmount = VisualHealth4.fillAmount - 0.1f;
-		} else if (gameObject.tag == "Player2") {
+			Debug.Log("Player got hit");
 			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
 			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
+		} else if (gameObject.tag == "Player2") {
+			Debug.Log("Player2 got hit");
+			VisualHealth2.fillAmount = VisualHealth2.fillAmount - 0.1f;
+			VisualHealth3.fillAmount = VisualHealth3.fillAmount - 0.1f;
 		}
 
         curhealth -= damage;

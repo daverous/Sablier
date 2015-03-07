@@ -14,6 +14,7 @@ public class Attacks : MonoBehaviour
 
     private AttackType curAttack;
     private Animator animator;
+	private Animator opponent_animator;
     // Use this for initialization
 
     public enum AttackType
@@ -31,12 +32,12 @@ public class Attacks : MonoBehaviour
 		else
 			thisOpponent = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         animator = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
+		opponent_animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (thisCharacterTag == "Player")
         #region player1
         {
@@ -114,23 +115,24 @@ public class Attacks : MonoBehaviour
         }
     }
 
-
-
-
+	
     void OnCollisionEnter(Collision other)
     {
-        //Debug.Log(other.transform.root.name);
-        if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
-            (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
+		//Debug.Log (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"));
+		//Debug.Log (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide"));
+		if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
+		    (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
+		if (other.transform.root.name == thisCharacter.getOpponentName().ToString())
+		//if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
         {
 
-			thisOpponent.beenHit(.1f);
+			thisOpponent.beenHit(.5f);
             switch (curAttack)
             {
                 case AttackType.Empty:
                     break;
                 case AttackType.Heavy:
-                    Debug.Log("heavy");
+                 
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
                     thisCharacter.incrementHits();
                     break;
@@ -138,7 +140,7 @@ public class Attacks : MonoBehaviour
                     // TODO implement
                     break;
                 case AttackType.Quick:
-                    Debug.Log("quick attack");
+           
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
                     break;
