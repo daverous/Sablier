@@ -138,8 +138,6 @@ public class Character : MonoBehaviour
 
     public void beenHit(float damage)
     {
-		//if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
-		Debug.Log("got called");
 		if (gameObject.tag == "Player") {
 			Debug.Log("Player got hit");
 			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
