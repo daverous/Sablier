@@ -1,31 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-
-
-
 public class CameraScript : MonoBehaviour
 {
-    public GameObject character;
-    private Transform charTransform;
-    public float height = 5f;
-    public float distance = 5f;
-    public float speed = 5f;
-    private float vertLock;
-    private CamStates camState;
-    float zAxisValue;
-    float xAxisValue;
-    Character thisChar;
+    public Transform CameraTarget;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
-    #region properties
+
+    public int ZoomRate = 20;
+    private int lerpRate = 5;
+    public float distance = 8f;
+    private float currentDistance;
+
+    private CamStates camState;
+    Character thisChar;
+    Vector2 rotationSpeed = new Vector2( 100, 50 );
+
+    public float cameraTargetHeight = 4.0f;
     public enum CamStates
     {
         Locked,          // Locked to other player
         Free,            // Free to move wherever
         Jumping         //jumping whenever character is jumping
     }
-
     public CamStates CamState
     {
         get
@@ -33,89 +31,108 @@ public class CameraScript : MonoBehaviour
             return this.camState;
         }
     }
-    #endregion
+    //checks if first person mode is on
+    private bool click = false;
+    //stores cameras distance from player
+
+    // Use this for initialization
     void Start()
     {
-        charTransform = character.transform;
-        camState = CamStates.Free;
-        thisChar = character.transform.root.GetComponent<Character>();
-        //vertLock = this.transform.position.y + height;
+        thisChar = CameraTarget.root.GetComponent<Character>();
+        Vector3 Angles = transform.eulerAngles;
+        x = Angles.x;
+        y = Angles.y;
+        currentDistance = distance;
     }
 
     void Update()
     {
-        float locked =0;
-#region get input
-        if (thisChar.getPNum().ToString() == "Player") {
+        float locked = 0;
+        if (thisChar.getPNum().ToString() == "Player")
+        {
+
             locked = Input.GetAxis("Lock1");
-            xAxisValue = Input.GetAxis("CameraHor1");
-             zAxisValue = Input.GetAxis("CameraVer1");
+            x = Input.GetAxis("CameraHor1");
+            y = Input.GetAxis("CameraVer1") ;
         }
-        if (thisChar.getPNum().ToString() == "Player2") {
-            xAxisValue = Input.GetAxis("CameraHor2");
-            zAxisValue = Input.GetAxis("CameraVer2");
+        if (thisChar.getPNum().ToString() == "Player2")
+        {
+            x = Input.GetAxis("CameraHor2");
+            y = Input.GetAxis("CameraVer2");
             locked = Input.GetAxis("Lock2");
         }
-#endregion
-        //change states
-        if (thisChar.isCharacterJumping())
+        //Debug.Log("locked" + locked);
+        if (locked > 0.3)
         {
-            camState = CamStates.Jumping;
-        }
-        if (locked == 1)
-        {
-            camState = CamStates.Locked; 
+            camState = CamStates.Locked;
         }
         else
         {
             camState = CamStates.Free;
         }
-
     }
+
+    // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 targetPoint;
-        Vector3 follow;
-        // TODO      Pull values from controller/keyboard to check if Cam state should be Locked
-        switch (CamState)
+        // Rotate the camera
+        Vector2 camRotation = Vector2.zero;
+        camRotation = new Vector2(x, y);
+        camRotation.x *= rotationSpeed.x;
+        camRotation.y *= rotationSpeed.y;
+        camRotation *= Time.deltaTime;
+
+        // Rotate the character around world-y using x-axis of joystick
+        CameraTarget.Rotate(0, camRotation.x, 0, Space.World);
+        // Rotate only the camera with y-axis input
+        transform.Rotate(-camRotation.y, 0, 0);
+
+            float targetRotantionAngle = CameraTarget.eulerAngles.y;
+            float cameraRotationAngle = transform.eulerAngles.y;
+            x = Mathf.LerpAngle(cameraRotationAngle, targetRotantionAngle, lerpRate * Time.deltaTime);
+
+        y = ClampAngle(y, -15, 25);
+        Quaternion rotation = Quaternion.Euler(y, x, 0);
+
+        Vector3 position = CameraTarget.position - (rotation * Vector3.forward * distance);
+
+        RaycastHit collisionHit;
+        Vector3 cameraTargetPosition = new Vector3(CameraTarget.position.x, CameraTarget.position.y + cameraTargetHeight, CameraTarget.position.z);
+
+      
+
+
+
+        position = CameraTarget.position - (rotation * Vector3.forward * currentDistance + new Vector3(0, -cameraTargetHeight, 0));
+
+        transform.rotation = rotation;
+        transform.position = position;
+
+
+        //float cameraX = transform.rotation.x;
+
+        if (camState == CamStates.Locked)
         {
-            case CamStates.Free:
-                     targetPoint = charTransform.position;
-                    //you need to rotate the camera around the center of the sphere, the opposite of rot        
-                     follow = targetPoint + charTransform.up * height - charTransform.forward * distance;
-                    transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * speed);
-                    //transform.position = new Vector3(this.transform.position.x, vertLock, this.transform.position.z);
-                    moveCamera();
-                    transform.LookAt(targetPoint);
-                     break;
-            case CamStates.Locked:
-                Vector3 targetPoint2 = thisChar.getOpponentTransform().position;
-                     targetPoint = charTransform.position;
-                    //you need to rotate the camera around the center of the sphere, the opposite of rot        
-                     follow = targetPoint + charTransform.up * height - charTransform.forward * distance;
-                    transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * speed);
-                    transform.LookAt(targetPoint2);
-                break;
-            case CamStates.Jumping:
-
-                break;
-            default:
-                break;
-
+            //sets CHARACTERS x rotation to match cameras x rotation
+            //Debug.Log("LOCKED CAM ");
+            transform.LookAt(thisChar.getOpponentTransform());
         }
-        // make camera look at center of sphere
-        //rotatingCamera.transform.LookAt(transform.position);
+        else
+        {
+            //Debug.Log("UNLOCKED CAM ");
+        }
     }
 
-
-    //TODO add correct axis to this
-    private void moveCamera()
+    private static float ClampAngle(float angle, float min, float max)
     {
-        
-        if (Camera.current != null)
+        if (angle < -360)
         {
-            Camera.current.transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
+            angle += 360;
         }
+        if (angle > 360)
+        {
+            angle -= 360;
+        }
+        return Mathf.Clamp(angle, min, max);
     }
-
 }
