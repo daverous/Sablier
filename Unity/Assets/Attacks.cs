@@ -122,11 +122,11 @@ public class Attacks : MonoBehaviour
 		//Debug.Log (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide"));
 		if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
 		    (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
-		if (other.transform.root.name == thisCharacter.getOpponentName().ToString())
+		//if (other.transform.root.name == thisCharacter.getOpponentName().ToString())
 		//if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
         {
 
-			thisOpponent.beenHit(.5f);
+			thisOpponent.beenHit(.1f);
             switch (curAttack)
             {
                 case AttackType.Empty:
