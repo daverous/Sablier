@@ -41,7 +41,7 @@ public class Character : MonoBehaviour
 	private float horizontal2 = 0.0f;
 	private float vertical2 = 0.0f;
     public float Weight;
-    public float jumpForce = 350f;
+    public float jumpForce = 0.1f;
    
     public Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
@@ -190,11 +190,11 @@ public class Character : MonoBehaviour
             if (Input.GetAxis("Jump1") == 1 && isGrounded)
             {
                 isJumping = true;
-                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
-                //Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
-                //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
-                //Vector3 jumpVec = this.transform.position - pl
-                //GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
+                Rigidbody rb = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>();
+                //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
+                Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
+                //rb.transform.position += jumpVec * Time.deltaTime * 5;
+                rb.velocity = jumpVec * jumpForce;
             }			
 		
 			
@@ -208,14 +208,13 @@ public class Character : MonoBehaviour
 
             if (Input.GetAxis("Jump2") == 1 && isGrounded)
             {
+                isJumping = true;
+                Rigidbody rb = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>();
                 //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
-                Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
-                //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
-                //Vector3 jumpVec = this.transform.position - pl
-				//Vector3 jumpVec = rigidbody.transform.position - new Vector3(0, 0, 0);
-                GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
+                Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
+                //rb.transform.position += jumpVec * Time.deltaTime * 5;
+                rb.velocity = jumpVec * jumpForce;
             }
-			
         }
 
     }

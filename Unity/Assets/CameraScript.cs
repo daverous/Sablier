@@ -9,9 +9,8 @@ public class CameraScript : MonoBehaviour
 
 
     public int ZoomRate = 20;
-    private int lerpRate = 5;
+    private float lerpRate = 0.01f;
     public float distance = 8f;
-    private float currentDistance;
 
     private CamStates camState;
     Character thisChar;
@@ -32,7 +31,6 @@ public class CameraScript : MonoBehaviour
         }
     }
     //checks if first person mode is on
-    private bool click = false;
     //stores cameras distance from player
 
     // Use this for initialization
@@ -42,7 +40,6 @@ public class CameraScript : MonoBehaviour
         Vector3 Angles = transform.eulerAngles;
         x = Angles.x;
         y = Angles.y;
-        currentDistance = distance;
     }
 
     void Update()
@@ -64,7 +61,7 @@ public class CameraScript : MonoBehaviour
         //Debug.Log("locked" + locked);
         if (thisChar.isCharacterJumping())
         {
-            Debug.Log("jumping");
+            //Debug.Log("jumping");
             camState = CamStates.Jumping;
         }
         else if (locked > 0.3)
@@ -83,8 +80,11 @@ public class CameraScript : MonoBehaviour
     {
         if (camState == CamStates.Jumping)
         {
-            Vector3 follow = CameraTarget.position + CameraTarget.up * cameraTargetHeight - CameraTarget.forward * distance;
-            transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);  
+            Transform planetTrans = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
+            Vector3 pos = planetTrans.position - transform.position;
+        var newRot = Quaternion.LookRotation(pos);
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRot, lerpRate);
+            //transform.LookAt(planetTrans);
         }
         else
         {
@@ -98,38 +98,10 @@ public class CameraScript : MonoBehaviour
             //// Rotate the character around world-y using x-axis of joystick
             CameraTarget.root.Rotate(0, camRotation.x, 0, Space.World);
             //// Rotate only the camera with y-axis input
-            transform.Rotate(-camRotation.y, -camRotation.x, 0);
-
-           // HEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRREEEEE
-            //could be here:  Vector3 rotation = new Vector3(Camera.main.transform.eulerAngles.x + Input.touches[touchNum].deltaPosition.y * Time.deltaTime,
-            //                                 Camera.main.transform.eulerAngles.y + Input.touches[touchNum].deltaPosition.x * Time.deltaTime, 0);
-
-
-            // HEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRREEEEE
-             //Camera.main.transform.localEulerAngles = rotation;
-
-            //float targetRotantionAngle = CameraTarget.eulerAngles.y;
-            //float cameraRotationAngle = transform.eulerAngles.y;
-            //x = Mathf.LerpAngle(cameraRotationAngle, targetRotantionAngle, lerpRate * Time.deltaTime);
-
-            //y = ClampAngle(y, -15, 25);
-            //Quaternion rotation = Quaternion.Euler(y, x, 0);
-
-            //Vector3 position = CameraTarget.position - (rotation * Vector3.forward * distance);
-            //Vector3 cameraTargetPosition = new Vector3(CameraTarget.position.x, CameraTarget.position.y + cameraTargetHeight, CameraTarget.position.z);
-            //position = CameraTarget.position - (rotation * Vector3.forward * currentDistance + new Vector3(0, -cameraTargetHeight, 0));
-
-            //transform.rotation = rotation;
-            //transform.position = position;
-
-            //you need to rotate the camera around the center of the sphere, the opposite of rot        
-            Vector3 follow = CameraTarget.position + CameraTarget.up * cameraTargetHeight - CameraTarget.forward * distance;
+            Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
             transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);
-            //transform.position = new Vector3(this.transform.position.x, vertLock, this.transform.position.z);
-            //float targetRotantionAngle = CameraTarget.eulerAngles.y;
-            //float cameraRotationAngle = transform.eulerAngles.y;
-            //float x = Mathf.LerpAngle(cameraRotationAngle, targetRotantionAngle, lerpRate * Time.deltaTime);
             transform.LookAt(CameraTarget);
+            //transform.Rotate(-camRotation.y, -camRotation.x, 0);
 
             if (camState == CamStates.Locked)
             {

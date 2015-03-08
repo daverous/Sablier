@@ -67,11 +67,9 @@ public class Attacks : MonoBehaviour
             if (Input.GetAxis("PowerMove1") == 1)
             {
                 curAttack = AttackType.Power;
-                float step = 0.5f * Time.deltaTime;
                 Vector3 startPoint = transform.root.position;
                 Vector3 endPoint = thisCharacter.getOpponentTransform().position;
                 //endPoint.x = endPoint.x - 1;
-                float startTime = Time.time;
                 Vector3 dir = endPoint - startPoint;
                 Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
                 //rb.MovePosition(endPoint *  2.5f * Time.time);
@@ -110,7 +108,6 @@ public class Attacks : MonoBehaviour
             Vector3 startPoint = transform.root.position;
             Vector3 endPoint = thisCharacter.getOpponentTransform().position;
             //endPoint.x = endPoint.x - 1;
-            float startTime = Time.time;
             Vector3 dir = endPoint - startPoint;
             Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
             //rb.MovePosition(endPoint *  2.5f * Time.time);
