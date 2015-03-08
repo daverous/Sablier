@@ -192,11 +192,11 @@ public class Character : MonoBehaviour
             if (Input.GetAxis("Jump1") == 1 && isGrounded)
             {
                 isJumping = true;
-                //GetComponent<Rigidbody>().AddForce (0, jumpForce, 0);
-                Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
+                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
+                //Vector3 jumpVec = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position - new Vector3(0, 0, 0);
                 //Vector3 jumpVec = new Vector3(0, jumpForce, 0);
                 //Vector3 jumpVec = this.transform.position - pl
-                GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
+                //GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>().transform.position += jumpVec * Time.deltaTime * 5;
             }			
 		
 			
@@ -255,6 +255,11 @@ public class Character : MonoBehaviour
     public playerNum getPNum()
     {
         return pNum;
+    }
+
+    public Rigidbody getRigidBody()
+    {
+        return GameObject.FindObjectOfType<Rigidbody>();
     }
     public float getComboVal()
     {

@@ -11,6 +11,7 @@ public class Attacks : MonoBehaviour
 
     public float quickAttackDamage = 5f;
     public float heavyAttackDamage = 10f;
+    public float powerMoveSpeed = 1f;
 
     private AttackType curAttack;
     private Animator animator;
@@ -43,7 +44,6 @@ public class Attacks : MonoBehaviour
         {
             if (Input.GetAxis("QuickAttack1") == 1)
             {
-                thisCharacter.incrementHits();
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
@@ -57,18 +57,27 @@ public class Attacks : MonoBehaviour
             }
 
 
-        }
 
-        if (Input.GetAxis("HeavyAttack1") == 1)
-        {
-            thisCharacter.incrementHits();
-        }
 
-        if (Input.GetAxis("PowerMove1") == 1)
-        {
-            //TODO implement
-        }
+            if (Input.GetAxis("HeavyAttack1") == 1)
+            {
+                thisCharacter.incrementHits();
+            }
 
+            if (Input.GetAxis("PowerMove1") == 1)
+            {
+                curAttack = AttackType.Power;
+                float step = 0.5f * Time.deltaTime;
+                Vector3 startPoint = transform.root.position;
+                Vector3 endPoint = thisCharacter.getOpponentTransform().position;
+                //endPoint.x = endPoint.x - 1;
+                float startTime = Time.time;
+                Vector3 dir = endPoint - startPoint;
+                Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
+                //rb.MovePosition(endPoint *  2.5f * Time.time);
+                rb.velocity = dir;
+            }
+        }
         #endregion
         if (thisCharacterTag == "Player2")
         {
@@ -88,6 +97,25 @@ public class Attacks : MonoBehaviour
                 curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
             }
+
+        if (Input.GetAxis("HeavyAttack2") == 1)
+        {
+            thisCharacter.incrementHits();
+        }
+
+        if (Input.GetAxis("PowerMove2") == 1)
+        {
+            curAttack = AttackType.Power;
+            float step = 0.5f * Time.deltaTime;
+            Vector3 startPoint = transform.root.position;
+            Vector3 endPoint = thisCharacter.getOpponentTransform().position;
+            //endPoint.x = endPoint.x - 1;
+            float startTime = Time.time;
+            Vector3 dir = endPoint - startPoint;
+            Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
+            //rb.MovePosition(endPoint *  2.5f * Time.time);
+            rb.velocity = dir;
+        }
 
 
 
@@ -126,7 +154,6 @@ public class Attacks : MonoBehaviour
 		//if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
         {
 
-			thisOpponent.beenHit(.5f);
             switch (curAttack)
             {
                 case AttackType.Empty:
@@ -137,10 +164,11 @@ public class Attacks : MonoBehaviour
                     thisCharacter.incrementHits();
                     break;
                 case AttackType.Power:
-                    // TODO implement
+                    break;
+                    //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
+                    
                     break;
                 case AttackType.Quick:
-           
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
                     break;
