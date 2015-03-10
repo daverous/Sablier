@@ -61,7 +61,7 @@ public class Attacks : MonoBehaviour
 
             if (Input.GetAxis("HeavyAttack1") == 1)
             {
-                thisCharacter.incrementHits();
+                //thisCharacter.incrementHits();
             }
 
             if (Input.GetAxis("PowerMove1") == 1)
@@ -98,7 +98,7 @@ public class Attacks : MonoBehaviour
 
         if (Input.GetAxis("HeavyAttack2") == 1)
         {
-            thisCharacter.incrementHits();
+            //thisCharacter.incrementHits();
         }
 
         if (Input.GetAxis("PowerMove2") == 1)

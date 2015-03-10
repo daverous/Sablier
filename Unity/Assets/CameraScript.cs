@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//https://www.youtube.com/watch?v=TicipSVT-T8
 public class CameraScript : MonoBehaviour
 {
     public Transform CameraTarget;
@@ -11,6 +13,7 @@ public class CameraScript : MonoBehaviour
     public int ZoomRate = 20;
     private float lerpRate = 0.01f;
     public float distance = 8f;
+    public float jumpCamHeight = 10f;
 
     private CamStates camState;
     Character thisChar;
@@ -81,7 +84,7 @@ public class CameraScript : MonoBehaviour
         if (camState == CamStates.Jumping)
         {
             Transform planetTrans = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
-            Vector3 pos = planetTrans.position - transform.position;
+            Vector3 pos = planetTrans.position - transform.position * jumpCamHeight;
         var newRot = Quaternion.LookRotation(pos);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRot, lerpRate);
             //transform.LookAt(planetTrans);
@@ -94,12 +97,14 @@ public class CameraScript : MonoBehaviour
             camRotation.x *= rotationSpeed.x;
             camRotation.y *= rotationSpeed.y;
             camRotation *= Time.deltaTime;
+            
 
             //// Rotate the character around world-y using x-axis of joystick
             CameraTarget.root.Rotate(0, camRotation.x, 0, Space.World);
             //// Rotate only the camera with y-axis input
-            Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
-            transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);
+            transform.localEulerAngles = Vector3.left * cameraTargetHeight;
+            //Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
+            //transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);
             transform.LookAt(CameraTarget);
             //transform.Rotate(-camRotation.y, -camRotation.x, 0);
 
