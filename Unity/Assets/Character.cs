@@ -146,6 +146,7 @@ public class Character : MonoBehaviour
 		if (curhealth <= 0)
 		{
 			dead = true;
+            Application.LoadLevel("GameOverScene");
 		}
 
 		if (gameObject.tag == "Player") {
