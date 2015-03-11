@@ -23,11 +23,15 @@ public class Character : MonoBehaviour
 	public Image VisualHealth2;
 	public Image VisualHealth3;
 	public Image VisualHealth4;
+	public Text hn1;
+	public Text hn2;
+	public Text hn3;
+	public Text hn4;
 
 	public Text hit1;
 	public Text hit2;
 
-    private float curhealth;
+    private float curhealth = 100f;
     private int hits;
     private bool dead; 
     private float maxVelocity = 20f;
@@ -138,21 +142,27 @@ public class Character : MonoBehaviour
 
     public void beenHit(float damage)
     {
+		curhealth -= 10f;
+		if (curhealth <= 0)
+		{
+			dead = true;
+		}
+
 		if (gameObject.tag == "Player") {
 			Debug.Log("Player got hit");
 			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
-			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
-		} else if (gameObject.tag == "Player2") {
-			Debug.Log("Player2 got hit");
-			VisualHealth2.fillAmount = VisualHealth2.fillAmount - 0.1f;
 			VisualHealth3.fillAmount = VisualHealth3.fillAmount - 0.1f;
+			hn1.text = "HEALTH:";
+			hn3.text = "HEALTH:"+curhealth;
+		} else if (gameObject.tag == "Player2") {
+			Debug.Log(VisualHealth2.fillAmount);
+			VisualHealth2.fillAmount = VisualHealth2.fillAmount - 0.1f;
+			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
+			hn2.text = "HEALTH:"+curhealth;
+			hn4.text = "HEALTH:"+curhealth;
 		}
 
-        curhealth -= damage;
-        if (curhealth <= 0)
-        {
-            dead = true;
-        }
+        
     }
 
     public playerNum getOpponentName()
