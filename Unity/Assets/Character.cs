@@ -172,6 +172,7 @@ public class Character : MonoBehaviour
 
     public void incrementHits()
     {
+        Debug.Log("here");
         if (comboPower <= 90)
         {
             comboPower += 10;
@@ -180,6 +181,7 @@ public class Character : MonoBehaviour
         {
             comboPower = 100;
         }
+        Debug.Log("hits" + hits);
         hits++;
     }
 

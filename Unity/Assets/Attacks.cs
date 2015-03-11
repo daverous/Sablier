@@ -27,6 +27,7 @@ public class Attacks : MonoBehaviour
         curAttack = AttackType.Empty;
         //inRange = false;
         thisCharacterTag = transform.root.tag;
+        //Debug.Log(transform.name);
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
 		if (gameObject.tag == "Player")
 			thisOpponent = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>();
@@ -52,7 +53,7 @@ public class Attacks : MonoBehaviour
             }
             if (Input.GetAxis("QuickAttack1") == 0)
             {
-                curAttack = AttackType.Empty;
+                //curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
             }
 
@@ -92,7 +93,7 @@ public class Attacks : MonoBehaviour
             }
             if (Input.GetAxis("QuickAttack2") == 0)
             {
-                curAttack = AttackType.Empty;
+                //curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
             }
 
@@ -143,12 +144,11 @@ public class Attacks : MonoBehaviour
 	
     void OnCollisionEnter(Collision other)
     {
-
-		if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
-		    (opponent_animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
+        //Debug.Log("here" + other.transform.root.tag + " " + thisCharacter.getPNum().ToString());
+		if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
+            (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
         {
-			Debug.Log ("got hit");
-			thisCharacter.beenHit(.1f);
+            //Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
             switch (curAttack)
             {
                 case AttackType.Empty:
@@ -164,6 +164,7 @@ public class Attacks : MonoBehaviour
                     
                     break;
                 case AttackType.Quick:
+                    Debug.Log("quci");
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
                     break;
@@ -171,7 +172,7 @@ public class Attacks : MonoBehaviour
                     break;
 
             }
-            curAttack = AttackType.Empty;
+            //curAttack = AttackType.Empty;
         }
     }
 

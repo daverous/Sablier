@@ -8,6 +8,7 @@ public class hits1Script : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	    if (tag =="Text1") {
+            
             character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         }
         
