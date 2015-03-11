@@ -45,7 +45,7 @@ public class Character : MonoBehaviour
 	private float horizontal2 = 0.0f;
 	private float vertical2 = 0.0f;
     public float Weight;
-    public float jumpForce = 0.1f;
+    public float jumpForce = 0.3f;
    
     public Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 

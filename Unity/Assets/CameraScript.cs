@@ -81,16 +81,16 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (camState == CamStates.Jumping)
-        {
-            Transform planetTrans = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
-            Vector3 pos = planetTrans.position - transform.position * jumpCamHeight;
-        var newRot = Quaternion.LookRotation(pos);
-        transform.rotation = Quaternion.Lerp(transform.rotation, newRot, lerpRate);
-            //transform.LookAt(planetTrans);
-        }
-        else
-        {
+        //if (camState == CamStates.Jumping)
+        //{
+        ////    Transform planetTrans = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
+        ////    Vector3 pos = planetTrans.position - transform.position * jumpCamHeight;
+        ////var newRot = Quaternion.LookRotation(pos);
+        ////transform.rotation = Quaternion.Lerp(transform.rotation, newRot, lerpRate);
+        //    //transform.LookAt(planetTrans);
+        //}
+        //else
+        //{
             // Rotate the camera
             Vector2 camRotation = Vector2.zero;
             camRotation = new Vector2(x, y);
@@ -118,7 +118,7 @@ public class CameraScript : MonoBehaviour
             {
                 //Debug.Log("UNLOCKED CAM ");
             }
-        }
+        //}
     }
 
     private static float ClampAngle(float angle, float min, float max)
