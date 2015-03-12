@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AsteroidScript.cs" />
+     <Compile Include="Assets\AsteroidSpawnScript.cs" />
      <Compile Include="Assets\Attacks.cs" />
      <Compile Include="Assets\CameraScript.cs" />
      <Compile Include="Assets\CanvasScript.cs" />
@@ -80,6 +81,7 @@
      <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
      <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\GuiScript.cs" />
      <Compile Include="Assets\RoundOverScript.cs" />
      <Compile Include="Assets\Scripts\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\GravityBody.cs" />
