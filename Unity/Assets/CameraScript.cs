@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour
     float verticalLookRotation;
     Character thisChar;
     Vector2 rotationSpeed = new Vector2( 100, 100 );
-
+    float strength = 0.5f;
     public float cameraTargetHeight = 4.0f;
     public enum CamStates
     {
@@ -99,31 +99,33 @@ public class CameraScript : MonoBehaviour
             //camRotation.x *= rotationSpeed.x;
             //camRotation.y *= rotationSpeed.y;
             //camRotation *= Time.deltaTime;
-            
-
+        if (camState == CamStates.Locked)
+        {
+            //Debug.Log("LOCKED CAM ");
+            //transform.LookAt(thisChar.getpponentTransform());
+            Quaternion targetRotation = Quaternion.LookRotation(thisChar.getOpponentTransform().position - CameraTarget.root.position);
+            Debug.Log(targetRotation);
+            float str = Mathf.Min(2 * Time.deltaTime, 1);
+            if (CameraTarget.root.rotation != Quaternion.Lerp(CameraTarget.root.rotation, targetRotation, str))
+            {
+                CameraTarget.root.rotation = Quaternion.Lerp(CameraTarget.root.rotation, targetRotation, str);
+            }
+            //CameraTarget.root.Rotate(Vector3.up * thisChar.getOpponentTransform().position.y * Time.deltaTime);
+        }
+        
             //// Rotate the character around world-y using x-axis of joystick
             //CameraTarget.root.Rotate(0, x, 0, Space.World);
-        CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);
+            CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);
             //transform.rotation = Quaternion.Slerp(transform.rotation, CameraTarget.rotation, lerpRate);
-        //verticalLookRotation += y * controllerSensitivityY * Time.deltaTime;
-        //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -40, 40);
-        transform.localEulerAngles = Vector3.right * 40;
-        //Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
+            //verticalLookRotation += y * controllerSensitivityY * Time.deltaTime;
+            //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -40, 40);
+            transform.localEulerAngles = Vector3.right * 40;
+            //Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
             //transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);
             //transform.LookAt(CameraTarget);
             //transform.Rotate(-camRotation.y, -camRotation.x, 0);
-
-            if (camState == CamStates.Locked)
-            {
-                //Debug.Log("LOCKED CAM ");
-                transform.LookAt(thisChar.getOpponentTransform());
-            }
-
-            else
-            {
-                //Debug.Log("UNLOCKED CAM ");
-            }
-        //}
+            //}
+        
     }
 
     private static float ClampAngle(float angle, float min, float max)
