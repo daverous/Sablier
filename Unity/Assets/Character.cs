@@ -142,7 +142,7 @@ public class Character : MonoBehaviour
 
     public void beenHit(float damage)
     {
-		curhealth -= 10f;
+		curhealth -= damage;
 		if (curhealth <= 0)
 		{
 			dead = true;
