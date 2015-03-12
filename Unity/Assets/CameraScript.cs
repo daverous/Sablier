@@ -45,7 +45,6 @@ public class CameraScript : MonoBehaviour
         //Vector3 Angles = transform.eulerAngles;
         //x = Angles.x;
         //y = Angles.y;
-        transform.LookAt(CameraTarget);
     }
 
     void Update()
@@ -106,12 +105,10 @@ public class CameraScript : MonoBehaviour
             //CameraTarget.root.Rotate(0, x, 0, Space.World);
         CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);
             //transform.rotation = Quaternion.Slerp(transform.rotation, CameraTarget.rotation, lerpRate);
-        verticalLookRotation += y * controllerSensitivityY * Time.deltaTime;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
-            //transform.position = transform.rotation * Vector3.back * offset + target.position + Vector3.up;
-            //// Rotate only the camera with y-axis input
-        transform.localEulerAngles = Vector3.left * verticalLookRotation;
-            //Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
+        //verticalLookRotation += y * controllerSensitivityY * Time.deltaTime;
+        //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -40, 40);
+        transform.localEulerAngles = Vector3.right * 40;
+        //Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
             //transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);
             //transform.LookAt(CameraTarget);
             //transform.Rotate(-camRotation.y, -camRotation.x, 0);
