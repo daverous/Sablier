@@ -3,10 +3,10 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    public int TotalRounds = 3;
-    private int PlayerOneWins = 0;
-    private int PlayerTwoWins = 0;
-    private int lastWin = 0;
+    public int TotalRounds = 3; //total number of rounds
+    private int PlayerOneWins = 0;// how many wins player 1 has
+    private int PlayerTwoWins = 0; // how many wins player 2 has
+    private int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
     float threashold;
 	// Use this for initialization
 	void Start () {
