@@ -19,7 +19,6 @@ public class AsteroidScript : MonoBehaviour {
         }
         if (tag == "Planet")
         {
-            Debug.Log("here");
             gameObject.GetComponent<Detonator>().Explode(); 
         }
     }
