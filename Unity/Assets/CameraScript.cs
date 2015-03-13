@@ -15,9 +15,13 @@ public class CameraScript : MonoBehaviour
     public float distance = 8f;
     public float jumpCamHeight = 10f;
     public float controllerSensitivityX = 200f;
-    public float controllerSensitivityY = 100f;
+    public float controllerSensitivityY;
     private CamStates camState;
     float verticalLookRotation;
+    public float minimumY = -40F;
+    public float maximumY = 50F;
+
+    float rotationY = 0F;
     Character thisChar;
     Vector2 rotationSpeed = new Vector2( 100, 100 );
     float strength = 0.5f;
@@ -42,13 +46,13 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         thisChar = CameraTarget.root.GetComponent<Character>();
-        //Vector3 Angles = transform.eulerAngles;
-        //x = Angles.x;
-        //y = Angles.y;
+        rotationY = -40f;
+
     }
 
     void Update()
     {
+        Debug.Log(transform.localEulerAngles);
         float locked = 0;
         if (thisChar.getPNum().ToString() == "Player")
         {
@@ -83,26 +87,9 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //if (camState == CamStates.Jumping)
-        //{
-        ////    Transform planetTrans = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
-        ////    Vector3 pos = planetTrans.position - transform.position * jumpCamHeight;
-        ////var newRot = Quaternion.LookRotation(pos);
-        ////transform.rotation = Quaternion.Lerp(transform.rotation, newRot, lerpRate);
-        //    //transform.LookAt(planetTrans);
-        //}
-        //else
-        //{
-            // Rotate the camera
-            //Vector2 camRotation = Vector2.zero;
-            //camRotation = new Vector2(x, y);
-            //camRotation.x *= rotationSpeed.x;
-            //camRotation.y *= rotationSpeed.y;
-            //camRotation *= Time.deltaTime;
         if (camState == CamStates.Locked)
         {
             //Debug.Log("LOCKED CAM ");
-            //transform.LookAt(thisChar.getpponentTransform());
             Quaternion targetRotation = Quaternion.LookRotation(thisChar.getOpponentTransform().position - CameraTarget.root.position);
             Debug.Log(targetRotation);
             float str = Mathf.Min(2 * Time.deltaTime, 1);
@@ -110,34 +97,17 @@ public class CameraScript : MonoBehaviour
             {
                 CameraTarget.root.rotation = Quaternion.Lerp(CameraTarget.root.rotation, targetRotation, str);
             }
-            //CameraTarget.root.Rotate(Vector3.up * thisChar.getOpponentTransform().position.y * Time.deltaTime);
         }
-        
-            //// Rotate the character around world-y using x-axis of joystick
-            //CameraTarget.root.Rotate(0, x, 0, Space.World);
+
             CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, CameraTarget.rotation, lerpRate);
-            //verticalLookRotation += y * controllerSensitivityY * Time.deltaTime;
-            //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -40, 40);
-            transform.localEulerAngles = Vector3.right * 40;
-            //Vector3 follow = CameraTarget.root.position + CameraTarget.root.up * cameraTargetHeight - CameraTarget.root.forward * distance;
-            //transform.position = Vector3.Lerp(transform.position, follow, Time.deltaTime * lerpRate);
-            //transform.LookAt(CameraTarget);
-            //transform.Rotate(-camRotation.y, -camRotation.x, 0);
+           
+                rotationY += y * controllerSensitivityY;
+                rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+
+                transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
+            
             //}
         
     }
 
-    private static float ClampAngle(float angle, float min, float max)
-    {
-        if (angle < -360)
-        {
-            angle += 360;
-        }
-        if (angle > 360)
-        {
-            angle -= 360;
-        }
-        return Mathf.Clamp(angle, min, max);
-    }
 }
