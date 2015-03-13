@@ -1,31 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-//https://www.youtube.com/watch?v=TicipSVT-T8
 public class CameraScript : MonoBehaviour
 {
+    #region Fields
     public Transform CameraTarget;
     private float x = 0.0f;
     private float y = 0.0f;
-
-
-    public int ZoomRate = 20;
-    private float lerpRate = 0.01f;
-    public float distance = 8f;
-    public float jumpCamHeight = 10f;
-    public float controllerSensitivityX = 200f;
+    public float controllerSensitivityX;
     public float controllerSensitivityY;
     private CamStates camState;
-    float verticalLookRotation;
     public float minimumY = -40F;
     public float maximumY = 50F;
-
     float rotationY = 0F;
     Character thisChar;
-    Vector2 rotationSpeed = new Vector2( 100, 100 );
-    float strength = 0.5f;
-    public float cameraTargetHeight = 4.0f;
+    #endregion
     public enum CamStates
     {
         Locked,          // Locked to other player
@@ -39,8 +28,7 @@ public class CameraScript : MonoBehaviour
             return this.camState;
         }
     }
-    //checks if first person mode is on
-    //stores cameras distance from player
+
 
     // Use this for initialization
     void Start()
@@ -83,8 +71,7 @@ public class CameraScript : MonoBehaviour
             camState = CamStates.Free;
         }
     }
-    private Vector3 velocity = Vector3.zero;
-    // Update is called once per frame
+
     void LateUpdate()
     {
         if (camState == CamStates.Locked)
