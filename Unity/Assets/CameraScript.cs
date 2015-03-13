@@ -40,7 +40,6 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.localEulerAngles);
         float locked = 0;
         if (thisChar.getPNum().ToString() == "Player")
         {
