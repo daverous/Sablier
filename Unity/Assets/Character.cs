@@ -139,7 +139,10 @@ public class Character : MonoBehaviour
         }
 
     }
-
+    public void setCharNotGrounded()
+    {
+        isGrounded = false;
+    }
     public void beenHit(float damage)
     {
 		curhealth -= damage;
