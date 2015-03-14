@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AsteroidSpawnScript : MonoBehaviour {
 
-   public GameObject asteroid;
+   public GameObject[] asteroids;
    public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
     float SpawnStartDelay  = 0; 
    float SpawnRate = 5.0f;
@@ -17,7 +17,8 @@ public class AsteroidSpawnScript : MonoBehaviour {
     void Spawn()
     {
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(asteroid, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        int AsteroidType = Random.Range(0, asteroids.Length);
+        Instantiate(asteroids[AsteroidType], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 	// Update is called once per frame
 

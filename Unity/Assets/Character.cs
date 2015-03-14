@@ -49,7 +49,13 @@ public class Character : MonoBehaviour
 
 	//Sarah: Adding a public for the running clip//
 
-	public AudioClip runningsound;
+	public AudioClip runningSound;
+    public AudioClip swordClangSound;
+    private AudioSource source;
+    private float lowPitchRange = .75F;
+    private float highPitchRange = 1.5F;
+    private float velToVol = .2F;
+    private float velocityClipSplit = 10F;
    
     public Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
@@ -58,9 +64,15 @@ public class Character : MonoBehaviour
     private playerNum opponentName;
     private bool isJumping;
 	public bool isBlocking = false;
+    private bool isMoving;
     #endregion
 
+    void Awake()
+    {
 
+        source = GetComponent<AudioSource>();
+
+    }
 
   
     #region Function
@@ -103,18 +115,16 @@ public class Character : MonoBehaviour
     {
         if (other.collider.name == "planet")
         {
-			//Debug.Log("hit ground");
+            //Debug.Log("hit ground");
             isGrounded = true;
             isJumping = false;
+            if (isMoving) {
+            source.pitch = Random.Range(lowPitchRange, highPitchRange);
+            float hitVol = other.relativeVelocity.magnitude * velToVol;
+            if (other.relativeVelocity.magnitude < velocityClipSplit)
+                source.PlayOneShot(runningSound, hitVol);
         }
-
-
-		/*if (other.gameObject.name == "Player") {
-			Debug.Log("hit others");
-			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
-			//this.beenHit(0.1f);
-		}*/
-        
+        }
     }
 
     public bool isCharacterGrounded()
@@ -150,7 +160,10 @@ public class Character : MonoBehaviour
     }
     public void beenHit(float damage)
     {
+        source.pitch = Random.Range(lowPitchRange, highPitchRange);
+            source.PlayOneShot(swordClangSound);
 		curhealth -= damage;
+
 		if (curhealth <= 0)
 		{
 			dead = true;
@@ -217,6 +230,9 @@ public class Character : MonoBehaviour
 
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
+            if (horizontal != 0 || vertical!=0) {
+                isMoving = true;
+            }
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump1") == 1 && isGrounded)
             {

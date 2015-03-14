@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Attacks : MonoBehaviour
 {
+    public AudioClip swordSwipeSound;
+    private AudioSource source; 
 
     private Character thisCharacter;
     private string thisCharacterTag;
@@ -26,6 +28,7 @@ public class Attacks : MonoBehaviour
     }
     void Start()
     {
+        source = GetComponent<AudioSource>();
         curAttack = AttackType.Empty;
         //inRange = false;
         thisCharacterTag = transform.root.tag;
@@ -48,6 +51,7 @@ public class Attacks : MonoBehaviour
             if (Input.GetAxis("QuickAttack1") == 1)
             {
 				Debug.Log("Quick Attacking");
+                source.PlayOneShot(swordSwipeSound);
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
@@ -57,6 +61,7 @@ public class Attacks : MonoBehaviour
             if (Input.GetAxis("QuickAttack1") == 0)
             {
                 //curAttack = AttackType.Empty;
+                
                 animator.SetBool("Chain", false);
             }
 
@@ -91,6 +96,8 @@ public class Attacks : MonoBehaviour
             {
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
+                source.PlayOneShot(swordSwipeSound);
+
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
                    animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
                     animator.SetBool("Chain", true);
