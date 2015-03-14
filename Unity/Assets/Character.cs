@@ -232,7 +232,7 @@ public class Character : MonoBehaviour
         else if (gameObject.tag == "Player2")
         {
             
-			/*horizontal2 = Input.GetAxis("Horizontal2");
+			horizontal2 = Input.GetAxis("Horizontal2");
             vertical2 = Input.GetAxis("Vertical2");
             moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
 
@@ -245,7 +245,7 @@ public class Character : MonoBehaviour
                 Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
                 //rb.transform.position += jumpVec * Time.deltaTime * 5;
                 rb.velocity = jumpVec * jumpForce;
-            }*/
+            }
         }
 
     }
