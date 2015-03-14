@@ -56,7 +56,8 @@ public class Character : MonoBehaviour
     private bool isGrounded = true;
     private playerNum pNum;
     private playerNum opponentName;
-    private bool isJumping; 
+    private bool isJumping;
+	public bool isBlocking = false;
     #endregion
 
 
@@ -225,7 +226,18 @@ public class Character : MonoBehaviour
                 Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
                 //rb.transform.position += jumpVec * Time.deltaTime * 5;
                 rb.velocity = jumpVec * jumpForce;
-            }			
+            }
+
+			if (Input.GetAxis("P1Blocking") == 1)
+			{
+				isBlocking = true;
+				Debug.Log("Blocking true");
+			}
+			else if (Input.GetAxis("P1Blocking") == 0)
+			{
+				isBlocking = false;
+				Debug.Log("Blocking false");
+			}
 		
 			
         }
@@ -246,6 +258,15 @@ public class Character : MonoBehaviour
                 //rb.transform.position += jumpVec * Time.deltaTime * 5;
                 rb.velocity = jumpVec * jumpForce;
             }
+
+			if (Input.GetAxis("P2Blocking") == 1)
+			{
+				isBlocking = true;
+			}
+			else if (Input.GetAxis("P2Blocking") == 0)
+			{
+				isBlocking = false;
+			}
         }
 
     }

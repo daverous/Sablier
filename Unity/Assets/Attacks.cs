@@ -12,6 +12,7 @@ public class Attacks : MonoBehaviour
     public float quickAttackDamage = 5f;
     public float heavyAttackDamage = 10f;
     public float powerMoveSpeed = 1f;
+	public float reducedAttackDamage = 2f;
 
     private AttackType curAttack;
     private Animator animator;
@@ -21,7 +22,7 @@ public class Attacks : MonoBehaviour
 
     public enum AttackType
     {
-        Quick, Heavy, Power, Empty
+        Quick, Heavy, Power, Empty, Reduced
     }
     void Start()
     {
@@ -154,10 +155,17 @@ public class Attacks : MonoBehaviour
         {
             //Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
 			collision_trigger = 1;
+			if (GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().isBlocking)
+				curAttack = AttackType.Reduced;
+
             switch (curAttack)
             {
                 case AttackType.Empty:
                     break;
+				case AttackType.Reduced:
+					GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(reducedAttackDamage);
+					thisCharacter.incrementHits();
+					break;
                 case AttackType.Heavy:
                  
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
