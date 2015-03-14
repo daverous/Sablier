@@ -15,6 +15,7 @@ public class Attacks : MonoBehaviour
     public float heavyAttackDamage = 10f;
     public float powerMoveSpeed = 1f;
 	public float reducedAttackDamage = 2f;
+    public float volume = 5f;
 
     private AttackType curAttack;
     private Animator animator;
@@ -51,7 +52,7 @@ public class Attacks : MonoBehaviour
             if (Input.GetAxis("QuickAttack1") == 1)
             {
 				Debug.Log("Quick Attacking");
-                source.PlayOneShot(swordSwipeSound);
+                source.PlayOneShot(swordSwipeSound, volume);
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
@@ -96,7 +97,7 @@ public class Attacks : MonoBehaviour
             {
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
-                source.PlayOneShot(swordSwipeSound);
+                source.PlayOneShot(swordSwipeSound, volume);
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
                    animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
