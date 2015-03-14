@@ -46,6 +46,10 @@ public class Character : MonoBehaviour
 	private float vertical2 = 0.0f;
     public float Weight;
     public float jumpForce = 0.3f;
+
+	//Sarah: Adding a public for the running clip//
+
+	public AudioClip runningsound;
    
     public Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
