@@ -166,16 +166,16 @@ public class Character : MonoBehaviour
             Application.LoadLevel("GameOverScene");
 		}
 
+		double temp = damage * 0.010;
+		float damage_value = (float)temp;
 		if (gameObject.tag == "Player") {
-			Debug.Log("Player got hit");
-			VisualHealth1.fillAmount = VisualHealth1.fillAmount - 0.1f;
-			VisualHealth3.fillAmount = VisualHealth3.fillAmount - 0.1f;
-			hn1.text = "HEALTH:";
+			VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
+			VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
+			hn1.text = "HEALTH:"+curhealth;
 			hn3.text = "HEALTH:"+curhealth;
 		} else if (gameObject.tag == "Player2") {
-			Debug.Log(VisualHealth2.fillAmount);
-			VisualHealth2.fillAmount = VisualHealth2.fillAmount - 0.1f;
-			VisualHealth4.fillAmount = VisualHealth4.fillAmount - 0.1f;
+			VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
+			VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
 			hn2.text = "HEALTH:"+curhealth;
 			hn4.text = "HEALTH:"+curhealth;
 		}
@@ -231,7 +231,8 @@ public class Character : MonoBehaviour
         }
         else if (gameObject.tag == "Player2")
         {
-            horizontal2 = Input.GetAxis("Horizontal2");
+            
+			/*horizontal2 = Input.GetAxis("Horizontal2");
             vertical2 = Input.GetAxis("Vertical2");
             moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
 
@@ -244,7 +245,7 @@ public class Character : MonoBehaviour
                 Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
                 //rb.transform.position += jumpVec * Time.deltaTime * 5;
                 rb.velocity = jumpVec * jumpForce;
-            }
+            }*/
         }
 
     }

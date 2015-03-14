@@ -16,6 +16,7 @@ public class Attacks : MonoBehaviour
     private AttackType curAttack;
     private Animator animator;
 	private Animator opponent_animator;
+	private int collision_trigger = 0;
     // Use this for initialization
 
     public enum AttackType
@@ -45,6 +46,7 @@ public class Attacks : MonoBehaviour
         {
             if (Input.GetAxis("QuickAttack1") == 1)
             {
+				Debug.Log("Quick Attacking");
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
@@ -62,6 +64,7 @@ public class Attacks : MonoBehaviour
 
             if (Input.GetAxis("HeavyAttack1") == 1)
             {
+				Debug.Log("Heavy Attacking");
                 //thisCharacter.incrementHits();
             }
 
@@ -144,11 +147,13 @@ public class Attacks : MonoBehaviour
 	
     void OnCollisionEnter(Collision other)
     {
-        //Debug.Log("here" + other.transform.root.tag + " " + thisCharacter.getPNum().ToString());
-		if (other.transform.root.name == thisCharacter.getOpponentName().ToString() && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
-            (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
+
+		//if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide")) ||
+          //  (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")))
+		if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")) && collision_trigger == 0)
         {
             //Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
+			collision_trigger = 1;
             switch (curAttack)
             {
                 case AttackType.Empty:
@@ -164,7 +169,7 @@ public class Attacks : MonoBehaviour
                     
                     break;
                 case AttackType.Quick:
-                    Debug.Log("quci");
+					Debug.Log("quickAttackDamage"+quickAttackDamage);
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
                     break;
@@ -178,7 +183,8 @@ public class Attacks : MonoBehaviour
 
     void OnCollisionExit(Collision info)
     {
-
+		Debug.Log("Exit!!! Yeah!");
+		collision_trigger = 0;
         if (info.collider.name == thisCharacter.getOpponentName().ToString())
         {
             //inRange = false;
