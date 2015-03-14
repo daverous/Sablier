@@ -52,12 +52,15 @@ public class Attacks : MonoBehaviour
             if (Input.GetAxis("QuickAttack1") == 1)
             {
 				Debug.Log("Quick Attacking");
-                source.PlayOneShot(swordSwipeSound, volume);
+               
                 curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
                    animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+                {
+                    source.PlayOneShot(swordSwipeSound, volume);
                     animator.SetBool("Chain", true);
+                }
             }
             if (Input.GetAxis("QuickAttack1") == 0)
             {
@@ -96,12 +99,13 @@ public class Attacks : MonoBehaviour
             if (Input.GetAxis("QuickAttack2") == 1)
             {
                 curAttack = AttackType.Quick;
-                animator.SetBool("Attacking", true);
-                source.PlayOneShot(swordSwipeSound, volume);
 
+                animator.SetBool("Attacking", true);
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
-                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")) {                   
+                    source.PlayOneShot(swordSwipeSound, volume);
                     animator.SetBool("Chain", true);
+                    }
             }
             if (Input.GetAxis("QuickAttack2") == 0)
             {
@@ -181,9 +185,7 @@ public class Attacks : MonoBehaviour
                     break;
                 case AttackType.Power:
                     break;
-                    //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
-                    
-                    break;
+                    //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
                 case AttackType.Quick:
 					Debug.Log("quickAttackDamage"+quickAttackDamage);
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
@@ -199,7 +201,6 @@ public class Attacks : MonoBehaviour
 
     void OnCollisionExit(Collision info)
     {
-		Debug.Log("Exit!!! Yeah!");
 		collision_trigger = 0;
         if (info.collider.name == thisCharacter.getOpponentName().ToString())
         {
