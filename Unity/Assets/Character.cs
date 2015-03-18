@@ -246,12 +246,7 @@ public class Character : MonoBehaviour
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
             if (Input.GetAxis("Jump1") == 1 && isGrounded)
             {
-                isJumping = true;
-                Rigidbody rb = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>();
-                //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
-                Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
-                //rb.transform.position += jumpVec * Time.deltaTime * 5;
-                rb.velocity = jumpVec * jumpForce;
+                performJump();
             }
 
 			if (Input.GetAxis("P1Blocking") == 1)
@@ -277,12 +272,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetAxis("Jump2") == 1 && isGrounded)
             {
-                isJumping = true;
-                Rigidbody rb = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>();
-                //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
-                Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
-                //rb.transform.position += jumpVec * Time.deltaTime * 5;
-                rb.velocity = jumpVec * jumpForce;
+                performJump();
             }
 
 			if (Input.GetAxis("P2Blocking") == 1)
@@ -323,6 +313,16 @@ public class Character : MonoBehaviour
     public bool isCharBlocking()
     {
         return isBlocking;
+    }
+
+    void performJump()
+    {
+        isJumping = true;
+        Rigidbody rb = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>();
+        //GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
+        Vector3 jumpVec = rb.transform.position - new Vector3(0, 0, 0);
+        //rb.transform.position += jumpVec * Time.deltaTime * 5;
+        rb.velocity = jumpVec * jumpForce;
     }
 
 }
