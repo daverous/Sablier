@@ -34,8 +34,7 @@ public class Character : MonoBehaviour
     private float curhealth = 100f;
     private int hits;
     private bool dead; 
-    private float maxVelocity = 20f;
-    private float moveSpeed = 15f;
+    public float moveSpeed = 15f;
     private bool inRange; 
     public float maxHealth = 100f;
     private float comboPower = 0f;
