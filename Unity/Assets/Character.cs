@@ -137,6 +137,12 @@ public class Character : MonoBehaviour
         }
     }
 
+	public bool isCharacterBlocking()
+	{
+		return isBlocking;
+		
+	}
+
     public bool isCharacterGrounded()
     {
         return isGrounded;
@@ -252,6 +258,7 @@ public class Character : MonoBehaviour
 			if (Input.GetAxis("P1Blocking") == 1)
 			{
 				isBlocking = true;
+				turnCharToFaceOpponent();
 				Debug.Log("Blocking true");
 			}
 			else if (Input.GetAxis("P1Blocking") == 0)
@@ -277,6 +284,7 @@ public class Character : MonoBehaviour
 
 			if (Input.GetAxis("P2Blocking") == 1)
 			{
+				turnCharToFaceOpponent();
 				isBlocking = true;
 			}
 			else if (Input.GetAxis("P2Blocking") == 0)
