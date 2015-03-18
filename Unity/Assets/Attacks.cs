@@ -33,7 +33,6 @@ public class Attacks : MonoBehaviour
         curAttack = AttackType.Empty;
         //inRange = false;
         thisCharacterTag = transform.root.tag;
-        //Debug.Log(transform.name);
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
 		if (gameObject.tag == "Player")
 			thisOpponent = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>();
@@ -190,6 +189,7 @@ public class Attacks : MonoBehaviour
 
     private void performPowerMove()
     {
+        thisCharacter.turnCharToFaceOpponent();
         curAttack = AttackType.Power;
         float step = 0.5f * Time.deltaTime;
         Vector3 startPoint = transform.root.position;

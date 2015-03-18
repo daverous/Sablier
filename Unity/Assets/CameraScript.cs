@@ -75,14 +75,7 @@ public class CameraScript : MonoBehaviour
     {
         if (camState == CamStates.Locked)
         {
-            //Debug.Log("LOCKED CAM ");
-            Quaternion targetRotation = Quaternion.LookRotation(thisChar.getOpponentTransform().position - CameraTarget.root.position);
-            Debug.Log(targetRotation);
-            float str = Mathf.Min(2 * Time.deltaTime, 1);
-            if (CameraTarget.root.rotation != Quaternion.Lerp(CameraTarget.root.rotation, targetRotation, str))
-            {
-                CameraTarget.root.rotation = Quaternion.Lerp(CameraTarget.root.rotation, targetRotation, str);
-            }
+            thisChar.turnCharToFaceOpponent();
         }
 
             CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);

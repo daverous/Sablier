@@ -75,7 +75,7 @@ public class Character : MonoBehaviour
     }
 
   
-    #region Function
+    #region Functions
     void Start()
     {
         isJumping = false;
@@ -101,6 +101,16 @@ public class Character : MonoBehaviour
 
     }
 
+    public void turnCharToFaceOpponent()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
+        Debug.Log(targetRotation);
+        float str = Mathf.Min(2 * Time.deltaTime, 1);
+        if (transform.root.rotation != Quaternion.Lerp(transform.root.rotation, targetRotation, str))
+        {
+            transform.root.rotation = Quaternion.Lerp(transform.root.rotation, targetRotation, str);
+        }
+    }
 
 
 
