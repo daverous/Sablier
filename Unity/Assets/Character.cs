@@ -28,16 +28,13 @@ public class Character : MonoBehaviour
 	public Text hn3;
 	public Text hn4;
 
-	public Text hit1;
-	public Text hit2;
-
-    private float curhealth = 100f;
+    private float curhealth;
     private int hits;
     private bool dead; 
     public float moveSpeed = 15f;
     private bool inRange; 
     public float maxHealth = 100f;
-    private float comboPower = 0f;
+    private float comboPower;
 
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
@@ -58,11 +55,11 @@ public class Character : MonoBehaviour
    
     public Vector3 moveDirection;
     private Transform opponent; //Transform for opponent 
-    private bool isGrounded = true;
+    private bool isGrounded;
     private playerNum pNum;
     private playerNum opponentName;
     private bool isJumping;
-	private bool isBlocking = false;
+	private bool isBlocking;
     private bool isMoving;
     #endregion
 
@@ -77,6 +74,10 @@ public class Character : MonoBehaviour
     #region Functions
     void Start()
     {
+        comboPower = 0f;
+        isGrounded = true;
+        curhealth = 100f;
+        isBlocking = false;
         isJumping = false;
         dead = false;
 
