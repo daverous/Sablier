@@ -37,9 +37,8 @@ public class GameManager : MonoBehaviour {
     {
         lastWin = 1;
         PlayerOneWins++;
-        p1Hits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-        p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
-
+        getHits();
+       
         
     }
 
@@ -55,11 +54,19 @@ public class GameManager : MonoBehaviour {
     {
         lastWin = 2;
         PlayerTwoWins++;
+        getHits();
     }
 
     public float getThreashold()
     {
         return threashold;
+    }
+
+    void getHits()
+    {
+        p1Hits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
+        p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
+
     }
 
 }
