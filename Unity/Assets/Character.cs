@@ -63,7 +63,7 @@ public class Character : MonoBehaviour
     private playerNum pNum;
     private playerNum opponentName;
     private bool isJumping;
-	public bool isBlocking = false;
+	private bool isBlocking = false;
     private bool isMoving;
     #endregion
 
@@ -162,6 +162,7 @@ public class Character : MonoBehaviour
     {
         source.pitch = Random.Range(lowPitchRange, highPitchRange);
             source.PlayOneShot(swordClangSound);
+        
 		curhealth -= damage;
 
 		if (curhealth <= 0)
@@ -204,7 +205,6 @@ public class Character : MonoBehaviour
 
     public void incrementHits()
     {
-        Debug.Log("here");
         if (comboPower <= 90)
         {
             comboPower += 10;
@@ -289,32 +289,7 @@ public class Character : MonoBehaviour
 
     void FixedUpdate()
     {
-
-
-        #region testcode
-        //transform.LookAt(opponent);
-        //if (vertical >= 0)
-        //{
-        //    this.transform.position = Vector3.Lerp(this.transform.position, opponent.position, vertical * (moveSpeed / 4) * Time.deltaTime);
-        //}
-        //if (vertical < 0)
-        //{
-        //    //this.transform.position = Vector3.Lerp(this.transform.position,this.transform.position+(Vector3.back*runSpeed*Time.deltaTime),vertical*(runSpeed/3)*Time.deltaTime);
-        //    this.transform.Translate(Vector3.back * (moveSpeed / 2 * Time.deltaTime));
-        //    //rigidbody.AddForce(0,0,vertical*runSpeed*Time.deltaTime);
-        //}
-        //transform.RotateAround(opponent.position, Vector3.up, -1 * horizontal * (moveSpeed) * Time.deltaTime);
-        ////		}
-        ////rigidbody.AddForce(0,0,vertical*runSpeed);
-        //if (rigidbody.velocity.magnitude > maxVelocity && isGrounded)
-        //{
-        //    rigidbody.velocity = rigidbody.velocity.normalized * maxVelocity;
-        //}
-        //transform.RotateAround(opponent.position, Vector3.up, -1 * horizontal * (moveSpeed) * Time.deltaTime);
-        #endregion
-
 			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
-        //Debug.Log(pNum+": "+moveDirection);
     }
 
     public playerNum getPNum()
@@ -333,6 +308,11 @@ public class Character : MonoBehaviour
     public bool isDead()
     {
         return dead;
+    }
+
+    public bool isCharBlocking()
+    {
+        return isBlocking;
     }
 
 }

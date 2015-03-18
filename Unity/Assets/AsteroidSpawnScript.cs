@@ -5,8 +5,8 @@ public class AsteroidSpawnScript : MonoBehaviour {
 
    public GameObject[] asteroids;
    public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
-    float SpawnStartDelay  = 0; 
-   float SpawnRate = 5.0f;
+   public float SpawnStartDelay  = 0; 
+   public float SpawnRate = 5.0f;
     
 	// Use this for initialization
 	void Start () {
