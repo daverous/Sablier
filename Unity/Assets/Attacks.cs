@@ -157,6 +157,8 @@ public class Attacks : MonoBehaviour
 					Debug.Log("quickAttackDamage"+quickAttackDamage);
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
+                    //Vector3 direction = Ray.direction;       
+                    //hit.rigidbody.AddForce(Ray.direction * force);
                     break;
                 default:
                     break;
