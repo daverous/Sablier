@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -12,13 +13,46 @@ public class GameManager : MonoBehaviour {
     private int p1Hits = 0; //stores hits for previous rounds
     private int p2Hits = 0;
 	// Use this for initialization
-	void Start () {
-        threashold = TotalRounds / 2;
-	}
+
+
+	//public PlayerHealth playerHealth;
+	public float restartDelay = 5f;
+
+	Animator anim;
+	float restartTimer;
 	
+	public Text hits;
+	Character character;
+	// Use this for initialization
+
+	void Start () {
+
+		threashold = TotalRounds / 2;
+
+		if (tag =="Text1") {
+			
+			character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+		}
+		
+		if (tag == "Text2")
+		{
+			character = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>();
+		}
+
+
+		int numHits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
+
+		//float userHits = character.getHits(); 
+		hits.text = ("hits:" + numHits.ToString());
+
+//		float userHits = character.getHits(); 
+//		hits.text = ("hits:" + userHits.ToString());
+	}	
    
      void Awake() {
         DontDestroyOnLoad(transform.gameObject);
+		anim = GetComponent<Animator> ();
+
     }
 
 	// Update is called once per frame
@@ -31,25 +65,41 @@ public class GameManager : MonoBehaviour {
         {
             Debug.Log("MAX Number of rounds reached- P2 has won");
         }
+
+		anim.SetTrigger ("GameOver");
+
+		restartTimer += Time.deltaTime;
+
+//		if (restartTimer >= restartDelay) {
+//			Application.LoadLevel ("Level 1");
+//			//Application.LoadLevel (Application.loadedLevel);
+//		}
+
+
+		if (restartTimer >= restartDelay) {
+			Application.LoadLevel("TestScene");
+			//Application.LoadLevel (Application.loadedLevel);
+		}
 	}
 
     public void IncrementPlayerOneWins()
     {
         lastWin = 1;
         PlayerOneWins++;
-        getHits();
-       
-        
+        getHits();   
     }
 
     public int getPlayer1Hits()
     {
         return p1Hits;
     }
+
+
     public int getPlayer2Hits()
     {
         return p2Hits;
     }
+
     public void IncrementPlayerTwoWins()
     {
         lastWin = 2;
