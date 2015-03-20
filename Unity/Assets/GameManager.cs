@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour {
             Debug.Log("MAX Number of rounds reached- P2 has won");
         }
 
-		anim.SetTrigger ("GameOver");
+//		anim.SetTrigger ("GameOver");
 
 		restartTimer += Time.deltaTime;
 

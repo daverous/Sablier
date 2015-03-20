@@ -10,7 +10,6 @@ public class AsteroidScript : MonoBehaviour {
     void OnCollisionEnter(Collision other)
     {
         string tag = other.transform.root.tag;
-        Debug.Log(tag);
         // If asteroid has hit player
         if (tag == "Player" || tag == "Player2")
         {

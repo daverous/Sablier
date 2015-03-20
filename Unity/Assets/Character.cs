@@ -75,6 +75,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         comboPower = 0f;
+		hits = 0;
         isGrounded = true;
         curhealth = 100f;
         isBlocking = false;
@@ -259,12 +260,12 @@ public class Character : MonoBehaviour
 			{
 				isBlocking = true;
 				turnCharToFaceOpponent();
-				Debug.Log("Blocking true");
+//				Debug.Log("Blocking true");
 			}
 			else if (Input.GetAxis("P1Blocking") == 0)
 			{
 				isBlocking = false;
-				Debug.Log("Blocking false");
+//				Debug.Log("Blocking false");
 			}
 		
 			
