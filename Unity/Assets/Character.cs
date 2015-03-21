@@ -290,7 +290,10 @@ public class Character : MonoBehaviour
 				isBlocking = false;
 //				Debug.Log("Blocking false");
 			}
+
 			CharPowerBar = CharPowerBar + Time.deltaTime/30;
+			if (CharPowerBar >= 1)
+				CharPowerBar = 1;
 			PowerBar1.fillAmount = CharPowerBar;
 			PowerBar3.fillAmount = CharPowerBar;
 			UpdatePowerBarColor(PowerBar1);
@@ -320,6 +323,8 @@ public class Character : MonoBehaviour
 				isBlocking = false;
 			}
 			CharPowerBar = CharPowerBar + Time.deltaTime/30;
+			if (CharPowerBar >= 1)
+				CharPowerBar = 1;
 			PowerBar2.fillAmount = CharPowerBar;
 			PowerBar4.fillAmount = CharPowerBar;
 			UpdatePowerBarColor(PowerBar2);
