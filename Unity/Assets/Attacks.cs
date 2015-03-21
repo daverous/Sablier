@@ -48,11 +48,17 @@ public class Attacks : MonoBehaviour
         if (thisCharacterTag == "Player")
         #region player1
         {
+            if (Input.GetAxis("HeavyAttack1") == 1 && Input.GetAxis("QuickAttack1") == 1)
+            {
+                Debug.Log("Heavy Attacking");
+                performHeavyAttack();
+            }
             if (Input.GetAxis("QuickAttack1") == 1)
             {
                 performQuickAttack();
             }
-            if (Input.GetAxis("QuickAttack1") == 0)
+           
+            else if (Input.GetAxis("QuickAttack1") == 0)
             {
                 //curAttack = AttackType.Empty;
                 
@@ -62,11 +68,7 @@ public class Attacks : MonoBehaviour
 
 
 
-            if (Input.GetAxis("HeavyAttack1") == 1)
-            {
-				Debug.Log("Heavy Attacking");
-                //thisCharacter.incrementHits();
-            }
+            
 
             if (Input.GetAxis("PowerMove1") == 1)
             {
@@ -78,6 +80,11 @@ public class Attacks : MonoBehaviour
         {
 
             #region player2
+            if (Input.GetAxis("HeavyAttack2") == 1 && Input.GetAxis("QuickAttack2") == 1)
+            {
+                Debug.Log("Heavy Attacking");
+                performHeavyAttack();
+            }
 
             if (Input.GetAxis("QuickAttack2") == 1)
             {
@@ -89,11 +96,6 @@ public class Attacks : MonoBehaviour
                 //curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
             }
-
-        if (Input.GetAxis("HeavyAttack2") == 1)
-        {
-            //thisCharacter.incrementHits();
-        }
 
         if (Input.GetAxis("PowerMove2") == 1)
         {
@@ -179,6 +181,9 @@ public class Attacks : MonoBehaviour
         }
     }
 
+    private void performHeavyAttack()
+    {
+    }
     private void performQuickAttack()
     {
              curAttack = AttackType.Quick;
