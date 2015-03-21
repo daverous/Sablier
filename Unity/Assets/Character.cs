@@ -105,7 +105,6 @@ public class Character : MonoBehaviour
     public void turnCharToFaceOpponent()
     {
         Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
-        Debug.Log(targetRotation);
         float str = Mathf.Min(2 * Time.deltaTime, 1);
         if (transform.root.rotation != Quaternion.Lerp(transform.root.rotation, targetRotation, str))
         {
@@ -230,7 +229,6 @@ public class Character : MonoBehaviour
         {
             comboPower = 100;
         }
-        Debug.Log("hits" + hits);
         hits++;
     }
 

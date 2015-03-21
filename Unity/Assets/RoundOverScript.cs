@@ -12,6 +12,8 @@ public class RoundOverScript : MonoBehaviour {
 	void Update () {
         if (Input.anyKey)
         {
+            Destroy(GameObject.FindWithTag("EventSystem"));
+            Destroy(GameObject.FindObjectOfType<GameManager>());
             Application.LoadLevel("TestScene");
         }
 	}

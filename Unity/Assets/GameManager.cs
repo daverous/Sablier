@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
 		int numHits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
 
 		//float userHits = character.getHits(); 
-		hits.text = ("hits:" + numHits.ToString());
+        //hits.text = ("hits:" + numHits.ToString());
 
 //		float userHits = character.getHits(); 
 //		hits.text = ("hits:" + userHits.ToString());
@@ -68,18 +68,15 @@ public class GameManager : MonoBehaviour {
 
 //		anim.SetTrigger ("GameOver");
 
-		restartTimer += Time.deltaTime;
-
-//		if (restartTimer >= restartDelay) {
-//			Application.LoadLevel ("Level 1");
-//			//Application.LoadLevel (Application.loadedLevel);
-//		}
+        //restartTimer += Time.deltaTime;
 
 
-		if (restartTimer >= restartDelay) {
-			Application.LoadLevel("TestScene");
-			//Application.LoadLevel (Application.loadedLevel);
-		}
+
+
+        //if (restartTimer >= restartDelay) {
+        //    Application.LoadLevel("TestScene");
+        //    //Application.LoadLevel (Application.loadedLevel);
+        //}
 	}
 
     public void IncrementPlayerOneWins()

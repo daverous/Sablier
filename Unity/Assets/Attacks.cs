@@ -155,6 +155,8 @@ public class Attacks : MonoBehaviour
                     //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
                 case AttackType.Quick:
 					Debug.Log("quickAttackDamage"+quickAttackDamage);
+                    Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Rigidbody>();
+                    rb.AddForce(0,5,10);
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
                     thisCharacter.incrementHits();
                     //Vector3 direction = Ray.direction;       
@@ -193,13 +195,12 @@ public class Attacks : MonoBehaviour
     {
         thisCharacter.turnCharToFaceOpponent();
         curAttack = AttackType.Power;
-        float step = 0.5f * Time.deltaTime;
         Vector3 startPoint = transform.root.position;
         Vector3 endPoint = thisCharacter.getOpponentTransform().position;
-        //endPoint.x = endPoint.x - 1;
         Vector3 dir = endPoint - startPoint;
         Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
-        //rb.MovePosition(endPoint *  2.5f * Time.time);
         rb.velocity = dir;
+   
+        
     }
 }
