@@ -16,13 +16,17 @@ public class Character : MonoBehaviour
     #region Vars
     public float Damage;
     public float TurnSpeed;
-
+	public float CharPowerBar = 0.0f;
 
 
 	public Image VisualHealth1;
 	public Image VisualHealth2;
 	public Image VisualHealth3;
 	public Image VisualHealth4;
+	public Image PowerBar1;
+	public Image PowerBar2;
+	public Image PowerBar3;
+	public Image PowerBar4;
 	public Text hn1;
 	public Text hn2;
 	public Text hn3;
@@ -98,7 +102,7 @@ public class Character : MonoBehaviour
         // inits cur health as max health
         curhealth = maxHealth;
 
-		
+		ColorInit ();
 
     }
 
@@ -209,10 +213,31 @@ public class Character : MonoBehaviour
 			VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
 			hn2.text = "HEALTH:"+curhealth;
 			hn4.text = "HEALTH:"+curhealth;
+			Debug.Log(VisualHealth2.fillAmount);
+			UpdateHealthColor(VisualHealth1);
+			UpdateHealthColor(VisualHealth2);
+			UpdateHealthColor(VisualHealth3);
+			UpdateHealthColor(VisualHealth4);
 		}
-
-        
     }
+
+	public void ColorInit(){
+		VisualHealth1.color = new Color32 (2, 251, 96, 255);
+		VisualHealth2.color = new Color32 (2, 251, 96, 255);
+		VisualHealth3.color = new Color32 (2, 251, 96, 255);
+		VisualHealth4.color = new Color32 (2, 251, 96, 255);
+	}
+
+	public void UpdateHealthColor(Image healthbar){
+		if (healthbar.fillAmount < 0.9f && healthbar.fillAmount > 0.7f)
+			healthbar.color = new Color32 (65, 238, 131, 194);
+		else if (healthbar.fillAmount < 0.7f && healthbar.fillAmount >0.5f)
+			healthbar.color = new Color32 (211, 251, 98, 255);
+		else if(healthbar.fillAmount < 0.5f && healthbar.fillAmount > 0.3f)
+			healthbar.color = new Color32 (201, 232, 91, 230);
+		else if(healthbar.fillAmount < 0.3f)
+			healthbar.color = new Color32 (255, 9, 96, 230);
+	}
 
     public playerNum getOpponentName()
     {
@@ -265,7 +290,11 @@ public class Character : MonoBehaviour
 				isBlocking = false;
 //				Debug.Log("Blocking false");
 			}
-		
+			CharPowerBar = CharPowerBar + Time.deltaTime/30;
+			PowerBar1.fillAmount = CharPowerBar;
+			PowerBar3.fillAmount = CharPowerBar;
+			UpdatePowerBarColor(PowerBar1);
+			UpdatePowerBarColor(PowerBar3);
 			
         }
         else if (gameObject.tag == "Player2")
@@ -290,9 +319,27 @@ public class Character : MonoBehaviour
 			{
 				isBlocking = false;
 			}
+			CharPowerBar = CharPowerBar + Time.deltaTime/30;
+			PowerBar2.fillAmount = CharPowerBar;
+			PowerBar4.fillAmount = CharPowerBar;
+			UpdatePowerBarColor(PowerBar2);
+			UpdatePowerBarColor(PowerBar4);
+			
         }
 
     }
+
+	public void UpdatePowerBarColor(Image powerbar){
+		if (powerbar.fillAmount < 0.9f && powerbar.fillAmount > 0.7f)
+			powerbar.color = new Color32 (231, 41, 41, 255);
+		else if (powerbar.fillAmount < 0.7f && powerbar.fillAmount >0.5f)
+			powerbar.color = new Color32 (242, 16, 123, 255);
+		else if(powerbar.fillAmount < 0.5f && powerbar.fillAmount > 0.3f)
+			powerbar.color = new Color32 (211, 242, 16, 255);
+		else if(powerbar.fillAmount < 0.3f)
+			powerbar.color = new Color32 (94, 255, 215, 255);
+
+	}
 
     void FixedUpdate()
     {

@@ -72,7 +72,10 @@ public class Attacks : MonoBehaviour
 
             if (Input.GetAxis("PowerMove1") == 1)
             {
-                performPowerMove();
+				if (thisCharacter.CharPowerBar > 0){
+					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/3;
+					performPowerMove();
+				}
             }
         }
         #endregion
@@ -99,7 +102,10 @@ public class Attacks : MonoBehaviour
 
         if (Input.GetAxis("PowerMove2") == 1)
         {
-            performPowerMove();
+			if (thisCharacter.CharPowerBar > 0){
+				thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/5;
+				performPowerMove();
+			}
         }
 
 
