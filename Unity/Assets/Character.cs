@@ -184,7 +184,7 @@ public class Character : MonoBehaviour
 		if (curhealth <= 0)
 		{
 			dead = true;
-            GameManager gm = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<GameManager>();
+            GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             //increment wins of other player
             if (gameObject.tag == "Player2")
             {
