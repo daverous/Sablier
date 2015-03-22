@@ -86,6 +86,9 @@
      <Compile Include="Assets\Scripts\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\GravityBody.cs" />
      <Compile Include="Assets\Scripts\PlayerTestScripts\SceneViewCameraFollower.cs" />
+     <Compile Include="Assets\TotalHit1Script.cs" />
+     <Compile Include="Assets\TotalHit2Script.cs" />
+     <Compile Include="Assets\WinnerScript.cs" />
      <Compile Include="Assets\hits1Script.cs" />
      <Compile Include="Assets\planet.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />

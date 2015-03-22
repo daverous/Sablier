@@ -22,6 +22,7 @@ public class hits1Script : MonoBehaviour {
 	void Update () {
 
             float userHits = character.getHits();
+
             hits.text = ("hits:" + userHits.ToString());
     }
 }

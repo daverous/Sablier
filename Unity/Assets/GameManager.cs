@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
 	float restartTimer;
 	
 	public Text hits;
+	public Text Text1;
+
 	Character character;
 	// Use this for initialization
 
@@ -40,10 +42,10 @@ public class GameManager : MonoBehaviour {
 		}
 
 
-		int numHits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
+		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
 
 		//float userHits = character.getHits(); 
-        //hits.text = ("hits:" + numHits.ToString());
+		Text1.text = ("hits:" + numHits); //.ToString());
 
 //		float userHits = character.getHits(); 
 //		hits.text = ("hits:" + userHits.ToString());
@@ -68,15 +70,17 @@ public class GameManager : MonoBehaviour {
 
 //		anim.SetTrigger ("GameOver");
 
-        //restartTimer += Time.deltaTime;
+		//restartTimer += Time.deltaTime;
 
 
+		//Check if the user clicks restart and go to TestScene, else if 
+		//the user click exit, stop running Unity. 
 
+		if (restartTimer >= restartDelay) { 
 
-        //if (restartTimer >= restartDelay) {
-        //    Application.LoadLevel("TestScene");
-        //    //Application.LoadLevel (Application.loadedLevel);
-        //}
+			Application.LoadLevel("TestScene");
+
+		}
 	}
 
     public void IncrementPlayerOneWins()
@@ -92,6 +96,18 @@ public class GameManager : MonoBehaviour {
     }
 
 
+	public int getWinner() {
+		if (p1Hits < p2Hits) {
+			return 1;
+		}
+
+		if (p1Hits > p2Hits) {
+			return 2;
+		}
+
+		//If they are equal.
+		return 0;
+	}
     public int getPlayer2Hits()
     {
         return p2Hits;
