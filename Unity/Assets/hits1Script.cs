@@ -23,6 +23,14 @@ public class hits1Script : MonoBehaviour {
 
             float userHits = character.getHits();
 
-            hits.text = ("hits:" + userHits.ToString());
+		if (tag =="Text1") {
+			hits.text = ("HITS:" + userHits.ToString());		
+			}
+		
+		if (tag == "Text2")
+		{
+			hits.text = (userHits.ToString()+":HITS");
+		}
+            
     }
 }
