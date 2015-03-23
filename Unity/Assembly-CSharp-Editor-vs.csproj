@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</ProjectGuid>
+	<ProjectGuid>{6311E6C6-0A20-383B-320B-694068DE37A5}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,78 +46,87 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AsteroidScript.cs" />
-     <Compile Include="Assets\AsteroidSpawnScript.cs" />
-     <Compile Include="Assets\Attacks.cs" />
-     <Compile Include="Assets\CameraScript.cs" />
-     <Compile Include="Assets\CanvasScript.cs" />
-     <Compile Include="Assets\Character.cs" />
-     <Compile Include="Assets\CharacterAnimator.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\Sample Supporting Emitters\DetonatorSprayHelper.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\Detonator.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorCloudRing.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorComponent.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorFireball.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorForce.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorGlow.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorHeatwave.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorLight.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorShockwave.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSmoke.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSound.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSparks.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSpray.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\TestScene\DetonatorTest.cs" />
-     <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_BGScroller.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_DestroyByBoundary.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_DestroyByContact.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_DestroyByTime.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_EvasiveManeuver.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_GameController.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_Mover.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_PlayerController.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
-     <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
-     <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\GuiScript.cs" />
-     <Compile Include="Assets\RoundOverScript.cs" />
-     <Compile Include="Assets\Scripts\GravityAttractor.cs" />
-     <Compile Include="Assets\Scripts\GravityBody.cs" />
-     <Compile Include="Assets\Scripts\PlayerTestScripts\SceneViewCameraFollower.cs" />
-     <Compile Include="Assets\TotalHit1Script.cs" />
-     <Compile Include="Assets\TotalHit2Script.cs" />
-     <Compile Include="Assets\WinnerScript.cs" />
-     <Compile Include="Assets\hits1Script.cs" />
-     <Compile Include="Assets\planet.cs" />
+     <Compile Include="Assets\InputMapper\Editor\ws\winx\editor\DeviceProfilesEditor.cs" />
+     <Compile Include="Assets\InputMapper\Editor\ws\winx\editor\DeviceProfiling.cs" />
+     <Compile Include="Assets\InputMapper\Editor\ws\winx\editor\InputMapper.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\ps4_win.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\InputSettings.xml" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_f510_osx.txt" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_f510_win.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_rumble2_win.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_f310_osx.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\ps4_osx.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_precision_win.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_dualact_osx.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\xbox360_win.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\profiles_uni.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\profiles.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_dualact_win.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_f710_win.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\ps3_osx.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\ps3_win.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\tm_rgtffpro_win.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_f310_win.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\tm_rgtffpro_osx.txt" />
      <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\xbox360_osx.txt" />
+     <None Include="Assets\InputMapper\Pluggins\Android\AndroidManifest.xml" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_f710_osx.txt" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_precision_osx.txt" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
+     <None Include="Assets\InputMapper\StreamingAssets\log_rumble2_osx.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/davidwilson/Sablier/Unity/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>/Users/davidwilson/Sablier/Unity/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.BB10.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/BlackBerryPlayer/UnityEditor.BB10.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.LinuxStandalone.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
