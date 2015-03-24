@@ -24,6 +24,9 @@ public class Attacks : MonoBehaviour
     // Use this for initialization
 	private Vector3 desiredVelocity;
 	private float lastSqrMag;
+	bool canPowerMove = true;
+	bool isPowerMoving = false; 
+	Rigidbody rb;
 
     public enum AttackType
     {
@@ -32,7 +35,6 @@ public class Attacks : MonoBehaviour
     void Start()
     {
 		source = GetComponent<AudioSource>();
-
 
 		curAttack = AttackType.Empty;
         //inRange = false;
@@ -44,7 +46,8 @@ public class Attacks : MonoBehaviour
 			thisOpponent = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         animator = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
 		opponent_animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-    }
+		rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -93,12 +96,36 @@ public class Attacks : MonoBehaviour
 
 			if (jInput.GetButton (Mapper.InputArray [4]))
             {
-				if (thisCharacter.CharPowerBar > 0){
-					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/3;
+
+				if (thisCharacter.CharPowerBar <= 0) {
+					canPowerMove = false;
+					if (isPowerMoving) {
+						rb.velocity = Vector3.zero;
+					}
+					isPowerMoving = false;
+				}
+				else if (thisCharacter.CharPowerBar > 0 && canPowerMove){
+//					(Time.deltaTime/3+0.01f)
+					if (!isPowerMoving) {
+						thisCharacter.performJump();
+						isPowerMoving = true;
+					}
+					else {
+					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - 0.008f ;
 					performPowerMove();
+					isPowerMoving = true;
+					}
 				}
             }
+			if (!jInput.GetButton (Mapper.InputArray [4])) {
+				if (isPowerMoving) {
+					rb.velocity = Vector3.zero;
+				}
+				isPowerMoving = false;
+				canPowerMove = true;
+
         }
+		}
         #endregion
         if (thisCharacterTag == "Player2")
         {
@@ -124,7 +151,7 @@ public class Attacks : MonoBehaviour
 //			performPowerMove
 			if (jInput.GetButton (Mapper.InputArray2p [4]))
         {
-			if (thisCharacter.CharPowerBar > 0){
+			if (thisCharacter.CharPowerBar > 50){
 				thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/5;
 				performPowerMove();
 			}
@@ -237,8 +264,7 @@ public class Attacks : MonoBehaviour
         curAttack = AttackType.Power;
         Vector3 startPoint = transform.root.position;
         Vector3 endPoint = thisCharacter.getOpponentTransform().position;
-		Vector3 dir = (endPoint - startPoint).normalized * powerMoveSpeed;
-        Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
+		Vector3 dir = (endPoint - startPoint);
 		rb.velocity = dir;
    
         

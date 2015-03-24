@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
     private bool isJumping;
 	private bool isBlocking;
     private bool isMoving;
+	float lerpTime = 0;
     #endregion
 
     void Awake()
@@ -105,15 +106,25 @@ public class Character : MonoBehaviour
 		ColorInit ();
 
     }
+	public float turnCharToFaceOpponentNew()
+	{                     
+		lerpTime += Time.deltaTime;
+		Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
+		//        float str = Mathf.Min(10 * Time.deltaTime, 1);
+		transform.root.rotation = Quaternion.Slerp(transform.root.rotation, targetRotation, lerpTime);
+		Debug.Log (lerpTime);
+		return lerpTime;
+	}
 
-    public void turnCharToFaceOpponent()
-    {
+	// Return value is if character has been fully rotated
+    public float turnCharToFaceOpponent()
+    {                     
+		lerpTime += Time.deltaTime;
         Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
-        float str = Mathf.Min(2 * Time.deltaTime, 1);
-        if (transform.root.rotation != Quaternion.Lerp(transform.root.rotation, targetRotation, str))
-        {
-            transform.root.rotation = Quaternion.Lerp(transform.root.rotation, targetRotation, str);
-        }
+//        float str = Mathf.Min(10 * Time.deltaTime, 1);
+		transform.root.rotation = Quaternion.Slerp(transform.root.rotation, targetRotation, lerpTime);
+		Debug.Log (lerpTime);
+		return lerpTime;
     }
 
 
@@ -282,6 +293,7 @@ public class Character : MonoBehaviour
 //			performJump
 			if (jInput.GetButton (Mapper.InputArray [5])&& isGrounded)
             {
+				Debug.Log ("jump");
                 performJump();
             }
 
@@ -386,7 +398,7 @@ public class Character : MonoBehaviour
         return isBlocking;
     }
 
-    void performJump()
+    public void performJump()
     {
         isJumping = true;
         Rigidbody rb = GameObject.FindGameObjectWithTag(gameObject.tag).GetComponent<Rigidbody>();

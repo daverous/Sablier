@@ -14,6 +14,7 @@ public class CameraScript : MonoBehaviour
     public float maximumY = 50F;
     float rotationY = 0F;
     Character thisChar;
+	bool canLock = true;
     #endregion
     public enum CamStates
     {
@@ -75,6 +76,7 @@ public class CameraScript : MonoBehaviour
         
         else
         {
+			canLock = true;
             camState = CamStates.Free;
         }
     }
@@ -83,7 +85,10 @@ public class CameraScript : MonoBehaviour
     {
         if (camState == CamStates.Locked)
         {
-            thisChar.turnCharToFaceOpponent();
+			if (canLock) {
+            if (thisChar.turnCharToFaceOpponent() >= 1)
+				canLock = false;
+			}
         }
 
             CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);

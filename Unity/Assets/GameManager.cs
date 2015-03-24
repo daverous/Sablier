@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     private static int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
     float threashold;
 
+	private static int curRound = 1;
     private static int p1Hits = 0; //stores hits for previous rounds
     private static int p2Hits = 0;
 	// Use this for initialization
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour {
     public void IncrementPlayerOneWins()
     {
         lastWin = 1;
+		curRound++;
 		PlayerOneWins++;
 		Debug.Log (PlayerOneWins);     
         getHits();   
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementPlayerTwoWins()
     {
+		curRound++;
         lastWin = 2;
         PlayerTwoWins++;
         getHits();
