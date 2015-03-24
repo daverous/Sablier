@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour {
 
 	Animator anim;
 	float restartTimer;
-	
-	public Text hits;
-	public Text Text1;
 
 	Character character;
 	// Use this for initialization
@@ -46,7 +43,7 @@ public class GameManager : MonoBehaviour {
 		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
 
 		//float userHits = character.getHits(); 
-		Text1.text = ("hits:" + numHits); //.ToString());
+		//Text1.text = ("hits:" + numHits); //.ToString());
 
 //		float userHits = character.getHits(); 
 //		hits.text = ("hits:" + userHits.ToString());
