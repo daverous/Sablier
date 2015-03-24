@@ -13,7 +13,7 @@ public class Attacks : MonoBehaviour
 
     public float quickAttackDamage = 5f;
     public float heavyAttackDamage = 10f;
-    public float powerMoveSpeed = 1f;
+    public float powerMoveSpeed = 10f;
 	public float reducedAttackDamage = 2f;
     public float volume = 5f;
 
@@ -22,6 +22,8 @@ public class Attacks : MonoBehaviour
 	private Animator opponent_animator;
 	private int collision_trigger = 0;
     // Use this for initialization
+	private Vector3 desiredVelocity;
+	private float lastSqrMag;
 
     public enum AttackType
     {
@@ -29,8 +31,10 @@ public class Attacks : MonoBehaviour
     }
     void Start()
     {
-        source = GetComponent<AudioSource>();
-        curAttack = AttackType.Empty;
+		source = GetComponent<AudioSource>();
+
+
+		curAttack = AttackType.Empty;
         //inRange = false;
         thisCharacterTag = transform.root.tag;
         thisCharacter = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Character>();
@@ -45,7 +49,27 @@ public class Attacks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (thisCharacterTag == "Player")
+		#region checkMoving
+		float sqrMag = (thisCharacter.getOpponentTransform().position- transform.position).sqrMagnitude;
+
+		if ( sqrMag > lastSqrMag )
+		{
+			// rigidbody has reached target and is now moving past it
+			// stop the rigidbody by setting the velocity to zero
+			desiredVelocity = Vector3.zero;
+		} 
+		
+		// make sure you update the lastSqrMag
+		lastSqrMag = sqrMag;
+		
+		
+		
+		#endregion
+		
+		
+		
+		
+		if (thisCharacterTag == "Player")
         #region player1
         {
 			if (jInput.GetButton (Mapper.InputArray [3]) && jInput.GetButton (Mapper.InputArray [2]))
@@ -132,8 +156,7 @@ public class Attacks : MonoBehaviour
         }
     }
 
-	
-    void OnCollisionEnter(Collision other)
+	void OnCollisionEnter(Collision other)
     {
 		if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")) && collision_trigger == 0)
         {
@@ -201,13 +224,22 @@ public class Attacks : MonoBehaviour
 
     private void performPowerMove()
     {
-        thisCharacter.turnCharToFaceOpponent();
+		#region moveStuff 
+		
+		Vector3 directionalVector = (thisCharacter.getOpponentTransform().position - transform.position).normalized * powerMoveSpeed;
+		lastSqrMag = Mathf.Infinity;	
+		// apply to rigidbody velocity
+		desiredVelocity = directionalVector;
+		
+		#endregion
+
+		thisCharacter.turnCharToFaceOpponent();
         curAttack = AttackType.Power;
         Vector3 startPoint = transform.root.position;
         Vector3 endPoint = thisCharacter.getOpponentTransform().position;
-        Vector3 dir = endPoint - startPoint;
+		Vector3 dir = (endPoint - startPoint).normalized * powerMoveSpeed;
         Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Rigidbody>();
-        rb.velocity = dir;
+		rb.velocity = dir;
    
         
     }

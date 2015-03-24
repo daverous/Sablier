@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 	}	
    
      void Awake() {
-        DontDestroyOnLoad(this);
+//        DontDestroyOnLoad(this);
 		anim = GetComponent<Animator>();
 
     }
