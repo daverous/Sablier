@@ -86,7 +86,7 @@ public class CameraScript : MonoBehaviour
         if (camState == CamStates.Locked)
         {
 			if (canLock) {
-            if (thisChar.turnCharToFaceOpponent() >= 1)
+				if (thisChar.turnCharToFaceOpponentNew() >= 1)
 				canLock = false;
 			}
         }

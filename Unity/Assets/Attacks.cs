@@ -111,7 +111,7 @@ public class Attacks : MonoBehaviour
 						isPowerMoving = true;
 					}
 					else {
-					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - 0.008f ;
+					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - 0.001f ;
 					performPowerMove();
 					isPowerMoving = true;
 					}

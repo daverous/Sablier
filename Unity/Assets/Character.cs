@@ -117,14 +117,11 @@ public class Character : MonoBehaviour
 	}
 
 	// Return value is if character has been fully rotated
-    public float turnCharToFaceOpponent()
+    public void turnCharToFaceOpponent()
     {                     
-		lerpTime += Time.deltaTime;
         Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
-//        float str = Mathf.Min(10 * Time.deltaTime, 1);
-		transform.root.rotation = Quaternion.Slerp(transform.root.rotation, targetRotation, lerpTime);
-		Debug.Log (lerpTime);
-		return lerpTime;
+        float str = Mathf.Min(10 * Time.deltaTime, 1);
+		transform.root.rotation = Quaternion.Slerp(transform.root.rotation, targetRotation, str);
     }
 
 
