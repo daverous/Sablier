@@ -44,17 +44,25 @@ public class CameraScript : MonoBehaviour
         if (thisChar.getPNum().ToString() == "Player")
         {
 
-            locked = Input.GetAxis("Lock1");
-            x = Input.GetAxis("CameraHor1");
-            y = Input.GetAxis("CameraVer1") ;
+			locked = jInput.GetAxis (Mapper.InputArray [14]);
+			var hPositive = jInput.GetAxis (Mapper.InputArray [12]);
+			var hNegative = jInput.GetAxis (Mapper.InputArray [13]);
+			x = hPositive - hNegative;
+			var vPositive = jInput.GetAxis (Mapper.InputArray [7]);
+			var vNegative = jInput.GetAxis (Mapper.InputArray [6]);
+            y = vPositive - vNegative;
         }
         if (thisChar.getPNum().ToString() == "Player2")
         {
-            x = Input.GetAxis("CameraHor2");
-            y = Input.GetAxis("CameraVer2");
-            locked = Input.GetAxis("Lock2");
-        }
-        //Debug.Log("locked" + locked);
+			locked = jInput.GetAxis (Mapper.InputArray2p [14]);
+			var hPositive = jInput.GetAxis (Mapper.InputArray2p [12]);
+			var hNegative = jInput.GetAxis (Mapper.InputArray2p [13]);
+			x = hPositive - hNegative;
+			var vPositive = jInput.GetAxis (Mapper.InputArray2p [7]);
+			var vNegative = jInput.GetAxis (Mapper.InputArray2p [6]);
+			y = vPositive - vNegative;
+		}
+		//Debug.Log("locked" + locked);
         if (thisChar.isCharacterJumping())
         {
             //Debug.Log("jumping");

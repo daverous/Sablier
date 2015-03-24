@@ -46,55 +46,35 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\InputMapper\Editor\ws\winx\editor\DeviceProfilesEditor.cs" />
-     <Compile Include="Assets\InputMapper\Editor\ws\winx\editor\DeviceProfiling.cs" />
-     <Compile Include="Assets\InputMapper\Editor\ws\winx\editor\InputMapper.cs" />
+     <Compile Include="Assets\jInputMapping\Editor\EditStartingCheck.cs" />
+     <Compile Include="Assets\jInputMapping\Editor\MenuItemsCommonInspector.cs" />
+     <Compile Include="Assets\jInputMapping\Editor\MenuItemsNumberManager.cs" />
+     <Compile Include="Assets\jInputMapping\Editor\jInputSettingsInspector.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\ps4_win.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\InputSettings.xml" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_f510_osx.txt" />
+     <None Include="Assets\jInputMapping\ReadMe.txt" />
+     <None Include="Assets\jInputMapping\Components\Other\jInputShader.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_f510_win.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_rumble2_win.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_f310_osx.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\ps4_osx.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_precision_win.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_dualact_osx.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\xbox360_win.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\profiles_uni.txt" />
+     <None Include="Assets\jInputMapping\ReadMeJP.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\profiles.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_dualact_win.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_f710_win.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\ps3_osx.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\ps3_win.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\tm_rgtffpro_win.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_f310_win.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\tm_rgtffpro_osx.txt" />
      <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\xbox360_osx.txt" />
-     <None Include="Assets\InputMapper\Pluggins\Android\AndroidManifest.xml" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_f710_osx.txt" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_precision_osx.txt" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
-     <None Include="Assets\InputMapper\StreamingAssets\log_rumble2_osx.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -128,6 +108,8 @@
       <Project>{2662B409-6332-1E56-D797-C9025C53BDD6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
       <Project>{4464F9EF-777D-E971-944B-0D2B43AA417D}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
       <Project>{0CDEF5B4-5D89-843D-4E19-A4A5D599C4FF}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>

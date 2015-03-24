@@ -48,17 +48,19 @@ public class Attacks : MonoBehaviour
         if (thisCharacterTag == "Player")
         #region player1
         {
-            if (Input.GetAxis("HeavyAttack1") == 1 && Input.GetAxis("QuickAttack1") == 1)
+			if (jInput.GetButton (Mapper.InputArray [3]) && jInput.GetButton (Mapper.InputArray [2]))
             {
                 Debug.Log("Heavy Attacking");
                 performHeavyAttack();
             }
-            if (Input.GetAxis("QuickAttack1") == 1)
+
+//			Perform quick 
+			if (jInput.GetButton (Mapper.InputArray [2]))
             {
                 performQuickAttack();
             }
            
-            else if (Input.GetAxis("QuickAttack1") == 0)
+			else if (!jInput.GetButton (Mapper.InputArray [2]))
             {
                 //curAttack = AttackType.Empty;
                 
@@ -70,7 +72,7 @@ public class Attacks : MonoBehaviour
 
             
 
-            if (Input.GetAxis("PowerMove1") == 1)
+			if (jInput.GetButton (Mapper.InputArray [4]))
             {
 				if (thisCharacter.CharPowerBar > 0){
 					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/3;
@@ -83,24 +85,25 @@ public class Attacks : MonoBehaviour
         {
 
             #region player2
-            if (Input.GetAxis("HeavyAttack2") == 1 && Input.GetAxis("QuickAttack2") == 1)
+			if (jInput.GetButton (Mapper.InputArray2p [3]) && jInput.GetButton (Mapper.InputArray2p [2]))
             {
                 Debug.Log("Heavy Attacking");
                 performHeavyAttack();
             }
 
-            if (Input.GetAxis("QuickAttack2") == 1)
+			if (jInput.GetButton (Mapper.InputArray2p [2]))
             {
                 performQuickAttack();
             }
 
-            if (Input.GetAxis("QuickAttack2") == 0)
+			if (!jInput.GetButton (Mapper.InputArray2p [2]))
             {
                 //curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
             }
 
-        if (Input.GetAxis("PowerMove2") == 1)
+//			performPowerMove
+			if (jInput.GetButton (Mapper.InputArray2p [4]))
         {
 			if (thisCharacter.CharPowerBar > 0){
 				thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/5;

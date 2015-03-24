@@ -267,25 +267,32 @@ public class Character : MonoBehaviour
 //		this.transform.LookAt(opponent.position);
         if (gameObject.tag == "Player")
         {
-
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
+			var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
+			var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
+			horizontal = hPositive - hNegative;
+//            horizontal = Input.GetAxis("Horizontal");
+			var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+			var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+			vertical = vPositive - vNegative;
             if (horizontal != 0 || vertical!=0) {
                 isMoving = true;
             }
             moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-            if (Input.GetAxis("Jump1") == 1 && isGrounded)
+
+//			performJump
+			if (jInput.GetButton (Mapper.InputArray [5])&& isGrounded)
             {
                 performJump();
             }
 
-			if (Input.GetAxis("P1Blocking") == 1)
+//			performBlock
+			if (jInput.GetButton (Mapper.InputArray [9]))
 			{
 				isBlocking = true;
 				turnCharToFaceOpponent();
 //				Debug.Log("Blocking true");
 			}
-			else if (Input.GetAxis("P1Blocking") == 0)
+			else if (jInput.GetButton (Mapper.InputArray [9]))
 			{
 				isBlocking = false;
 //				Debug.Log("Blocking false");
@@ -303,22 +310,27 @@ public class Character : MonoBehaviour
         else if (gameObject.tag == "Player2")
         {
             
-			horizontal2 = Input.GetAxis("Horizontal2");
-            vertical2 = Input.GetAxis("Vertical2");
+			var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
+			var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
+			horizontal = hPositive - hNegative;
+			//            horizontal = Input.GetAxis("Horizontal");
+			var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+			var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+			vertical = vPositive - vNegative;
             moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
 
-
-            if (Input.GetAxis("Jump2") == 1 && isGrounded)
+			 
+			if (jInput.GetButton (Mapper.InputArray2p[5]) && isGrounded)
             {
                 performJump();
             }
 
-			if (Input.GetAxis("P2Blocking") == 1)
+			if (jInput.GetButton (Mapper.InputArray2p [9]))
 			{
 				turnCharToFaceOpponent();
 				isBlocking = true;
 			}
-			else if (Input.GetAxis("P2Blocking") == 0)
+			else if (jInput.GetButton (Mapper.InputArray2p [9]))
 			{
 				isBlocking = false;
 			}
