@@ -213,7 +213,7 @@ public class Character : MonoBehaviour
 			VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
 			hn2.text = "HEALTH:"+curhealth;
 			hn4.text = "HEALTH:"+curhealth;
-			Debug.Log(VisualHealth2.fillAmount);
+//			Debug.Log(VisualHealth2.fillAmount);
 			UpdateHealthColor(VisualHealth1);
 			UpdateHealthColor(VisualHealth2);
 			UpdateHealthColor(VisualHealth3);

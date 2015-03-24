@@ -5,13 +5,13 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public int TotalRounds = 3; //total number of rounds
-    private int PlayerOneWins = 0;// how many wins player 1 has
-    private int PlayerTwoWins = 0; // how many wins player 2 has
-    private int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
+    private static int PlayerOneWins;// how many wins player 1 has
+    private static int PlayerTwoWins; // how many wins player 2 has
+    private static int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
     float threashold;
 
-    private int p1Hits = 0; //stores hits for previous rounds
-    private int p2Hits = 0;
+    private static int p1Hits = 0; //stores hits for previous rounds
+    private static int p2Hits = 0;
 	// Use this for initialization
 
 
@@ -52,18 +52,18 @@ public class GameManager : MonoBehaviour {
 	}	
    
      void Awake() {
-        DontDestroyOnLoad(transform.gameObject);
-		anim = GetComponent<Animator> ();
+        DontDestroyOnLoad(this);
+		anim = GetComponent<Animator>();
 
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (PlayerOneWins >= threashold)
+        if (PlayerOneWins > threashold)
         {
             Debug.Log("MAX Number of rounds reached- P1 has won");
         }
-        if (PlayerTwoWins >= threashold)
+        if (PlayerTwoWins > threashold)
         {
             Debug.Log("MAX Number of rounds reached- P2 has won");
         }
@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour {
 		//the user click exit, stop running Unity. 
 
 		if (restartTimer >= restartDelay) { 
-
 			Application.LoadLevel("TestScene");
 
 		}
@@ -86,7 +85,8 @@ public class GameManager : MonoBehaviour {
     public void IncrementPlayerOneWins()
     {
         lastWin = 1;
-        PlayerOneWins++;
+		PlayerOneWins++;
+		Debug.Log (PlayerOneWins);     
         getHits();   
     }
 

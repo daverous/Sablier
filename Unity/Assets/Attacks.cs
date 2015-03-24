@@ -55,7 +55,7 @@ public class Attacks : MonoBehaviour
             }
 
 //			Perform quick 
-			if (jInput.GetButton (Mapper.InputArray [2]))
+			else if (jInput.GetButton (Mapper.InputArray [2]))
             {
                 performQuickAttack();
             }
@@ -66,11 +66,6 @@ public class Attacks : MonoBehaviour
                 
                 animator.SetBool("Chain", false);
             }
-
-
-
-
-            
 
 			if (jInput.GetButton (Mapper.InputArray [4]))
             {
@@ -91,12 +86,12 @@ public class Attacks : MonoBehaviour
                 performHeavyAttack();
             }
 
-			if (jInput.GetButton (Mapper.InputArray2p [2]))
+			else if (jInput.GetButton (Mapper.InputArray2p [2]))
             {
                 performQuickAttack();
             }
 
-			if (!jInput.GetButton (Mapper.InputArray2p [2]))
+			else if (!jInput.GetButton (Mapper.InputArray2p [2]))
             {
                 //curAttack = AttackType.Empty;
                 animator.SetBool("Chain", false);
@@ -165,7 +160,6 @@ public class Attacks : MonoBehaviour
                     break;
                     //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
                 case AttackType.Quick:
-					Debug.Log("quickAttackDamage"+quickAttackDamage);
                     Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Rigidbody>();
                     rb.AddForce(0,5,10);
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
