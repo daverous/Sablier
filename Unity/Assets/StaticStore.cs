@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public static class StaticStore {
 
@@ -8,6 +9,7 @@ public static class StaticStore {
 	private static int player2Hits;
 	private static int winnerName;
 	private static int numOfRounds;
+	private static List<int> list = new List<int>();
 
 	static GameManager gm;
 
@@ -26,6 +28,11 @@ public static class StaticStore {
 	public static void setNumberOfRounds(int val) {
 		numOfRounds = val;
 	}
+
+	public static void setNumberOfRoundWinners(List<int> val) {
+		list = val;
+	}
+
 	// Use this for initialization
 
 //	void Update() {
@@ -48,5 +55,11 @@ public static class StaticStore {
 
 	public static int getWinnerName() {
 		return winnerName;
+	}
+
+	
+	public static List<int> getNumberOfRoundWinners(){
+
+		return list;
 	}
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	public Image Round22;
 	//public PlayerHealth playerHealth;
 	public float restartDelay = 5f;
+	//int[] table;
+	public static List<int> list = new List<int>();
 
 	Animator anim;
 	float restartTimer;
@@ -114,6 +117,12 @@ public class GameManager : MonoBehaviour {
 
 	public int getNumberOfRounds(){
 		return curRound;
+	}
+
+	public List<int> getNumberOfRoundWinners(){
+		//table[] = lastWin;
+		list.Add(lastWin);
+		return list;
 	}
 
     public void IncrementPlayerTwoWins()
