@@ -112,6 +112,9 @@ public class GameManager : MonoBehaviour {
         return p2Hits;
     }
 
+	public int getNumberOfRounds(){
+		return curRound;
+	}
 
     public void IncrementPlayerTwoWins()
     {

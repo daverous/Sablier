@@ -7,6 +7,7 @@ public static class StaticStore {
    	private static int player1Hits;
 	private static int player2Hits;
 	private static int winnerName;
+	private static int numOfRounds;
 
 	static GameManager gm;
 
@@ -22,6 +23,9 @@ public static class StaticStore {
 		winnerName = val;
 	}
 
+	public static void setNumberOfRounds(int val) {
+		numOfRounds = val;
+	}
 	// Use this for initialization
 
 //	void Update() {
@@ -29,6 +33,10 @@ public static class StaticStore {
 //			player2Hits = gm.getPlayer2Hits ();
 //	}
 
+
+	public static int getNumberOfRounds(){
+			return numOfRounds;
+	}
 
 	public static int getPlayer1Hits() {
 		return player1Hits;
