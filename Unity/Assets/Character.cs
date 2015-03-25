@@ -27,6 +27,14 @@ public class Character : MonoBehaviour
 	public Image PowerBar2;
 	public Image PowerBar3;
 	public Image PowerBar4;
+	public Image Bubble1;
+	public Image Bubble2;
+	public Image Bubble3;
+	public Image Bubble4;
+	public Image Bubble5;
+	public Image Bubble6;
+	public Image Bubble7;
+	public Image Bubble8;
 	public Text hn1;
 	public Text hn2;
 	public Text hn3;
@@ -190,7 +198,7 @@ public class Character : MonoBehaviour
             source.PlayOneShot(swordClangSound);
         
 		curhealth -= damage;
-
+		//DisplayBubble();
 		if (curhealth <= 0)
 		{
 			dead = true;
@@ -206,7 +214,7 @@ public class Character : MonoBehaviour
             }
             Application.LoadLevel("GOScene");
 		}
-
+		//DisplayBubble();
 		double temp = damage * 0.010;
 		float damage_value = (float)temp;
 		if (gameObject.tag == "Player") {
@@ -214,6 +222,11 @@ public class Character : MonoBehaviour
 			VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
 			hn1.text = "HEALTH:"+curhealth;
 			hn3.text = "HEALTH:"+curhealth;
+			//Display Bubbles
+			Bubble1.fillAmount = 1;
+			Bubble4.fillAmount = 1;
+			StartCoroutine("timer");
+
 		} else if (gameObject.tag == "Player2") {
 			VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
 			VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
@@ -224,8 +237,30 @@ public class Character : MonoBehaviour
 			UpdateHealthColor(VisualHealth2);
 			UpdateHealthColor(VisualHealth3);
 			UpdateHealthColor(VisualHealth4);
+			//Display bubbles
+			Bubble6.fillAmount = 1;
+			Bubble8.fillAmount = 1;
+			StartCoroutine("timer");
+
+		
 		}
     }
+
+
+
+	IEnumerator timer()
+	{
+		yield return new WaitForSeconds(1);
+		Debug.Log("heheh");
+		if (gameObject.tag == "Player") {
+			Bubble1.fillAmount = 0;
+			Bubble4.fillAmount = 0;
+		} else if (gameObject.tag == "Player2") {
+			Bubble6.fillAmount = 0;
+			Bubble8.fillAmount = 0;
+		}
+	}
+
 
 	public void ColorInit(){
 		VisualHealth1.color = new Color32 (2, 251, 96, 255);
@@ -314,7 +349,7 @@ public class Character : MonoBehaviour
 			var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
 			var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
 			horizontal2 = hPositive - hNegative;
-			Debug.Log (horizontal);
+		
 			//            horizontal = Input.GetAxis("Horizontal");
 			var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
 			var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
