@@ -120,9 +120,11 @@ public class PlayerNumWindow : MonoBehaviour
 	
 	void Update ()
 	{
-		if (!EditorApplication.isPlaying && Application.isEditor) {
-
-		} else {
+		if (Application.isEditor) {
+//			if (!EditorApplication.isPlaying ) {
+			if (false) {
+		}
+			else {
 			PlayerSelectNum = SetScript.PlayerSelectNum;
 			if (SetScript.PlayerNum != 1) {
 				switch (PlayerSelectNum) {
@@ -144,6 +146,7 @@ public class PlayerNumWindow : MonoBehaviour
 					break;
 				}
 			}
+		}
 		}
 	}
 

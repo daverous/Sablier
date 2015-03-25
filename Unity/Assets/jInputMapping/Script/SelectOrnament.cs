@@ -77,7 +77,7 @@ public class SelectOrnament : MonoBehaviour
 	{
 		if (SetScript == null) {
 			SetScript = GameObject.Find ("jInputMappingSet").GetComponent<jInputSettings> ();
-			HeadingTextPour ();
+//			HeadingTextPour ();
 		}
 	}
 	
@@ -98,17 +98,12 @@ public class SelectOrnament : MonoBehaviour
 		}
 		if (TextComponent == null)
 			TextComponent = transform.Find ("TextPrefab").GetComponent<TextMesh> ();
-		if (!EditorApplication.isPlaying && Application.isEditor)
-			TextComponent.text = "Sample Text";
 		if (HeadingObject == null)
 			HeadingObject = transform.Find ("HeadingTextPrefab").gameObject;
 		HeadingObject.GetComponent<TextMesh> ().text = HeadingText;
 		HeadingObject.transform.position = transform.position + transform.right * HeadingRelativePosi.x + transform.up * HeadingRelativePosi.y;
-		if (!EditorApplication.isPlaying && Application.isEditor) {
-			RndMaterial = GetComponent<Renderer> ().sharedMaterial;
-		} else {
 			RndMaterial = GetComponent<Renderer> ().material;
-		}
+
 	}
 	
 	void DuplicationInput ()
