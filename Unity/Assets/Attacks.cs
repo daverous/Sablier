@@ -98,24 +98,13 @@ public class Attacks : MonoBehaviour
 			if (jInput.GetButton (Mapper.InputArray [4]))
             {
 
-				if (thisCharacter.CharPowerBar <= 0) {
-					canPowerMove = false;
-					if (isPowerMoving) {
-						rb.velocity = Vector3.zero;
-					}
-					isPowerMoving = false;
-				}
-				else if (thisCharacter.CharPowerBar > 0 && canPowerMove){
+				if (thisCharacter.CharPowerBar >= 1 && canPowerMove){
 //					(Time.deltaTime/3+0.01f)
-					if (!isPowerMoving) {
-						thisCharacter.performJump();
-						isPowerMoving = true;
-					}
-					else {
-					thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - 0.004f ;
+					canPowerMove = false;	
+					thisCharacter.CharPowerBar =0;
 					performPowerMove();
-					isPowerMoving = true;
-					}
+//					isPowerMoving = true;
+				
 				}
             }
 			if (!jInput.GetButton (Mapper.InputArray [4])) {
@@ -150,20 +139,34 @@ public class Attacks : MonoBehaviour
                 animator.SetBool("Chain", false);
             }
 
-//			performPowerMove
 			if (jInput.GetButton (Mapper.InputArray2p [4]))
-        {
-			if (thisCharacter.CharPowerBar > 50){
-				thisCharacter.CharPowerBar = thisCharacter.CharPowerBar - Time.deltaTime/5;
-				performPowerMove();
+			{
+				
+				if (thisCharacter.CharPowerBar >= 1 && canPowerMove){
+					//					(Time.deltaTime/3+0.01f)
+					canPowerMove = false;	
+					thisCharacter.CharPowerBar =0;
+					performPowerMove();
+					//					isPowerMoving = true;
+					
+				}
 			}
-        }
+			if (!jInput.GetButton (Mapper.InputArray2p [4])) {
+				if (isPowerMoving) {
+					rb.velocity = Vector3.zero;
+				}
+				temp = 0;
+				isPowerMoving = false;
+				canPowerMove = true;
+				
+			}
+		}
 
 
 
 
             #endregion
-        }
+        
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
         {
@@ -254,17 +257,16 @@ public class Attacks : MonoBehaviour
     private void performPowerMove()
     {
 
-		if (temp < 0.2f) {
-						temp = thisCharacter.turnCharToFaceOpponentNew ();
-				}
-		else {
+
+						temp = thisCharacter.turnCharToFaceOpponentNew ();				
 						curAttack = AttackType.Power;
 						Vector3 startPoint = transform.root.position;
 						Vector3 endPoint = thisCharacter.getOpponentTransform ().position;
-						Vector3 dir = (endPoint - startPoint);
-						rb.velocity = dir;
-
-				}
-        
+//		endPoint.x += 4;
+//		endPoint.y += 5;
+//		endPoint.z += 4;
+		transform.root.position = endPoint;
+//						Vector3 dir = (endPoint - startPoint);
+//						rb.velocity = dir;        
     }
 }
