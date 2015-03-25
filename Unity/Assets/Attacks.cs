@@ -166,9 +166,28 @@ public class Attacks : MonoBehaviour
 
 
             #endregion
-        
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+		if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|DamageHeavy")||
+		   animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|DamageHeavy"))
+		{
+			animator.SetBool("Damaged", false);
+		}
+		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Heavy") ||
+		   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")||
+		   animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickBack") ||
+		   animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward")||
+		   animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|DamageHeavy")||
+		   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|DamageHeavy")){
+			animator.applyRootMotion = false;
+		}
+		if(animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickBack"))
+		{
+			animator.applyRootMotion = true;
+		}
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickFromSide") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickOverShoulder")||
+		    animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward")||
+		    animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward"))
         {
             animator.SetBool("Attacking", false);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f &&
@@ -177,6 +196,10 @@ public class Attacks : MonoBehaviour
                 animator.SetBool("Chain", false);
             }
         }
+		if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Heavy"))
+		{
+			animator.SetBool("Heavy", false);	
+		}
         //		Run Animations
         if (thisCharacter.moveDirection != Vector3.zero)
         {
@@ -186,17 +209,27 @@ public class Attacks : MonoBehaviour
         {
             animator.SetBool("Running", false);
         }
+		// Jump Animations
+		if (thisCharacter.isJumping)
+		{
+			animator.SetBool("Jumping", true);
+		}
+		if (thisCharacter.isJumping == false)
+		{
+			animator.SetBool("Jumping", false);
+		}
     }
 
 	void OnCollisionEnter(Collision other)
     {
-		if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") || animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder")) && collision_trigger == 0)
+		Debug.Log ("collision");	
+		if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickFromSide")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickOverShoulder")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickBack")) && collision_trigger == 0)
         {
             //Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
 			collision_trigger = 1;
             if (GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().isCharBlocking())
 				curAttack = AttackType.Reduced;
-
+			Debug.Log (curAttack);
             switch (curAttack)
             {
                 case AttackType.Empty:
@@ -207,7 +240,7 @@ public class Attacks : MonoBehaviour
                     //thisCharacter.incrementHits();
 					break;
                 case AttackType.Heavy:
-                 
+				Debug.Log ("here");
                     GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
                     thisCharacter.incrementHits();
                     break;
@@ -241,13 +274,21 @@ public class Attacks : MonoBehaviour
 
     private void performHeavyAttack()
     {
+		curAttack = AttackType.Heavy;
+		animator.applyRootMotion = true;
+		animator.SetBool("Heavy", true);
+		if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Heavy"))
+		{
+			source.PlayOneShot(swordSwipeSound, volume);
+		}    
     }
     private void performQuickAttack()
     {
              curAttack = AttackType.Quick;
                 animator.SetBool("Attacking", true);
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_FromSide") ||
-                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Quick_OverShoulder"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickFromSide") ||
+                   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickOverShoulder")||
+		    		animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward") )
                 {
                     source.PlayOneShot(swordSwipeSound, volume);
                     animator.SetBool("Chain", true);

@@ -48,6 +48,8 @@ public class Character : MonoBehaviour
     public float maxHealth = 100f;
     private float comboPower;
 
+	private string thisCharacterTag;
+
     private float horizontal = 0.0f;
     private float vertical = 0.0f;
 	private float horizontal2 = 0.0f;
@@ -70,9 +72,11 @@ public class Character : MonoBehaviour
     private bool isGrounded;
     private playerNum pNum;
     private playerNum opponentName;
-    private bool isJumping;
+    public bool isJumping;
 	private bool isBlocking;
     private bool isMoving;
+
+	private Animator animator;
 	float lerpTime = 0;
     #endregion
 
@@ -87,6 +91,7 @@ public class Character : MonoBehaviour
     #region Functions
     void Start()
     {
+		thisCharacterTag = transform.root.tag;
         comboPower = 0f;
 		hits = 0;
         isGrounded = true;
@@ -94,6 +99,7 @@ public class Character : MonoBehaviour
         isBlocking = false;
         isJumping = false;
         dead = false;
+		animator = GameObject.FindGameObjectWithTag(thisCharacterTag).GetComponent<Animator>();
 
         if (gameObject.tag == "Player")
         {
@@ -198,6 +204,8 @@ public class Character : MonoBehaviour
     }
     public void beenHit(float damage)
     {
+		animator.SetBool("Damaged", true);
+		animator.applyRootMotion = true;
         source.pitch = Random.Range(lowPitchRange, highPitchRange);
             source.PlayOneShot(swordClangSound);
         
