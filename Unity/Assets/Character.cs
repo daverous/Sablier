@@ -109,6 +109,7 @@ public class Character : MonoBehaviour
 	public float turnCharToFaceOpponentNew()
 	{    
 		if (lerpTime >= 1) {
+			Debug.Log ("reset");
 			lerpTime = 0;
 				}
 		lerpTime += Time.deltaTime * 0.1f;
@@ -121,13 +122,6 @@ public class Character : MonoBehaviour
 	}
 
 	// Return value is if character has been fully rotated
-    public void turnCharToFaceOpponent()
-    {                     
-        Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
-        float str = Mathf.Min(10 * Time.deltaTime, 1);
-		transform.root.rotation = Quaternion.Slerp(transform.root.rotation, targetRotation, str);
-    }
-
 
 
 
@@ -302,7 +296,7 @@ public class Character : MonoBehaviour
 			if (jInput.GetButton (Mapper.InputArray [9]))
 			{
 				isBlocking = true;
-				turnCharToFaceOpponent();
+				turnCharToFaceOpponentNew();
 //				Debug.Log("Blocking true");
 			}
 			else if (jInput.GetButton (Mapper.InputArray [9]))
@@ -340,7 +334,7 @@ public class Character : MonoBehaviour
 
 			if (jInput.GetButton (Mapper.InputArray2p [9]))
 			{
-				turnCharToFaceOpponent();
+				turnCharToFaceOpponentNew();
 				isBlocking = true;
 			}
 			else if (jInput.GetButton (Mapper.InputArray2p [9]))
