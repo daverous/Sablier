@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour {
     public void IncrementPlayerOneWins()
     {
         lastWin = 1;
+		StaticStore.setWinnerName (lastWin);
 		curRound++;
 		PlayerOneWins++;
 		Debug.Log (PlayerOneWins);     
@@ -103,18 +104,7 @@ public class GameManager : MonoBehaviour {
 
 	public int getWinnerName() {
 
-		if (p1Hits < p2Hits) {
-			//string winner = "Player 1";
-			return 1;
-		}
-
-		if (p1Hits > p2Hits) {
-			//string winner = "Player 2";
-			return 2;
-		}
-		return 0;
-		//If they are equal.
-		//return winner;
+		return lastWin;
 	}
 
     public int getPlayer2Hits()
@@ -127,6 +117,7 @@ public class GameManager : MonoBehaviour {
     {
 		curRound++;
         lastWin = 2;
+		StaticStore.setWinnerName (lastWin);
         PlayerTwoWins++;
         getHits();
     }
