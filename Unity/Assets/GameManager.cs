@@ -95,22 +95,27 @@ public class GameManager : MonoBehaviour {
     }
 
 
-	public int getWinner() {
+	public int getWinnerName() {
+
 		if (p1Hits < p2Hits) {
+			//string winner = "Player 1";
 			return 1;
 		}
 
 		if (p1Hits > p2Hits) {
+			//string winner = "Player 2";
 			return 2;
 		}
-
-		//If they are equal.
 		return 0;
+		//If they are equal.
+		//return winner;
 	}
+
     public int getPlayer2Hits()
     {
         return p2Hits;
     }
+
 
     public void IncrementPlayerTwoWins()
     {
@@ -127,8 +132,11 @@ public class GameManager : MonoBehaviour {
 
     void getHits()
     {
-        p1Hits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-        p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
+//		StaticStore ss = this.GetComponent<StaticStore> ();
+		StaticStore.setPlayer1Hits(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits());
+		StaticStore.setPlayer2Hits(GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits());
+		//StaticStore.setWinerName(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits());
+        //p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
 
     }
 
