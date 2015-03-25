@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if (UNITY_EDITOR)
-using UnityEditor;
-#endif
+
 
 [ExecuteInEditMode]
 public class SelectOrnament2 : MonoBehaviour
@@ -15,9 +13,7 @@ public class SelectOrnament2 : MonoBehaviour
 	Material RndMaterial;
 	TextMesh TextComponent;
 	int NameCheck;
-		#if (UNITY_EDITOR)
 	TempStateToConfDesign TempStateScript;
-		#endif
 	[Space(4)]
 	[SerializeField]
 	Color
@@ -135,9 +131,6 @@ public class SelectOrnament2 : MonoBehaviour
 				}
 			}
 		}
-
-		#if (UNITY_EDITOR)
-		if (!EditorApplication.isPlaying && Application.isEditor) {
 			if (TempStateScript == null) {
 				TempStateScript = GameObject.Find ("jInputMappingSet").GetComponent<TempStateToConfDesign> ();
 			}
@@ -165,8 +158,7 @@ public class SelectOrnament2 : MonoBehaviour
 					TextComponent.color = FontNormalColor;
 				}
 			}
-		}
-		#endif
+		
 	}
 
 }

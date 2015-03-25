@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if (UNITY_EDITOR)
-using UnityEditor;
-#endif
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class SelectOrnament : MonoBehaviour
 {
 	[HideInInspector]
@@ -32,9 +29,7 @@ public class SelectOrnament : MonoBehaviour
 	public bool
 		AlertMarkDisplaying;
 	bool AlertMarkCheck;
-		#if (UNITY_EDITOR)
 	TempStateToConfDesign TempStateScript;
-		#endif
 	[Space(4)]
 	[SerializeField]
 	Color
@@ -180,9 +175,6 @@ public class SelectOrnament : MonoBehaviour
 			}
 		}
 
-
-		#if (UNITY_EDITOR)
-		if (!EditorApplication.isPlaying && Application.isEditor) {
 			if (TempStateScript == null) {
 				TempStateScript = GameObject.Find ("jInputMappingSet").GetComponent<TempStateToConfDesign> ();
 			}
@@ -226,9 +218,8 @@ public class SelectOrnament : MonoBehaviour
 					RndMaterial.SetColor ("_Color", BackNormalColor);
 				}
 			}
-		}
-		#endif
-		
+
+
 		if (AlertMarkDisplaying) {
 			if (AlertMarkCheck != true) {
 				AlertMarkCheck = true;
@@ -245,7 +236,6 @@ public class SelectOrnament : MonoBehaviour
 		
 	}
 
-	#if (UNITY_EDITOR)
 	public void HeadingTextPour ()
 	{
 		if (SetScript != null && SetScript.MenuItemHeadings.Length > MenuNum)
@@ -255,6 +245,5 @@ public class SelectOrnament : MonoBehaviour
 		if (HeadingObject != null)
 			HeadingObject.GetComponent<TextMesh> ().text = HeadingText;
 	}
-	#endif
 
 }

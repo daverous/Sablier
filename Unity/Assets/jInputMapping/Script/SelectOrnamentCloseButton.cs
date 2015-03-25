@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if (UNITY_EDITOR)
-using UnityEditor;
-#endif
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class SelectOrnamentCloseButton : MonoBehaviour
 {
 		jInputSettings SetScript;
 		Material RndMaterial;
 		TextMesh TextComponent;
 		GameObject Selection;
-		#if (UNITY_EDITOR)
 		TempStateToConfDesign TempStateScript;
-		#endif
+		
 		[Space(4)]
 		[SerializeField]
 		Color
@@ -65,8 +61,7 @@ public class SelectOrnamentCloseButton : MonoBehaviour
 				}
 
 
-				#if (UNITY_EDITOR)
-				if (!EditorApplication.isPlaying && Application.isEditor) {
+				
 						if (TempStateScript == null) {
 								TempStateScript = GameObject.Find ("jInputMappingSet").GetComponent<TempStateToConfDesign> ();
 						}
@@ -77,7 +72,6 @@ public class SelectOrnamentCloseButton : MonoBehaviour
 								RndMaterial.SetColor ("_Color", BackNormalColor);
 								TextComponent.color = FontNormalColor;
 						}
-				}
-				#endif
+				
 		}
 }

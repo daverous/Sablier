@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if (UNITY_EDITOR)
-using UnityEditor;
-#endif
 
-[ExecuteInEditMode]
+
+//[ExecuteInEditMode]
 public class PlayerNumWindow : MonoBehaviour
 {
 	GameObject TextObject;
@@ -76,9 +74,7 @@ public class PlayerNumWindow : MonoBehaviour
 					TextObject = Instantiate (NumPrefab) as GameObject;
 					TextObject.name = "Player" + i + "MappingNum";
 					TextObject.transform.parent = MapingNumObjects.transform;
-					#if (UNITY_EDITOR)
-					TextObject.hideFlags = HideFlags.HideInHierarchy;//.NotEditable;
-					#endif
+			
 				}
 				TextObject.GetComponent<PlayerMappingNumHold> ().PlayerMappingNumber = i;
 				PreyerNumTextMeshes [i] = TextObject.transform.Find ("Number").GetComponent<TextMesh> ();
@@ -120,8 +116,6 @@ public class PlayerNumWindow : MonoBehaviour
 	
 	void Update ()
 	{
-		if (Application.isEditor) {
-//			if (!EditorApplication.isPlaying ) {
 			if (false) {
 		}
 			else {
@@ -147,7 +141,7 @@ public class PlayerNumWindow : MonoBehaviour
 				}
 			}
 		}
-		}
+		
 	}
 
 	public void PlayerMappingNumSet ()
