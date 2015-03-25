@@ -108,7 +108,7 @@ public class Character : MonoBehaviour
     }
 	public float turnCharToFaceOpponentNew()
 	{    
-		if (lerpTime >= 1) {
+		if (lerpTime >= 0.2f) {
 			Debug.Log ("reset");
 			lerpTime = 0;
 				}
