@@ -34,9 +34,12 @@ public class SelectOrnamentCloseButton : MonoBehaviour
 				GameObject SetObject = GameObject.Find ("jInputMappingSet");
 				SetScript = SetObject.GetComponent<jInputSettings> ();
 				TextComponent = transform.Find ("TextPrefab").gameObject.GetComponent<TextMesh> ();
-				if (!EditorApplication.isPlaying && Application.isEditor) {
-						RndMaterial = GetComponent<Renderer> ().sharedMaterial;
-				} else {
+//				if (!EditorApplication.isPlaying && Application.isEditor) {
+//						RndMaterial = GetComponent<Renderer> ().sharedMaterial;
+//				} 
+		if (false) {
+				}
+		else {
 						RndMaterial = GetComponent<Renderer> ().material;
 						Selection = SetObject.transform.Find ("Selection").gameObject;
 						if (Selection == null) {

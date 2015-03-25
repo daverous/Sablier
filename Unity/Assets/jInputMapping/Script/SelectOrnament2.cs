@@ -52,9 +52,10 @@ public class SelectOrnament2 : MonoBehaviour
 			SetScript = GameObject.Find ("jInputMappingSet").GetComponent<jInputSettings> ();
 		if (TextComponent == null)
 			TextComponent = transform.Find ("TextPrefab").gameObject.GetComponent<TextMesh> ();
-		if (!EditorApplication.isPlaying && Application.isEditor) {
-			RndMaterial = GetComponent<Renderer> ().sharedMaterial;
-		} else {
+//		if (!EditorApplication.isPlaying && Application.isEditor) {
+//			RndMaterial = GetComponent<Renderer> ().sharedMaterial;
+//		} 
+		else {
 			RndMaterial = GetComponent<Renderer> ().material;
 		}
 	}

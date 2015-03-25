@@ -26,9 +26,12 @@ public class SelectOrnamentSaveButton : MonoBehaviour
 	
 		void Update ()
 		{
-				if (!EditorApplication.isPlaying && Application.isEditor) {
-						TextComponent.color = FontColor;
-				} else {
+//				if (!EditorApplication.isPlaying && Application.isEditor) {
+//						TextComponent.color = FontColor;
+//				} 
+		if (false) {
+				}
+		else {
 						if (SetScript.SaveNoSelectPosition && gameObject.name == "NoButton" ||
 								SetScript.SaveNoSelectPosition != true && gameObject.name == "YesButton" ||
 								SetScript.ExitSelectPosition == 0 && gameObject.name == "SaveButton" ||
