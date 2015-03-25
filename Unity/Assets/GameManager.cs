@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour {
     private static int p1Hits = 0; //stores hits for previous rounds
     private static int p2Hits = 0;
 	// Use this for initialization
-	public Image Round;
-	public Image Round2;
-
+	public Image Round11;
+	public Image Round12;
+	public Image Round21;
+	public Image Round22;
 	//public PlayerHealth playerHealth;
 	public float restartDelay = 5f;
 
@@ -43,15 +44,7 @@ public class GameManager : MonoBehaviour {
 
 		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
 
-		//float userHits = character.getHits(); 
-		//Text1.text = ("hits:" + numHits); //.ToString());
 
-//		float userHits = character.getHits(); 
-//		hits.text = ("hits:" + userHits.ToString());
-		//Sprite newSprite =  Resources.Load <Sprite>("Image");
-		//if (newSprite)
-			//Round.sprite = newSprite;
-		//Destroy(Round);
 	}	
    
      void Awake() {
@@ -62,6 +55,14 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (curRound == 2) {
+			Destroy (Round11);
+			Destroy (Round12);
+		} else if (curRound == 3) {
+			Destroy(Round21);
+			Destroy(Round22);
+		}
+
         if (PlayerOneWins > threashold)
         {
             Debug.Log("MAX Number of rounds reached- P1 has won");
