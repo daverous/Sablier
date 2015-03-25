@@ -27,7 +27,7 @@ public class Attacks : MonoBehaviour
 	bool canPowerMove = true;
 	bool isPowerMoving = false; 
 	Rigidbody rb;
-
+	float temp = 0;
     public enum AttackType
     {
         Quick, Heavy, Power, Empty, Reduced
@@ -121,6 +121,7 @@ public class Attacks : MonoBehaviour
 				if (isPowerMoving) {
 					rb.velocity = Vector3.zero;
 				}
+				temp = 0;
 				isPowerMoving = false;
 				canPowerMove = true;
 
@@ -260,13 +261,17 @@ public class Attacks : MonoBehaviour
 		
 		#endregion
 
-		thisCharacter.turnCharToFaceOpponent();
-        curAttack = AttackType.Power;
-        Vector3 startPoint = transform.root.position;
-        Vector3 endPoint = thisCharacter.getOpponentTransform().position;
-		Vector3 dir = (endPoint - startPoint);
-		rb.velocity = dir;
-   
+		if (temp < 0.2f) {
+						temp = thisCharacter.turnCharToFaceOpponentNew ();
+				}
+		else {
+						curAttack = AttackType.Power;
+						Vector3 startPoint = transform.root.position;
+						Vector3 endPoint = thisCharacter.getOpponentTransform ().position;
+						Vector3 dir = (endPoint - startPoint);
+						rb.velocity = dir;
+
+				}
         
     }
 }
