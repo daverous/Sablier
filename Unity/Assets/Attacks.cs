@@ -222,46 +222,48 @@ public class Attacks : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
     {
-		Debug.Log ("collision");	
-		if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickFromSide")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickOverShoulder")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickBack")) && collision_trigger == 0)
-        {
-            //Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
-			collision_trigger = 1;
-            if (GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().isCharBlocking())
-				curAttack = AttackType.Reduced;
-			Debug.Log (curAttack);
-            switch (curAttack)
-            {
-                case AttackType.Empty:
-                    break;
-				case AttackType.Reduced:
-					GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(reducedAttackDamage);
+				Debug.Log ("collision");	
+				if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide")) || (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder")) || (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward")) || (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")) && collision_trigger == 0) {
+						//Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
+						collision_trigger = 1;
+						if (GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().isCharBlocking ())
+								curAttack = AttackType.Reduced;
+						Debug.Log (curAttack);
+						switch (curAttack) {
+						case AttackType.Empty:
+								break;
+						case AttackType.Reduced:
+								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (reducedAttackDamage);
                     // As attacks are reduced, no hits are counted. 
                     //thisCharacter.incrementHits();
-					break;
-                case AttackType.Heavy:
-				Debug.Log ("here");
-                    GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(heavyAttackDamage);
-                    thisCharacter.incrementHits();
-                    break;
-                case AttackType.Power:
-                    break;
-                    //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
-                case AttackType.Quick:
-                    Rigidbody rb = GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Rigidbody>();
-                    rb.AddForce(0,5,10);
-                    GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);
-                    thisCharacter.incrementHits();
+								break;
+						case AttackType.Heavy:
+								Debug.Log ("here");
+								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (heavyAttackDamage);
+								thisCharacter.incrementHits ();
+								break;
+						case AttackType.Power:
+								break;
+						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
+						case AttackType.Quick:
+								Rigidbody rb = GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
+								rb.AddForce (0, 5, 10);
+								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (quickAttackDamage);
+								thisCharacter.incrementHits ();
                     //Vector3 direction = Ray.direction;       
                     //hit.rigidbody.AddForce(Ray.direction * force);
-                    break;
-                default:
-                    break;
+								break;
+						default:
+								break;
 
-            }
-            //curAttack = AttackType.Empty;
-        }
-    }
+						}
+						//curAttack = AttackType.Empty;
+				}
+				if (other.transform.root.tag == "PowerUp") {
+						PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
+			thisCharacter.CharPowerBar += ps.getPowerUpAmount();
+				}
+		}
 
     void OnCollisionExit(Collision info)
     {
