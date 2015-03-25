@@ -18,17 +18,6 @@ public class GameManager : MonoBehaviour {
 	public Image Round12;
 	public Image Round21;
 	public Image Round22;
-
-	//Stars
-	public Image star1;
-	public Image star2;
-	public Image star3;
-	public Image star4;
-	public Image star5;
-	public Image star6;
-	public Image star7;
-	public Image star8;
-
 	//public PlayerHealth playerHealth;
 	public float restartDelay = 5f;
 
@@ -54,21 +43,9 @@ public class GameManager : MonoBehaviour {
 
 
 		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-		DisplayStars();
-		//initStars ();
+
+
 	}	
-
-	void initStars(){
-		star1.fillAmount = 0;
-		star2.fillAmount = 0;
-		star3.fillAmount = 0;
-		star4.fillAmount = 0;
-		star5.fillAmount = 0;
-		star6.fillAmount = 0;
-		star7.fillAmount = 0;
-		star8.fillAmount = 0;
-
-	}
    
      void Awake() {
 //        DontDestroyOnLoad(this);
@@ -78,7 +55,6 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//Round indicator
 		if (curRound == 2) {
 			Destroy (Round11);
 			Destroy (Round12);
@@ -113,8 +89,10 @@ public class GameManager : MonoBehaviour {
     public void IncrementPlayerOneWins()
     {
         lastWin = 1;
+		StaticStore.setWinnerName (lastWin);
 		curRound++;
-		PlayerOneWins++;   
+		PlayerOneWins++;
+		Debug.Log (PlayerOneWins);     
         getHits();   
     }
 
@@ -124,52 +102,25 @@ public class GameManager : MonoBehaviour {
     }
 
 
-	public int getWinner() {
-		if (p1Hits < p2Hits) {
-			return 1;
-		}
+	public int getWinnerName() {
 
-		if (p1Hits > p2Hits) {
-			return 2;
-		}
-
-		//If they are equal.
-		return 0;
+		return lastWin;
 	}
+
     public int getPlayer2Hits()
     {
         return p2Hits;
     }
 
-	void DisplayStars(){
-		//display the star
-		if (PlayerOneWins == 1) {
-			star1.fillAmount = 1;
-			star7.fillAmount = 1;
-		}
-		if (PlayerOneWins == 2) {
-			star1.fillAmount = 1;
-			star7.fillAmount = 1;
-			star2.fillAmount = 1;
-			star8.fillAmount = 1;
-		}
-
-		if (PlayerTwoWins == 1) {
-			star3.fillAmount = 1;
-			star6.fillAmount = 1;
-		}
-		if (PlayerTwoWins == 2) {
-			star3.fillAmount = 1;
-			star4.fillAmount = 1;
-			star6.fillAmount = 1;
-			star5.fillAmount = 1;
-		}
-		
+	public int getNumberOfRounds(){
+		return curRound;
 	}
+
     public void IncrementPlayerTwoWins()
     {
 		curRound++;
         lastWin = 2;
+		StaticStore.setWinnerName (lastWin);
         PlayerTwoWins++;
         getHits();
     }
@@ -181,8 +132,11 @@ public class GameManager : MonoBehaviour {
 
     void getHits()
     {
-        p1Hits = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-        p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
+//		StaticStore ss = this.GetComponent<StaticStore> ();
+		StaticStore.setPlayer1Hits(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits());
+		StaticStore.setPlayer2Hits(GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits());
+		//StaticStore.setWinerName(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits());
+        //p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
 
     }
 

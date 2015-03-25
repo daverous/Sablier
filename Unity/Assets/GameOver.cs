@@ -2,13 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class WinnerScript : MonoBehaviour {
-	
-	public Text winner;
-	Character character;
-	//GameManager manager;
+public class GameOver : MonoBehaviour {
 
-	// Use this for initialization
+	public Text gameOver;
+	Character character;
+
 	void Start () {
 		if (tag =="WinnerText") {
 			
@@ -16,17 +14,14 @@ public class WinnerScript : MonoBehaviour {
 		}
 		//manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
+		int go = StaticStore.getNumberOfRounds ();
 
-		int winnerNum = StaticStore.getWinnerName (); //.getPlayer2Hits ();
-
-
-		winner.text = "Player " + winnerNum + " wins";
-		//}
-		//if (tag == "Text2") {
-		//hits.text = "Number 2 hits: " + hit2Num;
-		//}
+		if (go == 3) {
+			gameOver.text = "Game Over!";
+		}
 	}
 }

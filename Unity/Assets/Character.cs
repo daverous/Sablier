@@ -108,7 +108,7 @@ public class Character : MonoBehaviour
     }
 	public float turnCharToFaceOpponentNew()
 	{    
-		if (lerpTime >= 1) {
+		if (lerpTime >= 0.2f) {
 			Debug.Log ("reset");
 			lerpTime = 0;
 				}
@@ -204,7 +204,7 @@ public class Character : MonoBehaviour
             {
                 gm.IncrementPlayerTwoWins();
             }
-            Application.LoadLevel("GameOverScene");
+            Application.LoadLevel("GOScene");
 		}
 
 		double temp = damage * 0.010;
@@ -265,18 +265,12 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-		//horizontal = 0;
 
-		
-     // TODO add different axis for each controller
-		
-//		this.transform.LookAt(opponent.position);
         if (gameObject.tag == "Player")
         {
 			var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
 			var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
 			horizontal = hPositive - hNegative;
-//            horizontal = Input.GetAxis("Horizontal");
 			var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
 			var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
 			vertical = vPositive - vNegative;
@@ -314,16 +308,17 @@ public class Character : MonoBehaviour
 			UpdatePowerBarColor(PowerBar3);
 			
         }
-        else if (gameObject.tag == "Player2")
+        if (gameObject.tag == "Player2")
         {
             
 			var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
 			var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
-			horizontal = hPositive - hNegative;
+			horizontal2 = hPositive - hNegative;
+			Debug.Log (horizontal);
 			//            horizontal = Input.GetAxis("Horizontal");
 			var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
 			var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-			vertical = vPositive - vNegative;
+			vertical2 = vPositive - vNegative;
             moveDirection = new Vector3(horizontal2, 0, vertical2).normalized;
 
 			 
