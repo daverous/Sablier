@@ -204,7 +204,7 @@ public class Character : MonoBehaviour
             {
                 gm.IncrementPlayerTwoWins();
             }
-            Application.LoadLevel("GameOverScene");
+            Application.LoadLevel("GOScene");
 		}
 
 		double temp = damage * 0.010;
