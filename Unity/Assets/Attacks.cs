@@ -85,6 +85,7 @@ public class Attacks : MonoBehaviour
 			else if (jInput.GetButton (Mapper.InputArray [2]))
             {
                 performQuickAttack();
+
             }
            
 			else if (!jInput.GetButton (Mapper.InputArray [2]))
