@@ -18,6 +18,15 @@ public class GameManager : MonoBehaviour {
 	public Image Round12;
 	public Image Round21;
 	public Image Round22;
+
+	public Image star1;
+	public Image star2;
+	public Image star3;
+	public Image star4;
+	public Image star5;
+	public Image star6;
+	public Image star7;
+	public Image star8;
 	//public PlayerHealth playerHealth;
 	public float restartDelay = 5f;
 
@@ -43,10 +52,34 @@ public class GameManager : MonoBehaviour {
 
 
 		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-
-
+		DisplaysStars ();
 	}	
-   
+
+   	void DisplaysStars(){
+		if (PlayerOneWins == 1) {
+			star1.fillAmount = 1;
+			star5.fillAmount = 1;
+		}
+		if (PlayerOneWins == 2) {
+			star6.fillAmount = 1;
+			star2.fillAmount = 1;
+			star5.fillAmount = 1;
+			star1.fillAmount = 1;
+		}
+
+		if (PlayerTwoWins == 1) {
+			star4.fillAmount = 1;
+			star7.fillAmount = 1;
+		}
+		if (PlayerTwoWins == 2) {
+			star4.fillAmount = 1;
+			star7.fillAmount = 1;
+			star8.fillAmount = 1;
+			star3.fillAmount = 1;
+		}
+	}
+
+
      void Awake() {
 //        DontDestroyOnLoad(this);
 		anim = GetComponent<Animator>();
