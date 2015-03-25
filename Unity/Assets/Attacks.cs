@@ -253,14 +253,6 @@ public class Attacks : MonoBehaviour
 
     private void performPowerMove()
     {
-		#region moveStuff 
-		
-		Vector3 directionalVector = (thisCharacter.getOpponentTransform().position - transform.position).normalized * powerMoveSpeed;
-		lastSqrMag = Mathf.Infinity;	
-		// apply to rigidbody velocity
-		desiredVelocity = directionalVector;
-		
-		#endregion
 
 		if (temp < 0.2f) {
 						temp = thisCharacter.turnCharToFaceOpponentNew ();

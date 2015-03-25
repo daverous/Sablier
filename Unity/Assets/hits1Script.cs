@@ -29,7 +29,7 @@ public class hits1Script : MonoBehaviour {
 		
 		if (tag == "Text2")
 		{
-			hits.text = (userHits.ToString()+":HITS");
+			hits.text = ("HITS:" + userHits.ToString());		
 		}
             
     }
