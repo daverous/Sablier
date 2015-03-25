@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour {
     private static int p1Hits = 0; //stores hits for previous rounds
     private static int p2Hits = 0;
 	// Use this for initialization
-
+	public Image Round;
+	public Image Round2;
 
 	//public PlayerHealth playerHealth;
 	public float restartDelay = 5f;
@@ -47,6 +48,10 @@ public class GameManager : MonoBehaviour {
 
 //		float userHits = character.getHits(); 
 //		hits.text = ("hits:" + userHits.ToString());
+		//Sprite newSprite =  Resources.Load <Sprite>("Image");
+		//if (newSprite)
+			//Round.sprite = newSprite;
+		//Destroy(Round);
 	}	
    
      void Awake() {
