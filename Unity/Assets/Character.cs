@@ -118,6 +118,8 @@ public class Character : MonoBehaviour
         curhealth = maxHealth;
 
 		ColorInit ();
+		Physics.IgnoreLayerCollision(8,9,true);
+
 
     }
 	public float turnCharToFaceOpponentNew()

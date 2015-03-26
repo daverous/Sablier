@@ -179,6 +179,20 @@ public class Attacks : MonoBehaviour
 		   animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|DamageHeavy")){
 			animator.applyRootMotion = false;
 		}
+		if(thisCharacterTag == ("Player") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|Heavy") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")&&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickOverShoulder") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|QuickFromSide")){
+			curAttack = AttackType.Empty;
+		}
+		if(thisCharacterTag == ("Player2") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|Heavy") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|AerialHeavy")&&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickBack") &&
+		   !animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickForward")){
+			curAttack = AttackType.Empty;
+		}
 		if(animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|QuickBack"))
 		{
 			animator.applyRootMotion = true;
@@ -223,7 +237,9 @@ public class Attacks : MonoBehaviour
 	void OnCollisionEnter(Collision other)
     {
 				Debug.Log ("collision");	
-				if ((other.transform.root.name == "Player" || other.transform.root.name == "Player2") && (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide")) || (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder")) || (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward")) || (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")) && collision_trigger == 0) {
+				if ((other.transform.root.name == "Player2")||
+		    		 other.transform.root.name == "Player") {
+
 						//Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
 						collision_trigger = 1;
 						if (GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().isCharBlocking ())
@@ -263,6 +279,12 @@ public class Attacks : MonoBehaviour
 						PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
 			thisCharacter.CharPowerBar += ps.getPowerUpAmount();
 				}
+
+//	
+		if (other.transform.root.tag == "PowerUp") {
+			PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
+			thisCharacter.CharPowerBar += ps.getPowerUpAmount();
+		}
 		}
 
     void OnCollisionExit(Collision info)
