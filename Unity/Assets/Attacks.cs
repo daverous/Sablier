@@ -237,8 +237,7 @@ public class Attacks : MonoBehaviour
 	void OnCollisionEnter(Collision other)
     {
 				Debug.Log ("collision");	
-				if ((other.transform.root.name == "Player2")||
-		    		 other.transform.root.name == "Player") {
+				if ((other.transform.root.name == thisCharacter.getOpponentName().ToString())) {
 
 						//Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
 						collision_trigger = 1;
