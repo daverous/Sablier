@@ -275,10 +275,7 @@ public class Attacks : MonoBehaviour
 						}
 						//curAttack = AttackType.Empty;
 				}
-				if (other.transform.root.tag == "PowerUp") {
-						PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
-			thisCharacter.CharPowerBar += ps.getPowerUpAmount();
-				}
+				
 
 //	
 		if (other.transform.root.tag == "PowerUp") {

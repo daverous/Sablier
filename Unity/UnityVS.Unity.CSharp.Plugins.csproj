@@ -60,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
+    <None Include="Assets\jInputMapping\Components\Other\jInputShader.shader" />
+    <None Include="Assets\jInputMapping\ReadMe.txt" />
+    <None Include="Assets\jInputMapping\ReadMeJP.txt" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />

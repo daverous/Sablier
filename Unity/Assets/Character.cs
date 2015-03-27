@@ -46,7 +46,6 @@ public class Character : MonoBehaviour
     public float moveSpeed = 15f;
     private bool inRange; 
     public float maxHealth = 100f;
-    private float comboPower;
 
 	private string thisCharacterTag;
 
@@ -92,7 +91,6 @@ public class Character : MonoBehaviour
     void Start()
     {
 		thisCharacterTag = transform.root.tag;
-        comboPower = 0f;
 		hits = 0;
         isGrounded = true;
         curhealth = 100f;
@@ -153,6 +151,21 @@ public class Character : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        if (other.collider.tag == "PowerUp")
+        {
+            float pu = other.gameObject.GetComponent<PowerUpScript>().getPowerUpAmount();
+            Debug.Log(pu);
+            Debug.Log("before" + CharPowerBar);
+            if (CharPowerBar <= 1 - pu)        {
+                CharPowerBar += pu;
+            }
+            else
+            {
+                CharPowerBar = 1;
+            }
+
+            Destroy(other.gameObject);
+        }
         if (other.collider.name == "planet")
         {
             //Debug.Log("hit ground");
@@ -301,13 +314,13 @@ public class Character : MonoBehaviour
 
     public void incrementHits()
     {
-        if (comboPower <= 90)
+        if (CharPowerBar <= 1)
         {
-            comboPower += 10;
+            CharPowerBar += 0.01f;
         }
         else
         {
-            comboPower = 100;
+            CharPowerBar = 1;
         }
         hits++;
     }
@@ -423,10 +436,7 @@ public class Character : MonoBehaviour
     {
         return GameObject.FindObjectOfType<Rigidbody>();
     }
-    public float getComboVal()
-    {
-        return comboPower;
-    }
+
     public bool isDead()
     {
         return dead;

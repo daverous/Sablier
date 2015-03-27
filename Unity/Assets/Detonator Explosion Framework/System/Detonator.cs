@@ -14,7 +14,7 @@ using System.Collections;
 	
 	1) Attach a Detonator to a GameObject, either through code or the Unity UI
 	2) Either set the Detonator's ExplodeOnStart = true or call Explode() yourself when the time is right
-	3) View explosion :)
+	3) View explosion :)f
 	
 	Medium Complexity Use Case:
 	
@@ -40,7 +40,7 @@ using System.Collections;
 
 [AddComponentMenu("Detonator/Detonator")]
 public class Detonator : MonoBehaviour {
-
+    public GameObject[] powerUps;
 	private static float _baseSize = 30f;
 	private static Color _baseColor = new Color(1f, .423f, 0f, .5f);
 	private static float _baseDuration = 3f;
@@ -209,6 +209,8 @@ public class Detonator : MonoBehaviour {
 		{
 			if (_lastExplosionTime + destroyTime <= Time.time)
 			{
+                int rand = Random.Range(0, powerUps.Length-1);
+                Object.Instantiate(powerUps[rand], transform.position, transform.rotation);
 				Destroy(gameObject);
 			}
 		}

@@ -3,14 +3,14 @@ using System.Collections;
 
 public class PowerUpScript : MonoBehaviour {
 
-	public int powerUpAmount = 0;
+	public float powerUpAmount = 0;
 
 	// Use this for initialization
 	void Start () {
 	
 	}
 
-	public int getPowerUpAmount() {
+	public float getPowerUpAmount() {
 		return powerUpAmount;
 		}
 	
