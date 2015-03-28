@@ -67,6 +67,7 @@
     <Compile Include="Assets\AsteroidSpawnScript.cs" />
     <Compile Include="Assets\Attacks.cs" />
     <Compile Include="Assets\CameraScript.cs" />
+    <Compile Include="Assets\CameraShakeScript.cs" />
     <Compile Include="Assets\CanvasScript.cs" />
     <Compile Include="Assets\Character.cs" />
     <Compile Include="Assets\CharacterAnimator.cs" />

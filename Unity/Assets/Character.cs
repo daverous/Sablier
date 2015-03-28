@@ -222,7 +222,15 @@ public class Character : MonoBehaviour
 		animator.SetBool("Damaged", true);
 		animator.applyRootMotion = true;
         source.pitch = Random.Range(lowPitchRange, highPitchRange);
-            source.PlayOneShot(swordClangSound);
+        source.PlayOneShot(swordClangSound);
+        if (gameObject.tag == "Player2")
+        {
+            GameObject.FindGameObjectWithTag("PlayerTwoCamera").GetComponent<CameraShakeScript>().startShake();
+        }
+        if (gameObject.tag == "Player")
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakeScript>().startShake();
+        }
         
 		curhealth -= damage;
 		//DisplayBubble();
