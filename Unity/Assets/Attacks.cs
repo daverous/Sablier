@@ -305,6 +305,7 @@ public class Attacks : MonoBehaviour
 //		endPoint.y += 5;
 //		endPoint.z += 4;
 				transform.root.position = endPoint;
+				//animator.SetBool ("Heavy", true);
 //						Vector3 dir = (endPoint - startPoint);
 //						rb.velocity = dir;        
 		}

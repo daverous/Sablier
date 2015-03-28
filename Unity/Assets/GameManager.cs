@@ -55,7 +55,10 @@ public class GameManager : MonoBehaviour {
 
 
 		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-		DisplaysStars ();
+		if (Application.loadedLevelName != "GOScene") {
+			DisplaysStars (); 
+		}
+		//Debug.Log ("here is " + Application.loadedLevelName);
 	}	
 
    	void DisplaysStars(){
@@ -94,9 +97,11 @@ public class GameManager : MonoBehaviour {
 		if (curRound == 2) {
 			Destroy (Round11);
 			Destroy (Round12);
+
 		} else if (curRound == 3) {
 			Destroy(Round21);
 			Destroy(Round22);
+
 		}
 
         if (PlayerOneWins > threashold)
@@ -129,7 +134,8 @@ public class GameManager : MonoBehaviour {
 		curRound++;
 		PlayerOneWins++;
 		Debug.Log (PlayerOneWins);     
-        getHits();   
+        getHits();  
+	
     }
 
     public int getPlayer1Hits()
@@ -165,6 +171,7 @@ public class GameManager : MonoBehaviour {
 		StaticStore.setWinnerName (lastWin);
         PlayerTwoWins++;
         getHits();
+
     }
 
     public float getThreashold()
