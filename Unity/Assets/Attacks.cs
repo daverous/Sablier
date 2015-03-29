@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using XInputDotNetPure;
 public class Attacks : MonoBehaviour
@@ -20,7 +20,6 @@ public class Attacks : MonoBehaviour
 		public float reducedAttackDamage = 2f;
 		public float volume = 5f;
 
-		private AttackType curAttack;
 		private Animator animator;
 		private Animator opponent_animator;
 		private int collision_trigger = 0;
@@ -37,19 +36,12 @@ public class Attacks : MonoBehaviour
 		GamePadState controller2State;
 
 		float temp = 0;
-		public enum AttackType
-		{
-				Quick,
-				Heavy,
-				Power,
-				Empty,
-				Reduced
-		}
+
 		void Start ()
 		{
 				source = GetComponent<AudioSource> ();
 
-				curAttack = AttackType.Empty;
+                
 				//inRange = false;
 				thisCharacterTag = transform.root.tag;
 				thisCharacter = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Character> ();
@@ -58,8 +50,9 @@ public class Attacks : MonoBehaviour
 				else
 						thisOpponent = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
 				animator = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Animator> ();
-				opponent_animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
+				//opponent_animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
 				rb = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Rigidbody> ();
+                thisCharacter.resetCurrentAttack();
 		}
 
 		// Update is called once per frame
@@ -182,14 +175,14 @@ public class Attacks : MonoBehaviour
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide")) {
-						curAttack = AttackType.Empty;
+                        thisCharacter.resetCurrentAttack();
 				}
 				if (thisCharacterTag == ("Player2") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Heavy") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward")) {
-						curAttack = AttackType.Empty;
+                            thisCharacter.resetCurrentAttack();
 				}
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")) {
 						animator.applyRootMotion = true;
@@ -224,35 +217,36 @@ public class Attacks : MonoBehaviour
 				}
 		}
 
+
 		void OnCollisionEnter (Collision other)
 		{
-//				Debug.Log ("collision");	
-				if ((other.transform.root.tag == "weapon")) {
+            
+				if ((other.collider.tag == "Weapon")) {
 						source.PlayOneShot (swordClashSound, volume);
+                        thisCharacter.setWeaponHitToTrue();
 				}
-				if ((other.transform.root.name == thisCharacter.getOpponentName ().ToString ())) {
+				/*if ((other.transform.root.name == thisCharacter.getOpponentName ().ToString ())) {
 
 						//Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
 						collision_trigger = 1;
-						if (GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().isCharBlocking ())
-								curAttack = AttackType.Reduced;
-						switch (curAttack) {
-						case AttackType.Empty:
+                        if (GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().isCharBlocking())
+                              thisCharacter.setCurrentAttack(Character.AttackType.Reduced);
+						switch (thisCharacter.getCurrentAttack()) {
+                        case Character.AttackType.Empty:
 								break;
-						case AttackType.Reduced:
-								source.PlayOneShot (blockSound, hitVol);
+                        case Character.AttackType.Reduced:
 								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (reducedAttackDamage);
                     // As attacks are reduced, no hits are counted. 
                     //thisCharacter.incrementHits();
 								break;
-						case AttackType.Heavy:
+                        case Character.AttackType.Heavy:
 								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (heavyAttackDamage);
 								thisCharacter.incrementHits ();
 								break;
-						case AttackType.Power:
+                        case Character.AttackType.Power:
 								break;
 						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
-						case AttackType.Quick:
+                        case Character.AttackType.Quick:
 								Rigidbody rb = GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
 								rb.AddForce (0, 5, 10);
 								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (quickAttackDamage);
@@ -265,28 +259,27 @@ public class Attacks : MonoBehaviour
 
 						}
 						//curAttack = AttackType.Empty;
-				}
+				}*/
 				
 
-//	
-				if (other.transform.root.tag == "PowerUp") {
-						PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
-						float pbAmount = thisCharacter.getCharPowerBar ();
-						thisCharacter.setCharPowerBar (pbAmount + ps.getPowerUpAmount ());
-				}
+////	
+//                if (other.transform.root.tag == "PowerUp") {
+//                        PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
+//                        float pbAmount = thisCharacter.getCharPowerBar ();
+//                        thisCharacter.setCharPowerBar (pbAmount + ps.getPowerUpAmount ());
+//                }
 		}
 
-		void OnCollisionExit (Collision info)
-		{
-				collision_trigger = 0;
-				if (info.collider.name == thisCharacter.getOpponentName ().ToString ()) {
-						//inRange = false;
-				}
-		}
-
+        void OnCollisionExit(Collision other)
+        {
+            if (other.collider.tag == "Weapon")
+            {
+                thisCharacter.setWeaponHitToFalse();
+            }
+        }
 		private void performHeavyAttack ()
 		{
-				curAttack = AttackType.Heavy;
+				thisCharacter.setCurrentAttack(Character.AttackType.Heavy);
 				animator.applyRootMotion = true;
 				animator.SetBool ("Heavy", true);
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy")) {
@@ -295,7 +288,7 @@ public class Attacks : MonoBehaviour
 		}
 		private void performQuickAttack ()
 		{
-				curAttack = AttackType.Quick;
+                thisCharacter.setCurrentAttack(Character.AttackType.Quick);
 				animator.SetBool ("Attacking", true);
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder") ||
@@ -309,8 +302,8 @@ public class Attacks : MonoBehaviour
 		{
 
 
-				temp = thisCharacter.turnCharToFaceOpponentNew ();				
-				curAttack = AttackType.Power;
+				temp = thisCharacter.turnCharToFaceOpponentNew ();
+                thisCharacter.setCurrentAttack(Character.AttackType.Power);
 				Vector3 startPoint = transform.root.position;
 				Vector3 endPoint = thisCharacter.getOpponentTransform ().position;
 //		endPoint.x += 4;
