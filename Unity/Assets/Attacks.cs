@@ -28,6 +28,9 @@ public class Attacks : MonoBehaviour
 		bool canPowerMove = true;
 		bool isPowerMoving = false; 
 		Rigidbody rb;
+
+		PlayerIndex playerIndex;
+		GamePadState state;
 		float temp = 0;
 		public enum AttackType
 		{
