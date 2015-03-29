@@ -107,6 +107,7 @@
     <Compile Include="Assets\Done\Done_Scripts\Done_PlayerController.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
+    <Compile Include="Assets\Done\Done_Scripts\SlideOutOnClickA.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GameOver.cs" />
     <Compile Include="Assets\GuiScript.cs" />

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using XInputDotNetPure;
 public class Attacks : MonoBehaviour
@@ -234,7 +234,12 @@ public class Attacks : MonoBehaviour
 						switch (thisCharacter.getCurrentAttack()) {
                         case Character.AttackType.Empty:
 								break;
+<<<<<<< HEAD
+						case AttackType.Reduced:
+								source.PlayOneShot (blockSound, hitVol);
+=======
                         case Character.AttackType.Reduced:
+>>>>>>> 3a5d0e01c3907bf8e3a14f5f13c217a0c95df6ef
 								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (reducedAttackDamage);
                     // As attacks are reduced, no hits are counted. 
                     //thisCharacter.incrementHits();

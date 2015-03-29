@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     #region Vars
 		public float Damage;
 		private float CharPowerBar = 0.0f;
+		
 
 
 		public Image VisualHealth1;
@@ -39,7 +40,7 @@ public class Character : MonoBehaviour
 		public Text hn2;
 		public Text hn3;
 		public Text hn4;
-
+        private bool hitWeapon;
 		private float curhealth;
 		private int hits;
 		private bool dead; 
@@ -56,8 +57,7 @@ public class Character : MonoBehaviour
 		public float Weight;
 		public float jumpForce = 0.3f;
 
-		//Sarah: Adding a public for the running clip//
-
+		public AudioClip blockSound;
 		public AudioClip runningSound;
 		public AudioClip swordHitSound;
 		private AudioSource source;
@@ -75,14 +75,58 @@ public class Character : MonoBehaviour
 		private bool isBlocking;
 		private bool isMoving;
 
-        PlayerIndex playerIndex = (PlayerIndex) 0;
-        PlayerIndex player2Index = (PlayerIndex) 1;
-        GamePadState controller1State;
-        GamePadState controller2State;
+		PlayerIndex playerIndex = (PlayerIndex)0;
+		PlayerIndex player2Index = (PlayerIndex)1;
+		GamePadState controller1State;
+		GamePadState controller2State;
 		private Animator animator;
 		float lerpTime = 0;
+        private AttackType curAttack;
+		private Character thisOpponent;
+		private string thisOpponentTag;
+		private Animator opponent_animator;
+
+
+        public float quickAttackDamage = 5f;
+        public float heavyAttackDamage = 10f;
+        public float powerMoveSpeed = 10f;
+        public float reducedAttackDamage = 2f;
     #endregion
 
+
+
+        public enum AttackType
+        {
+            Quick,
+            Heavy,
+            Power,
+            Empty,
+            Reduced
+        }
+
+        public AttackType getCurrentAttack()
+        {
+            return curAttack;
+        }
+
+        public void resetCurrentAttack()
+        {
+            curAttack = AttackType.Empty;
+        }
+        public void setCurrentAttack(AttackType t)
+        {
+            curAttack = t;
+        }
+
+        public void setWeaponHitToTrue()
+        {
+            hitWeapon = true;
+        }
+
+        public void setWeaponHitToFalse()
+        {
+            hitWeapon = false;
+        }
 		void Awake ()
 		{
 
@@ -108,11 +152,14 @@ public class Character : MonoBehaviour
 						opponent = GameObject.FindWithTag ("Player2").transform;
 						pNum = playerNum.Player;
 						opponentName = playerNum.Player2;
-
+						thisOpponent = GameObject.FindGameObjectWithTag ("Player2").GetComponent<Character> ();
+						opponent_animator = GameObject.FindGameObjectWithTag ("Player2").GetComponent<Animator> ();
 				} else if (gameObject.tag == "Player2") {
 						opponent = GameObject.FindWithTag ("Player").transform;
 						pNum = playerNum.Player2;
 						opponentName = playerNum.Player;
+						thisOpponent = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
+						opponent_animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
 				}
 				// inits cur health as max health
 				curhealth = maxHealth;
@@ -168,18 +215,62 @@ public class Character : MonoBehaviour
 //			TODO neeed PowerUp noise
 						Destroy (other.gameObject);
 				}
-				if (other.collider.name == "planet") {
-						isGrounded = true;
-						isJumping = false;
-						if (isMoving) {
-								source.pitch = Random.Range (lowPitchRange, highPitchRange);
-								float hitVol = other.relativeVelocity.magnitude * velToVol;
-								if (other.relativeVelocity.magnitude < velocityClipSplit)
-										source.PlayOneShot (runningSound, hitVol);
-						}
-				}
+
+                if (other.collider.name == "planet")
+                {
+                    isGrounded = true;
+                    isJumping = false;
+                    if (isMoving)
+                    {
+                        source.pitch = Random.Range(lowPitchRange, highPitchRange);
+                        float hitVol = other.relativeVelocity.magnitude * velToVol;
+                        if (other.relativeVelocity.magnitude < velocityClipSplit)
+                            source.PlayOneShot(runningSound, hitVol);
+                    }
+                }
+                if (other.collider.name == "Hand.L_end" && !hitWeapon)
+                {
+				if (detectOpponentMovement())
+					Debug.Log("here");
+
+               
+                    switch (this.getCurrentAttack())
+                    {
+                        case Character.AttackType.Empty:
+                            break;
+                        case Character.AttackType.Reduced:
+                            this.thisOpponent.beenHit(reducedAttackDamage);
+                            // As attacks are reduced, no hits are counted. 
+                            //thisCharacter.incrementHits();
+                            break;
+                        case Character.AttackType.Heavy:
+                            this.thisOpponent.beenHit(heavyAttackDamage);
+                            this.incrementHits();
+                            break;
+                        case Character.AttackType.Power:
+                            break;
+                        //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
+                        case Character.AttackType.Quick:
+                            //Rigidbody rb = GameObject.FindGameObjectWithTag(this.getOpponentName().ToString()).GetComponent<Rigidbody>();
+                            //rb.AddForce(0, 5, 10);
+                            this.thisOpponent.beenHit(quickAttackDamage);
+                            this.incrementHits();
+                            //Vector3 direction = Ray.direction;       
+                            //hit.rigidbody.AddForce(Ray.direction * force);
+                            break;
+                        default:
+                            break;
+
+                    }
+                    //curAttack = AttackType.Empty;
+                
+			}
 		}
 
+	bool detectOpponentMovement(){
+		
+		return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder"));
+	}
 		public bool isCharacterBlocking ()
 		{
 				return isBlocking;
@@ -335,14 +426,14 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
-            controller1State = GamePad.GetState(playerIndex);
-            controller2State = GamePad.GetState(player2Index);
+				controller1State = GamePad.GetState (playerIndex);
+				controller2State = GamePad.GetState (player2Index);
 				if (gameObject.tag == "Player") {
-                        //var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
-                        //var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
+						//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
+						//var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
 						horizontal = controller1State.ThumbSticks.Left.X;
-                        //var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-                        //var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+						//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+						//var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
 						vertical = controller1State.ThumbSticks.Left.Y;
 						if (horizontal != 0 || vertical != 0) {
 								isMoving = true;
@@ -360,8 +451,7 @@ public class Character : MonoBehaviour
 								isBlocking = true;
 								turnCharToFaceOpponentNew ();
 //				Debug.Log("Blocking true");
-						} 
-                        else if (controller1State.Buttons.B == ButtonState.Released) {
+						} else if (controller1State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
 //				Debug.Log("Blocking false");
 						}
@@ -377,14 +467,14 @@ public class Character : MonoBehaviour
 				}
 				if (gameObject.tag == "Player2") {
             
-                        //var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
-                        //var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
+						//var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
+						//var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
 						horizontal2 = controller2State.ThumbSticks.Left.X;
 		
 						//            horizontal = Input.GetAxis("Horizontal");
-                        //var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
-                        //var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-                        vertical2 = controller2State.ThumbSticks.Left.Y;
+						//var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+						//var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+						vertical2 = controller2State.ThumbSticks.Left.Y;
 						moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
 
 			 
@@ -395,9 +485,7 @@ public class Character : MonoBehaviour
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
 								turnCharToFaceOpponentNew ();
 								isBlocking = true;
-                        }
-                        else if (controller2State.Buttons.B == ButtonState.Released)
-                        {
+						} else if (controller2State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
 						}
 						CharPowerBar = CharPowerBar + Time.deltaTime / 30;
