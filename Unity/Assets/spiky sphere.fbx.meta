@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 955496ca0055b6841a94859bbb18e8c1
+guid: 062ba3a674bb94b36b0a31969f1460dc
+timeCreated: 1427657541
+licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: bush7
-    400000: //RootNode
-    400002: bush7
-    2300000: bush7
-    3300000: bush7
-    4300000: bush7
-    9500000: //RootNode
+    100000: Camera
+    100002: Hemi
+    100004: Lamp
+    100006: Sphere
+    100008: //RootNode
+    100010: Sun
+    400000: Camera
+    400002: Hemi
+    400004: Lamp
+    400006: Sphere
+    400008: //RootNode
+    400010: Sun
+    2300000: Sphere
+    3300000: Sphere
+    4300000: Sphere
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,11 +53,11 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 72
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
