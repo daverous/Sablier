@@ -16,8 +16,8 @@ public class CameraShakeScript : MonoBehaviour
 		// Amplitude of the shake. A larger value shakes the camera harder.
 		public float shakeAmount = 0.7f;
 		public float decreaseFactor = 1.0f;
-		public float vibrateFeelL = 1.0f;
-		public float vibrateFeelR = 1.0f;
+		public float vibrateFeelL = 0;
+		public float vibrateFeelR = 0;
 
 		Vector3 originalPos;
 		bool canShake;
@@ -42,7 +42,10 @@ public class CameraShakeScript : MonoBehaviour
 		void Update ()
 		{
 				if (init > 0 && canShake) {
+                    vibrateFeelR += 0.1f;
+                    vibrateFeelL += 0.1f;
 						if (transform.root.tag == "Player") {
+
 								GamePad.SetVibration (playerIndex, vibrateFeelL, vibrateFeelR);
 						}
 						if (transform.root.tag == "Player2") {
@@ -52,7 +55,17 @@ public class CameraShakeScript : MonoBehaviour
 
 						init -= Time.deltaTime * decreaseFactor;
 				} else if (canShake) {
+                    if (transform.root.tag == "Player")
+                    {
+                        GamePad.SetVibration(playerIndex, 0, 0);
+                    }
+                    if (transform.root.tag == "Player2")
+                    {
+                        GamePad.SetVibration(player2Index, 0, 0);
+                    }
 						init = shake;
+                        vibrateFeelL = 0f;
+                        vibrateFeelR = 0f;
 						camTransform.localPosition = originalPos;
 						canShake = false;
 				} else {
