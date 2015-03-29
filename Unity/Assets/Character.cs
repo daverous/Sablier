@@ -213,19 +213,7 @@ public class Character : MonoBehaviour
 		}
 		public void beenHit (float damage)
 		{
-				animator.SetBool ("Damaged", true);
-				animator.applyRootMotion = true;
-				source.pitch = Random.Range (lowPitchRange, highPitchRange);
-				source.PlayOneShot (swordHitSound);
-				if (gameObject.tag == "Player2") {
-						GameObject.FindGameObjectWithTag ("PlayerTwoCamera").GetComponent<CameraShakeScript> ().startShake ();
-				}
-				if (gameObject.tag == "Player") {
-						GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().startShake ();
-				}
-        
 				curhealth -= damage;
-				//DisplayBubble();
 				if (curhealth <= 0) {
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
@@ -238,9 +226,24 @@ public class Character : MonoBehaviour
 						}
 						Application.LoadLevel ("GOScene");
 				}
+				animator.SetBool ("Damaged", true);
+				
+
+				animator.applyRootMotion = true;
+				source.pitch = Random.Range (lowPitchRange, highPitchRange);
+				source.PlayOneShot (swordHitSound);
+				if (gameObject.tag == "Player2") {
+						GameObject.FindGameObjectWithTag ("PlayerTwoCamera").GetComponent<CameraShakeScript> ().startShake ();
+				}
+				if (gameObject.tag == "Player") {
+						GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().startShake ();
+				}
+			
+				//DisplayBubble();
+				
 				//DisplayBubble();
 				double temp = damage * 0.010;
-				float damage_value = (float)temp;
+				float damage_value = (float) temp;
 				if (gameObject.tag == "Player") {
 						VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
 						VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
@@ -322,7 +325,16 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
-
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|DamageHeavy") ||
+                animator.GetCurrentAnimatorStateInfo(0).IsName("PipeBlade|DamageHeavy"))
+            {
+                Time.timeScale = 0.7f;
+            }
+            else
+            {
+                Debug.Log("sds");
+                Time.timeScale = 1;
+            }
 				if (gameObject.tag == "Player") {
 						var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
 						var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
