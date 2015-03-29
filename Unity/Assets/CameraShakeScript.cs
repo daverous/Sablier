@@ -7,7 +7,9 @@ public class CameraShakeScript : MonoBehaviour
 		// Transform of the camera to shake. Grabs the gameObject's transform
 		// if null.
 		Transform camTransform;
-
+	
+		PlayerIndex playerIndex = (PlayerIndex)0;
+		PlayerIndex player2Index = (PlayerIndex)1;
 		// How long the object should shake for.
 		public float shake = 2f;
 
@@ -41,10 +43,10 @@ public class CameraShakeScript : MonoBehaviour
 		{
 				if (init > 0 && canShake) {
 						if (transform.root.tag == "Player") {
-								GamePad.SetVibration (0, vibrateFeelL, vibrateFeelR);
+								GamePad.SetVibration (playerIndex, vibrateFeelL, vibrateFeelR);
 						}
 						if (transform.root.tag == "Player2") {
-								GamePad.SetVibration (1, vibrateFeelL, vibrateFeelR);
+								GamePad.SetVibration (player2Index, vibrateFeelL, vibrateFeelR);
 						}
 						this.transform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 

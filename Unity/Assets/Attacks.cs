@@ -5,6 +5,8 @@ public class Attacks : MonoBehaviour
 {
 		public AudioClip swordSwipeSound;
 		public AudioClip swordClashSound;
+		public AudioClip blockSound;
+
 		private AudioSource source; 
 
 		private Character thisCharacter;
@@ -29,8 +31,8 @@ public class Attacks : MonoBehaviour
 		bool isPowerMoving = false; 
 		Rigidbody rb;
 
-		PlayerIndex playerIndex = (PlayerIndex) 0;
-		PlayerIndex player2Index = (PlayerIndex) 1;
+		PlayerIndex playerIndex = (PlayerIndex)0;
+		PlayerIndex player2Index = (PlayerIndex)1;
 		GamePadState controller1State;
 		GamePadState controller2State;
 
@@ -63,8 +65,8 @@ public class Attacks : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-            controller1State = GamePad.GetState(playerIndex);
-            controller2State = GamePad.GetState(player2Index);
+				controller1State = GamePad.GetState (playerIndex);
+				controller2State = GamePad.GetState (player2Index);
 				#region checkMoving
 				float sqrMag = (thisCharacter.getOpponentTransform ().position - transform.position).sqrMagnitude;
 
@@ -80,15 +82,14 @@ public class Attacks : MonoBehaviour
 		
 		
 				#endregion
-                //var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+				//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
 		        
 		
 		
 		
 				if (thisCharacterTag == "Player") {
 						#region player1 
-                    if (controller1State.Buttons.X == ButtonState.Pressed && controller1State.Buttons.LeftShoulder == ButtonState.Pressed)
-                    {
+						if (controller1State.Buttons.X == ButtonState.Pressed && controller1State.Buttons.LeftShoulder == ButtonState.Pressed) {
 //								Debug.Log ("Heavy Attacking");
 								performHeavyAttack ();
 						}
@@ -128,8 +129,7 @@ public class Attacks : MonoBehaviour
 				if (thisCharacterTag == "Player2") {
 
 						#region player2
-                    if (controller2State.Buttons.X == ButtonState.Pressed && controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
-                    {
+						if (controller2State.Buttons.X == ButtonState.Pressed && controller2State.Buttons.LeftShoulder == ButtonState.Pressed) {
 //								Debug.Log ("Heavy Attacking");
 								performHeavyAttack ();
 						} else if (controller2State.Buttons.X == ButtonState.Pressed) {
@@ -150,8 +150,7 @@ public class Attacks : MonoBehaviour
 					
 								}
 						}
-                        if (controller2State.Buttons.Y == ButtonState.Released)
-                        {
+						if (controller2State.Buttons.Y == ButtonState.Released) {
 								if (isPowerMoving) {
 										rb.velocity = Vector3.zero;
 								}
@@ -241,6 +240,7 @@ public class Attacks : MonoBehaviour
 						case AttackType.Empty:
 								break;
 						case AttackType.Reduced:
+								source.PlayOneShot (blockSound, hitVol);
 								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (reducedAttackDamage);
                     // As attacks are reduced, no hits are counted. 
                     //thisCharacter.incrementHits();

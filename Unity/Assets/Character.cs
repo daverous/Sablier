@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     #region Vars
 		public float Damage;
 		private float CharPowerBar = 0.0f;
+		
 
 
 		public Image VisualHealth1;
@@ -56,8 +57,7 @@ public class Character : MonoBehaviour
 		public float Weight;
 		public float jumpForce = 0.3f;
 
-		//Sarah: Adding a public for the running clip//
-
+		public AudioClip blockSound;
 		public AudioClip runningSound;
 		public AudioClip swordHitSound;
 		private AudioSource source;
@@ -75,10 +75,10 @@ public class Character : MonoBehaviour
 		private bool isBlocking;
 		private bool isMoving;
 
-        PlayerIndex playerIndex = (PlayerIndex) 0;
-        PlayerIndex player2Index = (PlayerIndex) 1;
-        GamePadState controller1State;
-        GamePadState controller2State;
+		PlayerIndex playerIndex = (PlayerIndex)0;
+		PlayerIndex player2Index = (PlayerIndex)1;
+		GamePadState controller1State;
+		GamePadState controller2State;
 		private Animator animator;
 		float lerpTime = 0;
     #endregion
@@ -335,14 +335,14 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
-            controller1State = GamePad.GetState(playerIndex);
-            controller2State = GamePad.GetState(player2Index);
+				controller1State = GamePad.GetState (playerIndex);
+				controller2State = GamePad.GetState (player2Index);
 				if (gameObject.tag == "Player") {
-                        //var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
-                        //var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
+						//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
+						//var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
 						horizontal = controller1State.ThumbSticks.Left.X;
-                        //var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-                        //var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+						//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+						//var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
 						vertical = controller1State.ThumbSticks.Left.Y;
 						if (horizontal != 0 || vertical != 0) {
 								isMoving = true;
@@ -360,8 +360,7 @@ public class Character : MonoBehaviour
 								isBlocking = true;
 								turnCharToFaceOpponentNew ();
 //				Debug.Log("Blocking true");
-						} 
-                        else if (controller1State.Buttons.B == ButtonState.Released) {
+						} else if (controller1State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
 //				Debug.Log("Blocking false");
 						}
@@ -377,14 +376,14 @@ public class Character : MonoBehaviour
 				}
 				if (gameObject.tag == "Player2") {
             
-                        //var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
-                        //var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
+						//var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
+						//var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
 						horizontal2 = controller2State.ThumbSticks.Left.X;
 		
 						//            horizontal = Input.GetAxis("Horizontal");
-                        //var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
-                        //var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-                        vertical2 = controller2State.ThumbSticks.Left.Y;
+						//var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+						//var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+						vertical2 = controller2State.ThumbSticks.Left.Y;
 						moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
 
 			 
@@ -395,9 +394,7 @@ public class Character : MonoBehaviour
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
 								turnCharToFaceOpponentNew ();
 								isBlocking = true;
-                        }
-                        else if (controller2State.Buttons.B == ButtonState.Released)
-                        {
+						} else if (controller2State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
 						}
 						CharPowerBar = CharPowerBar + Time.deltaTime / 30;
