@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using XInputDotNetPure;
 public class GuiScript : MonoBehaviour
 {
 
@@ -12,6 +12,11 @@ public class GuiScript : MonoBehaviour
 		public int positionIndex = 0;
 		bool canIncrement = true;
 
+
+        PlayerIndex playerIndex = (PlayerIndex)0;
+        PlayerIndex player2Index = (PlayerIndex)1;
+        GamePadState controller1State;
+        GamePadState controller2State;
 #region Buttons
 
 
@@ -21,14 +26,17 @@ public class GuiScript : MonoBehaviour
 
 		void Start ()
 		{
-   
 
+
+            controller1State = GamePad.GetState(playerIndex);
+            controller2State = GamePad.GetState(player2Index);
         
 
 		}
 		void Update ()
 		{
-				if (jInput.GetButton (Mapper.InputArray [8])) {
+            if (controller1State.Buttons.Start == ButtonState.Pressed)
+            {
 						header = "Player 1 has Paused";
 						thisChar = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
 						player = 1;
@@ -36,7 +44,8 @@ public class GuiScript : MonoBehaviour
 
 
 				}
-				if (jInput.GetButton (Mapper.InputArray2p [8])) {
+            if (controller2State.Buttons.Start == ButtonState.Pressed)
+            {
 						header = "Player 2 has Paused";
 						thisChar = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
 						player = 2;
@@ -47,10 +56,10 @@ public class GuiScript : MonoBehaviour
 				case 0:
 						break;
 				case 1:
-						float vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-						float vNegative = jInput.GetAxis (Mapper.InputArray [11]);
-						float vertical = vPositive - vNegative;
-						Debug.Log ("Vertical" + vertical);
+                        //float vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+                        //float vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+						float vertical = controller1State.ThumbSticks.Left.Y;
+                        //Debug.Log ("Vertical" + vertical);
 						if (vertical < -0.1) {
 								if (positionIndex <= 2 && canIncrement) {
 										positionIndex++;
@@ -67,9 +76,9 @@ public class GuiScript : MonoBehaviour
 						} 
 						break;
 				case 2:
-						vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
-						vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-						vertical = vPositive - vNegative;
+                        //vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+                        //vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+						vertical = controller2State.ThumbSticks.Left.Y;
 
 						if (vertical < -0.5) {
 								if (positionIndex <= 2 && canIncrement) {
@@ -123,12 +132,12 @@ public class GuiScript : MonoBehaviour
 				case 0:
 						break;
 				case 1:
-						if (jInput.GetButton (Mapper.InputArray [5])) {
+						if (false) {
 								perform ();
 						}
 						break;
 				case 2:
-						if (jInput.GetButton (Mapper.InputArray2p [5])) {
+						if (false) {
 								perform ();
 						}
 						break;
