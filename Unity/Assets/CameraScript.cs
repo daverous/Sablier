@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class CameraScript : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class CameraScript : MonoBehaviour
     float rotationY = 0F;
     Character thisChar;
 	bool canLock = true;
+    PlayerIndex playerIndex = (PlayerIndex)0;
+    PlayerIndex player2Index = (PlayerIndex)1;
+    GamePadState controller1State;
+    GamePadState controller2State;
     #endregion
     public enum CamStates
     {
@@ -34,6 +39,8 @@ public class CameraScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        controller1State = GamePad.GetState(playerIndex);
+        controller2State = GamePad.GetState(player2Index);
         thisChar = CameraTarget.root.GetComponent<Character>();
         rotationY = -40f;
 
@@ -45,23 +52,23 @@ public class CameraScript : MonoBehaviour
         if (thisChar.getPNum().ToString() == "Player")
         {
 
-			locked = jInput.GetAxis (Mapper.InputArray [14]);
-			var hPositive = jInput.GetAxis (Mapper.InputArray [12]);
-			var hNegative = jInput.GetAxis (Mapper.InputArray [13]);
-			x = hPositive - hNegative;
-			var vPositive = jInput.GetAxis (Mapper.InputArray [7]);
-			var vNegative = jInput.GetAxis (Mapper.InputArray [6]);
-            y = vPositive - vNegative;
+            locked = controller1State.Triggers.Right;
+            //var hPositive = jInput.GetAxis (Mapper.InputArray [12]);
+            //var hNegative = jInput.GetAxis (Mapper.InputArray [13]);
+			x = controller1State.ThumbSticks.Right.X;
+            //var vPositive = jInput.GetAxis (Mapper.InputArray [7]);
+            //var vNegative = jInput.GetAxis (Mapper.InputArray [6]);
+            y = controller1State.ThumbSticks.Right.Y;
         }
         if (thisChar.getPNum().ToString() == "Player2")
         {
-			locked = jInput.GetAxis (Mapper.InputArray2p [14]);
-			var hPositive = jInput.GetAxis (Mapper.InputArray2p [12]);
-			var hNegative = jInput.GetAxis (Mapper.InputArray2p [13]);
-			x = hPositive - hNegative;
-			var vPositive = jInput.GetAxis (Mapper.InputArray2p [7]);
-			var vNegative = jInput.GetAxis (Mapper.InputArray2p [6]);
-			y = vPositive - vNegative;
+            locked = controller2State.Triggers.Right;
+            //var hPositive = jInput.GetAxis (Mapper.InputArray2p [12]);
+            //var hNegative = jInput.GetAxis (Mapper.InputArray2p [13]);
+            x = controller2State.ThumbSticks.Right.X;
+            //var vPositive = jInput.GetAxis (Mapper.InputArray2p [7]);
+            //var vNegative = jInput.GetAxis (Mapper.InputArray2p [6]);
+            y = controller2State.ThumbSticks.Right.Y;
 		}
 		//Debug.Log("locked" + locked);
         if (thisChar.isCharacterJumping())

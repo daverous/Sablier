@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using XInputDotNetPure;
 public class Attacks : MonoBehaviour
 {
 		public AudioClip swordSwipeSound;
@@ -29,10 +29,11 @@ public class Attacks : MonoBehaviour
 		bool isPowerMoving = false; 
 		Rigidbody rb;
 
-		PlayerIndex playerIndex;
-		PlayerIndex player2Index;
+		PlayerIndex playerIndex = (PlayerIndex) 1;
+		PlayerIndex player2Index = (PlayerIndex) 1;
 		GamePadState controller1State;
 		GamePadState controller2State;
+
 		float temp = 0;
 		public enum AttackType
 		{
@@ -44,6 +45,8 @@ public class Attacks : MonoBehaviour
 		}
 		void Start ()
 		{
+            controller1State = GamePad.GetState(playerIndex);
+            controller2State = GamePad.GetState(player2Index);
 				source = GetComponent<AudioSource> ();
 
 				curAttack = AttackType.Empty;
@@ -83,7 +86,8 @@ public class Attacks : MonoBehaviour
 		
 				if (thisCharacterTag == "Player") {
 						#region player1 
-						if (jInput.GetButton (Mapper.InputArray [3]) && jInput.GetButton (Mapper.InputArray [2])) {
+                    if (controller1State.Buttons.X == ButtonState.Pressed && controller1State.Buttons.LeftShoulder == ButtonState.Pressed)
+                    {
 //								Debug.Log ("Heavy Attacking");
 								performHeavyAttack ();
 						}
@@ -123,17 +127,18 @@ public class Attacks : MonoBehaviour
 				if (thisCharacterTag == "Player2") {
 
 						#region player2
-						if (jInput.GetButton (Mapper.InputArray2p [3]) && jInput.GetButton (Mapper.InputArray2p [2])) {
+                    if (controller2State.Buttons.X == ButtonState.Pressed && controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
+                    {
 //								Debug.Log ("Heavy Attacking");
 								performHeavyAttack ();
-						} else if (jInput.GetButton (Mapper.InputArray2p [2])) {
+						} else if (controller2State.Buttons.X == ButtonState.Pressed) {
 								performQuickAttack ();
-						} else if (!jInput.GetButton (Mapper.InputArray2p [2])) {
+						} else if (controller2State.Buttons.X == ButtonState.Released) {
 								//curAttack = AttackType.Empty;
 								animator.SetBool ("Chain", false);
 						}
 
-						if (jInput.GetButton (Mapper.InputArray2p [4])) {
+						if (controller2State.Buttons.Y == ButtonState.Pressed) {
 				
 								if (thisCharacter.getCharPowerBar () >= 1 && canPowerMove) {
 										//					(Time.deltaTime/3+0.01f)
@@ -144,7 +149,8 @@ public class Attacks : MonoBehaviour
 					
 								}
 						}
-						if (!jInput.GetButton (Mapper.InputArray2p [4])) {
+                        if (controller2State.Buttons.Y == ButtonState.Released)
+                        {
 								if (isPowerMoving) {
 										rb.velocity = Vector3.zero;
 								}

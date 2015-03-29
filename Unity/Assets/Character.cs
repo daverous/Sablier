@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 using UnityEngine.UI;
 
 #region structs
@@ -74,6 +75,10 @@ public class Character : MonoBehaviour
 		private bool isBlocking;
 		private bool isMoving;
 
+        PlayerIndex playerIndex = (PlayerIndex) 1;
+        PlayerIndex player2Index = (PlayerIndex) 2;
+        GamePadState controller1State;
+        GamePadState controller2State;
 		private Animator animator;
 		float lerpTime = 0;
     #endregion
@@ -89,6 +94,7 @@ public class Character : MonoBehaviour
     #region Functions
 		void Start ()
 		{
+        
 				thisCharacterTag = transform.root.tag;
 				hits = 0;
 				isGrounded = true;
@@ -329,31 +335,33 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
-
+            controller1State = GamePad.GetState(playerIndex);
+            controller2State = GamePad.GetState(player2Index);
 				if (gameObject.tag == "Player") {
-						var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
-						var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
-						horizontal = hPositive - hNegative;
-						var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-						var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
-						vertical = vPositive - vNegative;
+                        //var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
+                        //var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
+						horizontal = controller1State.ThumbSticks.Left.X;
+                        //var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+                        //var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+						vertical = controller1State.ThumbSticks.Left.Y;
 						if (horizontal != 0 || vertical != 0) {
 								isMoving = true;
 						}
 						moveDirection = new Vector3 (horizontal, 0, vertical).normalized;
 
 //			performJump
-						if (jInput.GetButton (Mapper.InputArray [5]) && isGrounded) {
+						if (controller1State.Buttons.A == ButtonState.Pressed && isGrounded) {
 //								Debug.Log ("jump");
 								performJump ();
 						}
 
 //			performBlock
-						if (jInput.GetButton (Mapper.InputArray [9])) {
+						if (controller1State.Buttons.B == ButtonState.Pressed) {
 								isBlocking = true;
 								turnCharToFaceOpponentNew ();
 //				Debug.Log("Blocking true");
-						} else if (jInput.GetButton (Mapper.InputArray [9])) {
+						} 
+                        else if (controller1State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
 //				Debug.Log("Blocking false");
 						}
@@ -369,25 +377,27 @@ public class Character : MonoBehaviour
 				}
 				if (gameObject.tag == "Player2") {
             
-						var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
-						var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
-						horizontal2 = hPositive - hNegative;
+                        //var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
+                        //var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
+						horizontal2 = controller2State.ThumbSticks.Left.X;
 		
 						//            horizontal = Input.GetAxis("Horizontal");
-						var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
-						var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-						vertical2 = vPositive - vNegative;
+                        //var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+                        //var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+                        vertical2 = controller2State.ThumbSticks.Left.Y;
 						moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
 
 			 
-						if (jInput.GetButton (Mapper.InputArray2p [5]) && isGrounded) {
+						if (controller2State.Buttons.A == ButtonState.Pressed && isGrounded) {
 								performJump ();
 						}
 
-						if (jInput.GetButton (Mapper.InputArray2p [9])) {
+						if (controller2State.Buttons.B == ButtonState.Pressed) {
 								turnCharToFaceOpponentNew ();
 								isBlocking = true;
-						} else if (jInput.GetButton (Mapper.InputArray2p [9])) {
+                        }
+                        else if (controller2State.Buttons.B == ButtonState.Released)
+                        {
 								isBlocking = false;
 						}
 						CharPowerBar = CharPowerBar + Time.deltaTime / 30;
