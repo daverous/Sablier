@@ -81,6 +81,7 @@
      <Compile Include="Assets\Done\Done_Scripts\Done_PlayerController.cs" />
      <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
      <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
+     <Compile Include="Assets\Done\Done_Scripts\SlideOutOnClickA.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\GameOver.cs" />
      <Compile Include="Assets\GuiScript.cs" />
@@ -120,16 +121,16 @@
      <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/Wilson/Documents/csc404/Sablier/Unity/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/davidwilson/Sablier/Unity/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>/Users/Wilson/Documents/csc404/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
+ <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>/Users/Wilson/Documents/csc404/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
