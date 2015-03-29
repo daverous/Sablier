@@ -56,7 +56,7 @@ public class Attacks : MonoBehaviour
 				else
 						thisOpponent = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
 				animator = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Animator> ();
-				opponent_animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
+				//opponent_animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
 				rb = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Rigidbody> ();
 		}
 
@@ -224,6 +224,7 @@ public class Attacks : MonoBehaviour
 						animator.SetBool ("Jumping", false);
 				}
 		}
+
 
 		void OnCollisionEnter (Collision other)
 		{
