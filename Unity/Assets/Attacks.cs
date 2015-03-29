@@ -30,7 +30,9 @@ public class Attacks : MonoBehaviour
 		Rigidbody rb;
 
 		PlayerIndex playerIndex;
-		GamePadState state;
+		PlayerIndex player2Index;
+		GamePadState controller1State;
+		GamePadState controller2State;
 		float temp = 0;
 		public enum AttackType
 		{
