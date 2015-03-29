@@ -89,16 +89,16 @@ public class Attacks : MonoBehaviour
 						}
 
 //			Perform quick 
-			else if (jInput.GetButton (Mapper.InputArray [2])) {
+			else if (controller1State.Buttons.X == ButtonState.Pressed) {
 								performQuickAttack ();
 
-						} else if (!jInput.GetButton (Mapper.InputArray [2])) {
+						} else if (controller1State.Buttons.X == ButtonState.Released) {
 								//curAttack = AttackType.Empty;
                 
 								animator.SetBool ("Chain", false);
 						}
 
-						if (jInput.GetButton (Mapper.InputArray [4])) {
+						if (controller1State.Buttons.Y == ButtonState.Pressed) {
 
 								if (thisCharacter.getCharPowerBar () >= 1 && canPowerMove) {
 //					(Time.deltaTime/3+0.01f)
@@ -109,7 +109,7 @@ public class Attacks : MonoBehaviour
 				
 								}
 						}
-						if (!jInput.GetButton (Mapper.InputArray [4])) {
+						if (controller1State.Buttons.Y == ButtonState.Released) {
 								if (isPowerMoving) {
 										rb.velocity = Vector3.zero;
 								}
