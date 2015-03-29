@@ -93,6 +93,7 @@
      <Compile Include="Assets\TotalHit1Script.cs" />
      <Compile Include="Assets\TotalHit2Script.cs" />
      <Compile Include="Assets\WinnerScript.cs" />
+     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
      <Compile Include="Assets\hits1Script.cs" />
      <Compile Include="Assets\jInputMapping\FunctionalFile\SyncValuesData.cs" />
      <Compile Include="Assets\jInputMapping\Script\ActiveFalseSelf.cs" />
@@ -130,6 +131,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\jInputMapping\ReadMeJP.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
@@ -145,6 +147,12 @@
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ </Reference>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
