@@ -29,7 +29,7 @@ public class Attacks : MonoBehaviour
 		bool isPowerMoving = false; 
 		Rigidbody rb;
 
-		PlayerIndex playerIndex = (PlayerIndex) 1;
+		PlayerIndex playerIndex = (PlayerIndex) 0;
 		PlayerIndex player2Index = (PlayerIndex) 1;
 		GamePadState controller1State;
 		GamePadState controller2State;
@@ -45,8 +45,6 @@ public class Attacks : MonoBehaviour
 		}
 		void Start ()
 		{
-            controller1State = GamePad.GetState(playerIndex);
-            controller2State = GamePad.GetState(player2Index);
 				source = GetComponent<AudioSource> ();
 
 				curAttack = AttackType.Empty;
@@ -65,6 +63,8 @@ public class Attacks : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+            controller1State = GamePad.GetState(playerIndex);
+            controller2State = GamePad.GetState(player2Index);
 				#region checkMoving
 				float sqrMag = (thisCharacter.getOpponentTransform ().position - transform.position).sqrMagnitude;
 
@@ -80,7 +80,8 @@ public class Attacks : MonoBehaviour
 		
 		
 				#endregion
-		
+                //var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+		        
 		
 		
 		

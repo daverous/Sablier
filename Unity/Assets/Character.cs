@@ -75,8 +75,8 @@ public class Character : MonoBehaviour
 		private bool isBlocking;
 		private bool isMoving;
 
-        PlayerIndex playerIndex = (PlayerIndex) 1;
-        PlayerIndex player2Index = (PlayerIndex) 2;
+        PlayerIndex playerIndex = (PlayerIndex) 0;
+        PlayerIndex player2Index = (PlayerIndex) 1;
         GamePadState controller1State;
         GamePadState controller2State;
 		private Animator animator;

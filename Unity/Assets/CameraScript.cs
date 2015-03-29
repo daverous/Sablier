@@ -39,8 +39,6 @@ public class CameraScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        controller1State = GamePad.GetState(playerIndex);
-        controller2State = GamePad.GetState(player2Index);
         thisChar = CameraTarget.root.GetComponent<Character>();
         rotationY = -40f;
 
@@ -48,6 +46,8 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
+        controller1State = GamePad.GetState(playerIndex);
+        controller2State = GamePad.GetState(player2Index);
         float locked = 0;
         if (thisChar.getPNum().ToString() == "Player")
         {
