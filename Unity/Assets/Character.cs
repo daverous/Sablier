@@ -213,21 +213,7 @@ public class Character : MonoBehaviour
 		}
 		public void beenHit (float damage)
 		{
-				animator.SetBool ("Damaged", true);
-				Time.timeScale = 0.1f;
-
-				animator.applyRootMotion = true;
-				source.pitch = Random.Range (lowPitchRange, highPitchRange);
-				source.PlayOneShot (swordHitSound);
-				if (gameObject.tag == "Player2") {
-						GameObject.FindGameObjectWithTag ("PlayerTwoCamera").GetComponent<CameraShakeScript> ().startShake ();
-				}
-				if (gameObject.tag == "Player") {
-						GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().startShake ();
-				}
-        
 				curhealth -= damage;
-				//DisplayBubble();
 				if (curhealth <= 0) {
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
@@ -240,6 +226,25 @@ public class Character : MonoBehaviour
 						}
 						Application.LoadLevel ("GOScene");
 				}
+				animator.SetBool ("Damaged", true);
+				
+
+				animator.applyRootMotion = true;
+				source.pitch = Random.Range (lowPitchRange, highPitchRange);
+				source.PlayOneShot (swordHitSound);
+				if (gameObject.tag == "Player2") {
+						GameObject.FindGameObjectWithTag ("PlayerTwoCamera").GetComponent<CameraShakeScript> ().startShake ();
+				}
+				if (gameObject.tag == "Player") {
+						GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().startShake ();
+				}
+				if (this.animator.GetCurrentAnimatorStateInfo (0).IsName ("Damaged")) {
+						Time.timeScale = 0.00001f;
+				} else {
+						Time.timeScale = 1;
+				}
+				//DisplayBubble();
+				
 				//DisplayBubble();
 				double temp = damage * 0.010;
 				float damage_value = (float)temp;
@@ -270,8 +275,6 @@ public class Character : MonoBehaviour
 
 		
 				}
-				// TODO check end of anim
-				Time.timeScale = 1f;
 		}
 
 
