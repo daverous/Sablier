@@ -39,7 +39,7 @@ public class Character : MonoBehaviour
 		public Text hn2;
 		public Text hn3;
 		public Text hn4;
-
+        private bool hitWeapon;
 		private float curhealth;
 		private int hits;
 		private bool dead; 
@@ -81,12 +81,52 @@ public class Character : MonoBehaviour
         GamePadState controller2State;
 		private Animator animator;
 		float lerpTime = 0;
-
+        private AttackType curAttack;
 		private Character thisOpponent;
 		private string thisOpponentTag;
 		private Animator opponent_animator;
+
+
+        public float quickAttackDamage = 5f;
+        public float heavyAttackDamage = 10f;
+        public float powerMoveSpeed = 10f;
+        public float reducedAttackDamage = 2f;
     #endregion
 
+
+
+        public enum AttackType
+        {
+            Quick,
+            Heavy,
+            Power,
+            Empty,
+            Reduced
+        }
+
+        public AttackType getCurrentAttack()
+        {
+            return curAttack;
+        }
+
+        public void resetCurrentAttack()
+        {
+            curAttack = AttackType.Empty;
+        }
+        public void setCurrentAttack(AttackType t)
+        {
+            curAttack = t;
+        }
+
+        public void setWeaponHitToTrue()
+        {
+            hitWeapon = true;
+        }
+
+        public void setWeaponHitToFalse()
+        {
+            hitWeapon = false;
+        }
 		void Awake ()
 		{
 
@@ -175,25 +215,61 @@ public class Character : MonoBehaviour
 //			TODO neeed PowerUp noise
 						Destroy (other.gameObject);
 				}
-				if (other.collider.name == "planet") {
-						isGrounded = true;
-						isJumping = false;
-						if (isMoving) {
-								source.pitch = Random.Range (lowPitchRange, highPitchRange);
-								float hitVol = other.relativeVelocity.magnitude * velToVol;
-								if (other.relativeVelocity.magnitude < velocityClipSplit)
-										source.PlayOneShot (runningSound, hitVol);
-						}
-				}
-			if (other.collider.name == "Hand.L_end") {
-				if (detectOpponentMovement)
+
+                if (other.collider.name == "planet")
+                {
+                    isGrounded = true;
+                    isJumping = false;
+                    if (isMoving)
+                    {
+                        source.pitch = Random.Range(lowPitchRange, highPitchRange);
+                        float hitVol = other.relativeVelocity.magnitude * velToVol;
+                        if (other.relativeVelocity.magnitude < velocityClipSplit)
+                            source.PlayOneShot(runningSound, hitVol);
+                    }
+                }
+                if (other.collider.name == "Hand.L_end" && !hitWeapon)
+                {
+				if (detectOpponentMovement())
 					Debug.Log("here");
+
+               
+                    switch (this.getCurrentAttack())
+                    {
+                        case Character.AttackType.Empty:
+                            break;
+                        case Character.AttackType.Reduced:
+                            this.thisOpponent.beenHit(reducedAttackDamage);
+                            // As attacks are reduced, no hits are counted. 
+                            //thisCharacter.incrementHits();
+                            break;
+                        case Character.AttackType.Heavy:
+                            this.thisOpponent.beenHit(heavyAttackDamage);
+                            this.incrementHits();
+                            break;
+                        case Character.AttackType.Power:
+                            break;
+                        //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
+                        case Character.AttackType.Quick:
+                            //Rigidbody rb = GameObject.FindGameObjectWithTag(this.getOpponentName().ToString()).GetComponent<Rigidbody>();
+                            //rb.AddForce(0, 5, 10);
+                            this.thisOpponent.beenHit(quickAttackDamage);
+                            this.incrementHits();
+                            //Vector3 direction = Ray.direction;       
+                            //hit.rigidbody.AddForce(Ray.direction * force);
+                            break;
+                        default:
+                            break;
+
+                    }
+                    //curAttack = AttackType.Empty;
+                
 			}
 		}
 
 	bool detectOpponentMovement(){
 		
-		return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Quick_FromSide") || opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Quick_OverShoulder"));
+		return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder"));
 	}
 		public bool isCharacterBlocking ()
 		{
