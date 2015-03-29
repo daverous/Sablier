@@ -214,6 +214,8 @@ public class Character : MonoBehaviour
 		public void beenHit (float damage)
 		{
 				animator.SetBool ("Damaged", true);
+				Time.timeScale = 0.1f;
+
 				animator.applyRootMotion = true;
 				source.pitch = Random.Range (lowPitchRange, highPitchRange);
 				source.PlayOneShot (swordHitSound);
@@ -268,6 +270,8 @@ public class Character : MonoBehaviour
 
 		
 				}
+				// TODO check end of anim
+				Time.timeScale = 1f;
 		}
 
 
