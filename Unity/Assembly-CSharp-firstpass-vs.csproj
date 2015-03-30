@@ -76,9 +76,6 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/David/Sablier/Unity/Assets/XInputDotNetPure.dll</HintPath>
- </Reference>
- <Reference Include="XInputDotNetPure">
  <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
