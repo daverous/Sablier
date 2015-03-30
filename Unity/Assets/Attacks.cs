@@ -52,7 +52,7 @@ public class Attacks : MonoBehaviour
 				animator = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Animator> ();
 				//opponent_animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ();
 				rb = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Rigidbody> ();
-                thisCharacter.resetCurrentAttack();
+				thisCharacter.resetCurrentAttack ();
 		}
 
 		// Update is called once per frame
@@ -175,14 +175,14 @@ public class Attacks : MonoBehaviour
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide")) {
-                        thisCharacter.resetCurrentAttack();
+						thisCharacter.resetCurrentAttack ();
 				}
 				if (thisCharacterTag == ("Player2") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Heavy") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack") &&
 						!animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward")) {
-                            thisCharacter.resetCurrentAttack();
+						thisCharacter.resetCurrentAttack ();
 				}
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")) {
 						animator.applyRootMotion = true;
@@ -223,7 +223,7 @@ public class Attacks : MonoBehaviour
             
 				if ((other.collider.tag == "Weapon")) {
 						source.PlayOneShot (swordClashSound, volume);
-                        thisCharacter.setWeaponHitToTrue();
+						thisCharacter.setWeaponHitToTrue ();
 				}
 				/*if ((other.transform.root.name == thisCharacter.getOpponentName ().ToString ())) {
 
@@ -270,16 +270,15 @@ public class Attacks : MonoBehaviour
 //                }
 		}
 
-        void OnCollisionExit(Collision other)
-        {
-            if (other.collider.tag == "Weapon")
-            {
-                thisCharacter.setWeaponHitToFalse();
-            }
-        }
+		void OnCollisionExit (Collision other)
+		{
+				if (other.collider.tag == "Weapon") {
+						thisCharacter.setWeaponHitToFalse ();
+				}
+		}
 		private void performHeavyAttack ()
 		{
-				thisCharacter.setCurrentAttack(Character.AttackType.Heavy);
+				thisCharacter.setCurrentAttack (Character.AttackType.Heavy);
 				animator.applyRootMotion = true;
 				animator.SetBool ("Heavy", true);
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy")) {
@@ -288,7 +287,7 @@ public class Attacks : MonoBehaviour
 		}
 		private void performQuickAttack ()
 		{
-                thisCharacter.setCurrentAttack(Character.AttackType.Quick);
+				thisCharacter.setCurrentAttack (Character.AttackType.Quick);
 				animator.SetBool ("Attacking", true);
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder") ||
@@ -301,9 +300,9 @@ public class Attacks : MonoBehaviour
 		private void performPowerMove ()
 		{
 
-
+				thisCharacter.startPowerParticle ();
 				temp = thisCharacter.turnCharToFaceOpponentNew ();
-                thisCharacter.setCurrentAttack(Character.AttackType.Power);
+				thisCharacter.setCurrentAttack (Character.AttackType.Power);
 				Vector3 startPoint = transform.root.position;
 				Vector3 endPoint = thisCharacter.getOpponentTransform ().position;
 //		endPoint.x += 4;
