@@ -108,8 +108,11 @@
     <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
     <Compile Include="Assets\Done\Done_Scripts\SlideOutOnClickA.cs" />
+    <Compile Include="Assets\Elementals\Scripts\OrbitCamera.cs" />
+    <Compile Include="Assets\Elementals\Scripts\TestParticles.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GameOver.cs" />
+    <Compile Include="Assets\GameOverManager.cs" />
     <Compile Include="Assets\GuiScript.cs" />
     <Compile Include="Assets\PowerUpScript.cs" />
     <Compile Include="Assets\RoundOverScript.cs" />
@@ -127,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
+    <None Include="Assets\Elementals\!Readme.txt" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
@@ -136,7 +140,6 @@
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
-    <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
     <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />

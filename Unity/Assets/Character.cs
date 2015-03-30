@@ -79,6 +79,8 @@ public class Character : MonoBehaviour
 		PlayerIndex player2Index = (PlayerIndex)1;
 		GamePadState controller1State;
 		GamePadState controller2State;
+
+
 		private Animator animator;
 		float lerpTime = 0;
 		private AttackType curAttack;

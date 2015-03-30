@@ -82,8 +82,11 @@
      <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
      <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
      <Compile Include="Assets\Done\Done_Scripts\SlideOutOnClickA.cs" />
+     <Compile Include="Assets\Elementals\Scripts\OrbitCamera.cs" />
+     <Compile Include="Assets\Elementals\Scripts\TestParticles.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\GameOver.cs" />
+     <Compile Include="Assets\GameOverManager.cs" />
      <Compile Include="Assets\GuiScript.cs" />
      <Compile Include="Assets\PowerUpScript.cs" />
      <Compile Include="Assets\RoundOverScript.cs" />
@@ -106,7 +109,6 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
@@ -114,6 +116,7 @@
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Elementals\!Readme.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
@@ -127,11 +130,11 @@
  <Reference Include="XInputDotNetPure">
  <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
  </Reference>
- <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
- </Reference>
  <Reference Include="XInputDotNetPure 1">
  <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure 1.dll</HintPath>
+ </Reference>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
