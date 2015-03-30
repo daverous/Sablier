@@ -3,10 +3,11 @@ guid: 1406c45145c4e4501b6c434c366d6ff5
 timeCreated: 1427675571
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    8900000: generatedCubemap
   serializedVersion: 2
   mipmaps:
-    mipMapMode: 0
+    mipMapMode: 1
     enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
@@ -19,13 +20,13 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: .25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 1
-  generateCubemap: 0
-  cubemapConvolution: 0
+  generateCubemap: 1
+  cubemapConvolution: 2
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
-  seamlessCubemap: 0
+  seamlessCubemap: 1
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
@@ -45,7 +46,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
-  textureType: 0
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites: []

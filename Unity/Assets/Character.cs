@@ -182,7 +182,7 @@ public class Character : MonoBehaviour
 				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
 				//if (angle > 1) {
 						
-						transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
+				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
 				//}
 				return angle;
 		}
@@ -305,11 +305,13 @@ public class Character : MonoBehaviour
 		{
 				isGrounded = false;
 		}
-		public void beenHit (float damage)
+
+		
+		public IEnumerator beenHit (float damage)
 		{
-				ParticleSystem particleSystem = gameObject.GetComponent (ParticleSystem);
+				ParticleSystem particleSystem = gameObject.GetComponent<ParticleSystem> ();
 				particleSystem.Play ();
-				WaitForSeconds (1);
+				yield return new WaitForSeconds (1);
 				particleSystem.Stop ();
 				curhealth -= damage;
 				if (curhealth <= 0) {
@@ -317,7 +319,7 @@ public class Character : MonoBehaviour
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 						//increment wins of other player
 
-						int currentRound = StaticStore.getNumberOfRounds();
+						int currentRound = StaticStore.getNumberOfRounds ();
 						
 //						//Check if its only one round that has been played and return the winner.
 //						if (currentRound == 1) {
@@ -331,16 +333,16 @@ public class Character : MonoBehaviour
 //							}
 //						} 
 
-					//	if (currentRound == 3){
-							if (gameObject.tag == "Player2") {
-									gm.IncrementPlayerOneWins ();
-									Application.LoadLevel ("GameOverFinalPlayer1");
-							}
-							if (gameObject.tag == "Player") {
-									gm.IncrementPlayerTwoWins ();
-									Application.LoadLevel ("GameOverFinalPlayer2");
-							}
-					//	}
+						//	if (currentRound == 3){
+						if (gameObject.tag == "Player2") {
+								gm.IncrementPlayerOneWins ();
+								Application.LoadLevel ("GameOverFinalPlayer1");
+						}
+						if (gameObject.tag == "Player") {
+								gm.IncrementPlayerTwoWins ();
+								Application.LoadLevel ("GameOverFinalPlayer2");
+						}
+						//	}
 
 						//Application.LoadLevel ("GOScene");
 				}
@@ -447,7 +449,7 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
-                 //Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
+				//Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
 				if (gameObject.tag == "Player") {
