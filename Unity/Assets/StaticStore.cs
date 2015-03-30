@@ -8,6 +8,7 @@ public static class StaticStore {
    	private static int player1Hits;
 	private static int player2Hits;
 	private static int winnerName;
+    public static int currentRound = 1;
 	private static int numOfRounds;
 	private static List<int> list = new List<int>();
 

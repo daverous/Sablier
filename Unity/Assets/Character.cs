@@ -337,44 +337,7 @@ public class Character : MonoBehaviour
 				if (curhealth <= 0) {
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
-						//increment wins of other player
 
-
-						//int currentround = staticstore.getnumberofrounds();
-						
-						////check if its only one round that has been played and return the winner.
-						//if (currentround == 1) {
-						//    if (gameobject.tag == "player2") {
-						//        gm.incrementplayeronewins ();
-						//        application.loadlevel ("roundwonplayer1");
-						//    }
-						//    if (gameobject.tag == "player") {
-						//        gm.incrementplayertwowins ();
-						//        application.loadlevel ("roundwonplayer2");
-						//    }
-						//} 
-
-						//if (currentround == 3){
-						//    if (gameobject.tag == "player2") {
-						//            gm.incrementplayeronewins ();
-						//            application.loadlevel ("gameoverfinalplayer1");
-						//    }
-						//    if (gameobject.tag == "player") {
-						//            gm.incrementplayertwowins ();
-						//            application.loadlevel ("gameoverfinalplayer2");
-						//    }
-						//}
-
-						if (gameObject.tag == "Player2") {
-								gm.IncrementPlayerOneWins ();
-								Application.LoadLevel ("GameOverFinalPlayer1");
-						}
-						if (gameObject.tag == "Player") {
-								gm.IncrementPlayerTwoWins ();
-								Application.LoadLevel ("GameOverFinalPlayer2");
-						}
-
-						//Application.LoadLevel ("GameOverFinalPlayer1");
 
 						int currentRound = StaticStore.getNumberOfRounds ();
 						
@@ -393,15 +356,12 @@ public class Character : MonoBehaviour
 						//	if (currentRound == 3){
 						if (gameObject.tag == "Player2") {
 								gm.IncrementPlayerOneWins ();
-								Application.LoadLevel ("GameOverFinalPlayer1");
 						}
 						if (gameObject.tag == "Player") {
 								gm.IncrementPlayerTwoWins ();
-								Application.LoadLevel ("GameOverFinalPlayer2");
 						}
 						//	}
 
-						//Application.LoadLevel ("GOScene");
 
 				}
 				animator.SetBool ("Damaged", true);

@@ -17,7 +17,7 @@ public class GameOverManager : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        controller1State = GamePad.GetState(playerIndex);
+       controller1State = GamePad.GetState(playerIndex);
         controller2State = GamePad.GetState(player2Index);
         if (controller1State.Buttons.A == ButtonState.Pressed || controller2State.Buttons.A == ButtonState.Pressed)
         {
