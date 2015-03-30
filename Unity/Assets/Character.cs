@@ -249,8 +249,8 @@ public class Character : MonoBehaviour
 								break;
 						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
 						case Character.AttackType.Quick:
-                            //Rigidbody rb = GameObject.FindGameObjectWithTag(this.getOpponentName().ToString()).GetComponent<Rigidbody>();
-                            //rb.AddForce(0, 5, 10);
+								Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
+								rb.AddForce (0, 5, 10);
 								this.thisOpponent.beenHit (quickAttackDamage);
 								this.incrementHits ();
                             //Vector3 direction = Ray.direction;       

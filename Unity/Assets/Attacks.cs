@@ -294,9 +294,10 @@ public class Attacks : MonoBehaviour
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward")) {
 						source.PlayOneShot (swordSwipeSound, volume);
 						animator.SetBool ("Chain", true);
+
 				}          
 		}
-
+	
 		private void performPowerMove ()
 		{
 
