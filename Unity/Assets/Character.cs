@@ -247,6 +247,21 @@ public class Character : MonoBehaviour
 						Destroy (other.gameObject);
 				}
 
+
+                if (other.collider.tag == "HealthUp")
+                {
+                    float pu = other.gameObject.GetComponent<PowerUpScript>().getPowerUpAmount();
+                    if (curhealth <= 100 - pu)
+                    {
+                        curhealth += pu;
+                    }
+                    else
+                    {
+                        curhealth = 100;
+                    }
+                    //			TODO neeed PowerUp noise
+                    Destroy(other.gameObject);
+                }
 				if (other.collider.name == "planet") {
 						isGrounded = true;
 						isJumping = false;

@@ -72,6 +72,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AIScript.cs" />
     <Compile Include="Assets\AsteroidScript.cs" />
     <Compile Include="Assets\AsteroidSpawnScript.cs" />
     <Compile Include="Assets\Attacks.cs" />
