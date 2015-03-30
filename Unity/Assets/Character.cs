@@ -17,8 +17,8 @@ public class Character : MonoBehaviour
     #region Vars
 	public float Damage;
 	private float CharPowerBar = 0.0f;
-		
 
+    public GameObject blood;
 
 	public Image VisualHealth1;
 	public Image VisualHealth2;
@@ -306,19 +306,19 @@ public class Character : MonoBehaviour
 		isGrounded = false;
 	}
 
+
+    IEnumerator displayBlood()
+    {
+            blood.SetActive(true);
+        
+        yield return new WaitForSeconds(1.5f);
+        blood.SetActive(false);
+    }
 		
-	public IEnumerator beenHit (float damage)
+	public void beenHit (float damage)
 	{
-		GameObject p = GameObject.FindGameObjectWithTag ("BloodSplat");
-		if (gameObject.tag == "Player2") {
-			p = GameObject.FindGameObjectWithTag ("BloodSplat2");
-			p.SetActive (true);
-		}
-		if (gameObject.tag == "Player") {
-			p.SetActive (true);
-		}
-		yield return new WaitForSeconds (1);
-		p.SetActive (false);
+        StartCoroutine(displayBlood());
+        //
 		curhealth -= damage;
 		if (curhealth <= 0) {
 			dead = true;
