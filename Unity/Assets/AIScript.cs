@@ -4,46 +4,44 @@ using System.Collections;
 public class AIScript : MonoBehaviour
 {
 
-		public Transform[] Players;
 		
 		public int MoveSpeed = 4;
-		public int MaxDist = 10;
-		public int MinDist = 0;
-	
+		public int damage = 10;
 		float distanceFromP1;
 		float distanceFromP2;
 		Transform actual;
-	
+
+
 		void Start ()
 		{
-				distanceFromP1 = Vector3.Distance (transform.position, Players [0].position);
-				distanceFromP2 = Vector3.Distance (transform.position, Players [1].position);
+				GameObject p1 = GameObject.FindGameObjectWithTag ("Player");
+				GameObject p2 = GameObject.FindGameObjectWithTag ("Player2");
+				distanceFromP1 = Vector3.Distance (transform.position, p1.transform.position);
+				distanceFromP2 = Vector3.Distance (transform.position, p2.transform.position);
 				if (distanceFromP1 > distanceFromP2) {
-						actual = Players [1];
+						actual = p1.transform;
 				} else {
-						actual = Players [2];
+						actual = p2.transform;
 				}
 		}
 		void Update ()
 		{
 				
 				transform.LookAt (actual);
-				if (Vector3.Distance (transform.position, actual.position) >= MinDist) {
+				Debug.Log ("forward");
+				transform.position += transform.forward * MoveSpeed * Time.deltaTime;				
 				
-						transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-				}
-				
-				
-				if (Vector3.Distance (transform.position, actual.position) <= 1) {
-						Character ch = actual.gameObject.GetComponent<Character> ();
-						//TODO add adim here
-						ch.beenHit (10);
-						//TODO detonate
-				} 
-				
+		}
 
-						
-				
+		void OnCollisionEnter (Collision other)
+		{
+				string tag = other.collider.transform.root.tag;
+				Debug.Log (tag);
+				if (tag == "Player" || tag == "Player2") {
+						GameObject.FindGameObjectWithTag (tag).GetComponent<Character> ().beenHit (damage);
+						Destroy (gameObject);
+				}
+
 		}
 				
 		

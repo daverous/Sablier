@@ -172,32 +172,31 @@ public class Character : MonoBehaviour
 
 		}
 
-        public float angles()
-        {
-            // Get a copy of your forward vector
-            Vector3 forward = transform.up;
-            // Zero out the y component of your forward vector to only get the direction in the X,Z plane
-            forward.z = 0;
-            float headingAngle = Quaternion.LookRotation(forward).eulerAngles.y;
+		public float angles ()
+		{
+				// Get a copy of your forward vector
+				Vector3 forward = transform.up;
+				// Zero out the y component of your forward vector to only get the direction in the X,Z plane
+				forward.z = 0;
+				float headingAngle = Quaternion.LookRotation (forward).eulerAngles.y;
 
-            Vector3 otherForward = getOpponentTransform().up;
-            otherForward.z = 0;
-            float heading2Angle = Quaternion.LookRotation(otherForward).eulerAngles.y;
-            float temp = headingAngle - heading2Angle;
+				Vector3 otherForward = getOpponentTransform ().up;
+				otherForward.z = 0;
+				float heading2Angle = Quaternion.LookRotation (otherForward).eulerAngles.y;
+				float temp = headingAngle - heading2Angle;
             
 
-           temp =  Vector3.Distance(transform.position, getOpponentTransform().position);
+				temp = Vector3.Distance (transform.position, getOpponentTransform ().position);
 
-           Debug.Log(temp);
-            return temp;
+				return temp;
 
-            //Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
-            //float str = Mathf.Min(10 * Time.deltaTime, 1);
+				//Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
+				//float str = Mathf.Min(10 * Time.deltaTime, 1);
 
-            //float angle = Quaternion.Angle(transform.root.rotation, Quaternion.Slerp(transform.root.rotation, targetRotation, str));
-            //Debug.Log(angle);
-            //return angle;
-        }
+				//float angle = Quaternion.Angle(transform.root.rotation, Quaternion.Slerp(transform.root.rotation, targetRotation, str));
+				//Debug.Log(angle);
+				//return angle;
+		}
 		public float turnCharToFaceOpponentNew ()
 		{    
 //		if (lerpTime >= 0.2f) {
@@ -209,12 +208,11 @@ public class Character : MonoBehaviour
 				Quaternion targetRotation = Quaternion.LookRotation (getOpponentTransform ().position - transform.root.position);
 				float str = Mathf.Min (10 * Time.deltaTime, 1);
 				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
-                //if (angle > 2)
-                //{
+				//if (angle > 2)
+				//{
 						
-				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation,str);
-                //}
-                Debug.Log(angle);
+				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, str);
+				//}
 				return angle;
 		}
 
@@ -248,20 +246,16 @@ public class Character : MonoBehaviour
 				}
 
 
-                if (other.collider.tag == "HealthUp")
-                {
-                    float pu = other.gameObject.GetComponent<PowerUpScript>().getPowerUpAmount();
-                    if (curhealth <= 100 - pu)
-                    {
-                        curhealth += pu;
-                    }
-                    else
-                    {
-                        curhealth = 100;
-                    }
-                    //			TODO neeed PowerUp noise
-                    Destroy(other.gameObject);
-                }
+				if (other.collider.tag == "HealthUp") {
+						float pu = other.gameObject.GetComponent<PowerUpScript> ().getPowerUpAmount ();
+						if (curhealth <= 100 - pu) {
+								curhealth += pu;
+						} else {
+								curhealth = 100;
+						}
+						//			TODO neeed PowerUp noise
+						Destroy (other.gameObject);
+				}
 				if (other.collider.name == "planet") {
 						isGrounded = true;
 						isJumping = false;
@@ -272,38 +266,39 @@ public class Character : MonoBehaviour
 										source.PlayOneShot (runningSound, hitVol);
 						}
 				}
+			
 				if (other.collider.name == "Hand.L_end" && !hitWeapon) {
 						if (detectOpponentMovement ())
-								Debug.Log ("here");
+//								Debug.Log ("here");
 
                
-						switch (this.getCurrentAttack ()) {
-						case Character.AttackType.Empty:
-								break;
-						case Character.AttackType.Reduced:
-								this.thisOpponent.beenHit (reducedAttackDamage);
+								switch (this.getCurrentAttack ()) {
+								case Character.AttackType.Empty:
+										break;
+								case Character.AttackType.Reduced:
+										this.thisOpponent.beenHit (reducedAttackDamage);
                             // As attacks are reduced, no hits are counted. 
                             //thisCharacter.incrementHits();
-								break;
-						case Character.AttackType.Heavy:
-								this.thisOpponent.beenHit (heavyAttackDamage);
-								this.incrementHits ();
-								break;
-						case Character.AttackType.Power:
-								break;
-						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
-						case Character.AttackType.Quick:
-								Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
-								rb.AddForce (0, 5, 10);
-								this.thisOpponent.beenHit (quickAttackDamage);
-								this.incrementHits ();
+										break;
+								case Character.AttackType.Heavy:
+										this.thisOpponent.beenHit (heavyAttackDamage);
+										this.incrementHits ();
+										break;
+								case Character.AttackType.Power:
+										break;
+								//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
+								case Character.AttackType.Quick:
+										Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
+										rb.AddForce (0, 5, 10);
+										this.thisOpponent.beenHit (quickAttackDamage);
+										this.incrementHits ();
                             //Vector3 direction = Ray.direction;       
                             //hit.rigidbody.AddForce(Ray.direction * force);
-								break;
-						default:
-								break;
+										break;
+								default:
+										break;
 
-						}
+								}
 						//curAttack = AttackType.Empty;
                 
 				}
