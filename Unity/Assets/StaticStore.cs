@@ -14,6 +14,14 @@ public static class StaticStore {
 
 	static GameManager gm;
 
+    public static void resetAll()
+    {
+        player1Hits = 0;
+        player2Hits = 0;
+        winnerName = 0;
+        currentRound = 1;
+        numOfRounds = 0;
+    }
 	public static void setPlayer1Hits(int val) {
 		player1Hits = val;
 		}
