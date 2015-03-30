@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
 		public Text hn2;
 		public Text hn3;
 		public Text hn4;
-        private bool hitWeapon;
+		private bool hitWeapon;
 		private float curhealth;
 		private int hits;
 		private bool dead; 
@@ -81,52 +81,52 @@ public class Character : MonoBehaviour
 		GamePadState controller2State;
 		private Animator animator;
 		float lerpTime = 0;
-        private AttackType curAttack;
+		private AttackType curAttack;
 		private Character thisOpponent;
 		private string thisOpponentTag;
 		private Animator opponent_animator;
 
 
-        public float quickAttackDamage = 5f;
-        public float heavyAttackDamage = 10f;
-        public float powerMoveSpeed = 10f;
-        public float reducedAttackDamage = 2f;
+		public float quickAttackDamage = 5f;
+		public float heavyAttackDamage = 10f;
+		public float powerMoveSpeed = 10f;
+		public float reducedAttackDamage = 2f;
     #endregion
 
 
 
-        public enum AttackType
-        {
-            Quick,
-            Heavy,
-            Power,
-            Empty,
-            Reduced
-        }
+		public enum AttackType
+		{
+				Quick,
+				Heavy,
+				Power,
+				Empty,
+				Reduced
+		}
 
-        public AttackType getCurrentAttack()
-        {
-            return curAttack;
-        }
+		public AttackType getCurrentAttack ()
+		{
+				return curAttack;
+		}
 
-        public void resetCurrentAttack()
-        {
-            curAttack = AttackType.Empty;
-        }
-        public void setCurrentAttack(AttackType t)
-        {
-            curAttack = t;
-        }
+		public void resetCurrentAttack ()
+		{
+				curAttack = AttackType.Empty;
+		}
+		public void setCurrentAttack (AttackType t)
+		{
+				curAttack = t;
+		}
 
-        public void setWeaponHitToTrue()
-        {
-            hitWeapon = true;
-        }
+		public void setWeaponHitToTrue ()
+		{
+				hitWeapon = true;
+		}
 
-        public void setWeaponHitToFalse()
-        {
-            hitWeapon = false;
-        }
+		public void setWeaponHitToFalse ()
+		{
+				hitWeapon = false;
+		}
 		void Awake ()
 		{
 
@@ -182,7 +182,7 @@ public class Character : MonoBehaviour
 				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
 				//if (angle > 1) {
 						
-						transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
+				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
 				//}
 				return angle;
 		}
@@ -216,61 +216,58 @@ public class Character : MonoBehaviour
 						Destroy (other.gameObject);
 				}
 
-                if (other.collider.name == "planet")
-                {
-                    isGrounded = true;
-                    isJumping = false;
-                    if (isMoving)
-                    {
-                        source.pitch = Random.Range(lowPitchRange, highPitchRange);
-                        float hitVol = other.relativeVelocity.magnitude * velToVol;
-                        if (other.relativeVelocity.magnitude < velocityClipSplit)
-                            source.PlayOneShot(runningSound, hitVol);
-                    }
-                }
-                if (other.collider.name == "Hand.L_end" && !hitWeapon)
-                {
-				if (detectOpponentMovement())
-					Debug.Log("here");
+				if (other.collider.name == "planet") {
+						isGrounded = true;
+						isJumping = false;
+						if (isMoving) {
+								source.pitch = Random.Range (lowPitchRange, highPitchRange);
+								float hitVol = other.relativeVelocity.magnitude * velToVol;
+								if (other.relativeVelocity.magnitude < velocityClipSplit)
+										source.PlayOneShot (runningSound, hitVol);
+						}
+				}
+				if (other.collider.name == "Hand.L_end" && !hitWeapon) {
+						if (detectOpponentMovement ())
+								Debug.Log ("here");
 
                
-                    switch (this.getCurrentAttack())
-                    {
-                        case Character.AttackType.Empty:
-                            break;
-                        case Character.AttackType.Reduced:
-                            this.thisOpponent.beenHit(reducedAttackDamage);
+						switch (this.getCurrentAttack ()) {
+						case Character.AttackType.Empty:
+								break;
+						case Character.AttackType.Reduced:
+								this.thisOpponent.beenHit (reducedAttackDamage);
                             // As attacks are reduced, no hits are counted. 
                             //thisCharacter.incrementHits();
-                            break;
-                        case Character.AttackType.Heavy:
-                            this.thisOpponent.beenHit(heavyAttackDamage);
-                            this.incrementHits();
-                            break;
-                        case Character.AttackType.Power:
-                            break;
-                        //GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
-                        case Character.AttackType.Quick:
+								break;
+						case Character.AttackType.Heavy:
+								this.thisOpponent.beenHit (heavyAttackDamage);
+								this.incrementHits ();
+								break;
+						case Character.AttackType.Power:
+								break;
+						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
+						case Character.AttackType.Quick:
                             //Rigidbody rb = GameObject.FindGameObjectWithTag(this.getOpponentName().ToString()).GetComponent<Rigidbody>();
                             //rb.AddForce(0, 5, 10);
-                            this.thisOpponent.beenHit(quickAttackDamage);
-                            this.incrementHits();
+								this.thisOpponent.beenHit (quickAttackDamage);
+								this.incrementHits ();
                             //Vector3 direction = Ray.direction;       
                             //hit.rigidbody.AddForce(Ray.direction * force);
-                            break;
-                        default:
-                            break;
+								break;
+						default:
+								break;
 
-                    }
-                    //curAttack = AttackType.Empty;
+						}
+						//curAttack = AttackType.Empty;
                 
-			}
+				}
 		}
 
-	bool detectOpponentMovement(){
+		bool detectOpponentMovement ()
+		{
 		
-		return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder"));
-	}
+				return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder"));
+		}
 		public bool isCharacterBlocking ()
 		{
 				return isBlocking;
@@ -308,14 +305,21 @@ public class Character : MonoBehaviour
 		{
 				isGrounded = false;
 		}
-		public void beenHit (float damage)
+
+		
+		public IEnumerator beenHit (float damage)
 		{
+				ParticleSystem particleSystem = gameObject.GetComponent<ParticleSystem> ();
+				particleSystem.Play ();
+				yield return new WaitForSeconds (1);
+				particleSystem.Stop ();
 				curhealth -= damage;
 				if (curhealth <= 0) {
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 						//increment wins of other player
 
+<<<<<<< HEAD
                         //int currentround = staticstore.getnumberofrounds();
 						
                         ////check if its only one round that has been played and return the winner.
@@ -353,6 +357,34 @@ public class Character : MonoBehaviour
                         }
 
 						//Application.LoadLevel ("GameOverFinalPlayer1");
+=======
+						int currentRound = StaticStore.getNumberOfRounds ();
+						
+//						//Check if its only one round that has been played and return the winner.
+//						if (currentRound == 1) {
+//							if (gameObject.tag == "Player2") {
+//								gm.IncrementPlayerOneWins ();
+//								Application.LoadLevel ("RoundWonPlayer1");
+//							}
+//							if (gameObject.tag == "Player") {
+//								gm.IncrementPlayerTwoWins ();
+//								Application.LoadLevel ("RoundWonPlayer2");
+//							}
+//						} 
+
+						//	if (currentRound == 3){
+						if (gameObject.tag == "Player2") {
+								gm.IncrementPlayerOneWins ();
+								Application.LoadLevel ("GameOverFinalPlayer1");
+						}
+						if (gameObject.tag == "Player") {
+								gm.IncrementPlayerTwoWins ();
+								Application.LoadLevel ("GameOverFinalPlayer2");
+						}
+						//	}
+
+						//Application.LoadLevel ("GOScene");
+>>>>>>> 7273a1b12d3a97554c84f6a7a938309fd62d7547
 				}
 				animator.SetBool ("Damaged", true);
 				
@@ -457,7 +489,7 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
-                 //Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
+				//Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
 				if (gameObject.tag == "Player") {
