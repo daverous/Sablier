@@ -19,6 +19,7 @@ public class GameOverManager : MonoBehaviour {
     {
        controller1State = GamePad.GetState(playerIndex);
         controller2State = GamePad.GetState(player2Index);
+        StaticStore.resetAll();
         if (controller1State.Buttons.A == ButtonState.Pressed || controller2State.Buttons.A == ButtonState.Pressed)
         {
             Application.LoadLevel("IntroFinal");
