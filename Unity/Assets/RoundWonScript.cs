@@ -28,7 +28,14 @@ public class RoundWonScript : MonoBehaviour {
         controller2State = GamePad.GetState(player2Index);
         if (controller1State.Buttons.A == ButtonState.Pressed || controller2State.Buttons.A == ButtonState.Pressed)
         {
-            Application.LoadLevel("TestScene");
+            switch (currentRound) { 
+                case 0:    Application.LoadLevel("TestScene");
+                    break;
+                case 1: Application.LoadLevel("RoundTwoScene");
+                    break;
+                case 2: Application.LoadLevel("RoundThreeScene");
+                    break;
+        }
         }
 	
 	}
