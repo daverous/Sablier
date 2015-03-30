@@ -55,6 +55,9 @@
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets\Plugins\x86\XInputDotNetPure.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure 1">
+      <HintPath>Assets\Plugins\x86_64\XInputDotNetPure 1.dll</HintPath>
+    </Reference>
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets\Plugins\x86_64\XInputDotNetPure.dll</HintPath>
     </Reference>
