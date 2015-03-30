@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour {
     private static int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
     float threashold;
 
-	private static int curRound = 1;
     private static int p1Hits = 0; //stores hits for previous rounds
     private static int p2Hits = 0;
 	// Use this for initialization
@@ -100,11 +99,12 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (curRound == 2) {
+        if (StaticStore.currentRound == 2)
+        {
 			Destroy (Round11);
 			Destroy (Round12);
 
-		} else if (curRound == 3) {
+		} else if (StaticStore.currentRound == 3) {
 			Destroy(Round21);
 			Destroy(Round22);
 
@@ -112,11 +112,11 @@ public class GameManager : MonoBehaviour {
 
         if (PlayerOneWins > threashold)
         {
-            Debug.Log("MAX Number of rounds reached- P1 has won");
+            Application.LoadLevel("GameOverFinalPlayer1");
         }
         if (PlayerTwoWins > threashold)
         {
-            Debug.Log("MAX Number of rounds reached- P2 has won");
+            Application.LoadLevel("GameOverFinalPlayer2");
         }
 
 //		anim.SetTrigger ("GameOver");
@@ -133,15 +133,28 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+    public static int getCurrentRound()
+    {
+        return StaticStore.currentRound;
+    }
     public void IncrementPlayerOneWins()
     {
+        Debug.Log(StaticStore.currentRound);
         lastWin = 1;
 		StaticStore.setWinnerName (lastWin);
-		curRound++;
+        
+		StaticStore.currentRound++;
 		PlayerOneWins++;
 		Debug.Log (PlayerOneWins);     
-        getHits();  
-	
+        getHits();
+            if(StaticStore.currentRound == (TotalRounds + 1)) {
+                Debug.Log("hersdsaasdsadsadsasdasade");  
+                Application.LoadLevel("GameOverFinalPlayer1");
+            }
+        else {
+            Debug.Log("here");  
+                Application.LoadLevel("RoundWonPlayer1");
+            }
     }
 
     public int getPlayer1Hits()
@@ -161,7 +174,7 @@ public class GameManager : MonoBehaviour {
     }
 
 	public int getNumberOfRounds(){
-		return curRound;
+		return StaticStore.currentRound;
 	}
 
 	public List<int> getNumberOfRoundWinners(){
@@ -172,11 +185,18 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementPlayerTwoWins()
     {
-		curRound++;
+		StaticStore.currentRound++;
         lastWin = 2;
 		StaticStore.setWinnerName (lastWin);
         PlayerTwoWins++;
         getHits();
+         if(StaticStore.currentRound == (TotalRounds + 1)) {
+                Application.LoadLevel("GameOverFinalPlayer2");
+            }
+        else {
+                Application.LoadLevel("RoundWonPlayer2");
+            }
+    
 
     }
 
