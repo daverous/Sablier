@@ -180,10 +180,10 @@ public class Character : MonoBehaviour
 				Quaternion targetRotation = Quaternion.LookRotation (getOpponentTransform ().position - transform.root.position);
 				float str = Mathf.Min (10 * Time.deltaTime, 1);
 				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
-				if (angle > 1) {
+				//if (angle > 1) {
 						
-						transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, str);
-				}
+						transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
+				//}
 				return angle;
 		}
 
@@ -446,6 +446,7 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
+                 //Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
 				if (gameObject.tag == "Player") {
