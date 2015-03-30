@@ -309,10 +309,17 @@ public class Character : MonoBehaviour
 		
 		public IEnumerator beenHit (float damage)
 		{
-				ParticleSystem particleSystem = gameObject.GetComponent<ParticleSystem> ();
-				particleSystem.Play ();
+				GameObject p;
+				if (gameObject.tag == "Player2") {
+						p = GameObject.FindGameObjectWithTag ("BloodSplat2");
+						p.SetActive = true;
+				}
+				if (gameObject.tag == "Player") {
+						p = GameObject.FindGameObjectWithTag ("BloodSplat");
+						p.SetActive = true;
+				}
 				yield return new WaitForSeconds (1);
-				particleSystem.Stop ();
+				p.SetActive = false;
 				curhealth -= damage;
 				if (curhealth <= 0) {
 						dead = true;
