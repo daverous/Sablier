@@ -317,11 +317,13 @@ public class Character : MonoBehaviour
 						//increment wins of other player
 						if (gameObject.tag == "Player2") {
 								gm.IncrementPlayerOneWins ();
+								Application.LoadLevel ("GameOverFinalPlayer1");
 						}
 						if (gameObject.tag == "Player") {
 								gm.IncrementPlayerTwoWins ();
+								Application.LoadLevel ("GameOverFinalPlayer2");
 						}
-						Application.LoadLevel ("GOScene");
+						//Application.LoadLevel ("GOScene");
 				}
 				animator.SetBool ("Damaged", true);
 				
