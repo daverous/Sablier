@@ -87,6 +87,7 @@
      <Compile Include="Assets\GuiScript.cs" />
      <Compile Include="Assets\PowerUpScript.cs" />
      <Compile Include="Assets\RoundOverScript.cs" />
+     <Compile Include="Assets\RoundWonScript.cs" />
      <Compile Include="Assets\Scripts\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\GravityBody.cs" />
      <Compile Include="Assets\Scripts\PlayerTestScripts\SceneViewCameraFollower.cs" />
