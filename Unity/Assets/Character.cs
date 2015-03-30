@@ -171,6 +171,33 @@ public class Character : MonoBehaviour
 
 
 		}
+
+        public float angles()
+        {
+            // Get a copy of your forward vector
+            Vector3 forward = transform.up;
+            // Zero out the y component of your forward vector to only get the direction in the X,Z plane
+            forward.z = 0;
+            float headingAngle = Quaternion.LookRotation(forward).eulerAngles.y;
+
+            Vector3 otherForward = getOpponentTransform().up;
+            otherForward.z = 0;
+            float heading2Angle = Quaternion.LookRotation(otherForward).eulerAngles.y;
+            float temp = headingAngle - heading2Angle;
+            
+
+           temp =  Vector3.Distance(transform.position, getOpponentTransform().position);
+
+           Debug.Log(temp);
+            return temp;
+
+            //Quaternion targetRotation = Quaternion.LookRotation(getOpponentTransform().position - transform.root.position);
+            //float str = Mathf.Min(10 * Time.deltaTime, 1);
+
+            //float angle = Quaternion.Angle(transform.root.rotation, Quaternion.Slerp(transform.root.rotation, targetRotation, str));
+            //Debug.Log(angle);
+            //return angle;
+        }
 		public float turnCharToFaceOpponentNew ()
 		{    
 //		if (lerpTime >= 0.2f) {
@@ -182,10 +209,12 @@ public class Character : MonoBehaviour
 				Quaternion targetRotation = Quaternion.LookRotation (getOpponentTransform ().position - transform.root.position);
 				float str = Mathf.Min (10 * Time.deltaTime, 1);
 				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
-				//if (angle > 1) {
+                //if (angle > 2)
+                //{
 						
-				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
-				//}
+				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation,str);
+                //}
+                Debug.Log(angle);
 				return angle;
 		}
 

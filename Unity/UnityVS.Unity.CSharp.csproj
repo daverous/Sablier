@@ -80,6 +80,7 @@
     <Compile Include="Assets\CanvasScript.cs" />
     <Compile Include="Assets\Character.cs" />
     <Compile Include="Assets\CharacterAnimator.cs" />
+    <Compile Include="Assets\CountdownScript.cs" />
     <Compile Include="Assets\Detonator Explosion Framework\Sample Supporting Emitters\DetonatorSprayHelper.cs" />
     <Compile Include="Assets\Detonator Explosion Framework\System\Detonator.cs" />
     <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
