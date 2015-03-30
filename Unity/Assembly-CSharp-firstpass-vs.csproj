@@ -57,7 +57,6 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
@@ -65,6 +64,7 @@
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\Elementals\!Readme.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
@@ -76,17 +76,10 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
-<<<<<<< HEAD
- <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
- </Reference>
- <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/David/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
-=======
  <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86/XInputDotNetPure.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
  <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
->>>>>>> 7273a1b12d3a97554c84f6a7a938309fd62d7547
  </Reference>
  <Reference Include="XInputDotNetPure 1">
  <HintPath>/Users/davidwilson/Sablier/Unity/Assets/Plugins/x86_64/XInputDotNetPure 1.dll</HintPath>
