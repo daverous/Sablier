@@ -21,13 +21,13 @@ public class WinnerScript : MonoBehaviour {
 	void Update () {
 
 		int winnerNum = StaticStore.getWinnerName (); //.getPlayer2Hits ();
-
-		if (winnerNum.Equals(1)){
-			Application.LoadLevel("GameOverFinalPlayer1");
-		} else {
-			Application.LoadLevel("GameOverFinalPlayer2");
-		}
-		//winner.text = "Player " + winnerNum + " wins";
+//
+//		if (winnerNum.Equals(1)){
+//			Application.LoadLevel("GameOverFinalPlayer1");
+//		} else {
+//			Application.LoadLevel("GameOverFinalPlayer2");
+//		}
+//		//winner.text = "Player " + winnerNum + " wins";
 
 		//}
 		//if (tag == "Text2") {

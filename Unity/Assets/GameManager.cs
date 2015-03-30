@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
 
 
 		int numHits = 4;// GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits();
-		if (Application.loadedLevelName != "GOScene") {
+		if ((Application.loadedLevelName != "GameOverFinalPlayer1")||  (Application.loadedLevelName != "GameOverFinalPlayer2")) {
 			DisplaysStars (); 
 		}
 		//Debug.Log ("here is " + Application.loadedLevelName);

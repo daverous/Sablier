@@ -180,10 +180,10 @@ public class Character : MonoBehaviour
 				Quaternion targetRotation = Quaternion.LookRotation (getOpponentTransform ().position - transform.root.position);
 				float str = Mathf.Min (10 * Time.deltaTime, 1);
 				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
-				if (angle > 1) {
+				//if (angle > 1) {
 						
-						transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, str);
-				}
+						transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, 0.5f);
+				//}
 				return angle;
 		}
 
@@ -316,14 +316,32 @@ public class Character : MonoBehaviour
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 						//increment wins of other player
-						if (gameObject.tag == "Player2") {
-								gm.IncrementPlayerOneWins ();
-								Application.LoadLevel ("GameOverFinalPlayer1");
-						}
-						if (gameObject.tag == "Player") {
-								gm.IncrementPlayerTwoWins ();
-								Application.LoadLevel ("GameOverFinalPlayer2");
-						}
+
+						int currentRound = StaticStore.getNumberOfRounds();
+						
+//						//Check if its only one round that has been played and return the winner.
+//						if (currentRound == 1) {
+//							if (gameObject.tag == "Player2") {
+//								gm.IncrementPlayerOneWins ();
+//								Application.LoadLevel ("RoundWonPlayer1");
+//							}
+//							if (gameObject.tag == "Player") {
+//								gm.IncrementPlayerTwoWins ();
+//								Application.LoadLevel ("RoundWonPlayer2");
+//							}
+//						} 
+
+					//	if (currentRound == 3){
+							if (gameObject.tag == "Player2") {
+									gm.IncrementPlayerOneWins ();
+									Application.LoadLevel ("GameOverFinalPlayer1");
+							}
+							if (gameObject.tag == "Player") {
+									gm.IncrementPlayerTwoWins ();
+									Application.LoadLevel ("GameOverFinalPlayer2");
+							}
+					//	}
+
 						//Application.LoadLevel ("GOScene");
 				}
 				animator.SetBool ("Damaged", true);
@@ -429,6 +447,7 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
+                 //Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
 				if (gameObject.tag == "Player") {
