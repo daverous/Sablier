@@ -4,7 +4,7 @@ using System.Collections;
 
 public class WinnerScript : MonoBehaviour {
 	
-	public Text winner;
+	//public Text winner;
 	Character character;
 	//GameManager manager;
 
@@ -22,8 +22,13 @@ public class WinnerScript : MonoBehaviour {
 
 		int winnerNum = StaticStore.getWinnerName (); //.getPlayer2Hits ();
 
+		if (winnerNum.Equals(1)){
+			Application.LoadLevel("GameOverFinalPlayer1");
+		} else {
+			Application.LoadLevel("GameOverFinalPlayer2");
+		}
+		//winner.text = "Player " + winnerNum + " wins";
 
-		winner.text = "Player " + winnerNum + " wins";
 		//}
 		//if (tag == "Text2") {
 		//hits.text = "Number 2 hits: " + hit2Num;
