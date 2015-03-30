@@ -319,7 +319,7 @@ public class Character : MonoBehaviour
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 						//increment wins of other player
 
-<<<<<<< HEAD
+
                         //int currentround = staticstore.getnumberofrounds();
 						
                         ////check if its only one round that has been played and return the winner.
@@ -357,7 +357,7 @@ public class Character : MonoBehaviour
                         }
 
 						//Application.LoadLevel ("GameOverFinalPlayer1");
-=======
+
 						int currentRound = StaticStore.getNumberOfRounds ();
 						
 //						//Check if its only one round that has been played and return the winner.
@@ -384,7 +384,7 @@ public class Character : MonoBehaviour
 						//	}
 
 						//Application.LoadLevel ("GOScene");
->>>>>>> 7273a1b12d3a97554c84f6a7a938309fd62d7547
+
 				}
 				animator.SetBool ("Damaged", true);
 				
