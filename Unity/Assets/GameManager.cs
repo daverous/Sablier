@@ -6,13 +6,9 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
     public int TotalRounds = 3; //total number of rounds
-    private static int PlayerOneWins;// how many wins player 1 has
-    private static int PlayerTwoWins; // how many wins player 2 has
-    private static int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
+   
     float threashold;
 
-    private static int p1Kills = 0; //stores hits for previous rounds
-    private static int p2Kills = 0;
 	// Use this for initialization
 	public Image Round11;
 	public Image Round12;
@@ -67,22 +63,25 @@ public class GameManager : MonoBehaviour {
 	}	
 
    	void DisplaysStars(){
-		if (PlayerOneWins == 1) {
+		if (StaticStore.PlayerOneWins == 1) {
 			star1.fillAmount = 1;
 			star5.fillAmount = 1;
 		}
-		if (PlayerOneWins == 2) {
+        if (StaticStore.PlayerOneWins == 2)
+        {
 			star6.fillAmount = 1;
 			star2.fillAmount = 1;
 			star5.fillAmount = 1;
 			star1.fillAmount = 1;
 		}
 
-		if (PlayerTwoWins == 1) {
+        if (StaticStore.PlayerTwoWins == 1)
+        {
 			star4.fillAmount = 1;
 			star7.fillAmount = 1;
 		}
-		if (PlayerTwoWins == 2) {
+        if (StaticStore.PlayerTwoWins == 2)
+        {
 			star4.fillAmount = 1;
 			star7.fillAmount = 1;
 			star8.fillAmount = 1;
@@ -110,11 +109,11 @@ public class GameManager : MonoBehaviour {
 
 		}
 
-        if (PlayerOneWins > threashold)
+        if (StaticStore.PlayerOneWins > threashold)
         {
             Application.LoadLevel("GameOverFinalPlayer1");
         }
-        if (PlayerTwoWins > threashold)
+        if (StaticStore.PlayerTwoWins > threashold)
         {
             Application.LoadLevel("GameOverFinalPlayer2");
         }
@@ -140,12 +139,11 @@ public class GameManager : MonoBehaviour {
     public void IncrementPlayerOneWins()
     {
         Debug.Log(StaticStore.currentRound);
-        lastWin = 1;
-		StaticStore.setWinnerName (lastWin);
+		StaticStore.setWinnerName (1);
         
 		StaticStore.currentRound++;
-		PlayerOneWins++;
-		Debug.Log (PlayerOneWins);     
+        StaticStore.PlayerOneWins++;
+   
         getHits();
             if(StaticStore.currentRound == (TotalRounds + 1)) {
                 Debug.Log("hersdsaasdsadsadsasdasade");  
@@ -157,17 +155,6 @@ public class GameManager : MonoBehaviour {
             }
     }
 
-    public int getPlayer2Kills()
-    {
-        return p2Kills;
-    }
-
-
-	public int getWinnerName() {
-
-		return lastWin;
-	}
-
 
 
 
@@ -175,18 +162,12 @@ public class GameManager : MonoBehaviour {
 		return StaticStore.currentRound;
 	}
 
-	public List<int> getNumberOfRoundWinners(){
-		//table[] = lastWin;
-		list.Add(lastWin);
-		return list;
-	}
 
     public void IncrementPlayerTwoWins()
     {
 		StaticStore.currentRound++;
-        lastWin = 2;
-		StaticStore.setWinnerName (lastWin);
-        PlayerTwoWins++;
+		StaticStore.setWinnerName (2);
+        StaticStore.PlayerTwoWins++;
         getHits();
          if(StaticStore.currentRound == (TotalRounds + 1)) {
                 Application.LoadLevel("GameOverFinalPlayer2");

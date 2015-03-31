@@ -28,13 +28,14 @@ public class GuiScript : MonoBehaviour
 		{
 
 
-            controller1State = GamePad.GetState(playerIndex);
-            controller2State = GamePad.GetState(player2Index);
+            
         
 
 		}
 		void Update ()
 		{
+            controller1State = GamePad.GetState(playerIndex);
+            controller2State = GamePad.GetState(player2Index);
             if (controller1State.Buttons.Start == ButtonState.Pressed)
             {
 						header = "Player 1 has Paused";
@@ -106,6 +107,8 @@ public class GuiScript : MonoBehaviour
 		public Vector2 scrollPosition = Vector2.zero;
 		void drawPause ()
 		{
+            GamePad.SetVibration(playerIndex, 0, 0);
+            GamePad.SetVibration(player2Index, 0, 0);
 
 				var centerX = Screen.width / 2;
 				var centerY = Screen.height / 2;
@@ -132,12 +135,13 @@ public class GuiScript : MonoBehaviour
 				case 0:
 						break;
 				case 1:
-						if (false) {
+						if (controller1State.Buttons.A == ButtonState.Pressed) {
 								perform ();
 						}
 						break;
 				case 2:
-						if (false) {
+                        if (controller2State.Buttons.A == ButtonState.Pressed)
+                        {
 								perform ();
 						}
 						break;
@@ -165,13 +169,14 @@ public class GuiScript : MonoBehaviour
 						pause = false;
 						Destroy (GameObject.FindWithTag ("EventSystem"));
 						Destroy (GameObject.FindObjectOfType<GameManager> ());
-
+                        StaticStore.resetAll();
 						Application.LoadLevel (Application.loadedLevelName);
 
 				}
 				
 				// Quit (Only works in the Build. Does not work in the eidtor!) 
 				if (positionIndex == 2) {
+                    StaticStore.resetAll();
 						Debug.Log ("Aplication would quit in build");
 						Application.Quit ();
 				}

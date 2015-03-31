@@ -3,12 +3,20 @@ using System.Collections;
 
 public class AsteroidScript : MonoBehaviour
 {
+    private AudioSource source;
+    public AudioClip ExplodeSound;
 		public float asteroidDamage = 15f;
 		// Use this for initialization
 		void Start ()
 		{
 	
 		}
+
+        void Awake()
+        {
+            source = GetComponent<AudioSource>();
+
+        }
 		void OnCollisionEnter (Collision other)
 		{
 				string tag = other.transform.root.tag;
@@ -18,6 +26,7 @@ public class AsteroidScript : MonoBehaviour
 						player.beenHit (asteroidDamage);
 				}
 				if (tag == "Planet" || tag == "PowerUp" || tag == "HealthUp") {
+                    source.PlayOneShot(ExplodeSound);
 						gameObject.GetComponent<Detonator> ().Explode (); 
 				}
 		}

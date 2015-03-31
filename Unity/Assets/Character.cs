@@ -60,6 +60,8 @@ public class Character : MonoBehaviour
 		public AudioClip blockSound;
 		public AudioClip runningSound;
 		public AudioClip swordHitSound;
+        public AudioClip BunnyKillsound;
+
 		private AudioSource source;
 		private float lowPitchRange = .75F;
 		private float highPitchRange = 1.5F;
@@ -291,6 +293,7 @@ public class Character : MonoBehaviour
                     StartCoroutine(vibrateTimer(0.2f));
                     Destroy(other.gameObject);
                     incrementBaddiesKilled();
+                    source.PlayOneShot(BunnyKillsound);
                 }
 			
 				if (other.collider.name == "Hand.L_end" && !hitWeapon) {

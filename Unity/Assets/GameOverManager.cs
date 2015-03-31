@@ -13,7 +13,8 @@ public class GameOverManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        GamePad.SetVibration(playerIndex, 0, 0);
+        GamePad.SetVibration(player2Index, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -22,10 +23,10 @@ public class GameOverManager : MonoBehaviour {
         p2KillsText.text = "P2 Total Kills: " + StaticStore.player2Kills;
         p1KillsText.text = "P1 Total Kills: " + StaticStore.player1Kills;
        controller1State = GamePad.GetState(playerIndex);
-        controller2State = GamePad.GetState(player2Index);
-        StaticStore.resetAll();
+        controller2State = GamePad.GetState(player2Index);     
         if (controller1State.Buttons.A == ButtonState.Pressed || controller2State.Buttons.A == ButtonState.Pressed)
         {
+            StaticStore.resetAll();
             Application.LoadLevel("IntroFinal");
         }
     }

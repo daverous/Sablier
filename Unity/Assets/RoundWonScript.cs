@@ -15,7 +15,8 @@ public class RoundWonScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
-
+        GamePad.SetVibration(playerIndex, 0, 0);
+        GamePad.SetVibration(player2Index, 0, 0);
 	}
 	
 	// Update is called once per frame

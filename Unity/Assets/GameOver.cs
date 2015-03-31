@@ -23,7 +23,7 @@ public class GameOver : MonoBehaviour {
 	void Update () {
 
 		int go = StaticStore.getNumberOfRounds ();
-		list = StaticStore.getNumberOfRoundWinners ();
+        //list = StaticStore.getNumberOfRoundWinners ();
 
 		if (list.Count == 2) { //If length of list is two, compare the elements.
 			if (list.IndexOf (0).Equals (list.IndexOf (1))) {

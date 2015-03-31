@@ -43,6 +43,8 @@ public class Detonator : MonoBehaviour
 {
 		public GameObject[] powerUps;
 		public GameObject[] baddies;
+       
+       
 		private static float _baseSize = 30f;
 		private static Color _baseColor = new Color (1f, .423f, 0f, .5f);
 		private static float _baseDuration = 3f;
@@ -94,7 +96,7 @@ public class Detonator : MonoBehaviour
 		void Awake ()
 		{
 				FillDefaultMaterials ();
-		
+               
 				components = this.GetComponents (typeof(DetonatorComponent));
 				foreach (DetonatorComponent dc in components) {
 						if (dc is DetonatorFireball) {
@@ -209,7 +211,7 @@ public class Detonator : MonoBehaviour
 
 										Object.Instantiate (baddies [randBad], transform.position, transform.rotation);
 				
-								}	
+								}
 								Destroy (gameObject);
 						}
 				}
