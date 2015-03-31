@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour {
     private static int lastWin = 0; // Stores the last player to have won a round ; 1 if p1, 2 if p2
     float threashold;
 
-    private static int p1Hits = 0; //stores hits for previous rounds
-    private static int p2Hits = 0;
+    private static int p1Kills = 0; //stores hits for previous rounds
+    private static int p2Kills = 0;
 	// Use this for initialization
 	public Image Round11;
 	public Image Round12;
@@ -157,9 +157,9 @@ public class GameManager : MonoBehaviour {
             }
     }
 
-    public int getPlayer1Hits()
+    public int getPlayer2Kills()
     {
-        return p1Hits;
+        return p2Kills;
     }
 
 
@@ -168,10 +168,8 @@ public class GameManager : MonoBehaviour {
 		return lastWin;
 	}
 
-    public int getPlayer2Hits()
-    {
-        return p2Hits;
-    }
+
+
 
 	public int getNumberOfRounds(){
 		return StaticStore.currentRound;
@@ -208,8 +206,8 @@ public class GameManager : MonoBehaviour {
     void getHits()
     {
 //		StaticStore ss = this.GetComponent<StaticStore> ();
-		StaticStore.setPlayer1Hits(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits());
-		StaticStore.setPlayer2Hits(GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits());
+        StaticStore.setPlayer1Kills(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getBaddiesKilled());
+        StaticStore.setPlayer2Kills(GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getBaddiesKilled());
 		//StaticStore.setWinerName(GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().getHits());
         //p2Hits = GameObject.FindGameObjectWithTag("Player2").GetComponent<Character>().getHits();
 

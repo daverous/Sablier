@@ -21,9 +21,9 @@ public class TotalHit2Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		int hit2Num = StaticStore.getPlayer2Hits ();
+		int hit2Num = StaticStore.getPlayer2Kills ();
 
-		hits2.text = "Number 2 hits: " + hit2Num; 
+		hits2.text = "Number 2 kills: " + hit2Num; 
 
 	}
 }

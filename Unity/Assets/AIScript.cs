@@ -35,7 +35,6 @@ public class AIScript : MonoBehaviour
 		void OnCollisionEnter (Collision other)
 		{
 				string tag = other.collider.transform.root.tag;
-				Debug.Log (tag);
 				if ((tag == "Player" || tag == "Player2") && other.collider.tag != "Weapon"){
 						GameObject.FindGameObjectWithTag (tag).GetComponent<Character> ().beenHit (damage);
 						Destroy (gameObject);

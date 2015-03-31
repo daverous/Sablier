@@ -17,7 +17,7 @@ public class AsteroidScript : MonoBehaviour
 						Character player = GameObject.FindGameObjectWithTag (tag).GetComponent<Character> ();
 						player.beenHit (asteroidDamage);
 				}
-				if (tag == "Planet" || tag == "PowerUp") {
+				if (tag == "Planet" || tag == "PowerUp" || tag == "HealthUp") {
 						gameObject.GetComponent<Detonator> ().Explode (); 
 				}
 		}

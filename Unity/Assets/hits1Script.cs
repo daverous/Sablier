@@ -21,15 +21,15 @@ public class hits1Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-            float userHits = character.getHits();
+            float userHits = character.getBaddiesKilled();
 
 		if (tag =="Text1") {
-			hits.text = ("HITS:" + userHits.ToString());		
+			hits.text = ("Kills:" + userHits.ToString());		
 			}
 		
 		if (tag == "Text2")
 		{
-			hits.text = ("HITS:" + userHits.ToString());		
+			hits.text = ("Kills:" + userHits.ToString());		
 		}
             
     }

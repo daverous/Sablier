@@ -112,6 +112,11 @@ public class Character : MonoBehaviour
             baddiesKilled++;
         }
 
+        public void incrementBaddiesKilledByAmount(int val)
+        {
+            baddiesKilled+= val;
+        }
+
         public int getBaddiesKilled()
         {
             return baddiesKilled;
@@ -394,31 +399,21 @@ public class Character : MonoBehaviour
 				if (curhealth <= 0) {
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
-
-
-						int currentRound = StaticStore.getNumberOfRounds ();
-						
-//						//Check if its only one round that has been played and return the winner.
-//						if (currentRound == 1) {
-//							if (gameObject.tag == "Player2") {
-//								gm.IncrementPlayerOneWins ();
-//								Application.LoadLevel ("RoundWonPlayer1");
-//							}
-//							if (gameObject.tag == "Player") {
-//								gm.IncrementPlayerTwoWins ();
-//								Application.LoadLevel ("RoundWonPlayer2");
-//							}
-//						} 
-
-						//	if (currentRound == 3){
+                        thisOpponent.incrementBaddiesKilledByAmount(10);
+                        
 						if (gameObject.tag == "Player2") {
-								gm.IncrementPlayerOneWins ();
+                            
+                            if (baddiesKilled <= thisOpponent.getBaddiesKilled())
+                            {
+                                gm.IncrementPlayerOneWins();
+                            }
 						}
 						if (gameObject.tag == "Player") {
-								gm.IncrementPlayerTwoWins ();
+                            if (baddiesKilled <= thisOpponent.getBaddiesKilled())
+                            {
+                                gm.IncrementPlayerTwoWins();
+                            }
 						}
-						//	}
-
 
 				}
 				animator.SetBool ("Damaged", true);

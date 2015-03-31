@@ -38,9 +38,9 @@ public class TotalHit1Script : MonoBehaviour {
 //		
 //		hits.text = ("hits:" + userHits.ToString());
 		//int hitNum = manager.getPlayer1Hits;
-		int hitNum = StaticStore.getPlayer1Hits ();
+		int hitNum = StaticStore.getPlayer1Kills ();
 
-		hits.text = "Number 1 hits: " + hitNum; //.ToString(); // + userHits.ToString();
+		hits.text = "Number Killss: " + hitNum; //.ToString(); // + userHits.ToString();
 		//}
 		//if (tag == "Text2") {
 			//hits.text = "Number 2 hits: " + hit2Num;
