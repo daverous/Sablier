@@ -1,0 +1,804 @@
+fileFormatVersion: 2
+guid: 446f79622a507ae47b3a9743b289c2ad
+timeCreated: 1427768799
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: Armature
+    100004: //RootNode
+    100006: Bone
+    100008: Bone.001
+    100010: Bone.001_end
+    100012: Bone.002
+    100014: Bone.003
+    100016: Bone.004
+    100018: Bone.005
+    100020: Bone.005_end
+    100022: Bone.006
+    100024: Bone.007
+    100026: Bone.008
+    100028: Bone.009
+    100030: Bone.009_end
+    100032: Calf.L
+    100034: Calf.L_end
+    100036: Calf.R
+    100038: Calf.R_end
+    100040: Camera
+    100042: Chest
+    100044: Child
+    100046: Circle.000
+    100048: Circle.003
+    100050: Eyes
+    100052: Forearm.L
+    100054: Forearm.L_end
+    100056: Forearm.R
+    100058: Forearm.R_end
+    100060: Head
+    100062: Lamp
+    100064: Lamp.001
+    100066: Lamp.002
+    100068: Neck
+    100070: Shoulder.L
+    100072: Shoulder.R
+    100074: Smile
+    100076: Thigh.L
+    100078: Thigh.R
+    100080: UpperArm.L
+    100082: UpperArm.R
+    100084: Zipper
+    100086: ZipperBase
+    400000: Abdomen
+    400002: Armature
+    400004: //RootNode
+    400006: Bone
+    400008: Bone.001
+    400010: Bone.001_end
+    400012: Bone.002
+    400014: Bone.003
+    400016: Bone.004
+    400018: Bone.005
+    400020: Bone.005_end
+    400022: Bone.006
+    400024: Bone.007
+    400026: Bone.008
+    400028: Bone.009
+    400030: Bone.009_end
+    400032: Calf.L
+    400034: Calf.L_end
+    400036: Calf.R
+    400038: Calf.R_end
+    400040: Camera
+    400042: Chest
+    400044: Child
+    400046: Circle.000
+    400048: Circle.003
+    400050: Eyes
+    400052: Forearm.L
+    400054: Forearm.L_end
+    400056: Forearm.R
+    400058: Forearm.R_end
+    400060: Head
+    400062: Lamp
+    400064: Lamp.001
+    400066: Lamp.002
+    400068: Neck
+    400070: Shoulder.L
+    400072: Shoulder.R
+    400074: Smile
+    400076: Thigh.L
+    400078: Thigh.R
+    400080: UpperArm.L
+    400082: UpperArm.R
+    400084: Zipper
+    400086: ZipperBase
+    2300000: Zipper
+    3300000: Zipper
+    4300000: Child
+    4300002: Eyes
+    4300004: Smile
+    4300006: Circle.003
+    4300008: Circle.000
+    4300010: ZipperBase
+    4300012: Zipper
+    7400000: Lamp.002|CircleAction
+    7400002: Lamp.002|Lamp.001Action
+    7400004: Lamp.002|Lamp.001Action.001
+    7400006: Lamp.002|LampAction
+    7400008: Lamp.002|ZipperAction
+    7400010: Lamp.001|CircleAction
+    7400012: Lamp.001|Lamp.001Action
+    7400014: Lamp.001|Lamp.001Action.001
+    7400016: Lamp.001|LampAction
+    7400018: Lamp.001|ZipperAction
+    7400020: Armature|CircleAction
+    7400022: Armature|Crouch
+    7400024: Armature|Flail
+    7400026: Armature|Idle
+    7400028: Armature|IdleMain
+    7400030: Armature|Lamp.001Action
+    7400032: Armature|Lamp.001Action.001
+    7400034: Armature|LampAction
+    7400036: Armature|Run
+    7400038: Armature|ZipperAction
+    7400040: Child|CircleAction
+    7400042: Child|Lamp.001Action
+    7400044: Child|Lamp.001Action.001
+    7400046: Child|LampAction
+    7400048: Child|ZipperAction
+    7400050: Eyes|CircleAction
+    7400052: Eyes|Lamp.001Action
+    7400054: Eyes|Lamp.001Action.001
+    7400056: Eyes|LampAction
+    7400058: Eyes|ZipperAction
+    7400060: Smile|CircleAction
+    7400062: Smile|Lamp.001Action
+    7400064: Smile|Lamp.001Action.001
+    7400066: Smile|LampAction
+    7400068: Smile|ZipperAction
+    7400070: Circle.003|CircleAction
+    7400072: Circle.003|Lamp.001Action
+    7400074: Circle.003|Lamp.001Action.001
+    7400076: Circle.003|LampAction
+    7400078: Circle.003|ZipperAction
+    7400080: Circle.000|CircleAction
+    7400082: Circle.000|Lamp.001Action
+    7400084: Circle.000|Lamp.001Action.001
+    7400086: Circle.000|LampAction
+    7400088: Circle.000|ZipperAction
+    7400090: ZipperBase|CircleAction
+    7400092: ZipperBase|Lamp.001Action
+    7400094: ZipperBase|Lamp.001Action.001
+    7400096: ZipperBase|LampAction
+    7400098: ZipperBase|ZipperAction
+    7400100: Lamp|CircleAction
+    7400102: Lamp|Lamp.001Action
+    7400104: Lamp|Lamp.001Action.001
+    7400106: Lamp|LampAction
+    7400108: Lamp|ZipperAction
+    7400110: Camera|CircleAction
+    7400112: Camera|Lamp.001Action
+    7400114: Camera|Lamp.001Action.001
+    7400116: Camera|LampAction
+    7400118: Camera|ZipperAction
+    7400120: Zipper|CircleAction
+    7400122: Zipper|Lamp.001Action
+    7400124: Zipper|Lamp.001Action.001
+    7400126: Zipper|LampAction
+    7400128: Zipper|ZipperAction
+    9500000: //RootNode
+    13700000: Child
+    13700002: Circle.000
+    13700004: Circle.003
+    13700006: Eyes
+    13700008: Smile
+    13700010: ZipperBase
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Crouch
+      takeName: Armature|Crouch
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Abdomen
+        weight: 1
+      - path: Armature/Abdomen/Chest
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009/Bone.009_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Forearm.L_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Forearm.R_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L/Calf.L_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R/Calf.R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Child
+        weight: 1
+      - path: Circle.000
+        weight: 1
+      - path: Circle.003
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.002
+        weight: 1
+      - path: Smile
+        weight: 1
+      - path: Zipper
+        weight: 1
+      - path: ZipperBase
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Flail
+      takeName: Armature|Flail
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Abdomen
+        weight: 1
+      - path: Armature/Abdomen/Chest
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009/Bone.009_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Forearm.L_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Forearm.R_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L/Calf.L_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R/Calf.R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Child
+        weight: 1
+      - path: Circle.000
+        weight: 1
+      - path: Circle.003
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.002
+        weight: 1
+      - path: Smile
+        weight: 1
+      - path: Zipper
+        weight: 1
+      - path: ZipperBase
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Abdomen
+        weight: 1
+      - path: Armature/Abdomen/Chest
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009/Bone.009_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Forearm.L_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Forearm.R_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L/Calf.L_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R/Calf.R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Child
+        weight: 1
+      - path: Circle.000
+        weight: 1
+      - path: Circle.003
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.002
+        weight: 1
+      - path: Smile
+        weight: 1
+      - path: Zipper
+        weight: 1
+      - path: ZipperBase
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|IdleMain
+      takeName: Armature|IdleMain
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Abdomen
+        weight: 1
+      - path: Armature/Abdomen/Chest
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009/Bone.009_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Forearm.L_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Forearm.R_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L/Calf.L_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R/Calf.R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Child
+        weight: 1
+      - path: Circle.000
+        weight: 1
+      - path: Circle.003
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.002
+        weight: 1
+      - path: Smile
+        weight: 1
+      - path: Zipper
+        weight: 1
+      - path: ZipperBase
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Run
+      takeName: Armature|Run
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Abdomen
+        weight: 1
+      - path: Armature/Abdomen/Chest
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001
+        weight: 1
+      - path: Armature/Abdomen/Chest/Bone/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.002/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009
+        weight: 1
+      - path: Armature/Abdomen/Chest/Neck/Head/Bone.006/Bone.007/Bone.008/Bone.009/Bone.009_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Forearm.L_end
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
+        weight: 1
+      - path: Armature/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Forearm.R_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L
+        weight: 1
+      - path: Armature/Abdomen/Thigh.L/Calf.L/Calf.L_end
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R
+        weight: 1
+      - path: Armature/Abdomen/Thigh.R/Calf.R/Calf.R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Child
+        weight: 1
+      - path: Circle.000
+        weight: 1
+      - path: Circle.003
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.002
+        weight: 1
+      - path: Smile
+        weight: 1
+      - path: Zipper
+        weight: 1
+      - path: ZipperBase
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
