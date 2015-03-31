@@ -263,6 +263,8 @@ public class Character : MonoBehaviour
 
 				if (other.collider.tag == "HealthUp") {
 						float pu = other.gameObject.GetComponent<PowerUpScript> ().getPowerUpAmount ();
+                        
+
 						if (curhealth <= 100 - pu) {
 								curhealth += pu;
 						} else {
@@ -286,6 +288,7 @@ public class Character : MonoBehaviour
             //Hit bad guy
                 if (other.collider.tag == "Baddy")
                 {
+                    StartCoroutine(vibrateTimer(0.2f));
                     Destroy(other.gameObject);
                     incrementBaddiesKilled();
                 }
@@ -495,6 +498,22 @@ public class Character : MonoBehaviour
 				}
 		}
 
+        IEnumerator vibrateTimer(float time)
+        {
+            
+            PlayerIndex ind;
+            if (gameObject.tag == "Player")
+            {
+                ind = playerIndex;
+            }
+            else if (gameObject.tag == "Player2")
+            {
+                ind = player2Index;
+            }
+            GamePad.SetVibration(playerIndex, 0.5f, 0.5f);
+            yield return new WaitForSeconds(time);
+            GamePad.SetVibration(playerIndex, 0, 0);
+        }
 
 		public void ColorInit ()
 		{
