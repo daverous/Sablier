@@ -76,6 +76,8 @@ public class Character : MonoBehaviour
 		public bool isJumping;
 		private bool isBlocking;
 		private bool isMoving;
+		private bool canMove;
+		private bool canBlock;
 
 		PlayerIndex playerIndex = (PlayerIndex)0;
 		PlayerIndex player2Index = (PlayerIndex)1;
@@ -165,6 +167,7 @@ public class Character : MonoBehaviour
 				isBlocking = false;
 				isJumping = false;
 				dead = false;
+				canMove = true;
 				animator = GameObject.FindGameObjectWithTag (thisCharacterTag).GetComponent<Animator> ();
 
 				if (gameObject.tag == "Player") {
@@ -338,7 +341,9 @@ public class Character : MonoBehaviour
 		bool detectOpponentMovement ()
 		{
 		
-				return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder"));
+				return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || 
+		        		opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder")||
+		       			opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward"));
 		}
 		public bool isCharacterBlocking ()
 		{
@@ -560,18 +565,23 @@ public class Character : MonoBehaviour
 				//Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
+				if(!canMove){
+					moveDirection = Vector3.zero.normalized;
+				}
+//		Debug.Log(animator.parameters.Attacking);
 				if (gameObject.tag == "Player") {
-						//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
-						//var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
-						horizontal = controller1State.ThumbSticks.Left.X;
-						//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-						//var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
-						vertical = controller1State.ThumbSticks.Left.Y;
-						if (horizontal != 0 || vertical != 0) {
-								isMoving = true;
+						if(canMove){
+							//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
+							//var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
+							horizontal = controller1State.ThumbSticks.Left.X;
+							//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+							//var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+							vertical = controller1State.ThumbSticks.Left.Y;
+							if (horizontal != 0 || vertical != 0) {
+									isMoving = true;
+							}
+							moveDirection = new Vector3 (horizontal, 0, vertical).normalized;
 						}
-						moveDirection = new Vector3 (horizontal, 0, vertical).normalized;
-
 //			performJump
 						if (controller1State.Buttons.A == ButtonState.Pressed && isGrounded) {
 //								Debug.Log ("jump");
@@ -582,9 +592,13 @@ public class Character : MonoBehaviour
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
 								isBlocking = true;
 								turnCharToFaceOpponentNew ();
+								animator.SetBool("Blocking", true);
+								canMove = false;
 //				Debug.Log("Blocking true");
 						} else if (controller1State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
+								animator.SetBool("Blocking", false);
+								canMove = true;
 //				Debug.Log("Blocking false");
 						}
 
@@ -598,18 +612,18 @@ public class Character : MonoBehaviour
 			
 				}
 				if (gameObject.tag == "Player2") {
-            
-						//var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
-						//var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
-						horizontal2 = controller2State.ThumbSticks.Left.X;
-		
-						//            horizontal = Input.GetAxis("Horizontal");
-						//var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
-						//var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-						vertical2 = controller2State.ThumbSticks.Left.Y;
-						moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
+						if(canMove){
+							//var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
+							//var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
+							horizontal2 = controller2State.ThumbSticks.Left.X;
+			
+							//            horizontal = Input.GetAxis("Horizontal");
+							//var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+							//var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+							vertical2 = controller2State.ThumbSticks.Left.Y;
+							moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
 
-			 
+						}
 						if (controller2State.Buttons.A == ButtonState.Pressed && isGrounded) {
 								performJump ();
 						}
@@ -649,7 +663,7 @@ public class Character : MonoBehaviour
 		{
 				GetComponent<Rigidbody> ().MovePosition (GetComponent<Rigidbody> ().position + transform.TransformDirection (moveDirection) * moveSpeed * Time.deltaTime);
 		}
-
+		
 		public playerNum getPNum ()
 		{
 				return pNum;
