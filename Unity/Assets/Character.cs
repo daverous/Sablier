@@ -307,6 +307,7 @@ public class Character : MonoBehaviour
                             //thisCharacter.incrementHits();
 										break;
 								case Character.AttackType.Heavy:
+                                        StartCoroutine(vibrateTimer(0.3f));
 										this.thisOpponent.beenHit (heavyAttackDamage);
 										this.incrementHits ();
 										break;
@@ -314,6 +315,7 @@ public class Character : MonoBehaviour
 										break;
 								//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
 								case Character.AttackType.Quick:
+                                        StartCoroutine(vibrateTimer(0.2f));
 										Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
 										rb.AddForce (0, 5, 10);
 										this.thisOpponent.beenHit (quickAttackDamage);
