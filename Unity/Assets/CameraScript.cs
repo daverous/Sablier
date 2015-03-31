@@ -97,14 +97,14 @@ public class CameraScript : MonoBehaviour
             {
 
 
-                if (canLockVal <= 100)
+                if (canLockVal <= 50)
                 {
                     thisChar.transform.LookAt(thisChar.getOpponentTransform());
                     //canLock = false;
                 }
 
             }
-                if (canLockVal > 100)
+                if (canLockVal > 50)
                 {
                     canLock = false;
                 }
