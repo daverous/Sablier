@@ -286,7 +286,7 @@ public class Character : MonoBehaviour
 						}
 				}
             //Hit bad guy
-                if (other.collider.tag == "Baddy")
+                if (other.collider.transform.root.tag == "Baddy")
                 {
                     StartCoroutine(vibrateTimer(0.2f));
                     Destroy(other.gameObject);
@@ -503,7 +503,7 @@ public class Character : MonoBehaviour
         IEnumerator vibrateTimer(float time)
         {
             
-            PlayerIndex ind;
+            PlayerIndex ind = (PlayerIndex) 0;
             if (gameObject.tag == "Player")
             {
                 ind = playerIndex;
@@ -512,9 +512,9 @@ public class Character : MonoBehaviour
             {
                 ind = player2Index;
             }
-            GamePad.SetVibration(playerIndex, 0.5f, 0.5f);
+            GamePad.SetVibration(ind, 0.5f, 0.5f);
             yield return new WaitForSeconds(time);
-            GamePad.SetVibration(playerIndex, 0, 0);
+            GamePad.SetVibration(ind, 0, 0);
         }
 
 		public void ColorInit ()
