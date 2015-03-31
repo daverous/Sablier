@@ -202,10 +202,10 @@ public class Detonator : MonoBehaviour
 								int random = Random.Range (0, 2);
                 
 								if (random == 0) {
-										int rand = Random.Range (0, powerUps.Length - 1);
+										int rand = Random.Range (0, powerUps.Length);
 										Object.Instantiate (powerUps [rand], transform.position, transform.rotation);
 								} else {
-										int randBad = Random.Range (0, baddies.Length - 1);
+										int randBad = Random.Range (0, baddies.Length);
 
 										Object.Instantiate (baddies [randBad], transform.position, transform.rotation);
 				

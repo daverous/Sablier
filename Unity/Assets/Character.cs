@@ -251,7 +251,7 @@ public class Character : MonoBehaviour
 						} else {
 								CharPowerBar = 1;
 						}
-//			TODO neeed PowerUp noise
+//			TODO neeed PowerUp noiseupdateHealth(damage);
 						Destroy (other.gameObject);
 				}
 
@@ -263,6 +263,8 @@ public class Character : MonoBehaviour
 						} else {
 								curhealth = 100;
 						}
+                        //Debug.Log("curhealth" + curhealth);
+                        updateHealth(pu * -1);
 						//			TODO neeed PowerUp noise
 						Destroy (other.gameObject);
 				}
@@ -439,36 +441,50 @@ public class Character : MonoBehaviour
 				//DisplayBubble();
 				
 				//DisplayBubble();
-				double temp = damage * 0.010;
-				float damage_value = (float)temp;
-				if (gameObject.tag == "Player") {
-						VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
-						VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
-						hn1.text = "HEALTH:" + curhealth;
-						hn3.text = "HEALTH:" + curhealth;
-						//Display Bubbles
-						Bubble1.fillAmount = 1;
-						Bubble4.fillAmount = 1;
-						StartCoroutine ("timer");
-
-				} else if (gameObject.tag == "Player2") {
-						VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
-						VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
-						hn2.text = "HEALTH:" + curhealth;
-						hn4.text = "HEALTH:" + curhealth;
-//			Debug.Log(VisualHealth2.fillAmount);
-						UpdateHealthColor (VisualHealth1);
-						UpdateHealthColor (VisualHealth2);
-						UpdateHealthColor (VisualHealth3);
-						UpdateHealthColor (VisualHealth4);
-						//Display bubbles
-						Bubble6.fillAmount = 1;
-						Bubble8.fillAmount = 1;
-						StartCoroutine ("timer");
-
-		
-				}
+                updateHealth(damage);
 		}
+
+
+        void updateHealth(float damage)
+        {
+            double temp = damage * 0.010;
+            float damage_value = (float)temp;
+            if (gameObject.tag == "Player")
+            {
+                VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
+                VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
+                hn1.text = "HEALTH:" + curhealth;
+                hn3.text = "HEALTH:" + curhealth;
+                //Display Bubbles
+                if (damage > 0)
+                {
+                    Bubble1.fillAmount = 1;
+                    Bubble4.fillAmount = 1;
+                    StartCoroutine("timer");
+                }
+
+            }
+            else if (gameObject.tag == "Player2")
+            {
+                VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
+                VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
+                hn2.text = "HEALTH:" + curhealth;
+                hn4.text = "HEALTH:" + curhealth;
+                //			Debug.Log(VisualHealth2.fillAmount);
+                UpdateHealthColor(VisualHealth1);
+                UpdateHealthColor(VisualHealth2);
+                UpdateHealthColor(VisualHealth3);
+                UpdateHealthColor(VisualHealth4);
+                //Display bubbles
+                if (damage > 0)
+                {
+                    Bubble6.fillAmount = 1;
+                    Bubble8.fillAmount = 1;
+                    StartCoroutine("timer");
+                }
+
+            }
+        }
 
 
 

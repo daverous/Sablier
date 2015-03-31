@@ -28,7 +28,6 @@ public class AIScript : MonoBehaviour
 		{
 				
 				transform.LookAt (actual);
-				Debug.Log ("forward");
 				transform.position += transform.forward * MoveSpeed * Time.deltaTime;				
 				
 		}
