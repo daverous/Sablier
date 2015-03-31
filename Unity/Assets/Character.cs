@@ -47,7 +47,7 @@ public class Character : MonoBehaviour
 		public float moveSpeed = 15f;
 		private bool inRange; 
 		public float maxHealth = 100f;
-
+        private int baddiesKilled = 0;
 		private string thisCharacterTag;
 
 		private float horizontal = 0.0f;
@@ -106,6 +106,16 @@ public class Character : MonoBehaviour
 				Reduced
 		}
 
+
+        public void incrementBaddiesKilled()
+        {
+            baddiesKilled++;
+        }
+
+        public int getBaddiesKilled()
+        {
+            return baddiesKilled;
+        }
 		public AttackType getCurrentAttack ()
 		{
 				return curAttack;
@@ -266,10 +276,16 @@ public class Character : MonoBehaviour
 										source.PlayOneShot (runningSound, hitVol);
 						}
 				}
+            //Hit bad guy
+                if (other.collider.tag == "Baddy")
+                {
+                    Destroy(other.gameObject);
+                    incrementBaddiesKilled();
+                }
 			
 				if (other.collider.name == "Hand.L_end" && !hitWeapon) {
-						if (detectOpponentMovement ())
-//								Debug.Log ("here");
+//                        if (detectOpponentMovement ())
+////								Debug.Log ("here");
 
                
 								switch (this.getCurrentAttack ()) {

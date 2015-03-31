@@ -37,7 +37,7 @@ public class AIScript : MonoBehaviour
 		{
 				string tag = other.collider.transform.root.tag;
 				Debug.Log (tag);
-				if (tag == "Player" || tag == "Player2") {
+				if ((tag == "Player" || tag == "Player2") && other.collider.tag != "Weapon"){
 						GameObject.FindGameObjectWithTag (tag).GetComponent<Character> ().beenHit (damage);
 						Destroy (gameObject);
 				}
