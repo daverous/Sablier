@@ -78,7 +78,10 @@ public class Attacks : MonoBehaviour
 				//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
 		        
 		
-		
+				//EndAerial
+				if(animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF")){
+					animator.SetBool("Aerial", false);
+				}
 		
 				if (thisCharacterTag == "Player") {
 						#region player1 
@@ -162,12 +165,16 @@ public class Attacks : MonoBehaviour
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DamageHeavy")) {
 						animator.SetBool ("Damaged", false);
 				}
-				if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy") ||
+				if (!(animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DamageHeavy") ||
-						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")) {
+						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")||
+		     			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward")||
+		      			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy"))||
+		   				animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF")) {
+						
 						animator.applyRootMotion = false;
 				}
 				if (thisCharacterTag == ("Player") &&
@@ -220,7 +227,9 @@ public class Attacks : MonoBehaviour
 
 		void OnCollisionEnter (Collision other)
 		{
-            
+            	if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")){
+					animator.SetBool("Aerial", true);
+				}
 				if ((other.collider.tag == "Weapon")) {
 						source.PlayOneShot (swordClashSound, volume);
 						thisCharacter.setWeaponHitToTrue ();
@@ -287,13 +296,18 @@ public class Attacks : MonoBehaviour
 		}
 		private void performQuickAttack ()
 		{
+				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")){
+					animator.applyRootMotion = true;
+				}
 				thisCharacter.setCurrentAttack (Character.AttackType.Quick);
 				animator.SetBool ("Attacking", true);
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder") ||
+		   				animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward")) {
 						source.PlayOneShot (swordSwipeSound, volume);
 						animator.SetBool ("Chain", true);
+						animator.applyRootMotion = true;
 
 				}          
 		}

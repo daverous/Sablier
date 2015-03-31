@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using XInputDotNetPure;
 using UnityEngine.UI;
@@ -265,7 +265,9 @@ public class Character : MonoBehaviour
 						Destroy (other.gameObject);
 				}
 
-
+				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")){
+					animator.SetBool("Aerial", true);
+				}
 				if (other.collider.tag == "HealthUp") {
 						float pu = other.gameObject.GetComponent<PowerUpScript> ().getPowerUpAmount ();
                         
@@ -568,7 +570,7 @@ public class Character : MonoBehaviour
 				if(!canMove){
 					moveDirection = Vector3.zero.normalized;
 				}
-//		Debug.Log(animator.parameters.Attacking);
+
 				if (gameObject.tag == "Player") {
 						if(canMove){
 							//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
