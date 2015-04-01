@@ -295,6 +295,13 @@ public class Character : MonoBehaviour
 				}
 			
 				if (other.collider.name == "Hand.L_end" && !hitWeapon) {
+                    if (curAttack != AttackType.Empty)
+                    {
+                        if (thisOpponent.isBlocking)
+                        {
+                            curAttack = AttackType.Reduced;
+                        }
+                    }   
 //                        if (detectOpponentMovement ())
 ////								Debug.Log ("here");
 
@@ -431,17 +438,31 @@ public class Character : MonoBehaviour
 				animator.applyRootMotion = true;
 				source.pitch = Random.Range (lowPitchRange, highPitchRange);
 				source.PlayOneShot (swordHitSound);
-				if (gameObject.tag == "Player2") {
-						GameObject.FindGameObjectWithTag ("PlayerTwoCamera").GetComponent<CameraShakeScript> ().startShake ();
-				}
-				if (gameObject.tag == "Player") {
-						GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().startShake ();
-				}
-				if (this.animator.GetCurrentAnimatorStateInfo (0).IsName ("Damaged")) {
-						Time.timeScale = 0.00001f;
-				} else {
-						Time.timeScale = 1;
-				}
+                if (isBlocking)
+                {
+                    source.PlayOneShot(blockSound);
+                    StartCoroutine(vibrateTimer(0.5f));
+
+                }
+                else
+                {
+                    if (gameObject.tag == "Player2")
+                    {
+                        GameObject.FindGameObjectWithTag("PlayerTwoCamera").GetComponent<CameraShakeScript>().startShake();
+                    }
+                    if (gameObject.tag == "Player")
+                    {
+                        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakeScript>().startShake();
+                    }
+                    if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+                    {
+                        Time.timeScale = 0.00001f;
+                    }
+                    else
+                    {
+                        Time.timeScale = 1;
+                    }
+                }
 				//DisplayBubble();
 				
 				//DisplayBubble();
@@ -588,8 +609,12 @@ public class Character : MonoBehaviour
 //			performBlock
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
 								isBlocking = true;
+
 								turnCharToFaceOpponentNew ();
 								animator.SetBool ("Blocking", true);
+
+								animator.SetBool("Blocking", true);
+
 								canMove = false;
 //				Debug.Log("Blocking true");
 						} else if (controller1State.Buttons.B == ButtonState.Released) {
