@@ -17,7 +17,6 @@ public class Character : MonoBehaviour
     #region Vars
 		public float Damage;
 		private float CharPowerBar = 0.0f;
-
 		public GameObject blood;
 		public GameObject powerParticle;
 		public Image VisualHealth1;
@@ -43,31 +42,27 @@ public class Character : MonoBehaviour
 		private bool hitWeapon;
 		private float curhealth;
 		private int hits;
-		private bool dead; 
+		private bool dead;
 		public float moveSpeed = 15f;
-		private bool inRange; 
+		private bool inRange;
 		public float maxHealth = 100f;
-        private int baddiesKilled = 0;
+		private int baddiesKilled = 0;
 		private string thisCharacterTag;
-
 		private float horizontal = 0.0f;
 		private float vertical = 0.0f;
 		private float horizontal2 = 0.0f;
 		private float vertical2 = 0.0f;
 		public float Weight;
 		public float jumpForce = 0.3f;
-
 		public AudioClip blockSound;
 		public AudioClip runningSound;
 		public AudioClip swordHitSound;
-        public AudioClip BunnyKillsound;
-
+		public AudioClip BunnyKillsound;
 		private AudioSource source;
 		private float lowPitchRange = .75F;
 		private float highPitchRange = 1.5F;
 		private float velToVol = .2F;
 		private float velocityClipSplit = 10F;
-   
 		public Vector3 moveDirection;
 		private Transform opponent; //Transform for opponent 
 		private bool isGrounded;
@@ -78,21 +73,16 @@ public class Character : MonoBehaviour
 		private bool isMoving;
 		private bool canMove;
 		private bool canBlock;
-
 		PlayerIndex playerIndex = (PlayerIndex)0;
 		PlayerIndex player2Index = (PlayerIndex)1;
 		GamePadState controller1State;
 		GamePadState controller2State;
-
-
 		private Animator animator;
 		float lerpTime = 0;
 		private AttackType curAttack;
 		private Character thisOpponent;
 		private string thisOpponentTag;
 		private Animator opponent_animator;
-
-
 		public float quickAttackDamage = 5f;
 		public float heavyAttackDamage = 10f;
 		public float powerMoveSpeed = 10f;
@@ -111,20 +101,21 @@ public class Character : MonoBehaviour
 		}
 
 
-        public void incrementBaddiesKilled()
-        {
-            baddiesKilled++;
-        }
+		public void incrementBaddiesKilled ()
+		{
+				baddiesKilled++;
+		}
 
-        public void incrementBaddiesKilledByAmount(int val)
-        {
-            baddiesKilled+= val;
-        }
+		public void incrementBaddiesKilledByAmount (int val)
+		{
+				baddiesKilled += val;
+		}
 
-        public int getBaddiesKilled()
-        {
-            return baddiesKilled;
-        }
+		public int getBaddiesKilled ()
+		{
+				return baddiesKilled;
+		}
+
 		public AttackType getCurrentAttack ()
 		{
 				return curAttack;
@@ -134,6 +125,7 @@ public class Character : MonoBehaviour
 		{
 				curAttack = AttackType.Empty;
 		}
+
 		public void setCurrentAttack (AttackType t)
 		{
 				curAttack = t;
@@ -148,6 +140,7 @@ public class Character : MonoBehaviour
 		{
 				hitWeapon = false;
 		}
+
 		void Awake ()
 		{
 
@@ -217,6 +210,7 @@ public class Character : MonoBehaviour
 				//Debug.Log(angle);
 				//return angle;
 		}
+
 		public float turnCharToFaceOpponentNew ()
 		{    
 //		if (lerpTime >= 0.2f) {
@@ -265,8 +259,8 @@ public class Character : MonoBehaviour
 						Destroy (other.gameObject);
 				}
 
-				if(animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")){
-					animator.SetBool("Aerial", true);
+				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")) {
+						animator.SetBool ("Aerial", true);
 				}
 				if (other.collider.tag == "HealthUp") {
 						float pu = other.gameObject.GetComponent<PowerUpScript> ().getPowerUpAmount ();
@@ -277,8 +271,8 @@ public class Character : MonoBehaviour
 						} else {
 								curhealth = 100;
 						}
-                        //Debug.Log("curhealth" + curhealth);
-                        updateHealth(pu * -1);
+						//Debug.Log("curhealth" + curhealth);
+						updateHealth (pu * -1);
 						//			TODO neeed PowerUp noise
 						Destroy (other.gameObject);
 				}
@@ -292,49 +286,48 @@ public class Character : MonoBehaviour
 										source.PlayOneShot (runningSound, hitVol);
 						}
 				}
-            //Hit bad guy
-                if (other.collider.transform.root.tag == "Baddy")
-                {
-                    StartCoroutine(vibrateTimer(0.2f));
-                    Destroy(other.gameObject);
-                    incrementBaddiesKilled();
-                    source.PlayOneShot(BunnyKillsound);
-                }
+				//Hit bad guy
+				if (other.collider.transform.root.tag == "Baddy") {
+						StartCoroutine (vibrateTimer (0.2f));
+						Destroy (other.gameObject);
+						incrementBaddiesKilled ();
+						source.PlayOneShot (BunnyKillsound);
+				}
 			
 				if (other.collider.name == "Hand.L_end" && !hitWeapon) {
 //                        if (detectOpponentMovement ())
 ////								Debug.Log ("here");
 
                
-								switch (this.getCurrentAttack ()) {
-								case Character.AttackType.Empty:
-										break;
-								case Character.AttackType.Reduced:
-										this.thisOpponent.beenHit (reducedAttackDamage);
+						switch (this.getCurrentAttack ()) {
+						case Character.AttackType.Empty:
+								break;
+						case Character.AttackType.Reduced:
+								this.thisOpponent.beenHit (reducedAttackDamage);
                             // As attacks are reduced, no hits are counted. 
                             //thisCharacter.incrementHits();
-										break;
-								case Character.AttackType.Heavy:
-                                        StartCoroutine(vibrateTimer(0.3f));
-										this.thisOpponent.beenHit (heavyAttackDamage);
-										this.incrementHits ();
-										break;
-								case Character.AttackType.Power:
-										break;
-								//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
-								case Character.AttackType.Quick:
-                                        StartCoroutine(vibrateTimer(0.2f));
-										Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
-										rb.AddForce (0, 5, 10);
-										this.thisOpponent.beenHit (quickAttackDamage);
-										this.incrementHits ();
+								break;
+						case Character.AttackType.Heavy:
+								StartCoroutine (vibrateTimer (0.3f));
+								this.thisOpponent.beenHit (heavyAttackDamage);
+								this.incrementHits ();
+								break;
+						case Character.AttackType.Power:
+								break;
+						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
+						case Character.AttackType.Quick:
+								StartCoroutine (vibrateTimer (0.2f));
+								Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
+								rb.AddForce (0, 5, 10);
+								this.thisOpponent.beenHit (quickAttackDamage);
+								this.incrementHits ();
                             //Vector3 direction = Ray.direction;       
                             //hit.rigidbody.AddForce(Ray.direction * force);
-										break;
-								default:
-										break;
+								break;
+						default:
+								break;
 
-								}
+						}
 						//curAttack = AttackType.Empty;
                 
 				}
@@ -344,9 +337,10 @@ public class Character : MonoBehaviour
 		{
 		
 				return (opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickFromSide") || 
-		        		opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder")||
-		       			opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward"));
+						opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickOverShoulder") ||
+						opponent_animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward"));
 		}
+
 		public bool isCharacterBlocking ()
 		{
 				return isBlocking;
@@ -373,6 +367,7 @@ public class Character : MonoBehaviour
 		{
 				return hits;
 		}
+
 		void OnCollisionExit (Collision info)
 		{
 				if (info.collider.name == "planet") {
@@ -380,6 +375,7 @@ public class Character : MonoBehaviour
 				}
 
 		}
+
 		public void setCharNotGrounded ()
 		{
 				isGrounded = false;
@@ -400,12 +396,12 @@ public class Character : MonoBehaviour
 				yield return new WaitForSeconds (1.5f);
 				blood.SetActive (false);
 		}
-		
 
 		public void startPowerParticle ()
 		{
 				StartCoroutine (displayPowerParticle ());
 		}
+
 		public void beenHit (float damage)
 		{
 				StartCoroutine (displayBlood ());
@@ -414,20 +410,18 @@ public class Character : MonoBehaviour
 				if (curhealth <= 0) {
 						dead = true;
 						GameManager gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
-                        thisOpponent.incrementBaddiesKilledByAmount(10);
+						thisOpponent.incrementBaddiesKilledByAmount (10);
                         
 						if (gameObject.tag == "Player2") {
                             
-                            if (baddiesKilled <= thisOpponent.getBaddiesKilled())
-                            {
-                                gm.IncrementPlayerOneWins();
-                            }
+								if (baddiesKilled <= thisOpponent.getBaddiesKilled ()) {
+										gm.IncrementPlayerOneWins ();
+								}
 						}
 						if (gameObject.tag == "Player") {
-                            if (baddiesKilled <= thisOpponent.getBaddiesKilled())
-                            {
-                                gm.IncrementPlayerTwoWins();
-                            }
+								if (baddiesKilled <= thisOpponent.getBaddiesKilled ()) {
+										gm.IncrementPlayerTwoWins ();
+								}
 						}
 
 				}
@@ -451,52 +445,44 @@ public class Character : MonoBehaviour
 				//DisplayBubble();
 				
 				//DisplayBubble();
-                updateHealth(damage);
+				updateHealth (damage);
 		}
 
+		void updateHealth (float damage)
+		{
+				double temp = damage * 0.010;
+				float damage_value = (float)temp;
+				if (gameObject.tag == "Player") {
+						VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
+						VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
+						hn1.text = "HEALTH:" + curhealth;
+						hn3.text = "HEALTH:" + curhealth;
+						//Display Bubbles
+						if (damage > 0) {
+								Bubble1.fillAmount = 1;
+								Bubble4.fillAmount = 1;
+								StartCoroutine ("timer");
+						}
 
-        void updateHealth(float damage)
-        {
-            double temp = damage * 0.010;
-            float damage_value = (float)temp;
-            if (gameObject.tag == "Player")
-            {
-                VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
-                VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
-                hn1.text = "HEALTH:" + curhealth;
-                hn3.text = "HEALTH:" + curhealth;
-                //Display Bubbles
-                if (damage > 0)
-                {
-                    Bubble1.fillAmount = 1;
-                    Bubble4.fillAmount = 1;
-                    StartCoroutine("timer");
-                }
+				} else if (gameObject.tag == "Player2") {
+						VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
+						VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
+						hn2.text = "HEALTH:" + curhealth;
+						hn4.text = "HEALTH:" + curhealth;
+						//			Debug.Log(VisualHealth2.fillAmount);
+						UpdateHealthColor (VisualHealth1);
+						UpdateHealthColor (VisualHealth2);
+						UpdateHealthColor (VisualHealth3);
+						UpdateHealthColor (VisualHealth4);
+						//Display bubbles
+						if (damage > 0) {
+								Bubble6.fillAmount = 1;
+								Bubble8.fillAmount = 1;
+								StartCoroutine ("timer");
+						}
 
-            }
-            else if (gameObject.tag == "Player2")
-            {
-                VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
-                VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
-                hn2.text = "HEALTH:" + curhealth;
-                hn4.text = "HEALTH:" + curhealth;
-                //			Debug.Log(VisualHealth2.fillAmount);
-                UpdateHealthColor(VisualHealth1);
-                UpdateHealthColor(VisualHealth2);
-                UpdateHealthColor(VisualHealth3);
-                UpdateHealthColor(VisualHealth4);
-                //Display bubbles
-                if (damage > 0)
-                {
-                    Bubble6.fillAmount = 1;
-                    Bubble8.fillAmount = 1;
-                    StartCoroutine("timer");
-                }
-
-            }
-        }
-
-
+				}
+		}
 
 		IEnumerator timer ()
 		{
@@ -510,22 +496,19 @@ public class Character : MonoBehaviour
 				}
 		}
 
-        IEnumerator vibrateTimer(float time)
-        {
+		IEnumerator vibrateTimer (float time)
+		{
             
-            PlayerIndex ind = (PlayerIndex) 0;
-            if (gameObject.tag == "Player")
-            {
-                ind = playerIndex;
-            }
-            else if (gameObject.tag == "Player2")
-            {
-                ind = player2Index;
-            }
-            GamePad.SetVibration(ind, 0.5f, 0.5f);
-            yield return new WaitForSeconds(time);
-            GamePad.SetVibration(ind, 0, 0);
-        }
+				PlayerIndex ind = (PlayerIndex)0;
+				if (gameObject.tag == "Player") {
+						ind = playerIndex;
+				} else if (gameObject.tag == "Player2") {
+						ind = player2Index;
+				}
+				GamePad.SetVibration (ind, 0.5f, 0.5f);
+				yield return new WaitForSeconds (time);
+				GamePad.SetVibration (ind, 0, 0);
+		}
 
 		public void ColorInit ()
 		{
@@ -567,22 +550,34 @@ public class Character : MonoBehaviour
 				//Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
-				if(!canMove){
-					moveDirection = Vector3.zero.normalized;
+				
+
+				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Taunt") ||
+						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Taunt") ||
+						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")) 
+				{
+						canMove = false;
+					
+				} else {
+						canMove = true;
+				}
+
+				if (!canMove) {
+						moveDirection = Vector3.zero.normalized;
 				}
 
 				if (gameObject.tag == "Player") {
-						if(canMove){
-							//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
-							//var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
-							horizontal = controller1State.ThumbSticks.Left.X;
-							//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-							//var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
-							vertical = controller1State.ThumbSticks.Left.Y;
-							if (horizontal != 0 || vertical != 0) {
-									isMoving = true;
-							}
-							moveDirection = new Vector3 (horizontal, 0, vertical).normalized;
+						if (canMove) {
+								//var hPositive = jInput.GetAxis (Mapper.InputArray [0]);
+								//var hNegative = jInput.GetAxis (Mapper.InputArray [10]);
+								horizontal = controller1State.ThumbSticks.Left.X;
+								//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
+								//var vNegative = jInput.GetAxis (Mapper.InputArray [11]);
+								vertical = controller1State.ThumbSticks.Left.Y;
+								if (horizontal != 0 || vertical != 0) {
+										isMoving = true;
+								}
+								moveDirection = new Vector3 (horizontal, 0, vertical).normalized;
 						}
 //			performJump
 						if (controller1State.Buttons.A == ButtonState.Pressed && isGrounded) {
@@ -594,12 +589,12 @@ public class Character : MonoBehaviour
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
 								isBlocking = true;
 								turnCharToFaceOpponentNew ();
-								animator.SetBool("Blocking", true);
+								animator.SetBool ("Blocking", true);
 								canMove = false;
 //				Debug.Log("Blocking true");
 						} else if (controller1State.Buttons.B == ButtonState.Released) {
 								isBlocking = false;
-								animator.SetBool("Blocking", false);
+								animator.SetBool ("Blocking", false);
 								canMove = true;
 //				Debug.Log("Blocking false");
 						}
@@ -610,20 +605,20 @@ public class Character : MonoBehaviour
 						PowerBar1.fillAmount = CharPowerBar;
 						PowerBar3.fillAmount = CharPowerBar;
 						UpdatePowerBarColor (PowerBar1);
-						UpdatePowerBarColor (PowerBar3);
+						UpdatePowerBarColor (PowerBar4);
 			
 				}
 				if (gameObject.tag == "Player2") {
-						if(canMove){
-							//var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
-							//var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
-							horizontal2 = controller2State.ThumbSticks.Left.X;
+						if (canMove) {
+								//var hPositive = jInput.GetAxis (Mapper.InputArray2p [0]);
+								//var hNegative = jInput.GetAxis (Mapper.InputArray2p [10]);
+								horizontal2 = controller2State.ThumbSticks.Left.X;
 			
-							//            horizontal = Input.GetAxis("Horizontal");
-							//var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
-							//var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
-							vertical2 = controller2State.ThumbSticks.Left.Y;
-							moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
+								//            horizontal = Input.GetAxis("Horizontal");
+								//var vPositive = jInput.GetAxis (Mapper.InputArray2p [1]);
+								//var vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
+								vertical2 = controller2State.ThumbSticks.Left.Y;
+								moveDirection = new Vector3 (horizontal2, 0, vertical2).normalized;
 
 						}
 						if (controller2State.Buttons.A == ButtonState.Pressed && isGrounded) {
@@ -632,9 +627,13 @@ public class Character : MonoBehaviour
 
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
 								turnCharToFaceOpponentNew ();
+								animator.SetBool ("Blocking", true);
 								isBlocking = true;
+								canMove = false;
 						} else if (controller2State.Buttons.B == ButtonState.Released) {
+								animator.SetBool ("Blocking", false);
 								isBlocking = false;
+								canMove = true;
 						}
 						CharPowerBar = CharPowerBar + Time.deltaTime / 30;
 						if (CharPowerBar >= 1)
@@ -642,7 +641,7 @@ public class Character : MonoBehaviour
 						PowerBar2.fillAmount = CharPowerBar;
 						PowerBar4.fillAmount = CharPowerBar;
 						UpdatePowerBarColor (PowerBar2);
-						UpdatePowerBarColor (PowerBar4);
+						UpdatePowerBarColor (PowerBar3);
 			
 				}
 

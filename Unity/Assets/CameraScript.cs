@@ -40,7 +40,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         thisChar = CameraTarget.root.GetComponent<Character>();
-        rotationY = -40f;
+        rotationY = -30f;
 
     }
 

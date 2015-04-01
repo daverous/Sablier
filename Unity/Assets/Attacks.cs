@@ -155,6 +155,10 @@ public class Attacks : MonoBehaviour
 								canPowerMove = true;
 				
 						}
+
+						if(animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Heavy")){
+							animator.SetBool("Heavy", false);
+						}
 				}
 
 
@@ -170,10 +174,12 @@ public class Attacks : MonoBehaviour
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DamageHeavy") ||
+		  			    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Heavy") ||
+		    			animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")||
 		     			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward")||
-		      			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy"))||
-		   				animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF")) {
+		      			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")||
+		   				animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF"))) {
 						
 						animator.applyRootMotion = false;
 				}
@@ -294,6 +300,7 @@ public class Attacks : MonoBehaviour
 						source.PlayOneShot (swordSwipeSound, volume);
 				}    
 		}
+				
 		private void performQuickAttack ()
 		{
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")){

@@ -22,6 +22,10 @@ public class SlideOutOnClickA : MonoBehaviour {
         {
 			animator.SetBool("aIsPressed", true);
 				}
+		if (controller1State.Buttons.A == ButtonState.Released && controller2State.Buttons.A == ButtonState.Released)
+		{
+			animator.SetBool("aIsPressed", false);
+		}
 	//	anim.SetTrigger("StartOnClick");
 		if (animator.GetCurrentAnimatorStateInfo(0).IsName("pressaslideoutstay")){
 			Application.LoadLevel ("TestScene");
