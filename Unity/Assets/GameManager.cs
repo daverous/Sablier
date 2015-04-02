@@ -10,9 +10,7 @@ public class GameManager : MonoBehaviour {
     float threashold;
 
 	// Use this for initialization
-	public Image Round11;
 	public Image Round12;
-	public Image Round21;
 	public Image Round22;
 
 	public Image star1;
@@ -100,11 +98,9 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         if (StaticStore.currentRound == 2)
         {
-			Destroy (Round11);
 			Destroy (Round12);
 
 		} else if (StaticStore.currentRound == 3) {
-			Destroy(Round21);
 			Destroy(Round22);
 
 		}
