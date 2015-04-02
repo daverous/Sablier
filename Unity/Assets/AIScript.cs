@@ -5,8 +5,9 @@ public class AIScript : MonoBehaviour
 {
 
 		
-		public int MoveSpeed = 4;
+		private int MoveSpeed = 4;
 		public int damage = 10;
+        private int rotateSpeed = 10;
 		float distanceFromP1;
 		float distanceFromP2;
 		Transform actual;
@@ -26,9 +27,10 @@ public class AIScript : MonoBehaviour
 		}
 		void Update ()
 		{
-				
-				transform.LookAt (actual);
-				transform.position += transform.forward * MoveSpeed * Time.deltaTime;				
+
+            Quaternion targetRotation = Quaternion.LookRotation(actual.position - transform.root.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed); 
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;				
 				
 		}
 
