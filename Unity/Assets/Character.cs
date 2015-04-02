@@ -633,6 +633,21 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
+                        if (controller1State.Buttons.LeftShoulder == ButtonState.Pressed)
+                        {
+                            // Roll Forward
+                        }
+
+                        if (controller1State.Buttons.RightShoulder == ButtonState.Pressed)
+                        {
+                            // Roll back
+                        }
+                        if (controller1State.Buttons.Y == ButtonState.Pressed)
+                        {
+                            // Taunt
+                        }
+
+
 //			performBlock
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
                             if (CharPowerBar > blockCost)
@@ -691,6 +706,19 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
+                        if (controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
+                        {
+                            // Roll Forward
+                        }
+
+                        if (controller2State.Buttons.RightShoulder == ButtonState.Pressed)
+                        {
+                            // Roll back
+                        }
+                        if (controller2State.Buttons.Y == ButtonState.Pressed)
+                        {
+                            // Taunt
+                        }
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
                             if (CharPowerBar > blockCost)
                             {
