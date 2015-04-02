@@ -248,7 +248,9 @@ public class Attacks : MonoBehaviour
 						thisCharacter.resetCurrentAttack ();
 				}
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")||
-		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickBack")) {
+		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickBack")||
+		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DamageHeavy")||
+		   		 	animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")) {
 						animator.applyRootMotion = true;
 				}
 

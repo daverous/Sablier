@@ -419,6 +419,7 @@ public class Character : MonoBehaviour
 		{
 				StartCoroutine (displayBlood ());
 				//
+
 				curhealth -= damage;
 				if (curhealth <= 0) {
 						dead = true;
@@ -438,6 +439,7 @@ public class Character : MonoBehaviour
 						}
 
 				}
+				
 				animator.SetBool ("Damaged", true);
 				
 
