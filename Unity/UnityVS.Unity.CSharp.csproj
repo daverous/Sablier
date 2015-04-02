@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AIScript.cs" />
+    <Compile Include="Assets\ArrowScript.cs" />
     <Compile Include="Assets\AsteroidScript.cs" />
     <Compile Include="Assets\AsteroidSpawnScript.cs" />
     <Compile Include="Assets\Attacks.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\GameOver.cs" />
     <Compile Include="Assets\GameOverManager.cs" />
     <Compile Include="Assets\GuiScript.cs" />
+    <Compile Include="Assets\PipeBlade.cs" />
     <Compile Include="Assets\PowerUpScript.cs" />
     <Compile Include="Assets\RoundOverScript.cs" />
     <Compile Include="Assets\RoundWonScript.cs" />
