@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
     #region Vars
 		public float Damage;
     public int rotateSpeed = 10;
-		private float CharPowerBar = 0.0f;
+		public float CharPowerBar = 0.0f;
         private float blockCost = 0.005f;
 		public GameObject blood;
 		public GameObject powerParticle;
@@ -283,7 +283,7 @@ public class Character : MonoBehaviour
 						}
 				}
 				//Hit bad guy
-				if (other.collider.transform.root.tag == "Baddy") {
+				if (other.collider.transform.root.tag == "Baddy" && curAttack != AttackType.Empty) {
 						StartCoroutine (vibrateTimer (0.2f));
 						Destroy (other.gameObject);
 						incrementBaddiesKilled ();
@@ -633,6 +633,21 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
+                        if (controller1State.Buttons.LeftShoulder == ButtonState.Pressed)
+                        {
+                            // Roll Forward
+                        }
+
+                        if (controller1State.Buttons.RightShoulder == ButtonState.Pressed)
+                        {
+                            // Roll back
+                        }
+                        if (controller1State.Buttons.Y == ButtonState.Pressed)
+                        {
+                            // Taunt
+                        }
+
+
 //			performBlock
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
                             if (CharPowerBar > blockCost)
@@ -691,6 +706,19 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
+                        if (controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
+                        {
+                            // Roll Forward
+                        }
+
+                        if (controller2State.Buttons.RightShoulder == ButtonState.Pressed)
+                        {
+                            // Roll back
+                        }
+                        if (controller2State.Buttons.Y == ButtonState.Pressed)
+                        {
+                            // Taunt
+                        }
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
                             if (CharPowerBar > blockCost)
                             {
@@ -768,6 +796,31 @@ public class Character : MonoBehaviour
 		{
 				return isBlocking;
 		}
+
+      void PositionArrow(GameObject target)
+     {
+         GetComponent<Renderer>().enabled = false;
+         
+         Vector3 v3Pos = Camera.main.WorldToViewportPoint(target.transform.position);
+         
+         if (v3Pos.x >= 0.0f && v3Pos.x <= 1.0f && v3Pos.y >= 0.0f && v3Pos.y <= 1.0f)
+             return; // Object center is visible
+                 
+         GetComponent<Renderer>().enabled = true;
+         v3Pos.x -= 0.5f;  // Translate to use center of viewport
+         v3Pos.y -= 0.5f; 
+         v3Pos.z = 0;      // I think I can do this rather than do a 
+                           //   a full projection onto the plane
+         
+         float fAngle = Mathf.Atan2 (v3Pos.x, v3Pos.y);
+         transform.localEulerAngles = new Vector3(0.0f, 0.0f, -fAngle * Mathf.Rad2Deg);
+         
+         v3Pos.x = 0.5f * Mathf.Sin (fAngle) + 0.5f;  // Place on ellipse touching 
+         v3Pos.y = 0.5f * Mathf.Cos (fAngle) + 0.5f;  //   side of viewport
+         v3Pos.z = Camera.main.nearClipPlane + 0.01f;  // Looking from neg to pos Z;
+         transform.position = Camera.main.ViewportToWorldPoint(v3Pos);
+     
+ }
 
 		public void performJump ()
 		{

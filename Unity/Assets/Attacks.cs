@@ -19,7 +19,7 @@ public class Attacks : MonoBehaviour
 		public float powerMoveSpeed = 10f;
 		public float reducedAttackDamage = 2f;
 		public float volume = 5f;
-
+        private float heavyCost = .25f;
 		private Animator animator;
 		private Animator opponent_animator;
 		private int collision_trigger = 0;
@@ -88,11 +88,8 @@ public class Attacks : MonoBehaviour
 		
 		
 		
-				#endregion
-				//var vPositive = jInput.GetAxis (Mapper.InputArray [1]);
-		        
+				#endregion       
 		
-				//EndAerial
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF")||
 		   			animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavyEndF")){
 					animator.SetBool("Aerial", false);
@@ -100,9 +97,13 @@ public class Attacks : MonoBehaviour
 		
 				if (thisCharacterTag == "Player") {
 						#region player1 
-						if (controller1State.Buttons.X == ButtonState.Pressed && controller1State.Buttons.LeftShoulder == ButtonState.Pressed) {
-//								Debug.Log ("Heavy Attacking");
-								performHeavyAttack ();
+						if (controller1State.Buttons.X == ButtonState.Pressed && controller1State.Triggers.Right > 0) {
+
+                            if (thisCharacter.CharPowerBar > heavyCost)
+                            {
+                                thisCharacter.CharPowerBar -= heavyCost;
+                                performHeavyAttack();
+                            }
 						}
 
 //			Perform quick 
@@ -115,7 +116,7 @@ public class Attacks : MonoBehaviour
 								animator.SetBool ("Chain", false);
 						}
 
-						if (controller1State.Buttons.Y == ButtonState.Pressed) {
+						if (controller1State.Triggers.Left > 0) {
 
 								if (thisCharacter.getCharPowerBar () >= 1 && canPowerMove) {
 //					(Time.deltaTime/3+0.01f)
@@ -126,7 +127,8 @@ public class Attacks : MonoBehaviour
 				
 								}
 						}
-						if (controller1State.Buttons.Y == ButtonState.Released) {
+                        if (controller1State.Triggers.Left == 0)
+                        {
 								if (isPowerMoving) {
 										rb.velocity = Vector3.zero;
 								}
@@ -140,9 +142,14 @@ public class Attacks : MonoBehaviour
 				if (thisCharacterTag == "Player2") {
 
 						#region player2
-						if (controller2State.Buttons.X == ButtonState.Pressed && controller2State.Buttons.LeftShoulder == ButtonState.Pressed) {
-//								Debug.Log ("Heavy Attacking");
-								performHeavyAttack ();
+						if (controller2State.Buttons.X == ButtonState.Pressed && controller2State.Triggers.Right > 0)
+                        {
+
+                            if (thisCharacter.CharPowerBar > heavyCost)
+                            {
+                                thisCharacter.CharPowerBar -= heavyCost;
+                                performHeavyAttack();
+                            }
 						} else if (controller2State.Buttons.X == ButtonState.Pressed) {
 								performQuickAttack ();
 						} else if (controller2State.Buttons.X == ButtonState.Released) {
@@ -150,7 +157,7 @@ public class Attacks : MonoBehaviour
 								animator.SetBool ("Chain", false);
 						}
 
-						if (controller2State.Buttons.Y == ButtonState.Pressed) {
+						if (controller2State.Triggers.Left > 0) {
 				
 								if (thisCharacter.getCharPowerBar () >= 1 && canPowerMove) {
 										//					(Time.deltaTime/3+0.01f)
@@ -161,7 +168,8 @@ public class Attacks : MonoBehaviour
 					
 								}
 						}
-						if (controller2State.Buttons.Y == ButtonState.Released) {
+                        if (controller2State.Triggers.Left == 0)
+                        {
 								if (isPowerMoving) {
 										rb.velocity = Vector3.zero;
 								}
@@ -294,49 +302,7 @@ public class Attacks : MonoBehaviour
 						source.PlayOneShot (swordClashSound, volume);
 						thisCharacter.setWeaponHitToTrue ();
 				}
-				/*if ((other.transform.root.name == thisCharacter.getOpponentName ().ToString ())) {
 
-						//Debug.Log(curAttack.ToString() + thisCharacter.getPNum().ToString());
-						collision_trigger = 1;
-                        if (GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().isCharBlocking())
-                              thisCharacter.setCurrentAttack(Character.AttackType.Reduced);
-						switch (thisCharacter.getCurrentAttack()) {
-                        case Character.AttackType.Empty:
-								break;
-                        case Character.AttackType.Reduced:
-								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (reducedAttackDamage);
-                    // As attacks are reduced, no hits are counted. 
-                    //thisCharacter.incrementHits();
-								break;
-                        case Character.AttackType.Heavy:
-								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (heavyAttackDamage);
-								thisCharacter.incrementHits ();
-								break;
-                        case Character.AttackType.Power:
-								break;
-						//GameObject.FindGameObjectWithTag(thisCharacter.getOpponentName().ToString()).GetComponent<Character>().beenHit(quickAttackDamage);                  
-                        case Character.AttackType.Quick:
-								Rigidbody rb = GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
-								rb.AddForce (0, 5, 10);
-								GameObject.FindGameObjectWithTag (thisCharacter.getOpponentName ().ToString ()).GetComponent<Character> ().beenHit (quickAttackDamage);
-								thisCharacter.incrementHits ();
-                    //Vector3 direction = Ray.direction;       
-                    //hit.rigidbody.AddForce(Ray.direction * force);
-								break;
-						default:
-								break;
-
-						}
-						//curAttack = AttackType.Empty;
-				}*/
-				
-
-////	
-//                if (other.transform.root.tag == "PowerUp") {
-//                        PowerUpScript ps = other.gameObject.GetComponent<PowerUpScript> ();
-//                        float pbAmount = thisCharacter.getCharPowerBar ();
-//                        thisCharacter.setCharPowerBar (pbAmount + ps.getPowerUpAmount ());
-//                }
 		}
 
 		void OnCollisionExit (Collision other)

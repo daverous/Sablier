@@ -23,7 +23,6 @@ public class CameraScript : MonoBehaviour
     #endregion
     public enum CamStates
     {
-        Locked,          // Locked to other player
         Free,            // Free to move wherever
         Jumping         //jumping whenever character is jumping
     }
@@ -76,11 +75,6 @@ public class CameraScript : MonoBehaviour
             //Debug.Log("jumping");
             camState = CamStates.Jumping;
         }
-        else if (locked > 0.3)
-        {
-            camState = CamStates.Locked;
-        }
-        
         else
         {
 			canLock = true;
@@ -89,30 +83,7 @@ public class CameraScript : MonoBehaviour
     }
 
     void LateUpdate()
-    {
-        if (camState == CamStates.Locked)
-        {
-            float canLockVal = thisChar.angles();
-            if (canLock)
-            {
-
-
-                if (canLockVal <= 50)
-                {
-                    thisChar.transform.LookAt(thisChar.getOpponentTransform());
-                    //canLock = false;
-                }
-
-            }
-                if (canLockVal > 50)
-                {
-                    canLock = false;
-                }
-			}
-           
-               
-        
-
+    {                  
             CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);
            
                 rotationY += y * controllerSensitivityY;
