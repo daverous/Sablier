@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
 		public float Damage;
     public int rotateSpeed = 10;
 		private float CharPowerBar = 0.0f;
+        private float blockCost = 0.005f;
 		public GameObject blood;
 		public GameObject powerParticle;
 		public Image VisualHealth1;
@@ -89,6 +90,7 @@ public class Character : MonoBehaviour
 		public float heavyAttackDamage = 10f;
 		public float powerMoveSpeed = 10f;
 		public float reducedAttackDamage = 2f;
+        private bool startedBlock;
     #endregion
 
 
@@ -215,18 +217,9 @@ public class Character : MonoBehaviour
 
 		public void turnCharToFaceOpponent ()
 		{    
-//		if (lerpTime >= 0.2f) {
-//			Debug.Log ("reset");
-//			lerpTime = 0;
-//				}
 
 				Quaternion targetRotation = Quaternion.LookRotation (getOpponentTransform ().position - transform.root.position);
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10);
-				//if (angle > 2)
-				//{
-						
-                //transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, str);
-				//}
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
 		}
 
 		// Return value is if character has been fully rotated
@@ -642,16 +635,30 @@ public class Character : MonoBehaviour
 
 //			performBlock
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
-								isBlocking = true;
+                            if (CharPowerBar > blockCost)
+                            {
+                                startedBlock = true;
+                            } 
+                                if (startedBlock)
+                                {
+                                    if (CharPowerBar < blockCost)
+                                    {
+                                        startedBlock = false;
+                                    }
+                                    isBlocking = true;
+                                    
+                                    CharPowerBar -= blockCost;
+                                    turnCharToFaceOpponent();
+                                    animator.SetBool("Blocking", true);
 
-								turnCharToFaceOpponent ();
-								animator.SetBool ("Blocking", true);
+                                    animator.SetBool("Blocking", true);
 
-								animator.SetBool("Blocking", true);
-
-								canMove = false;
+                                    canMove = false;
+                                }
+                        
 //				Debug.Log("Blocking true");
-						} else if (controller1State.Buttons.B == ButtonState.Released) {
+						} 
+                    if (controller1State.Buttons.B == ButtonState.Released || !startedBlock) {
 								isBlocking = false;
 								animator.SetBool ("Blocking", false);
 								canMove = true;
@@ -685,11 +692,29 @@ public class Character : MonoBehaviour
 						}
 
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
-								turnCharToFaceOpponent ();
-								animator.SetBool ("Blocking", true);
-								isBlocking = true;
-								canMove = false;
-						} else if (controller2State.Buttons.B == ButtonState.Released) {
+                            if (CharPowerBar > blockCost)
+                            {
+                                startedBlock = true;
+                            }
+                            if (startedBlock)
+                            {
+                                if (CharPowerBar < blockCost)
+                                {
+                                    startedBlock = false;
+                                }
+                                isBlocking = true;
+
+                                CharPowerBar -= blockCost;
+                                turnCharToFaceOpponent();
+                                animator.SetBool("Blocking", true);
+
+                                animator.SetBool("Blocking", true);
+
+                                canMove = false;
+                            }
+                        }
+                        else if (controller2State.Buttons.B == ButtonState.Released || !startedBlock)
+                        {
 								animator.SetBool ("Blocking", false);
 								isBlocking = false;
 								canMove = true;
