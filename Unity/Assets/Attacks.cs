@@ -19,7 +19,8 @@ public class Attacks : MonoBehaviour
 		public float powerMoveSpeed = 10f;
 		public float reducedAttackDamage = 2f;
 		public float volume = 5f;
-        private float heavyCost = .25f;
+        private float heavyCost = .1f;
+        private float powerCost = 0.5f;
 		private Animator animator;
 		private Animator opponent_animator;
 		private int collision_trigger = 0;
@@ -159,10 +160,10 @@ public class Attacks : MonoBehaviour
 
 						if (controller2State.Triggers.Left > 0) {
 				
-								if (thisCharacter.getCharPowerBar () >= 1 && canPowerMove) {
+								if (thisCharacter.getCharPowerBar () >= powerCost && canPowerMove) {
 										//					(Time.deltaTime/3+0.01f)
-										canPowerMove = false;	
-										thisCharacter.setCharPowerBar (0);
+										canPowerMove = false;
+                                        thisCharacter.CharPowerBar -= powerCost;
 										performPowerMove ();
 										//					isPowerMoving = true;
 					
@@ -353,10 +354,8 @@ public class Attacks : MonoBehaviour
 				thisCharacter.turnCharToFaceOpponent ();
 				thisCharacter.setCurrentAttack (Character.AttackType.Power);
 				Vector3 startPoint = transform.root.position;
-				Vector3 endPoint = thisCharacter.getOpponentTransform ().position;
-//		endPoint.x += 4;
-//		endPoint.y += 5;
-//		endPoint.z += 4;
+            Transform opp = thisCharacter.getOpponentTransform ();
+				Vector3 endPoint = opp.position+(opp.forward*5);
 				transform.root.position = endPoint;
 				//animator.SetBool ("Heavy", true);
 //						Vector3 dir = (endPoint - startPoint);
