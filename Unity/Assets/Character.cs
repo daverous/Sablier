@@ -283,7 +283,7 @@ public class Character : MonoBehaviour
 						}
 				}
 				//Hit bad guy
-				if (other.collider.transform.root.tag == "Baddy") {
+				if (other.collider.transform.root.tag == "Baddy" && curAttack != AttackType.Empty) {
 						StartCoroutine (vibrateTimer (0.2f));
 						Destroy (other.gameObject);
 						incrementBaddiesKilled ();
