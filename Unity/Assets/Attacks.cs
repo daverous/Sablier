@@ -233,6 +233,9 @@ public class Attacks : MonoBehaviour
 		    			animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")||
 		     			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward")||
+		      			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashBack")||
+					    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DashBack")||
+					    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DashForward")||
 		      			animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")||
 		   				animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF"))) {
 						
@@ -259,6 +262,10 @@ public class Attacks : MonoBehaviour
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickBack")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy")||
+				    animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashForward")||
+				    animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DashBack")||
+				    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DashBack")||
+				    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DashForward")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DamageHeavy")||
 		   		 	animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")) {
 						animator.applyRootMotion = true;
@@ -296,9 +303,11 @@ public class Attacks : MonoBehaviour
 
 		void OnCollisionEnter (Collision other)
 		{
-            	if (animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")||
-		   			animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy")){
+            	if ((animator.GetCurrentAnimatorStateInfo(0).IsName("SkyBlade|AerialHeavy")||
+		   			animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy"))&&
+					(thisCharacter.CharPowerBar > heavyCost)){
 					animator.SetBool("Aerial", true);
+					thisCharacter.CharPowerBar -= heavyCost;
 				}
 				if ((other.collider.tag == "Weapon")) {
 						source.PlayOneShot (swordClashSound, volume);
@@ -315,6 +324,7 @@ public class Attacks : MonoBehaviour
 		}
 		private void performHeavyAttack ()
 		{
+			
 				thisCharacter.setCurrentAttack (Character.AttackType.Heavy);
 				animator.applyRootMotion = true;
 				animator.SetBool ("Heavy", true);
@@ -329,8 +339,7 @@ public class Attacks : MonoBehaviour
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavyEndF")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavyEndF")||
-		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickBack")||
-		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy")){
+		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickBack")){
 					animator.applyRootMotion = true;
 				}
 				thisCharacter.setCurrentAttack (Character.AttackType.Quick);

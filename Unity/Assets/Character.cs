@@ -283,6 +283,11 @@ public class Character : MonoBehaviour
 						}
 				}
 				//Hit bad guy
+				if (other.collider.tag == "Scorch") {
+					StartCoroutine (vibrateTimer (0.2f));
+					beenHit (5, opponent.gameObject);
+				}
+				
 				if (other.collider.transform.root.tag == "Baddy" && curAttack != AttackType.Empty) {
 						StartCoroutine (vibrateTimer (0.2f));
 						Destroy (other.gameObject);
@@ -595,6 +600,10 @@ public class Character : MonoBehaviour
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
 				
+				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Skyblade|Taunt")||
+					animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Taunt")){
+						turnCharToFaceOpponent();
+				}
 
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Taunt") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Taunt") ||
@@ -633,25 +642,31 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
-                        if (controller1State.Buttons.LeftShoulder == ButtonState.Pressed)
-                        {
+                        if (controller1State.Buttons.LeftShoulder == ButtonState.Pressed &&
+							!(animator.GetCurrentAnimatorStateInfo (0).IsName("SkyBlade|DashBack")))
+                        {	
+							animator.applyRootMotion = true;
 							animator.SetBool("bDash", true);
                         }
 
-                        if (controller1State.Buttons.RightShoulder == ButtonState.Pressed)
-                        {
+						if (controller1State.Buttons.RightShoulder == ButtonState.Pressed &&
+						    !(animator.GetCurrentAnimatorStateInfo (0).IsName("SkyBlade|DashForward")))
+						{
+							animator.applyRootMotion = true;
 							animator.SetBool("fDash", true);
-                        }
+						}
                         if (controller1State.Buttons.Y == ButtonState.Pressed)
                         {
 							animator.SetBool("Taunt", true);
                         }
-						if (controller1State.Buttons.LeftShoulder == ButtonState.Released)
+						if (controller1State.Buttons.LeftShoulder == ButtonState.Released ||
+						    animator.GetCurrentAnimatorStateInfo (0).IsName("SkyBlade|DashBack"))
 						{
 							animator.SetBool("bDash", false);
 						}
 						
-						if (controller1State.Buttons.RightShoulder == ButtonState.Released)
+						if (controller1State.Buttons.RightShoulder == ButtonState.Released||
+						    animator.GetCurrentAnimatorStateInfo (0).IsName("SkyBlade|DashForward"))
 						{
 							animator.SetBool("fDash", false);
 						}
@@ -719,12 +734,14 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
-						if (controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
+						if (controller2State.Buttons.LeftShoulder == ButtonState.Pressed &&
+						    !animator.GetCurrentAnimatorStateInfo (0).IsName("PipeBlade|DashBack"))
 						{
 							animator.SetBool("bDash", true);
 						}
 						
-						if (controller2State.Buttons.RightShoulder == ButtonState.Pressed)
+						if (controller2State.Buttons.RightShoulder == ButtonState.Pressed &&
+						    !animator.GetCurrentAnimatorStateInfo (0).IsName("PipeBlade|DashForward"))
 						{
 							animator.SetBool("fDash", true);
 						}
@@ -732,12 +749,14 @@ public class Character : MonoBehaviour
 						{
 							animator.SetBool("Taunt", true);
 						}
-						if (controller2State.Buttons.LeftShoulder == ButtonState.Released)
+						if (controller2State.Buttons.LeftShoulder == ButtonState.Released ||
+						    animator.GetCurrentAnimatorStateInfo (0).IsName("PipeBlade|DashBack"))
 						{
 							animator.SetBool("bDash", false);
 						}
 						
-						if (controller1State.Buttons.RightShoulder == ButtonState.Released)
+						if (controller2State.Buttons.RightShoulder == ButtonState.Released ||
+						    animator.GetCurrentAnimatorStateInfo (0).IsName("PipeBlade|DashForward"))
 						{
 							animator.SetBool("fDash", false);
 						}
