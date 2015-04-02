@@ -36,8 +36,16 @@ public class GuiScript : MonoBehaviour
 		{
             controller1State = GamePad.GetState(playerIndex);
             controller2State = GamePad.GetState(player2Index);
+
             if (controller1State.Buttons.Start == ButtonState.Pressed)
             {
+               CameraShakeScript[] css =  GameObject.FindObjectsOfType<CameraShakeScript>();
+               Debug.Log(css.Length);
+                foreach (CameraShakeScript camera in css) {
+                    camera.stopShake();
+                }
+                GamePad.SetVibration(playerIndex, 0, 0);
+                GamePad.SetVibration(player2Index, 0, 0);
 						header = "Player 1 has Paused";
 						thisChar = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
 						player = 1;
@@ -47,6 +55,8 @@ public class GuiScript : MonoBehaviour
 				}
             if (controller2State.Buttons.Start == ButtonState.Pressed)
             {
+                GamePad.SetVibration(playerIndex, 0, 0);
+                GamePad.SetVibration(player2Index, 0, 0);
 						header = "Player 2 has Paused";
 						thisChar = GameObject.FindGameObjectWithTag ("Player").GetComponent<Character> ();
 						player = 2;
@@ -107,8 +117,7 @@ public class GuiScript : MonoBehaviour
 		public Vector2 scrollPosition = Vector2.zero;
 		void drawPause ()
 		{
-            GamePad.SetVibration(playerIndex, 0, 0);
-            GamePad.SetVibration(player2Index, 0, 0);
+
 
 				var centerX = Screen.width / 2;
 				var centerY = Screen.height / 2;
