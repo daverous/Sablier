@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
     #region Vars
 		public float Damage;
     public int rotateSpeed = 10;
-		private float CharPowerBar = 0.0f;
+		public float CharPowerBar = 0.0f;
         private float blockCost = 0.005f;
 		public GameObject blood;
 		public GameObject powerParticle;
