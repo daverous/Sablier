@@ -440,7 +440,7 @@ public class Character : MonoBehaviour
 						}
 
 				}
-				
+				transform.LookAt(hurter.transform);
 				animator.SetBool ("Damaged", true);
 				
 
