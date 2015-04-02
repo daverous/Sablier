@@ -86,8 +86,8 @@ public class CameraScript : MonoBehaviour
     {                  
             CameraTarget.root.Rotate(Vector3.up * x * controllerSensitivityX * Time.deltaTime);
            
-                rotationY += y * controllerSensitivityY;
-                rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+                //rotationY += y * controllerSensitivityY;
+                //rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
                 transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
             
