@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f032a3270a8994d478d31a412fc7d036
-timeCreated: 1427805596
+guid: 43095633d46ce9c488cf915ddfa2ca0a
+timeCreated: 1427924787
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -196,11 +196,8 @@ ModelImporter:
     4300024: Circle.001
     4300026: Circle
     7400000: Armature|SkyBlade_Anims_Full
-    7400002: SkyBlade|QuickOverShoulderF
-    7400004: SkyBlade|QuickFromSideF
-    7400006: SkyBlade|AerialHeavyEndF
-    7400008: SkyBlade|HeavyF
-    7400010: SkyBlade|AerialHeavyF
+    7400002: SkyBlade|Falling
+    7400004: SkyBlade|QuickBack
     9500000: //RootNode
     13700000: Circle
     13700002: Circle.001
@@ -236,7 +233,7 @@ ModelImporter:
       name: Armature|SkyBlade_Anims_Full
       takeName: Armature|SkyBlade_Anims_Full
       firstFrame: 0
-      lastFrame: 1570
+      lastFrame: 1680
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -247,9 +244,9 @@ ModelImporter:
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -435,12 +432,12 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: SkyBlade|QuickOverShoulderF
+      name: SkyBlade|Falling
       takeName: Armature|SkyBlade_Anims_Full
-      firstFrame: 87
-      lastFrame: 121
+      firstFrame: 1640
+      lastFrame: 1680
       wrapMode: 0
-      orientationOffsetY: 118.410004
+      orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
@@ -449,9 +446,9 @@ ModelImporter:
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -637,629 +634,23 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: SkyBlade|QuickFromSideF
+      name: SkyBlade|QuickBack
       takeName: Armature|SkyBlade_Anims_Full
-      firstFrame: 152
-      lastFrame: 192
+      firstFrame: 1560
+      lastFrame: 1630
       wrapMode: 0
-      orientationOffsetY: -32.2999992
+      orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Abdomen
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_06
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_06/PonyTail_06_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Hip.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Hip.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06/Sash_07
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06/Sash_07/Sash_07_end
-        weight: 0
-      - path: Armature/Bone/Arm_IK.L
-        weight: 0
-      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
-        weight: 0
-      - path: Armature/Bone/Arm_IK.R
-        weight: 0
-      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
-        weight: 0
-      - path: Armature/Bone/Elbow.L
-        weight: 0
-      - path: Armature/Bone/Elbow.L/Elbow.L_end
-        weight: 0
-      - path: Armature/Bone/Elbow.R
-        weight: 0
-      - path: Armature/Bone/Elbow.R/Elbow.R_end
-        weight: 0
-      - path: Armature/Bone/Foot_IK.L
-        weight: 0
-      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
-        weight: 0
-      - path: Armature/Bone/Foot_IK.R
-        weight: 0
-      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
-        weight: 0
-      - path: Armature/Bone/Knee.L
-        weight: 0
-      - path: Armature/Bone/Knee.L/Knee.L_end
-        weight: 0
-      - path: Armature/Bone/Knee.R
-        weight: 0
-      - path: Armature/Bone/Knee.R/Knee.R_end
-        weight: 0
-      - path: Camera
-        weight: 0
-      - path: Circle
-        weight: 0
-      - path: Circle.001
-        weight: 0
-      - path: Cube
-        weight: 0
-      - path: Goggles
-        weight: 0
-      - path: Hat
-        weight: 0
-      - path: Lamp
-        weight: 0
-      - path: Lamp.001
-        weight: 0
-      - path: Lamp.002
-        weight: 0
-      - path: Lamp.003
-        weight: 0
-      - path: PantDeets
-        weight: 0
-      - path: Plane
-        weight: 0
-      - path: Ponytail
-        weight: 0
-      - path: SkyBlade
-        weight: 0
-      - path: SkyBlade Wielder
-        weight: 0
-      - path: Sphere
-        weight: 0
-      - path: Sphere.001
-        weight: 0
-      - path: Zipper
-        weight: 0
-      - path: ZipperBase
-        weight: 0
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: SkyBlade|HeavyF
-      takeName: Armature|SkyBlade_Anims_Full
-      firstFrame: 750
-      lastFrame: 840
-      wrapMode: 0
-      orientationOffsetY: 180
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Abdomen
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_06
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_06/PonyTail_06_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Hip.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Hip.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06/Sash_07
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06/Sash_07/Sash_07_end
-        weight: 0
-      - path: Armature/Bone/Arm_IK.L
-        weight: 0
-      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
-        weight: 0
-      - path: Armature/Bone/Arm_IK.R
-        weight: 0
-      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
-        weight: 0
-      - path: Armature/Bone/Elbow.L
-        weight: 0
-      - path: Armature/Bone/Elbow.L/Elbow.L_end
-        weight: 0
-      - path: Armature/Bone/Elbow.R
-        weight: 0
-      - path: Armature/Bone/Elbow.R/Elbow.R_end
-        weight: 0
-      - path: Armature/Bone/Foot_IK.L
-        weight: 0
-      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
-        weight: 0
-      - path: Armature/Bone/Foot_IK.R
-        weight: 0
-      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
-        weight: 0
-      - path: Armature/Bone/Knee.L
-        weight: 0
-      - path: Armature/Bone/Knee.L/Knee.L_end
-        weight: 0
-      - path: Armature/Bone/Knee.R
-        weight: 0
-      - path: Armature/Bone/Knee.R/Knee.R_end
-        weight: 0
-      - path: Camera
-        weight: 0
-      - path: Circle
-        weight: 0
-      - path: Circle.001
-        weight: 0
-      - path: Cube
-        weight: 0
-      - path: Goggles
-        weight: 0
-      - path: Hat
-        weight: 0
-      - path: Lamp
-        weight: 0
-      - path: Lamp.001
-        weight: 0
-      - path: Lamp.002
-        weight: 0
-      - path: Lamp.003
-        weight: 0
-      - path: PantDeets
-        weight: 0
-      - path: Plane
-        weight: 0
-      - path: Ponytail
-        weight: 0
-      - path: SkyBlade
-        weight: 0
-      - path: SkyBlade Wielder
-        weight: 0
-      - path: Sphere
-        weight: 0
-      - path: Sphere.001
-        weight: 0
-      - path: Zipper
-        weight: 0
-      - path: ZipperBase
-        weight: 0
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: SkyBlade|AerialHeavyF
-      takeName: Armature|SkyBlade_Anims_Full
-      firstFrame: 860
-      lastFrame: 870
-      wrapMode: 0
-      orientationOffsetY: 180
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Abdomen
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Bone.017/Bone.017_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.L.01/EarFlap.L.02/EarFlap.L.03/EarFlap.L.03_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/EarFlap.R.01/EarFlap.R.02/EarFlap.R.03/EarFlap.R.03_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_06
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Neck.R/Head/PonyTail_01/PonyTail_02/PonyTail_03/PonyTail_04/PonyTail_05/PonyTail_06/PonyTail_06_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.L/UpperArm.L/Forearm.L/Hand.L/Hand.L_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Chest/Shoulder.R/UpperArm.R/Forearm.R/Hand.R/Hand.R_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Hip.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.L/Thigh.L/Calf.L/Foot.L/Foot.L_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Hip.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R
-        weight: 1
-      - path: Armature/Bone/Abdomen/Hip.R/Thigh.R/Calf.R/Foot.R/Foot.R_end
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06/Sash_07
-        weight: 0
-      - path: Armature/Bone/Abdomen/Sash_00/Sash_01/Sash_02/Sash_03/Sash_04/Sash_05/Sash_06/Sash_07/Sash_07_end
-        weight: 0
-      - path: Armature/Bone/Arm_IK.L
-        weight: 0
-      - path: Armature/Bone/Arm_IK.L/Arm_IK.L_end
-        weight: 0
-      - path: Armature/Bone/Arm_IK.R
-        weight: 0
-      - path: Armature/Bone/Arm_IK.R/Arm_IK.R_end
-        weight: 0
-      - path: Armature/Bone/Elbow.L
-        weight: 0
-      - path: Armature/Bone/Elbow.L/Elbow.L_end
-        weight: 0
-      - path: Armature/Bone/Elbow.R
-        weight: 0
-      - path: Armature/Bone/Elbow.R/Elbow.R_end
-        weight: 0
-      - path: Armature/Bone/Foot_IK.L
-        weight: 0
-      - path: Armature/Bone/Foot_IK.L/Foot_IK.L_end
-        weight: 0
-      - path: Armature/Bone/Foot_IK.R
-        weight: 0
-      - path: Armature/Bone/Foot_IK.R/Foot_IK.R_end
-        weight: 0
-      - path: Armature/Bone/Knee.L
-        weight: 0
-      - path: Armature/Bone/Knee.L/Knee.L_end
-        weight: 0
-      - path: Armature/Bone/Knee.R
-        weight: 0
-      - path: Armature/Bone/Knee.R/Knee.R_end
-        weight: 0
-      - path: Camera
-        weight: 0
-      - path: Circle
-        weight: 0
-      - path: Circle.001
-        weight: 0
-      - path: Cube
-        weight: 0
-      - path: Goggles
-        weight: 0
-      - path: Hat
-        weight: 0
-      - path: Lamp
-        weight: 0
-      - path: Lamp.001
-        weight: 0
-      - path: Lamp.002
-        weight: 0
-      - path: Lamp.003
-        weight: 0
-      - path: PantDeets
-        weight: 0
-      - path: Plane
-        weight: 0
-      - path: Ponytail
-        weight: 0
-      - path: SkyBlade
-        weight: 0
-      - path: SkyBlade Wielder
-        weight: 0
-      - path: Sphere
-        weight: 0
-      - path: Sphere.001
-        weight: 0
-      - path: Zipper
-        weight: 0
-      - path: ZipperBase
-        weight: 0
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: SkyBlade|AerialHeavyEndF
-      takeName: Armature|SkyBlade_Anims_Full
-      firstFrame: 882
-      lastFrame: 919
-      wrapMode: 0
-      orientationOffsetY: 180
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -1624,7 +1015,7 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: SkyBlade_AttackFix2(Clone)
+    - name: SkyBlade_AttackFix3(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1635,59 +1026,59 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Bone
-      position: {x: -.207447439, y: -2.15895605, z: -2.74561787}
-      rotation: {x: .000428955187, y: .999681771, z: -.0252232887, w: -1.06411471e-05}
+      position: {x: -.00284587871, y: -1.93288529, z: -3.06003356}
+      rotation: {x: .00042883202, y: .999681771, z: -.0252232887, w: -1.06380621e-05}
       scale: {x: 1, y: 1.00000012, z: 1.00008821}
       transformModified: 1
     - name: Abdomen
-      position: {x: -.206932887, y: .669001341, z: -2.96743703}
+      position: {x: .00905778725, y: .427182317, z: -3.26990652}
       rotation: {x: .689423323, y: -4.05380796e-08, z: -2.1325647e-07, w: -.724358618}
-      scale: {x: 1.00000179, y: .999998271, z: .999999404}
+      scale: {x: 1.00000024, y: .999998629, z: 1.00000048}
       transformModified: 1
     - name: Chest
-      position: {x: -9.31322575e-08, y: .645874023, z: -1.86264515e-09}
+      position: {x: 1.16415322e-10, y: .645873725, z: 1.97188001e-07}
       rotation: {x: -.223312408, y: 2.95067899e-08, z: 4.98163146e-08, w: .974746943}
-      scale: {x: .999999642, y: .999958932, z: 1.00004232}
+      scale: {x: .999999404, y: .999968708, z: 1.00003242}
       transformModified: 1
     - name: Neck.R
-      position: {x: 5.96046448e-08, y: .793276668, z: 2.98023224e-08}
+      position: {x: -5.38420863e-10, y: .793276012, z: 2.01405783e-07}
       rotation: {x: .247849479, y: -9.20628622e-08, z: -7.14319697e-08, w: .968798578}
-      scale: {x: .999998927, y: .999632716, z: 1.00036681}
+      scale: {x: .999999344, y: .999650836, z: 1.00034773}
       transformModified: 1
     - name: Head
-      position: {x: 1.86264515e-07, y: .417361826, z: 0}
+      position: {x: -6.98491931e-10, y: .417361319, z: 3.18472303e-07}
       rotation: {x: -.034615837, y: -1.93144842e-08, z: 1.39232297e-08, w: .999400735}
-      scale: {x: 1.00001073, y: 1.00001323, z: .99997592}
+      scale: {x: 1.00000036, y: .999998748, z: 1.00000095}
       transformModified: 1
     - name: PonyTail_01
-      position: {x: .000103212893, y: .0515420623, z: -.132739455}
+      position: {x: .000103100087, y: .0515412427, z: -.132739305}
       rotation: {x: -.874877214, y: 1.02177786e-07, z: 1.84143403e-07, w: .484344661}
-      scale: {x: 1.00000107, y: 1.00018966, z: .999813735}
+      scale: {x: 1.00000119, y: 1.00025725, z: .999745667}
       transformModified: 1
     - name: PonyTail_02
-      position: {x: 3.35276127e-08, y: .113938928, z: -4.09781933e-08}
+      position: {x: 1.39698386e-09, y: .1139393, z: 3.45040462e-07}
       rotation: {x: -.196342349, y: .0240613632, z: .00506244553, w: .980227113}
-      scale: {x: .999997258, y: 1.00148499, z: .998515844}
+      scale: {x: .999998391, y: 1.00141597, z: .998585582}
       transformModified: 1
     - name: PonyTail_03
-      position: {x: -4.47034836e-08, y: .126810506, z: -5.58793545e-08}
+      position: {x: 9.31322575e-09, y: .126811311, z: 2.08732672e-07}
       rotation: {x: -.065512158, y: -.0219145026, z: -.0111496104, w: .997548819}
-      scale: {x: .999999762, y: 1.00075293, z: .999255419}
+      scale: {x: .999999106, y: 1.00080597, z: .999202669}
       transformModified: 1
     - name: PonyTail_04
-      position: {x: -5.21540642e-08, y: .153164387, z: 4.47034836e-08}
+      position: {x: 5.82076609e-10, y: .153164536, z: 3.10934411e-07}
       rotation: {x: -.0337084942, y: -3.93094183e-07, z: 2.46822243e-08, w: .999431729}
-      scale: {x: .999997616, y: 1.00061834, z: .999380887}
+      scale: {x: .999998033, y: 1.0006361, z: .999364436}
       transformModified: 1
     - name: PonyTail_05
-      position: {x: 3.16649675e-08, y: .136904448, z: 7.4505806e-08}
+      position: {x: 1.51339918e-09, y: .136904418, z: 6.63076207e-08}
       rotation: {x: -.110664845, y: 1.83647337e-08, z: -3.03041681e-09, w: .993857861}
-      scale: {x: 1.00000024, y: 1.00252438, z: .997494757}
+      scale: {x: 1.0000006, y: 1.00256681, z: .997452915}
       transformModified: 1
     - name: PonyTail_06
-      position: {x: -9.68575478e-08, y: .174985245, z: 0}
+      position: {x: -1.16415322e-10, y: .174985021, z: -4.6351488e-08}
       rotation: {x: -.0863126442, y: .0991005972, z: -.0190311223, w: .991144359}
-      scale: {x: .999653816, y: 1.00355685, z: .996834993}
+      scale: {x: .999664843, y: 1.00355864, z: .996821463}
       transformModified: 1
     - name: PonyTail_06_end
       position: {x: -0, y: .232649416, z: 0}
@@ -1695,19 +1086,19 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EarFlap.L.01
-      position: {x: -.252480567, y: .358336121, z: .134011596}
+      position: {x: -.252480716, y: .358335644, z: .134011671}
       rotation: {x: -.70671612, y: -.0338277891, z: -.70629704, w: -.023508504}
-      scale: {x: 1.00003421, y: .999966383, z: 1.00002563}
+      scale: {x: 1.00004661, y: .999953628, z: 1.00002551}
       transformModified: 1
     - name: EarFlap.L.02
-      position: {x: 1.15483999e-07, y: .176375538, z: -4.65661287e-08}
+      position: {x: 2.32306775e-07, y: .176375747, z: -2.3166649e-08}
       rotation: {x: -.00516163418, y: -.707087994, z: .00516469264, w: .707087934}
-      scale: {x: .999999762, y: 1.00000083, z: .999999881}
+      scale: {x: .999999642, y: 1.00000095, z: 1.00000012}
       transformModified: 1
     - name: EarFlap.L.03
-      position: {x: -2.42143869e-08, y: .109467633, z: 1.37835741e-07}
+      position: {x: -4.54019755e-09, y: .109468393, z: -1.6100239e-07}
       rotation: {x: -3.55688599e-08, y: -.999953806, z: .0096132569, w: 2.48373738e-07}
-      scale: {x: 1, y: .999976575, z: 1.00002253}
+      scale: {x: 1, y: .999975145, z: 1.00002456}
       transformModified: 1
     - name: EarFlap.L.03_end
       position: {x: -0, y: .126519471, z: 0}
@@ -1715,19 +1106,19 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EarFlap.R.01
-      position: {x: .260801643, y: .358336121, z: .134011462}
+      position: {x: .260801554, y: .358335048, z: .134011626}
       rotation: {x: -.70671612, y: -.0338277891, z: -.70629704, w: -.023508504}
-      scale: {x: 1.00003421, y: .999966383, z: 1.00002563}
+      scale: {x: 1.00004661, y: .999953628, z: 1.00002551}
       transformModified: 1
     - name: EarFlap.R.02
-      position: {x: 9.68575478e-08, y: .176375464, z: 3.91155481e-08}
+      position: {x: 1.23691279e-07, y: .176375762, z: 2.22353265e-08}
       rotation: {x: -.00516163418, y: -.707087994, z: .00516469264, w: .707087934}
-      scale: {x: .999999762, y: 1.00000083, z: .999999881}
+      scale: {x: .999999642, y: 1.00000095, z: 1.00000012}
       transformModified: 1
     - name: EarFlap.R.03
-      position: {x: 3.16649675e-08, y: .109467566, z: 8.94069672e-08}
+      position: {x: 5.49480319e-08, y: .109467931, z: -7.32834451e-08}
       rotation: {x: -3.55688599e-08, y: -.999953806, z: .0096132569, w: 2.48373738e-07}
-      scale: {x: 1, y: .999976575, z: 1.00002253}
+      scale: {x: 1, y: .999975145, z: 1.00002456}
       transformModified: 1
     - name: EarFlap.R.03_end
       position: {x: -0, y: .126519471, z: 0}
@@ -1735,9 +1126,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Bone.017
-      position: {x: -.000427560881, y: .19757399, z: .242316499}
+      position: {x: -.000427708728, y: .197573885, z: .242316693}
       rotation: {x: -.896937609, y: -3.08563166e-08, z: 2.79677124e-07, w: -.442157239}
-      scale: {x: .999999881, y: 1.00010753, z: .999894023}
+      scale: {x: 1.00000012, y: .999993324, z: 1.00000811}
       transformModified: 1
     - name: Bone.017_end
       position: {x: -0, y: .207593635, z: 0}
@@ -1745,24 +1136,24 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Shoulder.L
-      position: {x: 5.96046448e-08, y: .793276668, z: 2.98023224e-08}
+      position: {x: -5.38420863e-10, y: .793276012, z: 2.01405783e-07}
       rotation: {x: -.404903024, y: .408023298, z: .505683661, w: .643315315}
-      scale: {x: 1.00026143, y: 1.00001407, z: .999723852}
+      scale: {x: 1.00025618, y: 1.00001466, z: .999729216}
       transformModified: 1
     - name: UpperArm.L
-      position: {x: -4.47034836e-08, y: .4298186, z: 6.33299351e-08}
+      position: {x: 4.17232513e-07, y: .429818809, z: 5.96046448e-07}
       rotation: {x: -.0466817021, y: -.0261509717, z: .074330166, w: .995797157}
-      scale: {x: 1.00004792, y: 1.00004101, z: .999912441}
+      scale: {x: 1.00001287, y: 1.00006855, z: .999921143}
       transformModified: 1
     - name: Forearm.L
-      position: {x: -2.38418579e-07, y: .859498978, z: 2.98023224e-08}
+      position: {x: 1.40164047e-07, y: .859498978, z: -4.76837158e-07}
       rotation: {x: -.0160871465, y: -.0257405508, z: .00348739349, w: -.999533117}
-      scale: {x: .999948025, y: .999989688, z: 1.00006318}
+      scale: {x: .999994099, y: .999970496, z: 1.0000366}
       transformModified: 1
     - name: Hand.L
-      position: {x: -4.09781933e-08, y: .671196401, z: 1.86264515e-09}
+      position: {x: -1.1920929e-07, y: .671196401, z: -2.38418579e-07}
       rotation: {x: -.0045351088, y: .0718747526, z: -.00213168561, w: .997401118}
-      scale: {x: .999947667, y: 1.00000715, z: 1.00004554}
+      scale: {x: .99996227, y: 1.00000417, z: 1.0000329}
       transformModified: 1
     - name: Hand.L_end
       position: {x: -0, y: .538363814, z: 0}
@@ -1770,24 +1161,24 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Shoulder.R
-      position: {x: 5.96046448e-08, y: .793276668, z: 2.98023224e-08}
+      position: {x: -5.38420863e-10, y: .793276012, z: 2.01405783e-07}
       rotation: {x: -.393554837, y: -.407409668, z: -.504585862, w: .651555896}
-      scale: {x: 1.00027061, y: 1.00001621, z: .999714196}
+      scale: {x: 1.00026822, y: 1.00001431, z: .999718428}
       transformModified: 1
     - name: UpperArm.R
-      position: {x: -4.84287739e-08, y: .433874637, z: 4.09781933e-08}
+      position: {x: 8.94069672e-08, y: .433874607, z: 8.15838575e-07}
       rotation: {x: -.0632683784, y: .00769922277, z: -.0757000148, w: .995091677}
-      scale: {x: 1.00000703, y: 1.00008857, z: .999904454}
+      scale: {x: 1.00000584, y: 1.0000788, z: .999914348}
       transformModified: 1
     - name: Forearm.R
-      position: {x: 3.35276127e-08, y: .857040644, z: 7.68341124e-08}
+      position: {x: -1.49011612e-08, y: .857040644, z: -2.98023224e-07}
       rotation: {x: .0224228781, y: -.0163106304, z: .00400899304, w: .999607444}
-      scale: {x: .999981046, y: .999959767, z: 1.00005674}
+      scale: {x: .999988854, y: .999967098, z: 1.0000416}
       transformModified: 1
     - name: Hand.R
-      position: {x: 2.79396772e-08, y: .670960188, z: -1.04308128e-07}
+      position: {x: -0, y: .670960307, z: -2.68220901e-07}
       rotation: {x: -.0289427191, y: -.108379245, z: .00527285039, w: .993674278}
-      scale: {x: .99993962, y: 1.0000186, z: 1.00004208}
+      scale: {x: .999974906, y: 1.00002062, z: 1.00000501}
       transformModified: 1
     - name: Hand.R_end
       position: {x: -0, y: .53774941, z: 0}
@@ -1795,24 +1186,24 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Hip.L
-      position: {x: -5.21540642e-08, y: -.0154986642, z: .00473045744}
+      position: {x: 1.51339918e-09, y: -.015498939, z: .0047305664}
       rotation: {x: -.432795495, y: .420425177, z: .544619024, w: .582512617}
-      scale: {x: .999967933, y: .999998927, z: 1.00003159}
+      scale: {x: .999968171, y: 1.00000131, z: 1.00002861}
       transformModified: 1
     - name: Thigh.L
-      position: {x: 2.98023224e-08, y: .340809703, z: -2.98023224e-08}
+      position: {x: -6.89178705e-08, y: .340809464, z: 1.75088644e-07}
       rotation: {x: -.67428714, y: .388342977, z: -.177030936, w: .602649748}
-      scale: {x: 1.00010383, y: .999770284, z: 1.00012875}
+      scale: {x: 1.0001266, y: .999746919, z: 1.00012755}
       transformModified: 1
     - name: Calf.L
-      position: {x: 2.08616257e-07, y: 1.53738034, z: 1.49011612e-07}
+      position: {x: 1.1920929e-07, y: 1.53738058, z: -1.63912773e-07}
       rotation: {x: -.000314917415, y: .366980046, z: -.012624843, w: .930143178}
-      scale: {x: .999890506, y: .999988556, z: 1.00011909}
+      scale: {x: .999893367, y: .999993026, z: 1.00011301}
       transformModified: 1
     - name: Foot.L
-      position: {x: 5.96046448e-08, y: 1.63310623, z: 2.98023224e-08}
+      position: {x: -9.31322575e-09, y: 1.63310564, z: -1.95577741e-08}
       rotation: {x: -.693812788, y: .0115095014, z: -.00259476295, w: .72005868}
-      scale: {x: 1.00000083, y: 1.0000149, z: .999988019}
+      scale: {x: 1.00000632, y: 1.00001013, z: .999987364}
       transformModified: 1
     - name: Foot.L_end
       position: {x: -0, y: .62146759, z: 0}
@@ -1820,24 +1211,24 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Hip.R
-      position: {x: -2.98023224e-08, y: -.00919532217, z: .0040989574}
+      position: {x: 1.0477379e-09, y: -.00919559784, z: .00409899373}
       rotation: {x: -.437348902, y: -.416330904, z: -.550902665, w: .576108396}
-      scale: {x: .999969065, y: .999998748, z: 1.00003207}
+      scale: {x: .999977469, y: 1.00000226, z: 1.00001943}
       transformModified: 1
     - name: Thigh.R
-      position: {x: 2.98023224e-08, y: .34098798, z: -1.86264515e-08}
+      position: {x: -4.84287739e-08, y: .340987951, z: -5.58793545e-08}
       rotation: {x: -.670698166, y: -.397561789, z: .187442243, w: .597472966}
-      scale: {x: 1.0001111, y: .99977392, z: 1.00011086}
+      scale: {x: 1.00011396, y: .999739408, z: 1.00014222}
       transformModified: 1
     - name: Calf.R
-      position: {x: 5.96046448e-08, y: 1.53587615, z: -8.94069672e-08}
+      position: {x: -0, y: 1.53587615, z: 1.78813934e-07}
       rotation: {x: .00280953199, y: -.352940291, z: .00325267203, w: .935635984}
-      scale: {x: .999899566, y: 1.00000393, z: 1.00010765}
+      scale: {x: .999947965, y: 1.00001633, z: 1.00004816}
       transformModified: 1
     - name: Foot.R
-      position: {x: -3.7252903e-09, y: 1.63239932, z: 0}
+      position: {x: -2.98023224e-08, y: 1.63239908, z: -1.49011612e-07}
       rotation: {x: -.693786681, y: -.0114879617, z: .00258744811, w: .72008431}
-      scale: {x: 1.00000191, y: 1.0000087, z: .999985397}
+      scale: {x: .999995708, y: 1.00000751, z: .999992251}
       transformModified: 1
     - name: Foot.R_end
       position: {x: -0, y: .621437848, z: 0}
@@ -1845,44 +1236,44 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Sash_00
-      position: {x: -.124286138, y: .193880945, z: -.0428205878}
+      position: {x: -.124286138, y: .193880484, z: -.0428205058}
       rotation: {x: -.0732022375, y: .004916206, z: .642864168, w: .762458444}
-      scale: {x: .999986947, y: .999997675, z: 1.00001287}
+      scale: {x: .999987721, y: .999997437, z: 1.00001347}
       transformModified: 1
     - name: Sash_01
-      position: {x: 1.49011612e-08, y: .26478669, z: -1.11758709e-07}
+      position: {x: -1.04308128e-07, y: .264786661, z: 7.4505806e-09}
       rotation: {x: .0228200778, y: -5.15021441e-07, z: .0697139278, w: .997305989}
-      scale: {x: .999945998, y: 1.00005281, z: 1.00000119}
+      scale: {x: .999944091, y: 1.00005448, z: 1.00000107}
       transformModified: 1
     - name: Sash_02
-      position: {x: 1.11758709e-08, y: .234995961, z: -2.23517418e-08}
+      position: {x: 2.42143869e-08, y: .234996006, z: -2.23517418e-08}
       rotation: {x: -.00240781438, y: -.702134967, z: -.0269895792, w: -.711528122}
-      scale: {x: 1.00000429, y: 1.00000381, z: .999994755}
+      scale: {x: 1.00000405, y: 1.00000393, z: .999995232}
       transformModified: 1
     - name: Sash_03
-      position: {x: 1.09430403e-07, y: .210353136, z: 1.49011612e-08}
+      position: {x: 1.46101229e-08, y: .210353076, z: -1.71596184e-07}
       rotation: {x: .653318465, y: -1.87754631e-06, z: -1.22189522e-06, w: -.757083297}
-      scale: {x: .999999166, y: .999935985, z: 1.00006151}
+      scale: {x: .999999166, y: .999934077, z: 1.0000627}
       transformModified: 1
     - name: Sash_04
-      position: {x: -1.35041773e-08, y: .210926503, z: -2.04890966e-08}
+      position: {x: -2.27009878e-08, y: .210926369, z: 1.1746306e-07}
       rotation: {x: .000371158152, y: -1.78813949e-07, z: -1.4901163e-08, w: .99999994}
-      scale: {x: 1.0000006, y: 1.00000083, z: 1.00000024}
+      scale: {x: 1.0000006, y: 1.00000072, z: 1.00000012}
       transformModified: 1
     - name: Sash_05
-      position: {x: -2.29221769e-07, y: .261024415, z: -2.23517418e-08}
+      position: {x: -1.58324838e-08, y: .261024415, z: 6.66186679e-08}
       rotation: {x: 4.47034836e-08, y: 8.94069672e-08, z: -1.11758709e-08, w: 1}
-      scale: {x: .999999642, y: .999999404, z: .999999702}
+      scale: {x: .999999642, y: .999998927, z: .999999523}
       transformModified: 1
     - name: Sash_06
-      position: {x: -2.45810952e-07, y: .242945462, z: -4.09781933e-08}
+      position: {x: -7.20610842e-08, y: .242945269, z: 1.91212166e-07}
       rotation: {x: -3.35276091e-08, y: 0, z: 3.72528994e-08, w: 1}
-      scale: {x: 1, y: .999999404, z: 1}
+      scale: {x: 1, y: .999999881, z: 1.00000024}
       transformModified: 1
     - name: Sash_07
-      position: {x: -1.85347744e-07, y: .231343403, z: -4.0512532e-08}
+      position: {x: 8.50996003e-08, y: .231343374, z: -7.60774128e-08}
       rotation: {x: 1.11758695e-07, y: 0, z: -2.98023188e-08, w: 1}
-      scale: {x: 1.00000012, y: .99999994, z: .999999225}
+      scale: {x: 1.00000012, y: .999999642, z: .999999583}
       transformModified: 1
     - name: Sash_07_end
       position: {x: -0, y: .250893593, z: 0}
@@ -1890,9 +1281,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Foot_IK.R
-      position: {x: -.159022212, y: .131796211, z: .238533214}
+      position: {x: .423170388, y: .0172417983, z: -1.60427487}
       rotation: {x: .99968183, y: 2.38278535e-08, z: -1.82648236e-07, w: .0252231974}
-      scale: {x: 1, y: .999999762, z: .999922752}
+      scale: {x: .999999523, y: .999999762, z: .999922514}
       transformModified: 1
     - name: Foot_IK.R_end
       position: {x: -0, y: .524159014, z: 0}
@@ -1900,9 +1291,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Foot_IK.L
-      position: {x: -.580103219, y: 1.76235855, z: -.00628530374}
+      position: {x: -.124090999, y: .332826793, z: -.555141449}
       rotation: {x: .99968183, y: -4.58931071e-09, z: -1.81918637e-07, w: .0252231974}
-      scale: {x: .999999642, y: .999999762, z: .999922633}
+      scale: {x: .999999523, y: .999999762, z: .999922276}
       transformModified: 1
     - name: Foot_IK.L_end
       position: {x: -0, y: .524158955, z: 0}
@@ -1910,9 +1301,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Knee.L
-      position: {x: -.410610855, y: 1.43162549, z: -1.66750109}
+      position: {x: -.0978608802, y: 2.62838674, z: -1.47063756}
       rotation: {x: .672451377, y: -.00458927872, z: .000115263283, w: -.740127146}
-      scale: {x: 1.00000226, y: .999997675, z: 1.0000031}
+      scale: {x: 1.00000215, y: .999998152, z: 1.00000262}
       transformModified: 1
     - name: Knee.L_end
       position: {x: -0, y: 1.00000226, z: 0}
@@ -1920,9 +1311,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Knee.R
-      position: {x: .405408293, y: .50517416, z: -1.62500179}
+      position: {x: 1.18497276, y: 2.22852969, z: -1.50008845}
       rotation: {x: .6704638, y: .00462430157, z: -.000116391115, w: -.741927862}
-      scale: {x: 1.00000179, y: 1.0000006, z: 1.00000203}
+      scale: {x: 1.00000155, y: 1.00000131, z: 1.00000179}
       transformModified: 1
     - name: Knee.R_end
       position: {x: -0, y: .995466828, z: 0}
@@ -1930,9 +1321,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Arm_IK.L
-      position: {x: -.363561779, y: 2.47890592, z: -3.73793793}
+      position: {x: -1.30554628, y: .450381428, z: -3.69361901}
       rotation: {x: .99968183, y: -4.58916105e-09, z: -1.81918622e-07, w: .0252237022}
-      scale: {x: .999999762, y: .999999583, z: .999898255}
+      scale: {x: 1, y: .999999642, z: .999898314}
       transformModified: 1
     - name: Arm_IK.L_end
       position: {x: -0, y: .447254717, z: 0}
@@ -1940,9 +1331,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Arm_IK.R
-      position: {x: -.405756891, y: -.254744053, z: -2.83600903}
+      position: {x: 1.38776505, y: .314398199, z: -3.74785995}
       rotation: {x: .99968189, y: -4.58960203e-09, z: -1.81918693e-07, w: .0252212621}
-      scale: {x: 1.00000024, y: .999999225, z: .999990344}
+      scale: {x: 1.00000024, y: .999999464, z: .999990582}
       transformModified: 1
     - name: Arm_IK.R_end
       position: {x: -0, y: .447254777, z: 0}
@@ -1950,9 +1341,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Elbow.L
-      position: {x: .245072827, y: 4.3147378, z: -4.69828224}
+      position: {x: -.574283957, y: 1.83724713, z: -4.64269781}
       rotation: {x: .724717498, y: -1.14563647e-07, z: -1.21605183e-07, w: -.689046144}
-      scale: {x: 1.00000024, y: 1, z: .999999642}
+      scale: {x: 1, y: 1, z: 1.00000012}
       transformModified: 1
     - name: Elbow.L_end
       position: {x: -0, y: .714733601, z: 0}
@@ -1960,9 +1351,9 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Elbow.R
-      position: {x: .861008286, y: -.0279315338, z: -4.58904314}
+      position: {x: .466380805, y: 1.8383981, z: -4.61990786}
       rotation: {x: .724717498, y: -1.14563647e-07, z: -1.21605183e-07, w: -.689046144}
-      scale: {x: 1.00000024, y: 1, z: .999999642}
+      scale: {x: 1, y: 1, z: 1.00000012}
       transformModified: 1
     - name: Elbow.R_end
       position: {x: -0, y: .714733601, z: 0}

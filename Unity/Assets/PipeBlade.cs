@@ -20,4 +20,12 @@ public class PipeBlade : MonoBehaviour {
 			animator.SetBool("Torch", false);
 		}
 	}
+	void OnCollisionEnter (Collision other){
+		Debug.Log ("GAS IT!");
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy")){
+			Debug.Log ("GAS IT");
+			anim.SetBool("Aerial", true);
+		}
+	}
+
 }

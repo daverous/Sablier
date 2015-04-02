@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
 		private float velocityClipSplit = 10F;
 		public Vector3 moveDirection;
 		private Transform opponent; //Transform for opponent 
+		[SerializeField]
 		private bool isGrounded;
 		private playerNum pNum;
 		private playerNum opponentName;
@@ -247,7 +248,8 @@ public class Character : MonoBehaviour
 		}
 
 		void OnCollisionEnter (Collision other)
-		{
+		{		
+
 				if (other.collider.tag == "PowerUp") {
 						float pu = other.gameObject.GetComponent<PowerUpScript> ().getPowerUpAmount ();
 						if (CharPowerBar <= 1 - pu) {
@@ -259,7 +261,9 @@ public class Character : MonoBehaviour
 						Destroy (other.gameObject);
 				}
 
-				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")) {
+				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")||
+		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|AerialHeavy")) {
+
 						animator.SetBool ("Aerial", true);
 				}
 				if (other.collider.tag == "HealthUp") {
@@ -279,6 +283,7 @@ public class Character : MonoBehaviour
 				if (other.collider.name == "planet") {
 						isGrounded = true;
 						isJumping = false;
+						
 						if (isMoving) {
 								source.pitch = Random.Range (lowPitchRange, highPitchRange);
 								float hitVol = other.relativeVelocity.magnitude * velToVol;
@@ -379,6 +384,7 @@ public class Character : MonoBehaviour
 		{
 				if (info.collider.name == "planet") {
 						isGrounded = false;
+						
 				}
 
 		}
@@ -568,6 +574,30 @@ public class Character : MonoBehaviour
 
 		void Update ()
 		{
+				if(moveDirection.z == -1)
+				{
+					animator.SetBool("BackStepping", true);	
+				} 
+				if(moveDirection.z > -1)
+				{
+					animator.SetBool("BackStepping", false);	
+				} 
+				if(moveDirection.x == -1)
+				{
+					animator.SetFloat("ClockWork", 9);	
+				} 
+				if(moveDirection.x == 1)
+				{
+					animator.SetFloat("ClockWork", 3);	
+				} 
+				if(isGrounded){
+					animator.SetBool ("Airborne", false);
+				}
+				else
+				{
+					animator.SetBool ("Airborne", true);
+				}
+		Debug.Log (thisCharacterTag+": "+moveDirection);
 				//Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
@@ -575,6 +605,10 @@ public class Character : MonoBehaviour
 
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Taunt") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Taunt") ||
+					    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickForward") ||
+					    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack") ||
+					    animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Block") ||
+					    animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|Block") ||
 						animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|AerialHeavy")) 
 				{
 						canMove = false;
