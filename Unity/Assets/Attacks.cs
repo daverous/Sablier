@@ -98,7 +98,7 @@ public class Attacks : MonoBehaviour
 		
 				if (thisCharacterTag == "Player") {
 						#region player1 
-						if (controller1State.Buttons.X == ButtonState.Pressed && controller1State.Triggers.Right > 0) {
+						if (controller1State.Triggers.Right > 0) {
 
                             if (thisCharacter.CharPowerBar > heavyCost)
                             {
@@ -143,7 +143,7 @@ public class Attacks : MonoBehaviour
 				if (thisCharacterTag == "Player2") {
 
 						#region player2
-						if (controller2State.Buttons.X == ButtonState.Pressed && controller2State.Triggers.Right > 0)
+						if (controller2State.Triggers.Right > 0)
                         {
 
                             if (thisCharacter.CharPowerBar > heavyCost)
@@ -258,6 +258,7 @@ public class Attacks : MonoBehaviour
 				}
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|QuickBack")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|QuickBack")||
+		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy")||
 		    		animator.GetCurrentAnimatorStateInfo (0).IsName ("PipeBlade|DamageHeavy")||
 		   		 	animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|DamageHeavy")) {
 						animator.applyRootMotion = true;
@@ -318,6 +319,7 @@ public class Attacks : MonoBehaviour
 				animator.applyRootMotion = true;
 				animator.SetBool ("Heavy", true);
 				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SkyBlade|Heavy")) {
+						animator.applyRootMotion = true;
 						source.PlayOneShot (swordSwipeSound, volume);
 				}    
 		}
