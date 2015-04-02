@@ -382,7 +382,7 @@ public class Attacks : MonoBehaviour
 		{
 
 				thisCharacter.startPowerParticle ();
-				temp = thisCharacter.turnCharToFaceOpponentNew ();
+				thisCharacter.turnCharToFaceOpponent ();
 				thisCharacter.setCurrentAttack (Character.AttackType.Power);
 				Vector3 startPoint = transform.root.position;
 				Vector3 endPoint = thisCharacter.getOpponentTransform ().position;
