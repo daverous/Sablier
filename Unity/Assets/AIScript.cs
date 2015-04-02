@@ -25,7 +25,7 @@ public class AIScript : MonoBehaviour
 						actual = p2.transform;
 				}
 		}
-		void Update ()
+		void FixedUpdate ()
 		{
 
             Quaternion targetRotation = Quaternion.LookRotation(actual.position - transform.root.position);
