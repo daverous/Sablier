@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
 
     #region Vars
 		public float Damage;
+    public int rotateSpeed = 10;
 		private float CharPowerBar = 0.0f;
 		public GameObject blood;
 		public GameObject powerParticle;
@@ -212,23 +213,20 @@ public class Character : MonoBehaviour
 				//return angle;
 		}
 
-		public float turnCharToFaceOpponentNew ()
+		public void turnCharToFaceOpponent ()
 		{    
 //		if (lerpTime >= 0.2f) {
 //			Debug.Log ("reset");
 //			lerpTime = 0;
 //				}
 
-				lerpTime += Time.deltaTime * 0.1f;
 				Quaternion targetRotation = Quaternion.LookRotation (getOpponentTransform ().position - transform.root.position);
-				float str = Mathf.Min (10 * Time.deltaTime, 1);
-				float angle = Quaternion.Angle (transform.root.rotation, Quaternion.Slerp (transform.root.rotation, targetRotation, str));
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10);
 				//if (angle > 2)
 				//{
 						
-				transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, str);
+                //transform.root.rotation = Quaternion.Lerp (transform.root.rotation, targetRotation, str);
 				//}
-				return angle;
 		}
 
 		// Return value is if character has been fully rotated
@@ -646,7 +644,7 @@ public class Character : MonoBehaviour
 						if (controller1State.Buttons.B == ButtonState.Pressed) {
 								isBlocking = true;
 
-								turnCharToFaceOpponentNew ();
+								turnCharToFaceOpponent ();
 								animator.SetBool ("Blocking", true);
 
 								animator.SetBool("Blocking", true);
@@ -687,7 +685,7 @@ public class Character : MonoBehaviour
 						}
 
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
-								turnCharToFaceOpponentNew ();
+								turnCharToFaceOpponent ();
 								animator.SetBool ("Blocking", true);
 								isBlocking = true;
 								canMove = false;
