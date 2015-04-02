@@ -157,7 +157,7 @@ public class Attacks : MonoBehaviour
 								animator.SetBool ("Chain", false);
 						}
 
-						if (controller2State.Buttons.Y == ButtonState.Pressed) {
+						if (controller2State.Triggers.Left > 0) {
 				
 								if (thisCharacter.getCharPowerBar () >= 1 && canPowerMove) {
 										//					(Time.deltaTime/3+0.01f)
@@ -168,7 +168,8 @@ public class Attacks : MonoBehaviour
 					
 								}
 						}
-						if (controller2State.Buttons.Y == ButtonState.Released) {
+                        if (controller2State.Triggers.Left == 0)
+                        {
 								if (isPowerMoving) {
 										rb.velocity = Vector3.zero;
 								}
