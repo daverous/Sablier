@@ -138,7 +138,6 @@ public class GameManager : MonoBehaviour {
     }
     public void IncrementPlayerOneWins()
     {
-        Debug.Log(StaticStore.currentRound);
 		StaticStore.setWinnerName (1);
         
 		StaticStore.currentRound++;
@@ -146,11 +145,9 @@ public class GameManager : MonoBehaviour {
    
         getHits();
             if(StaticStore.currentRound == (TotalRounds + 1)) {
-                Debug.Log("hersdsaasdsadsadsasdasade");  
                 Application.LoadLevel("GameOverFinalPlayer1");
             }
         else {
-            Debug.Log("here");  
                 Application.LoadLevel("RoundWonPlayer1");
             }
     }
