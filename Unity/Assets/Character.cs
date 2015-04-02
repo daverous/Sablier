@@ -635,17 +635,30 @@ public class Character : MonoBehaviour
 
                         if (controller1State.Buttons.LeftShoulder == ButtonState.Pressed)
                         {
-                            // Roll Forward
+							animator.SetBool("bDash", true);
                         }
 
                         if (controller1State.Buttons.RightShoulder == ButtonState.Pressed)
                         {
-                            // Roll back
+							animator.SetBool("fDash", true);
                         }
                         if (controller1State.Buttons.Y == ButtonState.Pressed)
                         {
-                            // Taunt
+							animator.SetBool("Taunt", true);
                         }
+						if (controller1State.Buttons.LeftShoulder == ButtonState.Released)
+						{
+							animator.SetBool("bDash", false);
+						}
+						
+						if (controller1State.Buttons.RightShoulder == ButtonState.Released)
+						{
+							animator.SetBool("fDash", false);
+						}
+						if (controller1State.Buttons.Y == ButtonState.Released)
+						{
+							animator.SetBool("Taunt", false);
+						}
 
 
 //			performBlock
@@ -706,19 +719,32 @@ public class Character : MonoBehaviour
 								performJump ();
 						}
 
-                        if (controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
-                        {
-                            // Roll Forward
-                        }
-
-                        if (controller2State.Buttons.RightShoulder == ButtonState.Pressed)
-                        {
-                            // Roll back
-                        }
-                        if (controller2State.Buttons.Y == ButtonState.Pressed)
-                        {
-                            // Taunt
-                        }
+						if (controller2State.Buttons.LeftShoulder == ButtonState.Pressed)
+						{
+							animator.SetBool("bDash", true);
+						}
+						
+						if (controller2State.Buttons.RightShoulder == ButtonState.Pressed)
+						{
+							animator.SetBool("fDash", true);
+						}
+						if (controller2State.Buttons.Y == ButtonState.Pressed)
+						{
+							animator.SetBool("Taunt", true);
+						}
+						if (controller2State.Buttons.LeftShoulder == ButtonState.Released)
+						{
+							animator.SetBool("bDash", false);
+						}
+						
+						if (controller1State.Buttons.RightShoulder == ButtonState.Released)
+						{
+							animator.SetBool("fDash", false);
+						}
+						if (controller2State.Buttons.Y == ButtonState.Released)
+						{
+							animator.SetBool("Taunt", false);
+						}
 						if (controller2State.Buttons.B == ButtonState.Pressed) {
                             if (CharPowerBar > blockCost)
                             {
