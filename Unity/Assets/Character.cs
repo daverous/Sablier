@@ -315,13 +315,14 @@ public class Character : MonoBehaviour
 						case Character.AttackType.Empty:
 								break;
 						case Character.AttackType.Reduced:
-								this.thisOpponent.beenHit (reducedAttackDamage);
+                                this.thisOpponent.beenHit(reducedAttackDamage, this.gameObject);
                             // As attacks are reduced, no hits are counted. 
                             //thisCharacter.incrementHits();
 								break;
 						case Character.AttackType.Heavy:
 								StartCoroutine (vibrateTimer (0.3f));
-								this.thisOpponent.beenHit (heavyAttackDamage);
+                                
+								this.thisOpponent.beenHit (heavyAttackDamage, this.gameObject);
 								this.incrementHits ();
 								break;
 						case Character.AttackType.Power:
@@ -331,7 +332,7 @@ public class Character : MonoBehaviour
 								StartCoroutine (vibrateTimer (0.2f));
 								Rigidbody rb = GameObject.FindGameObjectWithTag (this.getOpponentName ().ToString ()).GetComponent<Rigidbody> ();
 								rb.AddForce (0, 5, 10);
-								this.thisOpponent.beenHit (quickAttackDamage);
+								this.thisOpponent.beenHit (quickAttackDamage,  this.gameObject);
 								this.incrementHits ();
                             //Vector3 direction = Ray.direction;       
                             //hit.rigidbody.AddForce(Ray.direction * force);
@@ -415,7 +416,7 @@ public class Character : MonoBehaviour
 				StartCoroutine (displayPowerParticle ());
 		}
 
-		public void beenHit (float damage)
+		public void beenHit (float damage, GameObject hurter)
 		{
 				StartCoroutine (displayBlood ());
 				//
@@ -599,7 +600,6 @@ public class Character : MonoBehaviour
 				{
 					animator.SetBool ("Airborne", true);
 				}
-		Debug.Log (thisCharacterTag+": "+moveDirection);
 				//Debug.DrawLine(this.transform.position, opponent.transform.position, Color.red);
 				controller1State = GamePad.GetState (playerIndex);
 				controller2State = GamePad.GetState (player2Index);
