@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	public Image Round12;
 	public Image Round22;
+    public Image Round3;
 
 	public Image star1;
 	public Image star2;
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour {
 			Destroy (Round12);
 
 		} else if (StaticStore.currentRound == 3) {
+            Destroy(Round12);
 			Destroy(Round22);
 
 		}

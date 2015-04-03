@@ -91,13 +91,16 @@ public class GuiScript : MonoBehaviour
                         //vNegative = jInput.GetAxis (Mapper.InputArray2p [11]);
 						vertical = controller2State.ThumbSticks.Left.Y;
 
-						if (vertical < -0.5) {
+						if (vertical < -0.1) {
 								if (positionIndex <= 2 && canIncrement) {
 										positionIndex++;
+                                        canIncrement = false;
 								}
-						} else if (vertical > 0.5) {
+						} else if (vertical > 0.1) {
 								if (positionIndex >= 1 && canIncrement) {
 										positionIndex--;
+                                        canIncrement = false;
+
 								}
 						} else {
 								canIncrement = true;
@@ -179,15 +182,18 @@ public class GuiScript : MonoBehaviour
 						Destroy (GameObject.FindWithTag ("EventSystem"));
 						Destroy (GameObject.FindObjectOfType<GameManager> ());
                         StaticStore.resetAll();
-						Application.LoadLevel (Application.loadedLevelName);
+						Application.LoadLevel ("TestScene");
 
 				}
 				
 				// Quit (Only works in the Build. Does not work in the eidtor!) 
 				if (positionIndex == 2) {
+                    Time.timeScale = 1.0F;
+                    pause = false;
                     StaticStore.resetAll();
-						Debug.Log ("Aplication would quit in build");
-						Application.Quit ();
+                    Application.LoadLevel("IntroFinal");
+                        //Debug.Log ("Aplication would quit in build");
+                        //Application.Quit ();
 				}
         
 		}

@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\GravityAttractor.cs" />
     <Compile Include="Assets\Scripts\GravityBody.cs" />
     <Compile Include="Assets\Scripts\PlayerTestScripts\SceneViewCameraFollower.cs" />
+    <Compile Include="Assets\SkyBlade.cs" />
     <Compile Include="Assets\StaticStore.cs" />
     <Compile Include="Assets\TotalHit1Script.cs" />
     <Compile Include="Assets\TotalHit2Script.cs" />

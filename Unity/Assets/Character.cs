@@ -258,8 +258,8 @@ public class Character : MonoBehaviour
 						animator.SetBool ("Aerial", true);
 				}
 				if (other.collider.tag == "HealthUp") {
-						float pu = other.gameObject.GetComponent<PowerUpScript> ().getPowerUpAmount ();
-                        
+                    float pu = 1;
+                        Debug.Log("collected");    
 
 						if (curhealth <= 100 - pu) {
 								curhealth += pu;
@@ -268,6 +268,7 @@ public class Character : MonoBehaviour
 						}
 						//Debug.Log("curhealth" + curhealth);
 						updateHealth (pu * -1);
+                        Debug.Log("health updated");
 						//			TODO neeed PowerUp noise
 						Destroy (other.gameObject);
 				}
@@ -482,7 +483,7 @@ public class Character : MonoBehaviour
 						VisualHealth1.fillAmount = VisualHealth1.fillAmount - damage_value;
 						VisualHealth3.fillAmount = VisualHealth3.fillAmount - damage_value;
 						hn1.text = "HEALTH:" + curhealth;
-						hn3.text = "HEALTH:" + curhealth;
+						hn2.text = "HEALTH:" + curhealth;
 						//Display Bubbles
 						if (damage > 0) {
 								Bubble1.fillAmount = 1;
@@ -493,7 +494,7 @@ public class Character : MonoBehaviour
 				} else if (gameObject.tag == "Player2") {
 						VisualHealth2.fillAmount = VisualHealth2.fillAmount - damage_value;
 						VisualHealth4.fillAmount = VisualHealth4.fillAmount - damage_value;
-						hn2.text = "HEALTH:" + curhealth;
+						hn3.text = "HEALTH:" + curhealth;
 						hn4.text = "HEALTH:" + curhealth;
 						//			Debug.Log(VisualHealth2.fillAmount);
 						UpdateHealthColor (VisualHealth1);
